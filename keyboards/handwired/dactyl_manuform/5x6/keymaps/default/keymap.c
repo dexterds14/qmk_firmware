@@ -17,10 +17,14 @@
 #define _RAISE2 3
 #define _MOUSE 4
 #define _LEADR 5
-// Phantom layer: never used for key lookups (fully transparent). Its bit in
-// layer_state signals "caps lock active" to the slave over the layer-state
-// sync, the only master->slave channel that survives LTO uncorrupted.
+// Phantom layers: never used for key lookups (fully transparent). Their bits
+// in layer_state signal master-local indicator state (caps lock, alt mod-lock,
+// lower layer-lock) to the slave over the layer-state sync, the only
+// master->slave channel that survives LTO uncorrupted.
 #define _CAPSIND 6
+#define _ALTLKIND 7
+#define _LOWLKIND 8
+#define PHANTOM_LAYERS_MASK (((layer_state_t)1 << _CAPSIND) | ((layer_state_t)1 << _ALTLKIND) | ((layer_state_t)1 << _LOWLKIND))
 
 // Map RGB Layers to colors array entries
 enum rgb_layer {
@@ -106,14 +110,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV, TD(TD_Q_TILD), KC_W, KC_E, KC_R, KC_T,                         KC_Y, KC_U, KC_I, KC_O, KC_P, KC_MINS,
         OSM(MOD_LSFT), KC_A, TD(TD_S_OSM), TD(TD_D_OSM), TD(LAYR_DOWN),   TD(TD_G_CAPS),  TD(TD_H_CAPS), TD(TD_J_OSM), TD(LAYR_UP), KC_L, KC_QUOT, OSM(MOD_RSFT),
         KC_TAB, KC_Z, KC_X, KC_C, TD(TD_V_TAB), KC_B,                         KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_SCLN,
-                       KC_HOME, KC_END,                                                    KC_LCTL, KC_LGUI,
+                       KC_HOME, KC_END,                                                    KC_LCTL, KC_LALT,
                                         KC_SPC, KC_BSPC,              KC_DEL, KC_ENT,
-                                        OSM(MOD_LGUI), OSL(_LEADR), KC_DEL, OSM(MOD_RGUI),
+                                        KC_LGUI, OSL(_LEADR), KC_DEL, OSM(MOD_RGUI),
                                         OSL(_LEADR), KC_CAPS,         KC_CAPS, OSL(_LEADR)
     ),
 
     [_LOWER] = LAYOUT_5x6(
-        KC_BSPC, LCTL(KC_1),LCTL(KC_2),KC_NO,LCTL(KC_TAB),QK_BOOT,               LALT(KC_ENT), LALT(KC_LEFT),LALT(KC_RGHT), LCTL(KC_TAB), KC_DEL, KC_PGUP,
+        KC_BSPC, LCTL(KC_1),LCTL(KC_2),LCTL(KC_TAB),LCTL(LSFT(KC_TAB)),KC_NO,               LALT(KC_ENT), LALT(KC_LEFT),LALT(KC_RGHT), LCTL(KC_TAB), KC_DEL, KC_PGUP,
         LALT(KC_GRV), LCTL(KC_Q),LCTL(KC_W),KC_LALT,LCTL(KC_R),LCTL(KC_T),       LCTL(KC_Y),LCTL(KC_U),LCTL(KC_I),LCTL(KC_O),LCTL(KC_P),KC_HOME,
         LALT(KC_TAB),LCTL(KC_A),LCTL(KC_S),LCTL(KC_D),LCTL(KC_F),KC_F4,          TO(_QWERTY), KC_UP, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
         LSFT(KC_TAB),LCTL(KC_Z),LCTL(KC_X),LCTL(KC_C),LCTL(KC_V),LCTL(KC_B),     LCTL(KC_N),DBL_DASH,DOT_SLS,DIR_UP,LCTL(KC_SLSH),KC_PGDN,
@@ -165,6 +169,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                   _______,QK_LEAD,            _______,_______
     ),
        [_CAPSIND] = LAYOUT_5x6(
+        _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
+                          _______, _______,                                                     _______, _______,
+                                            _______, _______,                 _______, _______,
+                                            _______, _______,                 _______, _______,
+                                            _______, _______,                 _______, _______
+    ),
+       [_ALTLKIND] = LAYOUT_5x6(
+        _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
+                          _______, _______,                                                     _______, _______,
+                                            _______, _______,                 _______, _______,
+                                            _______, _______,                 _______, _______,
+                                            _______, _______,                 _______, _______
+    ),
+       [_LOWLKIND] = LAYOUT_5x6(
         _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
@@ -278,12 +302,14 @@ bool oled_task_user(void) {
         oled_write_ln_P(PSTR("SHFT"), false);
     }
 
-    else if (gui_active || alt_active || alt_locked)
+    else if (gui_active || alt_active || alt_locked || layer_state_is(_ALTLKIND))
     {
         oled_write_ln_P(PSTR("    "), false);
         oled_write_ln_P(PSTR("    "), false);
         oled_write_ln_P(PSTR("SWAY"), false);
-        oled_write_ln_P(alt_locked ? PSTR("LOCK") : PSTR("MODH"), false);
+        // The phantom bit is the lock signal that reaches the slave; the
+        // master-local alt_locked flag mirrors it
+        oled_write_ln_P(layer_state_is(_ALTLKIND) ? PSTR("LOCK") : PSTR("MODH"), false);
     }
 
     else if (leader_active)
@@ -306,9 +332,9 @@ bool oled_task_user(void) {
     oled_write_ln_P(PSTR("    "), false);
 
 
-    // Mask out the phantom caps-indicator bit or it would be the highest
-    // layer and land in the default (ERR!) case
-    switch (get_highest_layer(layer_state & ~((layer_state_t)1 << _CAPSIND))) {
+    // Mask out the phantom indicator bits or one of them would be the
+    // highest layer and land in the default (ERR!) case
+    switch (get_highest_layer(layer_state & ~PHANTOM_LAYERS_MASK)) {
         case _QWERTY:
             oled_write_ln_P(PSTR("    "), false);
             oled_write_ln_P(PSTR("    "), false);
@@ -320,7 +346,7 @@ bool oled_task_user(void) {
             oled_write_ln_P(PSTR("----"), false);
             oled_write_ln_P(PSTR("----"), false);
             oled_write_ln_P(PSTR("----"), false);
-            oled_write_ln_P(lower_locked ? PSTR("LOCK") : PSTR("----"), false);
+            oled_write_ln_P(layer_state_is(_LOWLKIND) ? PSTR("LOCK") : PSTR("----"), false);
 
             break;
         case _RAISE:
@@ -491,23 +517,22 @@ static void apply_rgb_layer_state(layer_state_t state)
 
 layer_state_t layer_state_set_user(layer_state_t state)
 {
-    // Re-assert the caps indicator bit: the layer_clear()/layer_move() calls
-    // elsewhere in this keymap would otherwise silently drop it
-    if (caps_state)
-    {
-        state |= (layer_state_t)1 << _CAPSIND;
-    }
-    else
-    {
-        state &= ~((layer_state_t)1 << _CAPSIND);
-    }
-
-    apply_rgb_layer_state(state);
-
-    if (!layer_state_is(_LOWER))
+    // Leaving _LOWER always drops the lock (checked against the incoming
+    // state, not the not-yet-updated layer_state global)
+    if (!layer_state_cmp(state, _LOWER))
     {
         lower_locked = 0;
     }
+
+    // Re-assert the phantom indicator bits from the master-local flags: the
+    // layer_clear()/layer_move() calls elsewhere in this keymap would
+    // otherwise silently drop them
+    state &= ~PHANTOM_LAYERS_MASK;
+    if (caps_state)   state |= (layer_state_t)1 << _CAPSIND;
+    if (alt_locked)   state |= (layer_state_t)1 << _ALTLKIND;
+    if (lower_locked) state |= (layer_state_t)1 << _LOWLKIND;
+
+    apply_rgb_layer_state(state);
 
   return state;
 }
@@ -920,6 +945,9 @@ static void layer_move_toLower(void)
   layer_clear();
   layer_move(_LOWER);
   lower_locked = 1;
+  // Re-run layer_state_set_user so the just-set lock reaches the phantom bit
+  // (and through it, the slave's OLED)
+  layer_state_set(layer_state);
 }
 
 static void layer_oneshot_Lower(void)
@@ -1064,6 +1092,9 @@ void osm_finished(tap_dance_state_t *state, void *user_data)
                     rgblight_set_layer_state(RGB_ALT_MOD, false);
                     alt_active = 0;
                 }
+                // No layer transition happens here, so refresh the phantom
+                // bits explicitly to publish the lock state to the slave
+                layer_state_set(layer_state);
             }
             break;
         case TD_UNKNOWN:

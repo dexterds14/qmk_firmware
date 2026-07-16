@@ -27,8 +27,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NO_ACTION_MACRO
 #define NO_ACTION_FUNCTION
 
-// 6 layers in use, so layer state fits in 8 bits (saves ~450 bytes)
-#define LAYER_STATE_8BIT
+// 6 real layers + 3 phantom indicator layers (caps/alt-lock/lower-lock, see
+// keymap.c) = 9 bits of layer state, so 16-bit (still smaller than the
+// 32-bit default)
+#define LAYER_STATE_16BIT
 
 #ifndef NO_DEBUG
 #define NO_DEBUG
@@ -60,9 +62,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define NO_ACTION_ONESHOT
 // #define EXTRA_SHORT_COMBOS
 
-#define TAPPING_TERM 400
+#define TAPPING_TERM 300
 // #define QUICK_TAP_TERM 145
-#define FLOW_TAP_TERM 300
+#define FLOW_TAP_TERM 225
 // Fast typing threshold (ms)
 #define FAST_TYPING_THRESHOLD FLOW_TAP_TERM
 // #define PERMISSIVE_HOLD
@@ -97,8 +99,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // and exhausted (2026-07, see git history): every value that would fix the
 // payload reads kills the link first (windows don't overlap). Sidestep:
 // rgblight split sync disabled and the slave derives RGB from layer state
-// (see keymap.c). Known cosmetic loss: slave OLED shift/caps indicators can
-// display wrong. Full-revert fallback: LTO off + speed 0 (27510-byte build).
+// (see keymap.c). Full-revert fallback: LTO off + speed 0 (27510-byte build).
 #define SELECT_SOFT_SERIAL_SPEED 5
 #define FORCED_SYNC_THROTTLE_MS 50
 #define SPLIT_MAX_CONNECTION_ERRORS 50
