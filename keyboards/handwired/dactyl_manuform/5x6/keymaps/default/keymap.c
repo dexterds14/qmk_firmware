@@ -17,6 +17,10 @@
 #define _RAISE2 3
 #define _MOUSE 4
 #define _LEADR 5
+// Phantom layer: never used for key lookups (fully transparent). Its bit in
+// layer_state signals "caps lock active" to the slave over the layer-state
+// sync, the only master->slave channel that survives LTO uncorrupted.
+#define _CAPSIND 6
 
 // Map RGB Layers to colors array entries
 enum rgb_layer {
@@ -159,6 +163,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                   _______,QK_LEAD,            TO(_LEADR),_______,
                                                   _______,QK_LEAD,        _______,_______,
                                                   _______,QK_LEAD,            _______,_______
+    ),
+       [_CAPSIND] = LAYOUT_5x6(
+        _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
+                          _______, _______,                                                     _______, _______,
+                                            _______, _______,                 _______, _______,
+                                            _______, _______,                 _______, _______,
+                                            _______, _______,                 _______, _______
     )
 };
 
@@ -246,7 +260,9 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 // TODO: Do we need newlines here now?
 bool oled_task_user(void) {
     // Host Keyboard Layer Status
-    if (host_keyboard_led_state().caps_lock)
+    // The phantom-layer bit is the reliable caps signal on the slave; the
+    // host LED state still covers caps toggled outside this keymap's keys
+    if (host_keyboard_led_state().caps_lock || layer_state_is(_CAPSIND))
     {
         oled_write_ln_P(PSTR("CAPS"), false);
         oled_write_ln_P(PSTR("CAPS"), false);
@@ -290,7 +306,9 @@ bool oled_task_user(void) {
     oled_write_ln_P(PSTR("    "), false);
 
 
-    switch (get_highest_layer(layer_state)) {
+    // Mask out the phantom caps-indicator bit or it would be the highest
+    // layer and land in the default (ERR!) case
+    switch (get_highest_layer(layer_state & ~((layer_state_t)1 << _CAPSIND))) {
         case _QWERTY:
             oled_write_ln_P(PSTR("    "), false);
             oled_write_ln_P(PSTR("    "), false);
@@ -468,10 +486,22 @@ static void apply_rgb_layer_state(layer_state_t state)
     rgblight_set_layer_state(RGB_LOWER, layer_state_cmp(state, _LOWER));
     rgblight_set_layer_state(RGB_MOUSE, layer_state_cmp(state, _MOUSE));
     rgblight_set_layer_state(RGB_LEADR, layer_state_cmp(state, _LEADR));
+    rgblight_set_layer_state(RGB_CAPS_LOCK, layer_state_cmp(state, _CAPSIND));
 }
 
 layer_state_t layer_state_set_user(layer_state_t state)
 {
+    // Re-assert the caps indicator bit: the layer_clear()/layer_move() calls
+    // elsewhere in this keymap would otherwise silently drop it
+    if (caps_state)
+    {
+        state |= (layer_state_t)1 << _CAPSIND;
+    }
+    else
+    {
+        state &= ~((layer_state_t)1 << _CAPSIND);
+    }
+
     apply_rgb_layer_state(state);
 
     if (!layer_state_is(_LOWER))
@@ -728,8 +758,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         if (keycode == KC_CAPS)
         {
             caps_state = !caps_state;
-            rgblight_set_layer_state(RGB_CAPS_LOCK, caps_state);
-            rgblight_set();
+            // Raising/lowering the phantom layer lights the yellow RGB layer
+            // on both halves via layer_state_set_user / the slave poller
+            if (caps_state) layer_on(_CAPSIND);
+            else layer_off(_CAPSIND);
             return true;
         }
 
@@ -1001,8 +1033,8 @@ void osm_finished(tap_dance_state_t *state, void *user_data)
                 case KC_H:
                     tap_code(KC_CAPS);
                     caps_state = !caps_state;
-                    rgblight_set_layer_state(RGB_CAPS_LOCK, caps_state);
-                    rgblight_set();
+                    if (caps_state) layer_on(_CAPSIND);
+                    else layer_off(_CAPSIND);
                     break;
                 case KC_V:
                     tap_code(KC_TAB);
