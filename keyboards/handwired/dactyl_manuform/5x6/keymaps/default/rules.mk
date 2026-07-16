@@ -1,0 +1,20 @@
+RGBLIGHT_ENABLE = yes
+OLED_ENABLE = yes
+LEADER_ENABLE = yes
+MOUSEKEY_ENABLE = yes
+TAP_DANCE_ENABLE = yes
+EXTRAKEY_ENABLE = yes
+SPLIT_KEYBOARD = yes
+CONSOLE_ENABLE = no
+SPACE_CADET_ENABLE = no
+GRAVE_ESC_ENABLE = no
+MAGIC_ENABLE = no
+AUTO_SHIFT_ENABLE = no
+NKRO_ENABLE = no
+AUDIO_ENABLE = no
+COMMAND_ENABLE = no
+KEY_LOCK_ENABLE = no
+
+# LTO breaks split soft-serial timing (slave RGB desync), even at
+# SELECT_SOFT_SERIAL_SPEED 2 (tested 2026-07). Leave disabled.
+# LTO_ENABLE = yes
