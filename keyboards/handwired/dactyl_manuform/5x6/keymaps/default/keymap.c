@@ -458,14 +458,21 @@ void keyboard_post_init_user(void)
 
 }
 
-layer_state_t layer_state_set_user(layer_state_t state)
+// Applied locally on EACH half: the split rgblight sync is disabled (LTO
+// corrupts its master->slave payloads), so both halves derive their layer
+// colors from layer_state, which syncs reliably.
+static void apply_rgb_layer_state(layer_state_t state)
 {
-
     rgblight_set_layer_state(RGB_RAISE, layer_state_cmp(state, _RAISE));
     rgblight_set_layer_state(RGB_RAISE2, layer_state_cmp(state, _RAISE2));
     rgblight_set_layer_state(RGB_LOWER, layer_state_cmp(state, _LOWER));
     rgblight_set_layer_state(RGB_MOUSE, layer_state_cmp(state, _MOUSE));
     rgblight_set_layer_state(RGB_LEADR, layer_state_cmp(state, _LEADR));
+}
+
+layer_state_t layer_state_set_user(layer_state_t state)
+{
+    apply_rgb_layer_state(state);
 
     if (!layer_state_is(_LOWER))
     {
@@ -473,6 +480,22 @@ layer_state_t layer_state_set_user(layer_state_t state)
     }
 
   return state;
+}
+
+void housekeeping_task_user(void)
+{
+    // The slave receives layer_state by direct assignment (no
+    // layer_state_set_user callback), so poll for changes and apply the RGB
+    // layer colors locally.
+    if (!is_keyboard_master())
+    {
+        static layer_state_t last_state = 0;
+        if (layer_state != last_state)
+        {
+            last_state = layer_state;
+            apply_rgb_layer_state(layer_state);
+        }
+    }
 }
 
 void handle_oneshots(uint8_t mods)

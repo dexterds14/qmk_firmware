@@ -15,6 +15,10 @@ AUDIO_ENABLE = no
 COMMAND_ENABLE = no
 KEY_LOCK_ENABLE = no
 
-# LTO breaks split soft-serial timing (slave RGB desync), even at
-# SELECT_SOFT_SERIAL_SPEED 2 (tested 2026-07). Leave disabled.
-# LTO_ENABLE = yes
+# LTO works ONLY with the sidestep architecture in place (2026-07): soft
+# serial speed 5, rgblight split sync disabled (no RGBLED_SPLIT), slave
+# derives RGB from layer state (keymap.c). See config.h for the full story.
+# Do NOT retry: CRC-verified RGB sync via user RPC (locks up the slave; AVR
+# ISR runs RPC callbacks before payload receive), or READ_WRITE_*_ADJUST
+# recalibration (windows don't overlap). Fallback: LTO off + speed 0.
+LTO_ENABLE = yes

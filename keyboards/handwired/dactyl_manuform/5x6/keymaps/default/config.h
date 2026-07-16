@@ -44,7 +44,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #undef RGBLED_NUM
 // #define RGBLED_NUM	24
 // #define DRIVER_LED_TOTAL 24
-#define RGBLED_SPLIT {12, 12}
+// RGBLED_SPLIT intentionally NOT defined: it would enable the split rgblight
+// sync, whose master->slave payloads corrupt under LTO. Instead each half
+// renders the full LED buffer locally and derives layer colors from the
+// clean layer-state sync (see apply_rgb_layer_state in keymap.c).
+// #define RGBLED_SPLIT {12, 12}
 #define RGBLIGHT_MAX_LAYERS 9
 
 // #define NO_MUSIC_MODE
@@ -87,7 +91,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define SPLIT_TRANSPORT_MIRROR
 // #define SPLIT_LAYER_TRANSPORT_MIRROR
 // #define SPLIT_WPM_ENABLE
-#define SELECT_SOFT_SERIAL_SPEED 0
+// LTO + soft serial at speed 5: keys and layer-state sync are reliable, but
+// mods/LED-state/rgblight master->slave payloads corrupt (value-dependent
+// byte desync). Timing recalibration via READ_WRITE_*_ADJUST was attempted
+// and exhausted (2026-07, see git history): every value that would fix the
+// payload reads kills the link first (windows don't overlap). Sidestep:
+// rgblight split sync disabled and the slave derives RGB from layer state
+// (see keymap.c). Known cosmetic loss: slave OLED shift/caps indicators can
+// display wrong. Full-revert fallback: LTO off + speed 0 (27510-byte build).
+#define SELECT_SOFT_SERIAL_SPEED 5
 #define FORCED_SYNC_THROTTLE_MS 50
 #define SPLIT_MAX_CONNECTION_ERRORS 50
 #define SERIAL_USART_TIMEOUT 10    // USART driver timeout. default 20
