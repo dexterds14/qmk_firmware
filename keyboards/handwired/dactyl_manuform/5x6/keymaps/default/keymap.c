@@ -696,8 +696,47 @@ bool is_td_key(uint16_t keycode)
     return false;
 }
 
+// Base letter for each tap-dance key, used while a leader sequence records
+static uint16_t td_base_keycode(uint16_t keycode)
+{
+    switch (keycode)
+    {
+        case TD(LAYR_DOWN):  return KC_F;
+        case TD(LAYR_UP):    return KC_K;
+        case TD(TD_S_OSM):   return KC_S;
+        case TD(TD_J_OSM):   return KC_J;
+        case TD(TD_D_OSM):   return KC_D;
+        case TD(TD_H_CAPS):  return KC_H;
+        case TD(TD_G_CAPS):  return KC_G;
+        case TD(TD_V_TAB):   return KC_V;
+        case TD(TD_Q_TILD):  return KC_Q;
+    }
+    return KC_NO;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
+    // While a leader sequence is recording, tap-dance keys must act as their
+    // base letter: the leader core stores TD keycodes raw (never matching
+    // KC_H etc. in leader_end_user) and the dance would still fire and type
+    // the letter ~TAPPING_TERM later. Mirror process_leader here — add the
+    // base keycode to the sequence and consume the event before the
+    // tap-dance/leader processors see it.
+    if (record->event.pressed && leader_sequence_active() && !leader_sequence_timed_out())
+    {
+        uint16_t base = td_base_keycode(keycode);
+        if (base != KC_NO)
+        {
+            if (!leader_sequence_add(base))
+            {
+                leader_end();
+                return true;
+            }
+            leader_reset_timer();
+            return false;
+        }
+    }
+
 
     // if (get_mods() & MOD_MASK_SHIFT)
     // {
