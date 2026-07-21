@@ -123,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LSFT(KC_TAB),LCTL(KC_Z),LCTL(KC_X),LCTL(KC_C),LCTL(KC_V),LCTL(KC_B),     LCTL(KC_N),DBL_DASH,DOT_SLS,DIR_UP,LCTL(KC_SLSH),KC_PGDN,
                                 KC_HOME, KC_END,                                            KC_PGUP, KC_PGDN,
                                                 KC_LCTL,  KC_LSFT,            TO(_QWERTY),     KC_ENT,
-                                                LGUI(KC_UP),TD(LAYR_DOWN),            LGUI(KC_LEFT),KC_LALT,
+                                                LGUI(KC_UP),KC_BSPC,            KC_DEL,KC_LALT,
                                                 KC_SPC,OSL(_LEADR),            KC_LCTL,OSL(_LEADR)
 
     ),

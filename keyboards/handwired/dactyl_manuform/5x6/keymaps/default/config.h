@@ -124,9 +124,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_INTERVAL 40
 #undef  MOUSEKEY_DELAY
 #define MOUSEKEY_DELAY 1
-#define MOUSEKEY_WHEEL_BASE_MOVEMENTS 32
-#define MOUSEKEY_WHEEL_INITIAL_MOVEMENTS 64
-#define MOUSEKEY_WHEEL_ACCELERATED_MOVEMENTS 50
+// Wheel rates are in scroll events per second (kinetic mode); reduced from
+// the original 32/64/50 to ~1/3 (50% cut, then another 33%) to slow scrolling
+#define MOUSEKEY_WHEEL_INITIAL_MOVEMENTS 5
+#define MOUSEKEY_WHEEL_BASE_MOVEMENTS 192
+// This value is only used by the MS_ACL2 key!
+// #define MOUSEKEY_WHEEL_ACCELERATED_MOVEMENTS 128
 
 // #ifdef AUDIO_ENABLE
 //   #define STARTUP_SONG SONG(CAMPANELLA)
