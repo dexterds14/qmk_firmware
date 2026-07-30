@@ -110,9 +110,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV, TD(TD_Q_TILD), KC_W, KC_E, KC_R, KC_T,                         KC_Y, KC_U, KC_I, KC_O, KC_P, KC_MINS,
         OSM(MOD_LSFT), KC_A, TD(TD_S_OSM), TD(TD_D_OSM), TD(LAYR_DOWN),   TD(TD_G_CAPS),  TD(TD_H_CAPS), TD(TD_J_OSM), TD(LAYR_UP), KC_L, KC_QUOT, OSM(MOD_RSFT),
         KC_TAB, KC_Z, KC_X, KC_C, TD(TD_V_TAB), KC_B,                         KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_SCLN,
-                       KC_HOME, KC_END,                                                    KC_LCTL, KC_LALT,
+                       KC_HOME, KC_END,                                                    KC_PGUP, KC_PGDN,
                                         KC_SPC, KC_BSPC,              KC_DEL, KC_ENT,
-                                        KC_LGUI, OSL(_LEADR), KC_DEL, OSM(MOD_RGUI),
+                                        KC_LCTL, OSL(_LEADR), KC_DEL, KC_LALT,
                                         OSL(_LEADR), KC_CAPS,         KC_CAPS, OSL(_LEADR)
     ),
 
@@ -123,8 +123,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LSFT(KC_TAB),LCTL(KC_Z),LCTL(KC_X),LCTL(KC_C),LCTL(KC_V),LCTL(KC_B),     LCTL(KC_N),DBL_DASH,DOT_SLS,DIR_UP,LCTL(KC_SLSH),KC_PGDN,
                                 KC_HOME, KC_END,                                            KC_PGUP, KC_PGDN,
                                                 KC_LCTL,  KC_LSFT,            TO(_QWERTY),     KC_ENT,
-                                                LGUI(KC_UP),KC_BSPC,            KC_DEL,KC_LALT,
-                                                KC_SPC,OSL(_LEADR),            KC_LCTL,OSL(_LEADR)
+                                                KC_SPC,KC_BSPC,            KC_DEL,KC_LALT,
+                                                KC_NO,OSL(_LEADR),            KC_LCTL,OSL(_LEADR)
 
     ),
 
