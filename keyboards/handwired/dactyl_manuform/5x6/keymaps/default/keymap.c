@@ -69,7 +69,8 @@ enum tap_dance_keys {
     TD_H_CAPS,
     TD_G_CAPS,
     TD_V_TAB,
-    TD_Q_TILD
+    TD_Q_TILD,
+    TD_Z_GRV
 };
 
 // Declare the functions to be used with your tap dance key(s)
@@ -109,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5,                         KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSLS,
         KC_GRV, TD(TD_Q_TILD), KC_W, KC_E, KC_R, KC_T,                         KC_Y, KC_U, KC_I, KC_O, KC_P, KC_MINS,
         OSM(MOD_LSFT), KC_A, TD(TD_S_OSM), TD(TD_D_OSM), TD(LAYR_DOWN),   TD(TD_G_CAPS),  TD(TD_H_CAPS), TD(TD_J_OSM), TD(LAYR_UP), KC_L, KC_QUOT, OSM(MOD_RSFT),
-        KC_TAB, KC_Z, KC_X, KC_C, TD(TD_V_TAB), KC_B,                         KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_SCLN,
+        KC_TAB, TD(TD_Z_GRV), KC_X, KC_C, TD(TD_V_TAB), KC_B,                         KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_SCLN,
                        KC_HOME, KC_END,                                                    KC_PGUP, KC_PGDN,
                                         KC_SPC, KC_BSPC,              KC_DEL, KC_ENT,
                                         KC_LCTL, OSL(_LEADR), KC_DEL, KC_LALT,
@@ -470,6 +471,7 @@ static td_osm_data_t g_data = {KC_G};
 static td_osm_data_t h_data = {KC_H};
 static td_osm_data_t v_data = {KC_V};
 static td_osm_data_t q_data = {KC_Q};
+static td_osm_data_t z_data = {KC_Z};
 static td_osm_data_t k_data = {KC_K};
 
 void keyboard_post_init_user(void)
@@ -483,6 +485,7 @@ void keyboard_post_init_user(void)
     tap_dance_actions[TD_H_CAPS].user_data = &h_data;
     tap_dance_actions[TD_V_TAB].user_data = &v_data;
     tap_dance_actions[TD_Q_TILD].user_data = &q_data;
+    tap_dance_actions[TD_Z_GRV].user_data = &z_data;
     tap_dance_actions[LAYR_UP].user_data = &k_data;
 
     // Enable the LED layers
@@ -678,6 +681,7 @@ bool is_td_key(uint16_t keycode)
         case TD(TD_G_CAPS):
         case TD(TD_V_TAB):
         case TD(TD_Q_TILD):
+        case TD(TD_Z_GRV):
             return true;
     }
 
@@ -710,6 +714,7 @@ static uint16_t td_base_keycode(uint16_t keycode)
         case TD(TD_G_CAPS):  return KC_G;
         case TD(TD_V_TAB):   return KC_V;
         case TD(TD_Q_TILD):  return KC_Q;
+        case TD(TD_Z_GRV):   return KC_Z;
     }
     return KC_NO;
 }
@@ -1109,6 +1114,9 @@ void osm_finished(tap_dance_state_t *state, void *user_data)
                 case KC_Q:
                     tap_code16(KC_TILD);
                     break;
+                case KC_Z:
+                    tap_code(KC_GRV);
+                    break;
                 default:
                     break;
             }
@@ -1171,4 +1179,5 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_G_CAPS]  = ACTION_TAP_DANCE_FN_ADVANCED(on_each_tap_fn, osm_finished, osm_reset),
     [TD_V_TAB]   = ACTION_TAP_DANCE_FN_ADVANCED(on_each_tap_fn, osm_finished, osm_reset),
     [TD_Q_TILD]   = ACTION_TAP_DANCE_FN_ADVANCED(on_each_tap_fn, osm_finished, osm_reset),
+    [TD_Z_GRV]    = ACTION_TAP_DANCE_FN_ADVANCED(on_each_tap_fn, osm_finished, osm_reset),
 };
