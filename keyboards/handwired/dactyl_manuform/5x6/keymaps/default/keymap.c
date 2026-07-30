@@ -119,7 +119,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_LOWER] = LAYOUT_5x6(
         KC_BSPC, LCTL(KC_1),LCTL(KC_2),LCTL(KC_TAB),LCTL(LSFT(KC_TAB)),KC_NO,               LALT(KC_ENT), LALT(KC_LEFT),LALT(KC_RGHT), LCTL(KC_TAB), KC_DEL, KC_PGUP,
         LALT(KC_GRV), LCTL(KC_Q),LCTL(KC_W),KC_LALT,LCTL(KC_R),LCTL(KC_T),       LCTL(KC_Y),LCTL(KC_U),LCTL(KC_I),LCTL(KC_O),LCTL(KC_P),KC_HOME,
-        LALT(KC_TAB),LCTL(KC_A),LCTL(KC_S),LCTL(KC_D),LCTL(KC_F),KC_F4,          TO(_QWERTY), KC_UP, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
+        LALT(KC_TAB),LCTL(KC_A),LCTL(KC_S),LCTL(KC_D),LCTL(KC_F),LCTL(KC_0),          TO(_QWERTY), KC_UP, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
         LSFT(KC_TAB),LCTL(KC_Z),LCTL(KC_X),LCTL(KC_C),LCTL(KC_V),LCTL(KC_B),     LCTL(KC_N),DBL_DASH,DOT_SLS,DIR_UP,LCTL(KC_SLSH),KC_PGDN,
                                 KC_HOME, KC_END,                                            KC_PGUP, KC_PGDN,
                                                 KC_LCTL,  KC_LSFT,            TO(_QWERTY),     KC_ENT,
