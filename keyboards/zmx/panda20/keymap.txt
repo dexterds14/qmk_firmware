@@ -32,9 +32,9 @@ EE_CLR   KC_PDOT  RGB_MOD  KC_NO    KC_NO    #  0 | . | Enter
 [2]
 KC_TRNS      KC_TRNS      KC_TRNS      KC_NO         KC_TRNS  #  Esc | Fn | Tab | -- | Bspc
 LALT(KC_F)   LALT(KC_D)   LALT(KC_S)   LALT(KC_A)    KC_NO    #  Num | / | * | -
-KC_TRNS      LALT(KC_J)   KC_TRNS      LALT(KC_G)    KC_NO    #  7 | 8 | 9 | +
+LALT(KC_U)   LALT(KC_J)   LALT(KC_0)   LALT(KC_G)    KC_NO    #  7 | 8 | 9 | +
 LALT(KC_K)   LALT(KC_L)   LALT(KC_QUOT) KC_NO        KC_NO    #  4 | 5 | 6
-KC_TRNS      KC_NO        KC_TRNS      KC_TRNS       KC_NO    #  1 | -- | 2 | 3
+KC_TRNS      KC_NO        LALT(KC_I)   KC_TRNS       KC_NO    #  1 | -- | 2 | 3
 KC_TRNS      KC_TRNS      TG(2)        KC_NO         KC_NO    #  0 | . | Enter
 
 [3]
