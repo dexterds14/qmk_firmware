@@ -33,9 +33,10 @@ over the VIA raw-HID protocol — same channel the VIA web app uses.
   (= `QK_KB_1..3`, 0x7E01–03) on the 1/2/3 keys, `MD_24G` (0x7E00) on 4,
   plus **undocumented vendor keycodes** — leave all of these where they are
   or wireless switching is lost:
-  - `0x7E08` (Fn+Tab): battery-level display — floods the LEDs with a battery
-    color (red = low) from key *release* until any other keypress dismisses it.
-    Harmless but looks like the lighting is "stuck".
+  - `0x7E08` (Fn+Tab): status display — floods the LEDs with a single color
+    (observed: solid red, incl. while charging) from key *release* until any
+    other keypress dismisses it. Likely battery/charge status (red may mean
+    "charging" rather than "low"), unconfirmed. Harmless but looks "stuck".
   - `0x7E0B` (Fn+Bspc), `0x7E0C` (Fn+Num): still unidentified; possibly
     win-lock / wireless status / factory reset — do not hold them down.
 - Layers 2–3: unused clones of layer 0 — free for custom use.
