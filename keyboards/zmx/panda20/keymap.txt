@@ -32,12 +32,12 @@ MD_BLE1  KC_NO    MD_BLE2  MD_BLE3  KC_NO    #  1 | xx | 2 | 3 | xx
 EE_CLR   KC_PDOT  RGB_MOD  KC_NO    KC_NO    #  0 | . | Enter | xx | xx
 
 [2]
-DF(0)          MO(1)          KC_TAB         KC_NO          KC_BSPC        #  Esc=exit lock; rest copies base (TRNS would go dead while layer 2 is default)
+KC_ESC         MO(1)          KC_TAB         KC_NO          KC_BSPC        #  base copies (TRNS would go dead while layer 2 is default)
 LALT(KC_F)     LALT(KC_D)     LALT(KC_S)     LALT(KC_A)     KC_NO          #  Num | / | * | - | xx
 LALT(KC_U)     LALT(KC_J)     LALT(KC_0)     LALT(KC_G)     KC_NO          #  7 | 8 | 9 | + | xx
 LALT(KC_K)     LALT(KC_L)     LALT(KC_QUOT)  KC_NO          KC_NO          #  4 | 5 | 6 | xx | xx
 KC_HOME        KC_NO          LALT(KC_I)     KC_END         KC_NO          #  1 | xx | 2 | 3 | xx
-OSL(3)         KC_PDOT        DF(2)          KC_NO          KC_NO          #  0 | . | Enter=lock (2nd tap of one-shot)
+DF(0)          KC_PDOT        DF(2)          KC_NO          KC_NO          #  0=exit lock | . | Enter=lock (2nd tap of one-shot)
 
 [3]
 KC_TRNS             KC_TRNS             KC_TRNS             KC_NO               KC_TRNS             #  -- | -- | -- | xx | --
