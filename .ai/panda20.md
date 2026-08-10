@@ -42,6 +42,12 @@ over the VIA raw-HID protocol — same channel the VIA web app uses.
   - Confirmed by HID capture (2026-08-10): none of these vendor keycodes emit
     anything on any HID interface — they are LED-only, so the host cannot
     observe battery level or these functions at all.
+  - Keycode-space sweep (2026-08-10, bound to spare keys and pressed):
+    `0x7E05/06/0A/0D/0E` = dead (no-ops). `0x7E07` = two white LED flashes,
+    a toggle-ack animation — likely Win/Mac (Alt<->GUI swap) or NKRO toggle;
+    press again to flip back if Alt chords start misbehaving.
+  - Fn+Tab stays solid red even after hours plugged in — red is likely the
+    "charging/USB-powered" color, not a level gauge; battery-power check TBD.
 - Layers 2–3: unused clones of layer 0 — free for custom use.
 
 ## Linux setup (done on this machine 2026-08-10)
