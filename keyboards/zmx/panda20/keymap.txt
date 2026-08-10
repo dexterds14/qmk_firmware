@@ -16,9 +16,9 @@
 [0]
 KC_ESC   MO(1)    KC_TAB   KC_NO    KC_BSPC  #  Esc | Fn | Tab | -- | Bspc
 KC_NUM   KC_PSLS  KC_PAST  KC_PMNS  KC_NO    #  Num | / | * | -
-KC_P7    KC_P8    KC_P9    KC_PPLS  KC_NO    #  7 | 8 | 9 | +
-KC_P4    KC_P5    KC_P6    KC_NO    KC_NO    #  4 | 5 | 6
-KC_P1    KC_NO    KC_P2    KC_P3    KC_NO    #  1 | -- | 2 | 3
+KC_PGUP  KC_UP    KC_PGDN  KC_PPLS  KC_NO    #  7 | 8 | 9 | +
+KC_LEFT  KC_DOWN  KC_RGHT  KC_NO    KC_NO    #  4 | 5 | 6
+KC_HOME  KC_NO    KC_P2    KC_END   KC_NO    #  1 | -- | 2 | 3
 KC_P0    KC_PDOT  KC_PENT  KC_NO    KC_NO    #  0 | . | Enter
 
 [1]
