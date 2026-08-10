@@ -146,9 +146,14 @@ def decode(val):
                 return f"{name}_T({decode(val & 0xFF)})"
     if 0x0100 <= val <= 0x1FFF:
         mod = (val >> 8) & 0x1F
-        for name, bits in MODS.items():
-            if bits == mod:
-                return f"{name}({decode(val & 0xFF)})"
+        side = "R" if mod & 0x10 else "L"
+        bits = [n for b, n in [(0x01, "CTL"), (0x02, "SFT"), (0x04, "ALT"),
+                               (0x08, "GUI")] if mod & b]
+        if 1 <= len(bits) <= 2:  # encode() parses at most one nesting level
+            inner = decode(val & 0xFF)
+            for name in reversed(bits):
+                inner = f"{side}{name}({inner})"
+            return inner
     return f"0x{val:04X}"
 
 
