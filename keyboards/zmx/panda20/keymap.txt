@@ -40,8 +40,8 @@ KC_HOME        KC_NO          LALT(KC_I)     KC_END         KC_NO          #  1 
 DF(0)          KC_PDOT        DF(2)          KC_NO          KC_NO          #  0=exit lock | . | Enter=lock (2nd tap of one-shot)
 
 [3]
-KC_TRNS             KC_TRNS             KC_TRNS             KC_NO               KC_TRNS             #  -- | -- | -- | xx | --
-KC_TRNS             KC_TRNS             KC_TRNS             KC_TRNS             KC_NO               #  -- | -- | -- | -- | xx
+KC_TRNS             KC_TRNS             0x7E0D              KC_NO               0x7E0E              #  test: Tab=7E0D Bspc=7E0E
+0x7E05              0x7E06              0x7E07              0x7E0A              KC_NO               #  test: Num=7E05 /=7E06 *=7E07 -=7E0A
 LCTL(KC_0)          LCTL(KC_1)          LCTL(KC_2)          KC_TRNS             KC_NO               #  7 | 8 | 9 | -- | xx
 LCTL(LSFT(KC_TAB))  KC_TRNS             LCTL(KC_TAB)        KC_NO               KC_NO               #  4 | -- | 6 | xx | xx
 LCTL(KC_GRV)        KC_NO               KC_TRNS             LCTL(KC_B)          KC_NO               #  1 | xx | -- | 3 | xx
