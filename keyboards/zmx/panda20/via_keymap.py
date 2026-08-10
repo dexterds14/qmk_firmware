@@ -89,7 +89,8 @@ for _i in range(16):
 NAME_TO_VAL = {**BASIC, **QUANTUM}
 # aliases accepted on input
 for _a, _b in [("KC_TRANSPARENT", "KC_TRNS"), ("_______", "KC_TRNS"),
-               ("XXXXXXX", "KC_NO"), ("KC_NLCK", "KC_NUM"),
+               ("--", "KC_TRNS"), ("XXXXXXX", "KC_NO"), ("xx", "KC_NO"),
+               ("XX", "KC_NO"), ("KC_NLCK", "KC_NUM"),
                ("KC_NUM_LOCK", "KC_NUM"), ("RESET", "QK_BOOT")]:
     NAME_TO_VAL[_a] = NAME_TO_VAL[_b]
 VAL_TO_NAME = {}
@@ -217,25 +218,34 @@ HEADER = """\
 # Keys are referred to by their PHYSICAL (stock-layer) names. Column guide
 # for every layer grid below (col0..col4 left to right):
 #
-#   row 0:  Esc     Fn      Tab     --      Bspc
-#   row 1:  Num     /       *       -       --
-#   row 2:  7       8       9       +       --
-#   row 3:  4       5       6       --      --
-#   row 4:  1       --      2       3       --
-#   row 5:  0       .       Enter   --      --
+#   row 0:  Esc     Fn      Tab     xx      Bspc
+#   row 1:  Num     /       *       -       xx
+#   row 2:  7       8       9       +       xx
+#   row 3:  4       5       6       xx      xx
+#   row 4:  1       xx      2       3       xx
+#   row 5:  0       .       Enter   xx      xx
 #
-# ("--" = no physical key: keep KC_NO. Note 1/2/3 skip col1, and Enter is
-#  row 5 col 2, not row 4. [0,3] only exists on the split-backspace variant.)
+# (In each row's trailing comment: a physical key name means that key is
+#  bound on this layer, -- means transparent (KC_TRNS), xx means KC_NO /
+#  no key there. Note 1/2/3 skip col1, and Enter is row 5 col 2, not
+#  row 4. [0,3] "BspL" only exists on the split-backspace variant.)
 # Tokens: QMK names (KC_*, MO(n), LT(n,kc), LCTL(kc), MD_USB, M0..M15, ...) or hex 0x____.
 """
 
 
-ROW_GUIDE = ["Esc | Fn | Tab | -- | Bspc",
-             "Num | / | * | -",
-             "7 | 8 | 9 | +",
-             "4 | 5 | 6",
-             "1 | -- | 2 | 3",
-             "0 | . | Enter"]
+# physical key name per matrix position ("?" = no key there)
+PHYS = [["Esc", "Fn", "Tab", "BspL", "Bspc"],
+        ["Num", "/", "*", "-", "?"],
+        ["7", "8", "9", "+", "?"],
+        ["4", "5", "6", "?", "?"],
+        ["1", "?", "2", "3", "?"],
+        ["0", ".", "Enter", "?", "?"]]
+
+
+def row_comment(r, row):
+    """physical name where bound; -- for KC_TRNS; xx for KC_NO"""
+    return " | ".join("xx" if v == 0x00 else "--" if v == 0x01
+                      else PHYS[r][c] for c, v in enumerate(row))
 
 
 def fmt_keymap(km):
@@ -245,7 +255,7 @@ def fmt_keymap(km):
         width = max(len(decode(v)) for row in grid for v in row) + 2
         for r, row in enumerate(grid):
             cells = "".join(decode(v).ljust(width) for v in row)
-            out.append(f"{cells.ljust(5 * width)}#  {ROW_GUIDE[r]}")
+            out.append(f"{cells.ljust(5 * width)}#  {row_comment(r, row)}")
         out.append("")
     return "\n".join(out)
 
