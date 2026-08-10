@@ -39,6 +39,9 @@ over the VIA raw-HID protocol — same channel the VIA web app uses.
     "charging" rather than "low"), unconfirmed. Harmless but looks "stuck".
   - `0x7E0B` (Fn+Bspc), `0x7E0C` (Fn+Num): still unidentified; possibly
     win-lock / wireless status / factory reset — do not hold them down.
+  - Confirmed by HID capture (2026-08-10): none of these vendor keycodes emit
+    anything on any HID interface — they are LED-only, so the host cannot
+    observe battery level or these functions at all.
 - Layers 2–3: unused clones of layer 0 — free for custom use.
 
 ## Linux setup (done on this machine 2026-08-10)
