@@ -209,16 +209,28 @@ class Board:
 # ---------------------------------------------------------------- text file
 HEADER = """\
 # ZMX Panda20 keymap — matrix is 6 rows x 5 cols; not every position has a key.
-# Physical layout (matrix positions):
-#   [0,0] [0,1] [0,2]  [0,4]([0,3] when split)   <- Esc row; (0,3) = 2u backspace variant
-#   [1,0] [1,1] [1,2] [1,3]                      <- Num  /  *  -
-#   [2,0] [2,1] [2,2] [2,3]                      <- 7 8 9  + (2u tall)
-#   [3,0] [3,1] [3,2]                            <- 4 5 6
-#   [4,0] [4,2] [4,3] [5,2]                      <- 1 2 3  Enter (2u tall)
-#   [5,0] [5,1]                                  <- 0 (2u)  .
-# Unused positions are KC_NO and can stay that way.
+# Keys are referred to by their PHYSICAL (stock-layer) names. Column guide
+# for every layer grid below (col0..col4 left to right):
+#
+#   row 0:  Esc     Fn      Tab     --      Bspc
+#   row 1:  Num     /       *       -       --
+#   row 2:  7       8       9       +       --
+#   row 3:  4       5       6       --      --
+#   row 4:  1       --      2       3       --
+#   row 5:  0       .       Enter   --      --
+#
+# ("--" = no physical key: keep KC_NO. Note 1/2/3 skip col1, and Enter is
+#  row 5 col 2, not row 4. [0,3] only exists on the split-backspace variant.)
 # Tokens: QMK names (KC_*, MO(n), LT(n,kc), LCTL(kc), MD_USB, M0..M15, ...) or hex 0x____.
 """
+
+
+ROW_GUIDE = ["Esc | Fn | Tab | -- | Bspc",
+             "Num | / | * | -",
+             "7 | 8 | 9 | +",
+             "4 | 5 | 6",
+             "1 | -- | 2 | 3",
+             "0 | . | Enter"]
 
 
 def fmt_keymap(km):
@@ -226,8 +238,9 @@ def fmt_keymap(km):
     for layer, grid in enumerate(km):
         out.append(f"[{layer}]")
         width = max(len(decode(v)) for row in grid for v in row) + 2
-        for row in grid:
-            out.append("".join(decode(v).ljust(width) for v in row).rstrip())
+        for r, row in enumerate(grid):
+            cells = "".join(decode(v).ljust(width) for v in row)
+            out.append(f"{cells.ljust(5 * width)}#  {ROW_GUIDE[r]}")
         out.append("")
     return "\n".join(out)
 
