@@ -1,0 +1,4 @@
+Plum UF2 Bootloader 0.0.1
+Model: LG Studio Plum Bootloader
+Board-ID: Plum Bootloader for STM32F401
+Date: Apr 23 2023
