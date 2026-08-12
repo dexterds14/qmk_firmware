@@ -88,13 +88,13 @@ static bool     td_in_progress = false;
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
         KC_ESC,        KC_1,          KC_2,          KC_3,          KC_4,           KC_5,
-        KC_GRV,        TD(TD_Q_TILD), KC_W,          KC_E,          KC_R,           KC_T,          OSL(_LEADR),
-        OSM(MOD_LSFT), KC_A,          TD(TD_S_OSM),  TD(TD_D_OSM),  TD(LAYR_DOWN),  TD(TD_G_CAPS), KC_LCTL,
+        KC_GRV,        TD(TD_Q_TILD), KC_W,          KC_E,          KC_R,           KC_T,          KC_PGUP,
+        OSM(MOD_LSFT), KC_A,          TD(TD_S_OSM),  TD(TD_D_OSM),  TD(LAYR_DOWN),  TD(TD_G_CAPS), KC_PGDN,
         KC_TAB,        TD(TD_Z_GRV),  KC_X,          KC_C,          TD(TD_V_TAB),   KC_B,          QK_BOOT,
                                                      KC_ESC,        KC_BSPC,        KC_SPC,
                        KC_6,          KC_7,          KC_8,          KC_9,           KC_0,          KC_BSLS,
         KC_LALT,       KC_Y,          KC_U,          KC_I,          KC_O,           KC_P,          KC_MINS,
-        KC_CAPS,       TD(TD_H_CAPS), TD(TD_J_OSM),  TD(LAYR_UP),   KC_L,           KC_QUOT,       OSM(MOD_RSFT),
+        KC_LCTL,       TD(TD_H_CAPS), TD(TD_J_OSM),  TD(LAYR_UP),   KC_L,           KC_QUOT,       OSM(MOD_RSFT),
         QK_BOOT,       KC_N,          KC_M,          KC_COMM,       KC_DOT,         KC_SLSH,       KC_SCLN,
                                                      KC_ENT,        OSL(_LEADR),    KC_DEL
     ),
@@ -106,8 +106,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LSFT(KC_TAB),  LCTL(KC_Z),    LCTL(KC_X),    LCTL(KC_C),    LCTL(KC_V),     LCTL(KC_B),    KC_NO,
                                                      KC_SPC,        KC_LSFT,        KC_LCTL,
                        LALT(KC_ENT),  LALT(KC_LEFT), LALT(KC_RGHT), LCTL(KC_TAB),   KC_DEL,        KC_PGUP,
-        _______,       LCTL(KC_Y),    LCTL(KC_U),    LCTL(KC_I),    LCTL(KC_O),     LCTL(KC_P),    KC_HOME,
-        _______,       TO(_QWERTY),   KC_UP,         KC_LEFT,       KC_DOWN,        KC_RGHT,       KC_END,
+        KC_PGUP,       LCTL(KC_Y),    LCTL(KC_U),    LCTL(KC_I),    LCTL(KC_O),     LCTL(KC_P),    KC_HOME,
+        KC_PGDN,       TO(_QWERTY),   KC_UP,         KC_LEFT,       KC_DOWN,        KC_RGHT,       KC_END,
         KC_NO,         LCTL(KC_N),    DBL_DASH,      DOT_SLS,       DIR_UP,         LCTL(KC_SLSH), KC_PGDN,
                                                      KC_ENT,        KC_DEL,         _______
     ),
