@@ -581,7 +581,11 @@ td_state_t cur_dance(tap_dance_state_t *state) {
         }
         else
         {
-            return TD_UNKNOWN;
+            // Interrupted while still held: another key rolled in before
+            // TAPPING_TERM expired (typing from idle, e.g. "fun" with F
+            // still down when U lands). Emit the tap instead of swallowing
+            // it; a deliberate hold isn't usable before the term anyway.
+            return TD_SINGLE_TAP;
         }
     }
     else if (state->count == 2) return TD_DOUBLE_TAP;
