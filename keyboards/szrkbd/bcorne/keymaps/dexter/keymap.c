@@ -339,7 +339,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
     }
     else if (layer_state_is(_MOUSE))
     {
-        rgb_paint_all(led_min, led_max, HSV_PINK);
+        rgb_paint_all(led_min, led_max, 14, 255, 255);   // deep orange (HSV_ORANGE is hue 21; lower = toward red)
     }
     else if (layer_state_is(_CAPSIND) || host_keyboard_led_state().caps_lock)
     {
