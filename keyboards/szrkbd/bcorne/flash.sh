@@ -43,11 +43,28 @@ try_mount_unmounted() {
     udisksctl mount -b "$dev" >/dev/null 2>&1
 }
 
+# Copy the UF2 onto the drive. A plain cp goes through the page cache and
+# Linux flushes data and FAT metadata in no guaranteed order, so the Plum
+# bootloader can see its "transfer complete" cue (final block / directory
+# entry) while data blocks are still buffered on the host -- it then resets
+# mid-transfer, the half-written app fails validation, and the board drops
+# back into the bootloader (the "flashing takes two tries" symptom). GNU
+# dd with O_DIRECT+O_SYNC writes every block to the device in order before
+# returning; fall back to cp+sync where that isn't available (macOS).
+deploy_uf2() {
+    # $1 = volume
+    if dd --version 2>/dev/null | grep -q GNU; then
+        dd if="$UF2" of="$1/$(basename "$UF2")" bs=4096 \
+           oflag=direct,sync conv=fsync status=none && sync
+    else
+        cp "$UF2" "$1/" && sync
+    fi
+}
+
 echo "Waiting for a volume with PLUM_UF2.TXT ..."
 while :; do
     if vol=$(find_plum_vol); then
-        if cp "$UF2" "$vol/"; then
-            sync
+        if deploy_uf2 "$vol"; then
             echo "Flashed $(basename "$UF2") -> $vol"
             exit 0
         fi
