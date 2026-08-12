@@ -5,6 +5,15 @@
     "processor": "STM32F401",
     "bootloader": "tinyuf2",
     "diode_direction": "COL2ROW",
+    "encoder": {
+        "rotary": [
+            {
+                "pin_a": "B8",
+                "pin_b": "B9",
+                "resolution": 2
+            }
+        ]
+    },
     "matrix_pins": {
         "rows": [
             "C8",
@@ -33,6 +42,17 @@
         },
         "handedness": {
             "pin": "C1"
+        },
+        "encoder": {
+            "right": {
+                "rotary": [
+                    {
+                        "pin_a": "B4",
+                        "pin_b": "B6",
+                        "resolution": 2
+                    }
+                ]
+            }
         },
         "serial": {
             "driver": "usart"
@@ -66,7 +86,7 @@
         "extrakey": true,
         "mousekey": true,
         "nkro": true,
-        "encoder": false,
+        "encoder": true,
         "rgb_matrix": true
     },
     "host": {
@@ -577,6 +597,37 @@
             29,
             29
         ],
+        "animations": {
+            "alphas_mods": true,
+            "gradient_up_down": true,
+            "gradient_left_right": true,
+            "breathing": true,
+            "band_sat": true,
+            "band_val": true,
+            "band_pinwheel_sat": true,
+            "band_pinwheel_val": true,
+            "band_spiral_sat": true,
+            "band_spiral_val": true,
+            "cycle_all": true,
+            "cycle_left_right": true,
+            "cycle_up_down": true,
+            "cycle_out_in": true,
+            "cycle_out_in_dual": true,
+            "rainbow_moving_chevron": true,
+            "cycle_pinwheel": true,
+            "cycle_spiral": true,
+            "dual_beacon": true,
+            "rainbow_beacon": true,
+            "rainbow_pinwheels": true,
+            "raindrops": true,
+            "jellybean_raindrops": true,
+            "hue_breathing": true,
+            "hue_pendulum": true,
+            "hue_wave": true,
+            "pixel_fractal": false,
+            "pixel_flow": true,
+            "pixel_rain": true
+        },
         "layout": [
             {
                 "matrix": [

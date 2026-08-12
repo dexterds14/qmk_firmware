@@ -2,3 +2,5 @@
 # CURRENT.UF2). Override QMK's default STM32F4 family so the produced .uf2 is
 # accepted when dragged onto the STM32F4Plum drive.
 UF2_FAMILY = 0xABCDF401
+
+ENCODER_MAP_ENABLE = yes

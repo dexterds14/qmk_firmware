@@ -22,7 +22,7 @@ This configuration was reverse-engineered from the stock Vial firmware. See
 | Handedness | `SPLIT_HAND_PIN C1`, low = left |
 | Split link | full-duplex USART1, TX `A9` / RX `A10` |
 | RGB | 58 per-key WS2812 (29/half) on `A7` via TIM3_CH2 + DMA; the two encoder-push keys have no LED |
-| Encoders (TODO) | 1 knob per half (pins not yet extracted) |
+| Encoders | 1 knob per half; left pads A/B = `B9`/`B8`, right pads A/B = `B6`/`B4`, resolution 2 |
 
 Bring-up notes (2026-08-12): the original reverse-engineered config had two
 fatal errors, both fixed in this tree and verified on hardware by electrical
@@ -33,8 +33,9 @@ probing:
   (PLLM=16, PLLN=192, PLLP=4, PLLQ=4 -> 48 MHz SYSCLK/USB). With the wrong
   PLL the firmware hangs before USB and the board appears dead.
 * The left half's extracted row/col pin lists were scrambled (rows and cols
-  mixed together). The right half's extraction was correct as-is.
-  `szrkbd_backup/HARDWARE_NOTES.md` still shows the old wrong left-half lists.
+  mixed together). The right half's extraction was correct as-is. The cause:
+  the stock binary stores the left half's array cols-first but the right
+  half's rows-first; `szrkbd_backup/HARDWARE_NOTES.md` has the corrected lists.
 
 ## Building
 
@@ -59,8 +60,20 @@ The Plum UF2 bootloader appears as a USB mass-storage drive named `STM32F4Plum`.
 The board is effectively unbrickable: the bootloader lives in a separate 64 KB
 flash region and cannot be overwritten by an app-region flash.
 
-## Not yet implemented
+## Encoders
 
-* **Encoders** - the two knobs are wired but their GPIO pins were not extracted yet.
-* **RGB** - WS2812 data is on `A7` (TIM3_CH2 PWM); RGB Matrix needs the per-key LED
-  layout before it can be enabled.
+Extracted from the stock firmware's `encoder_init` (see HARDWARE_NOTES.md):
+the two halves use *different* pads. Left knob A/B = `B9`/`B8`; right knob
+A/B = `B6`/`B4` (written over the defaults at init when the handedness flag
+says "right"). Resolution is 2 (stock fires a turn event at ±2 quadrature
+pulses), not QMK's default 4 — with 4, every other detent is dropped.
+
+Note `keyboard.json` assigns `pin_a`/`pin_b` *swapped* relative to the stock
+firmware's pad_a/pad_b: with stock's assignment the knobs turned backwards
+under QMK's direction convention (verified on hardware 2026-08-12).
+
+The default keymap uses `ENCODER_MAP_ENABLE`: left knob = volume, right knob
+= page up/down; on the FN layer (middle thumb key, either half): FN + the
+right half's top row = RGB toggle / next effect / hue / saturation /
+brightness, and FN + knobs = RGB effect / brightness. If a knob still turns
+backwards, swap its `pin_a`/`pin_b` in `keyboard.json`.
