@@ -11,25 +11,31 @@
 # bootmagic, or double-tap reset). Run under sudo to also get the SCSI
 # timeout bump (optional).
 #
-# Flash reliability (diagnosed from dmesg, 2026-08-12): while the Plum
+# Flash reliability (diagnosed from dmesg, 2026-08): while the Plum
 # bootloader erases/programs the STM32F401's large flash sectors it stops
 # servicing USB for seconds at a time. Linux USB/SCSI error recovery then
-# RESETS the device mid-transfer ("reset full-speed USB device" in dmesg).
-# Whether the bootloader's transfer state survives that reset is luck: if
-# yes, flashing completes ("device firmware changed" + app enumerates);
-# if not, the half-written app fails validation and the board drops back
-# into the bootloader. So this script judges the outcome by what
-# RE-ENUMERATES after the write and auto-retries on failure.
+# RESETS the device mid-transfer. Outcomes observed on hardware:
+#   1. Bootloader survives the reset and finishes: app enumerates. OK.
+#   2. Transfer state dies; board reboots back into the bootloader as a
+#      NEW USB session (devnum changes).
+#   3. Transfer state dies; bootloader stays wedged in the SAME session,
+#      still enumerated, going nowhere.
+# So this script judges a write by what happens afterwards: app device
+# appears = success; new bootloader session = rewrite; same session still
+# there after the settle window = remount and rewrite into it (the
+# software approximation of unplug/replug).
 #
-# Identity subtleties learned the hard way:
-# - After the board reboots away, the old mountpoint lingers STALE with
-#   PLUM_UF2.TXT still readable from the page cache; never trust a
-#   directory scan of /media. Resolve the mountpoint from the live block
-#   device (lsblk by label -> findmnt) instead.
-# - Right after the write the bootloader is STILL attached (flashing for
-#   tens of seconds); "a Plum drive exists" is not a failure signal. A
-#   NEW attachment is: track the USB bus:devnum, which increments on
-#   every re-enumeration.
+# Identity rules learned the hard way:
+# - Detect the bootloader by USB VID:PID (239a:005d) in sysfs, never by
+#   volume label or /media scan: stale mounts of departed devices keep
+#   PLUM_UF2.TXT readable from the page cache, and label probing can lag
+#   re-enumeration.
+# - The bootloader session id is USB bus:devnum -- devnum increments on
+#   every re-enumeration but survives kernel-initiated USB resets, which
+#   is exactly the distinction needed.
+# - A dd error is not conclusive: on success the board reboots out from
+#   under the final write; on failure writes die midway. Only what
+#   re-enumerates afterwards is trustworthy.
 
 UF2="${1:-$(cd "$(dirname "$0")/../../.." && pwd)/.build/szrkbd_bcorne_default.uf2}"
 
@@ -38,69 +44,8 @@ if [ ! -f "$UF2" ]; then
     exit 1
 fi
 
-# --- Linux helpers (sysfs/lsblk/findmnt) -------------------------------
-
-# Block device (e.g. "sdc") of an attached Plum bootloader drive.
-find_plum_blk() {
-    lsblk -rno NAME,LABEL 2>/dev/null \
-        | awk '$2 == "STM32F4Plum" {print $1; exit}'
-}
-
-# USB bus:devnum of a block device -- unique per attachment session.
-usb_id_of_blk() {
-    p=$(readlink -f "/sys/block/$1/device" 2>/dev/null) || return 1
-    while [ -n "$p" ] && [ "$p" != "/" ]; do
-        if [ -f "$p/devnum" ] && [ -f "$p/busnum" ]; then
-            echo "$(cat "$p/busnum"):$(cat "$p/devnum")"
-            return 0
-        fi
-        p=${p%/*}
-    done
-    return 1
-}
-
-# Best effort: give the kernel more patience with the stalled drive before
-# its error recovery resets the board mid-flash. Needs root.
-bump_scsi_timeout() {
-    if [ -w "/sys/block/$1/device/timeout" ]; then
-        echo 120 > "/sys/block/$1/device/timeout" 2>/dev/null \
-            && echo "(raised SCSI timeout for $1 to 120s)"
-    fi
-}
-
-# Count enumerated app-firmware devices (VID:PID 45d4:1b32). The half
-# being flashed is in the bootloader (different VID), so a COUNT INCREASE
-# after the write means it booted the new app -- immune to the other half
-# or another keyboard being plugged in.
-count_app_devices() {
-    c=0
-    for f in /sys/bus/usb/devices/*/idVendor; do
-        [ -e "$f" ] || continue
-        [ "$(cat "$f" 2>/dev/null)" = "45d4" ] || continue
-        [ "$(cat "${f%idVendor}idProduct" 2>/dev/null)" = "1b32" ] && c=$((c + 1))
-    done
-    echo "$c"
-}
-
-# Mountpoint of the LIVE Plum drive (never a stale leftover mount).
-# Mounts it via udisksctl if the drive is attached but unmounted.
-find_live_plum_vol() {
-    blk=$(find_plum_blk)
-    [ -n "$blk" ] || return 1
-    mp=$(findmnt -rno TARGET "/dev/$blk" 2>/dev/null | head -1)
-    if [ -z "$mp" ]; then
-        command -v udisksctl >/dev/null 2>&1 || return 1
-        udisksctl mount -b "/dev/$blk" >/dev/null 2>&1
-        mp=$(findmnt -rno TARGET "/dev/$blk" 2>/dev/null | head -1)
-    fi
-    [ -n "$mp" ] && [ -f "$mp/PLUM_UF2.TXT" ] || return 1
-    echo "$mp"
-}
-
-# One write attempt. bs=512 = one UF2 block per synchronous command, so a
-# mid-write stall holds minimal data in flight. The write itself erroring
-# is NOT conclusive either way (the board reboots out from under the last
-# command on success too) -- the caller judges by what re-enumerates.
+# One write. bs=512 = one UF2 block per synchronous command, so a stall
+# holds minimal data in flight. (GNU dd on Linux; plain cp on macOS.)
 write_uf2() {
     if dd --version 2>/dev/null | grep -q GNU; then
         dd if="$UF2" of="$1/$(basename "$UF2")" bs=512 \
@@ -130,66 +75,142 @@ if [ ! -d /sys/bus/usb/devices ]; then
     done
 fi
 
-# --- Linux: write, watch what re-enumerates, retry on failure ----------
+# --- Linux helpers ------------------------------------------------------
 
-MAX_ATTEMPTS=4
-SETTLE_SECS=90
+# First attached Plum bootloader (tinyuf2 VID:PID 239a:005d), printed as
+# "bus:devnum /sys/bus/usb/devices/<dev>".
+first_plum_session() {
+    for d in /sys/bus/usb/devices/*; do
+        [ -f "$d/idVendor" ] || continue
+        [ "$(cat "$d/idVendor" 2>/dev/null)" = "239a" ] || continue
+        [ "$(cat "$d/idProduct" 2>/dev/null)" = "005d" ] || continue
+        echo "$(cat "$d/busnum" 2>/dev/null):$(cat "$d/devnum" 2>/dev/null) $d"
+        return 0
+    done
+    return 1
+}
 
-echo "Waiting for the STM32F4Plum bootloader drive ..."
+# Block device name (e.g. sdc) beneath a USB device's sysfs path; fails
+# until the kernel has finished SCSI probing.
+blk_of_usb() {
+    for b in "$1"/*/host*/target*/*/block/*; do
+        [ -e "$b" ] || continue
+        basename "$b"
+        return 0
+    done
+    return 1
+}
+
+# Mountpoint of a block device, mounting it via udisksctl if needed.
+vol_of_blk() {
+    mp=$(findmnt -rno TARGET "/dev/$1" 2>/dev/null | head -1)
+    if [ -z "$mp" ]; then
+        command -v udisksctl >/dev/null 2>&1 || return 1
+        udisksctl mount -b "/dev/$1" >/dev/null 2>&1
+        mp=$(findmnt -rno TARGET "/dev/$1" 2>/dev/null | head -1)
+    fi
+    [ -n "$mp" ] && [ -f "$mp/PLUM_UF2.TXT" ] || return 1
+    echo "$mp"
+}
+
+# Drop a possibly-wedged mount so the next vol_of_blk gets a fresh one.
+refresh_mount() {
+    command -v udisksctl >/dev/null 2>&1 || return 0
+    udisksctl unmount -b "/dev/$1" >/dev/null 2>&1 \
+        || udisksctl unmount --force -b "/dev/$1" >/dev/null 2>&1 \
+        || :
+}
+
+# Best effort: more kernel patience before its error recovery resets the
+# stalled board mid-flash. Needs root.
+bump_scsi_timeout() {
+    if [ -w "/sys/block/$1/device/timeout" ]; then
+        echo 120 > "/sys/block/$1/device/timeout" 2>/dev/null \
+            && echo "(raised SCSI timeout for $1 to 120s)"
+    fi
+}
+
+# Count enumerated app-firmware devices (VID:PID 45d4:1b32). The half
+# being flashed is in the bootloader, so a COUNT INCREASE after the write
+# means it booted the new app -- immune to the other half being plugged in.
+count_app_devices() {
+    c=0
+    for f in /sys/bus/usb/devices/*/idVendor; do
+        [ -e "$f" ] || continue
+        [ "$(cat "$f" 2>/dev/null)" = "45d4" ] || continue
+        [ "$(cat "${f%idVendor}idProduct" 2>/dev/null)" = "1b32" ] && c=$((c + 1))
+    done
+    echo "$c"
+}
+
+# --- Linux main loop ----------------------------------------------------
+
+MAX_ATTEMPTS=5
+SETTLE_CLEAN=90   # write reported success: board may stall ~50s flashing
+SETTLE_ERROR=25   # write errored: transfer is likely already dead
+
+echo "Waiting for the Plum bootloader (USB 239a:005d) ..."
 attempt=1
 while :; do
-    if vol=$(find_live_plum_vol); then
-        blk=$(find_plum_blk)
-        session_id=$(usb_id_of_blk "$blk" 2>/dev/null || :)
-        bump_scsi_timeout "$blk"
-        apps_before=$(count_app_devices)
+    sess=$(first_plum_session) || { sleep 1; continue; }
+    session_id=${sess%% *}
+    usb_path=${sess#* }
+    blk=$(blk_of_usb "$usb_path") || { sleep 1; continue; }
+    vol=$(vol_of_blk "$blk") || { sleep 1; continue; }
 
-        echo "Attempt $attempt/$MAX_ATTEMPTS: writing $(basename "$UF2") -> $vol"
-        write_uf2 "$vol" 2>/dev/null \
-            || echo "(write reported an error; checking what the board did)"
+    bump_scsi_timeout "$blk"
+    apps_before=$(count_app_devices)
 
-        # Success = a new app device appears. Failure = a NEW bootloader
-        # attachment (different bus:devnum). The ORIGINAL session hanging
-        # around just means it is still flashing -- stalls of ~50s before
-        # the app boots have been observed on successful flashes.
-        t=0
-        outcome=timeout
-        while [ "$t" -lt "$SETTLE_SECS" ]; do
-            if [ "$(count_app_devices)" -gt "$apps_before" ]; then
-                outcome=ok
-                break
-            fi
-            blk=$(find_plum_blk)
-            if [ -n "$blk" ]; then
-                id=$(usb_id_of_blk "$blk" 2>/dev/null || :)
-                if [ -n "$id" ] && [ "$id" != "$session_id" ]; then
-                    outcome=retry
-                    break
-                fi
-            fi
-            sleep 1
-            t=$((t + 1))
-        done
-
-        case $outcome in
-            ok)
-                echo "Flashed OK: app firmware enumerated (attempt $attempt)"
-                exit 0
-                ;;
-            retry)
-                echo "Bootloader re-attached: flash did not stick, retrying"
-                attempt=$((attempt + 1))
-                if [ "$attempt" -gt "$MAX_ATTEMPTS" ]; then
-                    echo "Giving up after $MAX_ATTEMPTS attempts" >&2
-                    exit 1
-                fi
-                continue
-                ;;
-            timeout)
-                echo "No app or new bootloader within ${SETTLE_SECS}s; unplug/replug and retry" >&2
-                exit 1
-                ;;
-        esac
+    echo "Attempt $attempt/$MAX_ATTEMPTS: writing $(basename "$UF2") -> $vol (session $session_id)"
+    w0=$(date +%s)
+    if write_uf2 "$vol" 2>/dev/null; then
+        settle=$SETTLE_CLEAN
+        echo "Write completed in $(($(date +%s) - w0))s; waiting up to ${settle}s for the board to reboot (successful flashes can stall ~50s)"
+    else
+        settle=$SETTLE_ERROR
+        echo "Write errored after $(($(date +%s) - w0))s; watching what the board does (up to ${settle}s)"
     fi
-    sleep 1
+
+    t=0
+    outcome=timeout
+    while [ "$t" -lt "$settle" ]; do
+        if [ "$(count_app_devices)" -gt "$apps_before" ]; then
+            outcome=ok
+            break
+        fi
+        cur=$(first_plum_session) || cur=""
+        cur_id=${cur%% *}
+        if [ -n "$cur_id" ] && [ "$cur_id" != "$session_id" ]; then
+            outcome=newsession
+            break
+        fi
+        sleep 1
+        t=$((t + 1))
+        [ $((t % 15)) -eq 0 ] && echo "  ... still waiting (${t}s/${settle}s, bootloader session unchanged)"
+    done
+
+    case $outcome in
+        ok)
+            echo "Flashed OK: app firmware enumerated (attempt $attempt)"
+            exit 0
+            ;;
+        newsession)
+            echo "Bootloader re-attached (session $cur_id): flash did not stick, retrying"
+            ;;
+        timeout)
+            if first_plum_session >/dev/null 2>&1; then
+                echo "Bootloader still attached (same session) but no app appeared: remounting and rewriting"
+                refresh_mount "$blk"
+            else
+                echo "Board vanished without re-enumerating; replug USB and re-run" >&2
+                exit 1
+            fi
+            ;;
+    esac
+
+    attempt=$((attempt + 1))
+    if [ "$attempt" -gt "$MAX_ATTEMPTS" ]; then
+        echo "Giving up after $MAX_ATTEMPTS attempts; replug USB and re-run" >&2
+        exit 1
+    fi
 done
