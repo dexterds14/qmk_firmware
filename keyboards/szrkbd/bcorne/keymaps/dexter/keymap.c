@@ -109,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_PGUP,       LCTL(KC_Y),    LCTL(KC_U),    LCTL(KC_I),    LCTL(KC_O),     LCTL(KC_P),    KC_HOME,
         KC_PGDN,       TO(_QWERTY),   KC_UP,         KC_LEFT,       KC_DOWN,        KC_RGHT,       KC_END,
         KC_NO,         LCTL(KC_N),    DBL_DASH,      DOT_SLS,       DIR_UP,         LCTL(KC_SLSH), KC_PGDN,
-                                                     KC_ENT,        KC_DEL,         _______
+                                                     KC_ENT,        KC_BSPC,        KC_DEL
     ),
 
     [_RAISE] = LAYOUT(
@@ -122,7 +122,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_EQL,        KC_CIRC,       KC_AMPR,       KC_ASTR,       KC_LBRC,        KC_RBRC,       KC_PLUS,
         KC_SCLN,       TO(_RAISE2),   KC_LPRN,       KC_RPRN,       KC_MINS,        KC_DQUO,       KC_VOLU,
         KC_NO,         KC_MUTE,       KC_NO,         KC_LT,         KC_GT,          KC_QUES,       KC_VOLD,
-                                                     TO(_RAISE2),   _______,        _______
+                                                     KC_SCLN,       _______,        _______
     ),
 
     [_RAISE2] = LAYOUT(

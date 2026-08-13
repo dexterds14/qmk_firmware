@@ -146,7 +146,7 @@ count_app_devices() {
 # --- Linux main loop ----------------------------------------------------
 
 MAX_ATTEMPTS=5
-SETTLE_CLEAN=90   # write reported success: board may stall ~50s flashing
+SETTLE_CLEAN=30   # write reported success: board may stall ~50s flashing
 SETTLE_ERROR=25   # write errored: transfer is likely already dead
 
 echo "Waiting for the Plum bootloader (USB 239a:005d) ..."
