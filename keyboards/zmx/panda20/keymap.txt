@@ -1,0 +1,48 @@
+# ZMX Panda20 keymap — matrix is 6 rows x 5 cols; not every position has a key.
+# Keys are referred to by their PHYSICAL (stock-layer) names. Column guide
+# for every layer grid below (col0..col4 left to right):
+#
+#   row 0:  Esc     Fn      Tab     xx      Bspc
+#   row 1:  Num     /       *       -       xx
+#   row 2:  7       8       9       +       xx
+#   row 3:  4       5       6       xx      xx
+#   row 4:  1       xx      2       3       xx
+#   row 5:  0       .       Enter   xx      xx
+#
+# (In each row's trailing comment: a physical key name means that key is
+#  bound on this layer, -- means transparent (KC_TRNS), xx means KC_NO /
+#  no key there. Note 1/2/3 skip col1, and Enter is row 5 col 2, not
+#  row 4. [0,3] "BspL" only exists on the split-backspace variant.)
+# Tokens: QMK names (KC_*, MO(n), LT(n,kc), LCTL(kc), MD_USB, M0..M15, ...) or hex 0x____.
+
+[0]
+KC_ESC   MO(1)    KC_TAB   KC_NO    KC_BSPC  #  Esc | Fn | Tab | xx | Bspc
+KC_NUM   KC_PSLS  KC_PAST  KC_PMNS  KC_NO    #  Num | / | * | - | xx
+KC_PGUP  KC_UP    KC_PGDN  KC_PPLS  KC_NO    #  7 | 8 | 9 | + | xx
+KC_LEFT  KC_DOWN  KC_RGHT  KC_NO    KC_NO    #  4 | 5 | 6 | xx | xx
+KC_HOME  KC_NO    KC_P2    KC_END   KC_NO    #  1 | xx | 2 | 3 | xx
+OSL(3)   KC_PDOT  OSL(2)   KC_NO    KC_NO    #  0 | . | Enter | xx | xx
+
+[1]
+KC_ESC   KC_NO    0x7E08   KC_NO    0x7E0B   #  Esc | xx | Tab | xx | Bspc
+0x7E0C   RGB_HUD  RGB_HUI  RGB_VAD  KC_NO    #  Num | / | * | - | xx
+RGB_SPD  RGB_SPI  0x7E09   RGB_VAI  KC_NO    #  7 | 8 | 9 | + | xx
+MD_24G   RGB_SAD  RGB_SAI  KC_NO    KC_NO    #  4 | 5 | 6 | xx | xx
+MD_BLE1  KC_NO    MD_BLE2  MD_BLE3  KC_NO    #  1 | xx | 2 | 3 | xx
+EE_CLR   KC_PDOT  RGB_MOD  KC_NO    KC_NO    #  0 | . | Enter | xx | xx
+
+[2]
+KC_ESC         MO(1)          KC_TAB         KC_NO          KC_BSPC        #  base copies (TRNS would go dead while layer 2 is default)
+LALT(KC_F)     LALT(KC_D)     LALT(KC_S)     LALT(KC_A)     KC_NO          #  Num | / | * | - | xx
+LALT(KC_U)     LALT(KC_J)     LALT(KC_O)     LALT(KC_G)     KC_NO          #  7 | 8 | 9 | + | xx
+LALT(KC_K)     LALT(KC_L)     LALT(KC_QUOT)  KC_NO          KC_NO          #  4 | 5 | 6 | xx | xx
+KC_HOME        KC_NO          LALT(KC_I)     KC_END         KC_NO          #  1 | xx | 2 | 3 | xx
+DF(0)          KC_PDOT        DF(2)          KC_NO          KC_NO          #  0=exit lock | . | Enter=lock (2nd tap of one-shot)
+
+[3]
+KC_TRNS             KC_TRNS             KC_TRNS             KC_NO               KC_TRNS             #  -- | -- | -- | xx | --
+KC_TRNS             KC_TRNS             KC_TRNS             KC_TRNS             KC_NO               #  -- | -- | -- | -- | xx
+LCTL(KC_0)          LCTL(KC_1)          LCTL(KC_2)          KC_TRNS             KC_NO               #  7 | 8 | 9 | -- | xx
+LCTL(LSFT(KC_TAB))  KC_TRNS             LCTL(KC_TAB)        KC_NO               KC_NO               #  4 | -- | 6 | xx | xx
+LCTL(KC_GRV)        KC_NO               KC_TRNS             LCTL(KC_B)          KC_NO               #  1 | xx | -- | 3 | xx
+KC_TRNS             KC_TRNS             KC_TRNS             KC_NO               KC_NO               #  -- | -- | -- | xx | xx
