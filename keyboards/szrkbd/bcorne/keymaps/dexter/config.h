@@ -13,7 +13,7 @@
 #define LAYER_STATE_16BIT
 
 #define TAPPING_TERM 280
-#define FLOW_TAP_TERM 225
+#define FLOW_TAP_TERM 240
 // Fast typing threshold (ms)
 #define FAST_TYPING_THRESHOLD FLOW_TAP_TERM
 
