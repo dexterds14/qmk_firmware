@@ -15,6 +15,7 @@ enum layers {
     _SWAY,  // sway movement (Alt chords), bottom-right
     _CTLX,  // ctrl-x chords, bottom-middle
     _SHORT, // shortcuts, bottom-left
+    _WORK,  // sway workspace switching, entered from _SWAY bottom-middle
 };
 
 enum custom_keycodes {
@@ -36,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_SWAY] = LAYOUT(
         LALT(KC_U), LALT(KC_J), LALT(KC_O),
         LALT(KC_K), LALT(KC_L), LALT(KC_QUOT),
-        KC_HOME,    LALT(KC_I), KC_TRNS
+        LALT(KC_I), OSL(_WORK), KC_TRNS
     ),
 
     [_CTLX] = LAYOUT(
@@ -49,6 +50,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         QK_BOOT,      NANO_SAVEQUIT,    KC_NO,
         MINICOM_QUIT, LCTL(LSFT(KC_C)), LCTL(LSFT(KC_V)),
         KC_TRNS,      KC_NO,            KC_NO
+    ),
+
+    // Sway workspace switching ($mod = Alt; ws1..6 = f/d/s/a/g/h in the
+    // sway config). Arranged 5-4-6 over 3-2-1 by workspace number.
+    // Bottom-middle repeats OSL(_WORK) so tapping it always unlocks a
+    // stuck layer, even if _SWAY has already dropped off underneath.
+    [_WORK] = LAYOUT(
+        LALT(KC_G), LALT(KC_A), LALT(KC_H),
+        LALT(KC_S), LALT(KC_D), LALT(KC_F),
+        KC_NO,      OSL(_WORK), KC_NO
     ),
 
 };
@@ -88,6 +99,9 @@ bool rgb_matrix_indicators_user(void) {
             break;
         case _SHORT:
             rgb_matrix_set_color_all(200, 110, 0); // amber
+            break;
+        case _WORK:
+            rgb_matrix_set_color_all(80, 0, 200); // purple
             break;
         default:
             rgb_matrix_set_color_all(10, 10, 10); // dim white
