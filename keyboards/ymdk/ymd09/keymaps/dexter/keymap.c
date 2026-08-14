@@ -21,6 +21,8 @@ enum custom_keycodes {
     // Quit minicom (Ctrl+A, Z, Q, Enter) -- the bcorne "a-q" leader
     // sequence as a direct macro.
     MINICOM_QUIT = SAFE_RANGE,
+    // Save and quit nano (Ctrl+X, Y, Enter) -- the bcorne "y" leader.
+    NANO_SAVEQUIT,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -44,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_SHORT] = LAYOUT(
-        KC_NO,        KC_NO,            KC_NO,
+        QK_BOOT,      NANO_SAVEQUIT,    KC_NO,
         MINICOM_QUIT, LCTL(LSFT(KC_C)), LCTL(LSFT(KC_V)),
         KC_TRNS,      KC_NO,            KC_NO
     ),
@@ -58,6 +60,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(LCTL(KC_A));
                 tap_code(KC_Z);
                 tap_code(KC_Q);
+                tap_code(KC_ENT);
+            }
+            return false;
+        case NANO_SAVEQUIT:
+            if (record->event.pressed) {
+                tap_code16(LCTL(KC_X));
+                tap_code(KC_Y);
                 tap_code(KC_ENT);
             }
             return false;
