@@ -240,6 +240,13 @@ void leader_end_user(void) {
         tap_code(KC_Q);
         tap_code(KC_ENT);
     }
+    // Toggle minicom line wrap (Ctrl+A, Z, W)
+    else if (leader_sequence_two_keys(KC_A, KC_W))
+    {
+        tap_code16(LCTL(KC_A));
+        tap_code(KC_Z);
+        tap_code(KC_W);
+    }
     // Save and quit nano (Ctrl+X, Y, Enter)
     else if (leader_sequence_one_key(KC_Y))
     {
