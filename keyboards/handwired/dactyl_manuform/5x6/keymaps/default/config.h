@@ -62,7 +62,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define NO_ACTION_ONESHOT
 // #define EXTRA_SHORT_COMBOS
 
-#define TAPPING_TERM 300
+#define TAPPING_TERM 265
 // #define QUICK_TAP_TERM 145
 #define FLOW_TAP_TERM 225
 // Fast typing threshold (ms)

@@ -113,12 +113,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB, TD(TD_Z_GRV), KC_X, KC_C, TD(TD_V_TAB), KC_B,                         KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_SCLN,
                        KC_HOME, KC_END,                                                    KC_PGUP, KC_PGDN,
                                         KC_SPC, KC_BSPC,              KC_DEL, KC_ENT,
-                                        KC_LCTL, OSL(_LEADR), KC_DEL, KC_LALT,
-                                        OSL(_LEADR), KC_CAPS,         KC_CAPS, OSL(_LEADR)
+                                        KC_ESC, OSL(_LEADR), KC_DEL, KC_LALT,
+                                        KC_LCTL, KC_CAPS,         KC_CAPS, OSL(_LEADR)
     ),
 
     [_LOWER] = LAYOUT_5x6(
-        KC_BSPC, LCTL(KC_1),LCTL(KC_2),LCTL(KC_TAB),LCTL(LSFT(KC_TAB)),KC_NO,               LALT(KC_ENT), LALT(KC_LEFT),LALT(KC_RGHT), LCTL(KC_TAB), KC_DEL, KC_PGUP,
+        KC_BSPC, LCTL(KC_1),LCTL(KC_2),LCTL(KC_TAB),LCTL(LSFT(KC_TAB)),LSFT(KC_TAB),               LALT(KC_ENT), LALT(KC_LEFT),LALT(KC_RGHT), LCTL(KC_TAB), KC_DEL, KC_PGUP,
         LALT(KC_GRV), LCTL(KC_Q),LCTL(KC_W),KC_LALT,LCTL(KC_R),LCTL(KC_T),       LCTL(KC_Y),LCTL(KC_U),LCTL(KC_I),LCTL(KC_O),LCTL(KC_P),KC_HOME,
         LALT(KC_TAB),LCTL(KC_A),LCTL(KC_S),LCTL(KC_D),LCTL(KC_F),LCTL(KC_0),          TO(_QWERTY), KC_UP, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
         LSFT(KC_TAB),LCTL(KC_Z),LCTL(KC_X),LCTL(KC_C),LCTL(KC_V),LCTL(KC_B),     LCTL(KC_N),DBL_DASH,DOT_SLS,DIR_UP,LCTL(KC_SLSH),KC_PGDN,
@@ -898,7 +898,11 @@ td_state_t cur_dance(tap_dance_state_t *state) {
         }
         else
         {
-            return TD_UNKNOWN;
+            // Interrupted while still held: another key rolled in before
+            // TAPPING_TERM expired (typing from idle, e.g. "fun" with F
+            // still down when U lands). Emit the tap instead of swallowing
+            // it; a deliberate hold isn't usable before the term anyway.
+            return TD_SINGLE_TAP;
         }
     }
     else if (state->count == 2) return TD_DOUBLE_TAP;
