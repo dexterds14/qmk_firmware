@@ -72,7 +72,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 bool rgb_matrix_indicators_user(void) {
     switch (get_highest_layer(layer_state)) {
         case _SWAY:
-            rgb_matrix_set_color_all(0, 60, 200); // blue
+            rgb_matrix_set_color_all(200, 0, 160); // magenta
             break;
         case _CTLX:
             rgb_matrix_set_color_all(0, 160, 40); // green
