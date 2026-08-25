@@ -168,8 +168,8 @@ const LAYERS = [
     [sm("Ctrl","inner"), td("H","2:Caps"), td("J","2:OSM⇧"), td("K","2:Raise\n3:Raise2"), "L","'", sm("OSM ⇧")],
     [kn("BOOT","push"), "N","M",",",".","/",";"],
   ],
-  lthumbs: ["Bksp","Space","Esc"],
-  rthumbs: [lk("Lead","oneshot"), "Enter", "Del"],
+  lthumbs: ["Space","Bksp","Esc"],
+  rthumbs: ["Enter", lk("Lead","oneshot"), "Del"],
 },
 {
   name: "Lower", color: "#25c05a",
@@ -186,8 +186,8 @@ const LAYERS = [
     [sm("PgDn","inner"), lk("Base","to layer"), "↑","←","↓","→","End"],
     [kn("","push"), sm("C-n"), sm("--","macro"), sm("./","macro"), sm("../","macro"), sm("C-/"), "PgDn"],
   ],
-  lthumbs: ["Shift","Ctrl","Space"],
-  rthumbs: ["Bksp","Enter","Del"],
+  lthumbs: ["Ctrl","Shift","Space"],
+  rthumbs: ["Enter","Bksp","Del"],
 },
 {
   name: "Raise", color: "#3b82f6",
@@ -204,8 +204,8 @@ const LAYERS = [
     [sm(";","inner"), lk("Raise2","to layer"), "(",")","-","\"", sm("Vol+")],
     [kn("","push"), sm("Mute"), X, "<", ">", "?", sm("Vol-")],
   ],
-  lthumbs: [T, lk("Base","to layer"), T],
-  rthumbs: [T, ";", T],
+  lthumbs: [lk("Base","to layer"), T, T],
+  rthumbs: [";", T, T],
 },
 {
   name: "Raise2", color: "#14b8a6",
@@ -222,8 +222,8 @@ const LAYERS = [
     [{...X}, ")", "⏮","⏯","⏭", T, sm("Vol+")],
     [kn("","push"), sm("RGB","toggle"), sm("RGB","next fx"), sm("Hue+"), sm("Sat+"), sm("Spd-"), sm("Spd+")],
   ],
-  lthumbs: [T, lk("Raise","to layer"), T],
-  rthumbs: [T, lk("Base","to layer"), T],
+  lthumbs: [lk("Raise","to layer"), T, T],
+  rthumbs: [lk("Base","to layer"), T, T],
 },
 {
   name: "Mouse", color: "#f2600c",
@@ -240,8 +240,8 @@ const LAYERS = [
     [T, lk("Base","to layer"), sm("Ms↑"), sm("Ms←"), sm("Ms↓"), sm("Ms→"), X],
     [kn("Btn2","push"), X, X, X, X, X, X],
   ],
-  lthumbs: [td("F","layer TD"), "Space", "Ctrl"],
-  rthumbs: [lk("Base","to layer"), "Enter", "Ctrl"],
+  lthumbs: ["Space", td("F","layer TD"), "Ctrl"],
+  rthumbs: ["Enter", lk("Base","to layer"), "Ctrl"],
 },
 {
   name: "Shortcuts (LEADR)", color: "#ef4444",
@@ -259,7 +259,7 @@ const LAYERS = [
     [kn("","push"), sm("C-S-n"), X, X, sm("./","macro"), X, X],
   ],
   lthumbs: [T, T, T],
-  rthumbs: [lk("Lead","leader"), lk("Lock","stay here"), T],
+  rthumbs: [lk("Lock","stay here"), lk("Lead","leader"), T],
 },
 ];
 
