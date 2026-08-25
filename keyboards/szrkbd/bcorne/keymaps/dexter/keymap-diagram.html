@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bcorne dexter keymap</title>
+<style>
+  :root {
+    --bg: #14161c;
+    --panel: #1c1f28;
+    --key: #262a36;
+    --key-edge: #333949;
+    --text: #e8eaf0;
+    --sub: #9aa3b5;
+    --dim: #4a5164;
+    --accent-td: #d4a04c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "DejaVu Sans", "Segoe UI", system-ui, sans-serif;
+    padding: 24px 16px 64px;
+  }
+  h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  .subtitle { color: var(--sub); margin: 0 0 28px; font-size: 0.9rem; }
+  .layer {
+    background: var(--panel);
+    border-radius: 14px;
+    border-left: 6px solid var(--layer-color, var(--dim));
+    padding: 18px 20px 20px;
+    margin: 0 auto 34px;
+    max-width: 1180px;
+    overflow-x: auto;
+  }
+  .layer h2 {
+    margin: 0 0 2px;
+    font-size: 1.15rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .swatch {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--layer-color, var(--dim));
+    display: inline-block;
+    box-shadow: 0 0 8px var(--layer-color, transparent);
+  }
+  .layer .how { color: var(--sub); font-size: 0.82rem; margin: 0 0 14px; }
+  .halves {
+    display: flex; gap: 46px; justify-content: center;
+    min-width: 1080px;
+  }
+  .half { display: grid; grid-template-columns: repeat(7, 72px); gap: 5px; }
+  .key {
+    height: 58px;
+    background: var(--key);
+    border: 1px solid var(--key-edge);
+    border-radius: 7px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 3px 2px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .key .main { font-size: 0.86rem; font-weight: 600; line-height: 1.15; }
+  .key .sub { font-size: 0.62rem; color: var(--sub); line-height: 1.25; margin-top: 1px; }
+  .key.small .main { font-size: 0.72rem; }
+  .key.td { border-color: var(--accent-td); border-width: 1.5px; }
+  .key.layerkey .main { color: var(--layer-target, var(--text)); }
+  .key.trans { background: transparent; border-style: dashed; }
+  .key.trans .main { color: var(--dim); }
+  .key.none { background: transparent; border-color: #232734; }
+  .key.knob { border-radius: 50%; background: #20242f; border-style: double; border-width: 3px; }
+  .key.gap { visibility: hidden; }
+  .thumbrow { display: contents; }
+  .thumb { height: 52px; border-radius: 20px; }
+  .legend, .tables {
+    max-width: 1180px; margin: 0 auto 34px;
+    background: var(--panel); border-radius: 14px; padding: 18px 22px;
+  }
+  .legend h2, .tables h2 { font-size: 1.05rem; margin: 0 0 12px; }
+  table { border-collapse: collapse; font-size: 0.85rem; width: 100%; }
+  th, td { text-align: left; padding: 5px 14px 5px 0; border-bottom: 1px solid #2a2f3d; }
+  th { color: var(--sub); font-weight: 600; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  code { background: #262a36; padding: 1px 5px; border-radius: 4px; font-size: 0.85em; }
+  .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+  @media (max-width: 800px) { .cols2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<h1>szrkbd/bcorne &mdash; dexter keymap</h1>
+<p class="subtitle">Split 4&times;6 + inner-column keys + knob pushes + 3 thumbs per side.
+Gold-bordered keys are tap-dances (details below the grids). Dashed <span style="color:#4a5164">&#9661;</span> = transparent (falls through), blank = no-op.
+Layer stripe colors match the board's RGB indicator.</p>
+
+<div id="layers"></div>
+
+<div class="legend">
+  <h2>Tap-dance keys (gold borders, base layer)</h2>
+  <table>
+    <tr><th>Key</th><th>1 tap</th><th>2 taps</th><th>Hold</th><th>3 taps</th></tr>
+    <tr><td>F</td><td>f</td><td>Lower oneshot (2&times; again &rarr; lock)</td><td>Mouse layer</td><td>Lower lock</td></tr>
+    <tr><td>K</td><td>k</td><td>Raise oneshot</td><td>&mdash;</td><td>Raise2 oneshot</td></tr>
+    <tr><td>S / J</td><td>s / j</td><td>Oneshot Shift</td><td>&mdash;</td><td>&mdash;</td></tr>
+    <tr><td>D</td><td>d</td><td>Oneshot Alt</td><td>&mdash;</td><td>Alt mod-lock toggle (purple pulse)</td></tr>
+    <tr><td>G / H</td><td>g / h</td><td>Caps Lock toggle (yellow)</td><td>&mdash;</td><td>&mdash;</td></tr>
+    <tr><td>V</td><td>v</td><td>Tab</td><td>&mdash;</td><td>&mdash;</td></tr>
+    <tr><td>Q</td><td>q</td><td>~</td><td>&mdash;</td><td>&mdash;</td></tr>
+    <tr><td>Z</td><td>z</td><td>`</td><td>&mdash;</td><td>&mdash;</td></tr>
+  </table>
+</div>
+
+<div class="tables">
+  <div class="cols2">
+    <div>
+      <h2>Leader sequences (right middle thumb, magenta while recording)</h2>
+      <table>
+        <tr><th>Sequence</th><th>Sends</th><th>Purpose</th></tr>
+        <tr><td>Lead, h</td><td><code>Ctrl+H</code></td><td>Control-H</td></tr>
+        <tr><td>Lead, a, q</td><td><code>C-a z q Enter</code></td><td>Quit minicom</td></tr>
+        <tr><td>Lead, a, w</td><td><code>C-a z w</code></td><td>Minicom line-wrap toggle</td></tr>
+        <tr><td>Lead, y</td><td><code>C-x y Enter</code></td><td>Nano save &amp; quit</td></tr>
+        <tr><td>Lead, Ctrl, i</td><td><code>Ctrl+Alt+I</code></td><td>Sway lock / hibernate</td></tr>
+      </table>
+    </div>
+    <div>
+      <h2>Knobs (turn; push shown on grids)</h2>
+      <table>
+        <tr><th>Layer</th><th>Left knob</th><th>Right knob</th></tr>
+        <tr><td>Base</td><td>Volume &minus;/+</td><td>PgUp / PgDn</td></tr>
+        <tr><td>Lower</td><td>Ctrl+Shift+Tab / Ctrl+Tab</td><td>Alt+&larr; / Alt+&rarr;</td></tr>
+        <tr><td>Raise</td><td>(falls through)</td><td>Rewind / Fast-fwd</td></tr>
+        <tr><td>Raise2</td><td>RGB prev/next effect</td><td>RGB brightness &minus;/+</td></tr>
+        <tr><td>Mouse</td><td>Wheel up/down</td><td>Wheel left/right</td></tr>
+        <tr><td>Shortcuts</td><td>(falls through)</td><td>(falls through)</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+// Key spec: string = plain label; [main, sub] = label + note;
+// {m, s, cls} for special classes: td (tap dance), trans, none, knob, layerkey.
+const T = { m: "▽", cls: "trans" };   // transparent
+const X = { m: "", cls: "none" };          // KC_NO
+function td(m, s)   { return { m, s, cls: "td" }; }
+function lk(m, s)   { return { m, s, cls: "layerkey small" }; }
+function kn(m, s)   { return { m, s, cls: "knob small" }; }
+function sm(m, s)   { return { m, s, cls: "small" }; }
+
+// Each half: 4 rows of 7 cells. Left: cols 0-5 main, col 6 = inner/knob col
+// (row 0 col 6 is a gap). Right: col 0 = inner/knob col, cols 1-6 main.
+// Thumbs: 3 keys, listed inner->outer.
+const LAYERS = [
+{
+  name: "Base (QWERTY)", color: "#8a8f9c",
+  how: "Default layer. RGB shows the ambient matrix effect.",
+  left: [
+    ["Esc","1","2","3","4","5",{m:"",cls:"gap"}],
+    ["`", td("Q","2:~"), "W","E","R","T", sm("PgUp","inner")],
+    [sm("OSM ⇧"), "A", td("S","2:OSM⇧"), td("D","2:OSM Alt\n3:Alt lock"), td("F","2:Lower\nhold:Mouse"), td("G","2:Caps"), sm("PgDn","inner")],
+    ["Tab", td("Z","2:`"), "X","C", td("V","2:Tab"), "B", kn("BOOT","push")],
+  ],
+  right: [
+    [{m:"",cls:"gap"},"6","7","8","9","0","\\"],
+    [sm("Alt","inner"), "Y","U","I","O","P","-"],
+    [sm("Ctrl","inner"), td("H","2:Caps"), td("J","2:OSM⇧"), td("K","2:Raise\n3:Raise2"), "L","'", sm("OSM ⇧")],
+    [kn("BOOT","push"), "N","M",",",".","/",";"],
+  ],
+  lthumbs: ["Bksp","Space","Esc"],
+  rthumbs: [lk("Lead","oneshot"), "Enter", "Del"],
+},
+{
+  name: "Lower", color: "#25c05a",
+  how: "F 2× = oneshot · F 2×,2× or 3× = lock (green, pulsing when locked). Mostly Ctrl-chords.",
+  left: [
+    ["Bksp", sm("C-1"), sm("C-2"), sm("C-Tab"), sm("C-S-Tab"), sm("S-Tab"), {m:"",cls:"gap"}],
+    [sm("A-`"), sm("C-q"), sm("C-w"), "Alt", sm("C-r"), sm("C-t"), sm("Home","inner")],
+    [sm("A-Tab"), sm("C-a"), sm("C-s"), sm("C-d"), sm("C-f"), sm("C-0"), sm("End","inner")],
+    [sm("S-Tab"), sm("C-z"), sm("C-x"), sm("C-c"), sm("C-v"), sm("C-b"), kn("","push")],
+  ],
+  right: [
+    [{m:"",cls:"gap"}, sm("A-Ent"), sm("A-←"), sm("A-→"), sm("C-Tab"), "Del", "PgUp"],
+    [sm("PgUp","inner"), sm("C-y"), sm("C-u"), sm("C-i"), sm("C-o"), sm("C-p"), "Home"],
+    [sm("PgDn","inner"), lk("Base","to layer"), "↑","←","↓","→","End"],
+    [kn("","push"), sm("C-n"), sm("--","macro"), sm("./","macro"), sm("../","macro"), sm("C-/"), "PgDn"],
+  ],
+  lthumbs: ["Shift","Ctrl","Space"],
+  rthumbs: ["Bksp","Enter","Del"],
+},
+{
+  name: "Raise", color: "#3b82f6",
+  how: "K 2× = oneshot (blue). Symbols and F-keys.",
+  left: [
+    ["F12","F1","F2","F3","F4","F5",{m:"",cls:"gap"}],
+    ["`","!","@","#","$","%", sm("⏯","inner")],
+    ["Esc",":","=","_","|", lk("Base","to layer"), sm("⏹","inner")],
+    [sm("PrtSc"),"Esc","`","{","}","^", kn("","push")],
+  ],
+  right: [
+    [{m:"",cls:"gap"},"F6","F7","F8","F9","F10","F11"],
+    [sm("=","inner"),"^","&","*","[","]","+"],
+    [sm(";","inner"), lk("Raise2","to layer"), "(",")","-","\"", sm("Vol+")],
+    [kn("","push"), sm("Mute"), X, "<", ">", "?", sm("Vol-")],
+  ],
+  lthumbs: [T, lk("Base","to layer"), T],
+  rthumbs: [T, ";", T],
+},
+{
+  name: "Raise2", color: "#14b8a6",
+  how: "K 3× = oneshot (teal). RGB controls, media, arrows.",
+  left: [
+    ["F12","F1","F2","F3","F4","F5",{m:"",cls:"gap"}],
+    [X, sm("BOOT"), T, X, lk("Raise","to layer"), X, {...X}],
+    [T, "←","↑","↓","→", lk("Base","to layer"), {...X}],
+    [T, T, T, T, T, "(", kn("RGB","toggle")],
+  ],
+  right: [
+    [{m:"",cls:"gap"},"F6","F7","F8","F9","F10","F11"],
+    [{...X}, lk("Base","to layer"), X, X, X, sm("BOOT"), X],
+    [{...X}, ")", "⏮","⏯","⏭", T, sm("Vol+")],
+    [kn("","push"), sm("RGB","toggle"), sm("RGB","next fx"), sm("Hue+"), sm("Sat+"), sm("Spd-"), sm("Spd+")],
+  ],
+  lthumbs: [T, lk("Raise","to layer"), T],
+  rthumbs: [T, lk("Base","to layer"), T],
+},
+{
+  name: "Mouse", color: "#f2600c",
+  how: "Hold F (deep orange). Cursor on right half, buttons/wheel on left.",
+  left: [
+    ["F12","F1","F2","F3","F4","F5",{m:"",cls:"gap"}],
+    [X, T, X, X, X, X, sm("Alt","inner")],
+    [sm("Btn3"), sm("Whl←"), sm("Whl→"), sm("Btn2"), sm("Btn1"), X, lk("Lead","inner\noneshot")],
+    [X, "⇧", "Tab", sm("Whl↑"), sm("Whl↓"), X, kn("Btn1","push")],
+  ],
+  right: [
+    [{m:"",cls:"gap"},"F6","F7","F8","F9","F10","F11"],
+    [T, X, sm("Whl↑"), sm("Whl↓"), "+", "-", X],
+    [T, lk("Base","to layer"), sm("Ms↑"), sm("Ms←"), sm("Ms↓"), sm("Ms→"), X],
+    [kn("Btn2","push"), X, X, X, X, X, X],
+  ],
+  lthumbs: [td("F","layer TD"), "Space", "Ctrl"],
+  rthumbs: [lk("Base","to layer"), "Enter", "Ctrl"],
+},
+{
+  name: "Shortcuts (LEADR)", color: "#ef4444",
+  how: "Right middle thumb, oneshot (red). Ctrl+Shift chords; Lead key re-arms the leader (magenta while recording).",
+  left: [
+    [X, X, X, X, sm("A-F4"), X, {m:"",cls:"gap"}],
+    [sm("EEPROM","clear"), sm("C-`"), X, sm("C-S-e"), sm("C-S-r"), sm("C-S-t"), lk("Lead","inner")],
+    [X, sm("C-S-a"), sm("C-S-s"), sm("A-S-d"), sm("C-S-f"), lk("Base","to layer"), {m:"▽",cls:"trans"}],
+    [X, sm("C-S-z"), X, sm("C-S-c"), sm("C-S-v"), X, kn("","push")],
+  ],
+  right: [
+    [{m:"",cls:"gap"}, X, X, X, X, X, X],
+    [sm("=","inner"), X, X, X, sm("C-S-o"), sm("C-S-p"), X],
+    [{m:"▽",cls:"trans"}, X, sm("A-↑"), sm("A-←"), sm("A-↓"), sm("A-→"), X],
+    [kn("","push"), sm("C-S-n"), X, X, sm("./","macro"), X, X],
+  ],
+  lthumbs: [T, T, T],
+  rthumbs: [lk("Lead","leader"), lk("Lock","stay here"), T],
+},
+];
+
+function keyEl(spec, extraCls) {
+  const div = document.createElement("div");
+  let m = "", s = "", cls = "";
+  if (spec == null) { cls = "gap"; }
+  else if (typeof spec === "string") { m = spec; if (m.length > 4) cls = "small"; }
+  else if (Array.isArray(spec)) { [m, s] = spec; }
+  else { m = spec.m ?? ""; s = spec.s ?? ""; cls = spec.cls ?? ""; }
+  div.className = ("key " + cls + " " + (extraCls || "")).trim();
+  if (!m && !s && !cls) div.className += " none";
+  const main = document.createElement("div");
+  main.className = "main"; main.textContent = m;
+  div.appendChild(main);
+  if (s) {
+    const sub = document.createElement("div");
+    sub.className = "sub";
+    sub.innerHTML = s.replace(/\n/g, "<br>");
+    div.appendChild(sub);
+  }
+  return div;
+}
+
+const root = document.getElementById("layers");
+for (const L of LAYERS) {
+  const sec = document.createElement("section");
+  sec.className = "layer";
+  sec.style.setProperty("--layer-color", L.color);
+  sec.innerHTML = `<h2><span class="swatch"></span>${L.name}</h2><p class="how">${L.how}</p>`;
+  const halves = document.createElement("div");
+  halves.className = "halves";
+  for (const side of ["left", "right"]) {
+    const half = document.createElement("div");
+    half.className = "half";
+    for (const row of L[side]) for (const k of row) half.appendChild(keyEl(k));
+    // Thumb row: left thumbs sit at inner edge (cols 5-7), right at cols 1-3.
+    // Specs are listed inner->outer, transcribed 1:1 from keymap.c's LAYOUT
+    // order (big/inner key first); render in physical column order.
+    const thumbs = side === "left" ? [...L.lthumbs].reverse() : L.rthumbs;
+    const pads = side === "left" ? 4 : 0;
+    for (let i = 0; i < pads; i++) half.appendChild(keyEl(null));
+    for (const t of thumbs) half.appendChild(keyEl(t, "thumb"));
+    if (side === "right") for (let i = 0; i < 4; i++) half.appendChild(keyEl(null));
+    halves.appendChild(half);
+  }
+  sec.appendChild(halves);
+  root.appendChild(sec);
+}
+</script>
+</body>
+</html>
