@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ymd09 dexter keymap</title>
+<style>
+  :root {
+    --bg: #14161c;
+    --panel: #1c1f28;
+    --key: #262a36;
+    --key-edge: #333949;
+    --text: #e8eaf0;
+    --sub: #9aa3b5;
+    --dim: #4a5164;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "DejaVu Sans", "Segoe UI", system-ui, sans-serif;
+    padding: 24px 16px 64px;
+  }
+  h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  .subtitle { color: var(--sub); margin: 0 0 28px; font-size: 0.9rem; max-width: 900px; }
+  .grid-of-layers {
+    display: flex; flex-wrap: wrap; gap: 26px;
+    max-width: 1180px; margin: 0 auto 34px;
+  }
+  .layer {
+    background: var(--panel);
+    border-radius: 14px;
+    border-left: 6px solid var(--layer-color, var(--dim));
+    padding: 18px 20px 20px;
+  }
+  .layer h2 {
+    margin: 0 0 2px;
+    font-size: 1.1rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .swatch {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--layer-color, var(--dim));
+    display: inline-block;
+    box-shadow: 0 0 8px var(--layer-color, transparent);
+  }
+  .layer .how { color: var(--sub); font-size: 0.8rem; margin: 0 0 14px; max-width: 300px; }
+  .pad { display: grid; grid-template-columns: repeat(3, 92px); gap: 6px; }
+  .key {
+    height: 74px;
+    background: var(--key);
+    border: 1px solid var(--key-edge);
+    border-radius: 8px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 4px 3px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .key .main { font-size: 0.95rem; font-weight: 600; line-height: 1.15; }
+  .key .sub { font-size: 0.66rem; color: var(--sub); line-height: 1.25; margin-top: 2px; }
+  .key.small .main { font-size: 0.78rem; }
+  .key.layerkey { border-width: 1.5px; border-color: var(--lt, var(--key-edge)); }
+  .key.layerkey .main { color: var(--lt, var(--text)); }
+  .key.trans { background: transparent; border-style: dashed; }
+  .key.trans .main { color: var(--dim); }
+  .key.none { background: transparent; border-color: #232734; }
+  .tables {
+    max-width: 1180px; margin: 0 auto 34px;
+    background: var(--panel); border-radius: 14px; padding: 18px 22px;
+  }
+  .tables h2 { font-size: 1.05rem; margin: 0 0 12px; }
+  table { border-collapse: collapse; font-size: 0.85rem; }
+  th, td { text-align: left; padding: 5px 18px 5px 0; border-bottom: 1px solid #2a2f3d; }
+  th { color: var(--sub); font-weight: 600; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  code { background: #262a36; padding: 1px 5px; border-radius: 4px; font-size: 0.85em; }
+</style>
+</head>
+<body>
+<h1>ymdk/ymd09 &mdash; dexter keymap</h1>
+<p class="subtitle">3&times;3 nav/layer pad, adapted from the ZMX Panda20 layout.
+The bottom row's layer keys are one-shot with lock (<code>ONESHOT_TAP_TOGGLE 2</code>):
+tap = next keypress on that layer, double-tap = lock, tap again = unlock, hold = momentary.
+The whole board glows the active layer's color (which doubles as "one-shot armed" feedback).
+Dashed &#9661; = transparent, blank = no-op.</p>
+
+<div class="grid-of-layers" id="layers"></div>
+
+<div class="tables">
+  <h2>Macros</h2>
+  <table>
+    <tr><th>Key</th><th>Sends</th><th>Purpose</th></tr>
+    <tr><td>Minicom quit</td><td><code>C-a z q Enter</code></td><td>The bcorne "a-q" leader as a direct macro</td></tr>
+    <tr><td>Nano save-quit</td><td><code>C-x y Enter</code></td><td>The bcorne "y" leader as a direct macro</td></tr>
+  </table>
+</div>
+
+<script>
+// Cell spec: string = plain label; {m, s, cls, lt} for styled keys.
+// lt tints a layer-switch key with its target layer's color.
+const T = { m: "▽", cls: "trans" };
+const X = { m: "", cls: "none" };
+function sm(m, s) { return { m, s, cls: "small" }; }
+function lk(m, s, lt) { return { m, s, cls: "layerkey small", lt }; }
+
+const COLORS = {
+  base:  "#8a8f9c",                 // dim white on the board
+  sway:  "rgb(200, 0, 160)",        // magenta
+  ctlx:  "rgb(0, 160, 40)",         // green
+  short: "rgb(200, 110, 0)",        // amber
+  work:  "rgb(80, 0, 200)",         // purple
+};
+
+const LAYERS = [
+{
+  name: "Base", color: COLORS.base,
+  how: "Nav cluster; bottom row arms the three layers (one-shot / lock / hold).",
+  rows: [
+    ["PgUp", "↑", "PgDn"],
+    ["←", "↓", "→"],
+    [lk("Short", "OSL", COLORS.short), lk("Ctl-X", "OSL", COLORS.ctlx), lk("Sway", "OSL", COLORS.sway)],
+  ],
+},
+{
+  name: "Sway", color: COLORS.sway,
+  how: "Sway movement (Alt chords), from bottom-right. Bottom-middle chains into the workspace layer.",
+  rows: [
+    [sm("A-u"), sm("A-j"), sm("A-o")],
+    [sm("A-k"), sm("A-l"), sm("A-'")],
+    [sm("A-i"), lk("Work", "OSL", COLORS.work), T],
+  ],
+},
+{
+  name: "Ctl-X", color: COLORS.ctlx,
+  how: "Ctrl chords, from bottom-middle.",
+  rows: [
+    [sm("C-0"), sm("C-1"), sm("C-2")],
+    [sm("C-S-Tab"), X, sm("C-Tab")],
+    [sm("C-`"), T, sm("C-b")],
+  ],
+},
+{
+  name: "Shortcuts", color: COLORS.short,
+  how: "From bottom-left. Bootloader + terminal macros.",
+  rows: [
+    [sm("BOOT"), sm("Nano", "save-quit"), X],
+    [sm("Minicom", "quit"), sm("C-S-c"), sm("C-S-v")],
+    [T, X, X],
+  ],
+},
+{
+  name: "Workspace", color: COLORS.work,
+  how: "Sway workspace switching, entered from Sway's bottom-middle. Arranged 5-4-6 over 3-2-1 by workspace number; bottom-middle repeats OSL so a stuck lock always unlocks.",
+  rows: [
+    [sm("A-g", "ws5"), sm("A-a", "ws4"), sm("A-h", "ws6")],
+    [sm("A-s", "ws3"), sm("A-d", "ws2"), sm("A-f", "ws1")],
+    [X, lk("Work", "OSL", COLORS.work), X],
+  ],
+},
+];
+
+function keyEl(spec) {
+  const div = document.createElement("div");
+  let m = "", s = "", cls = "", lt = "";
+  if (typeof spec === "string") { m = spec; if (m.length > 4) cls = "small"; }
+  else { m = spec.m ?? ""; s = spec.s ?? ""; cls = spec.cls ?? ""; lt = spec.lt ?? ""; }
+  div.className = ("key " + cls).trim();
+  if (lt) div.style.setProperty("--lt", lt);
+  const main = document.createElement("div");
+  main.className = "main"; main.textContent = m;
+  div.appendChild(main);
+  if (s) {
+    const sub = document.createElement("div");
+    sub.className = "sub"; sub.textContent = s;
+    div.appendChild(sub);
+  }
+  return div;
+}
+
+const root = document.getElementById("layers");
+for (const L of LAYERS) {
+  const sec = document.createElement("section");
+  sec.className = "layer";
+  sec.style.setProperty("--layer-color", L.color);
+  sec.innerHTML = `<h2><span class="swatch"></span>${L.name}</h2><p class="how">${L.how}</p>`;
+  const pad = document.createElement("div");
+  pad.className = "pad";
+  for (const row of L.rows) for (const k of row) pad.appendChild(keyEl(k));
+  sec.appendChild(pad);
+  root.appendChild(sec);
+}
+</script>
+</body>
+</html>
