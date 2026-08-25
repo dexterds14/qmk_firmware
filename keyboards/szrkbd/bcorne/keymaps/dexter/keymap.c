@@ -119,9 +119,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_PSCR,       KC_ESC,        KC_GRV,        KC_LCBR,       KC_RCBR,        KC_CIRC,       KC_NO,
                                                      _______,       _______,        TO(_QWERTY),
                        KC_F6,         KC_F7,         KC_F8,         KC_F9,          KC_F10,        KC_F11,
-        KC_EQL,        KC_CIRC,       KC_AMPR,       KC_ASTR,       KC_LBRC,        KC_RBRC,       KC_PLUS,
-        KC_SCLN,       TO(_RAISE2),   KC_LPRN,       KC_RPRN,       KC_MINS,        KC_DQUO,       KC_VOLU,
-        KC_NO,         KC_MUTE,       KC_NO,         KC_LT,         KC_GT,          KC_QUES,       KC_VOLD,
+        KC_VOLU,       KC_CIRC,       KC_AMPR,       KC_ASTR,       KC_LBRC,        KC_RBRC,       KC_PLUS,
+        KC_VOLD,       TO(_RAISE2),   KC_LPRN,       KC_RPRN,       KC_MINS,        KC_DQUO,       KC_EQL,
+        KC_NO,         KC_MUTE,       KC_NO,         KC_LT,         KC_GT,          KC_QUES,       KC_SCLN,
                                                      KC_SCLN,       _______,        _______
     ),
 
