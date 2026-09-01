@@ -284,16 +284,41 @@ static void rgb_paint_all(uint8_t led_min, uint8_t led_max, uint8_t hue, uint8_t
     }
 }
 
-// Breathing value for "locked" indicator states: ~2s triangle wave off the
+// Lock-pulse timing (ms). Each half-cycle walks an 8-bit phase 0..255 that is
+// then squared (see below); phase 0..15 squares to 0, so that stretch is the
+// true-black dwell and is kept at the original 4 ms/step. Phase 16..255 --
+// the visible fade plus the hold at the brightness cap (phase^2>>8 hits
+// RGB_MATRIX_MAXIMUM_BRIGHTNESS=150 at phase 196, and rgb_paint_all clamps
+// from there) -- is stretched +15% over the original 960 ms. The black dwell
+// stays 64 ms per side; the fade-out tail is what the eye loses first when
+// bright-adapted, so it must not get longer as a side effect.
+#define PULSE_BLACK_MS  64                                 // phase 0..15
+#define PULSE_RAMP_MS   1104                               // phase 16..255 (960 * 1.15)
+#define PULSE_HALF_MS   (PULSE_BLACK_MS + PULSE_RAMP_MS)   // 1168
+#define PULSE_PERIOD_MS (2 * PULSE_HALF_MS)                // 2336
+
+// Breathing value for "locked" indicator states: ~2.3s triangle wave off the
 // RGB frame timer (keeps both halves' pulses phase-coherent per frame)
 static uint8_t lock_pulse_val(void)
 {
-    uint16_t t     = g_rgb_timer & 2047;
-    uint8_t  phase = (t < 1024) ? (t >> 2) : ((2047 - t) >> 2);   // 0..255..0
+    uint16_t t = g_rgb_timer % PULSE_PERIOD_MS;
+    if (t >= PULSE_HALF_MS)
+    {
+        t = PULSE_PERIOD_MS - 1 - t;   // mirror the falling half onto the rising one
+    }
+    uint8_t phase;
+    if (t < PULSE_BLACK_MS)
+    {
+        phase = t >> 2;                                                      // 0..15
+    }
+    else
+    {
+        phase = 16 + (uint32_t)(t - PULSE_BLACK_MS) * 240 / PULSE_RAMP_MS;   // 16..255
+    }
     // A linear ramp reads as fast-fade + long bright hold (LED output is
     // linear but eyes are logarithmic: values 128-255 all look "full").
     // Square the phase so the visible fade fills the whole cycle.
-    return (uint8_t)(((uint16_t)phase * phase) >> 8);             // 0..~255
+    return (uint8_t)(((uint16_t)phase * phase) >> 8);                        // 0..~255
 }
 
 // Diagnostic v2 (disabled; re-enable the define to re-run): on the BASE LAYER,
