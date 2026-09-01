@@ -371,11 +371,13 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
     }
     else if (layer_state_is(_MOUSE))
     {
-        rgb_paint_all(led_min, led_max, 14, 255, 255);   // deep orange (HSV_ORANGE is hue 21; lower = toward red)
+        rgb_paint_all(led_min, led_max, 6, 255, 255);    // coral/red-orange (hue 6; distinct from the yellowish idle)
     }
     else if (layer_state_is(_CAPSIND) || host_keyboard_led_state().caps_lock)
     {
-        rgb_paint_all(led_min, led_max, HSV_YELLOW);
+        // caps lock is a lock state: same white as Shift, but breathing (like
+        // locked lower) so it's distinguishable from a momentary Shift oneshot
+        rgb_paint_all(led_min, led_max, 0, 0, lock_pulse_val());   // pulsing white (HSV_WHITE hue/sat)
     }
     else if (layer_state_is(_LOWER))
     {
