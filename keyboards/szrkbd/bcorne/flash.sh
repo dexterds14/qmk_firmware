@@ -146,8 +146,10 @@ count_app_devices() {
 # --- Linux main loop ----------------------------------------------------
 
 MAX_ATTEMPTS=5
-SETTLE_CLEAN=30   # write reported success: board may stall ~50s flashing
-SETTLE_ERROR=25   # write errored: transfer is likely already dead
+# Observed on hardware: a flash that actually sticks boots the app in well
+# under 15s, so there is no point waiting longer to judge the outcome.
+SETTLE_CLEAN=15   # write reported success: wait this long for the app to boot
+SETTLE_ERROR=15   # write errored: same window to see if it booted anyway
 
 echo "Waiting for the Plum bootloader (USB 239a:005d) ..."
 attempt=1
@@ -165,7 +167,7 @@ while :; do
     w0=$(date +%s)
     if write_uf2 "$vol" 2>/dev/null; then
         settle=$SETTLE_CLEAN
-        echo "Write completed in $(($(date +%s) - w0))s; waiting up to ${settle}s for the board to reboot (successful flashes can stall ~50s)"
+        echo "Write completed in $(($(date +%s) - w0))s; waiting up to ${settle}s for the board to reboot"
     else
         settle=$SETTLE_ERROR
         echo "Write errored after $(($(date +%s) - w0))s; watching what the board does (up to ${settle}s)"
