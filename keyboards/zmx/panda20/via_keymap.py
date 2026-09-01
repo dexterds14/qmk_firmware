@@ -244,8 +244,11 @@ PHYS = [["Esc", "Fn", "Tab", "BspL", "Bspc"],
 
 def row_comment(r, row):
     """physical name where bound; -- for KC_TRNS; xx for KC_NO"""
-    return " | ".join("xx" if v == 0x00 else "--" if v == 0x01
-                      else PHYS[r][c] for c, v in enumerate(row))
+    names = ("xx" if v == 0x00 else "--" if v == 0x01
+             else PHYS[r][c] for c, v in enumerate(row))
+    # pad each cell to the widest physical name ("Enter") so the comment
+    # columns line up vertically across rows and layers
+    return " | ".join(n.ljust(5) for n in names).rstrip()
 
 
 def fmt_keymap(km):
