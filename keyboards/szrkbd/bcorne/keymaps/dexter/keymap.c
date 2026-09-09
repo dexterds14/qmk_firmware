@@ -158,7 +158,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,         LCTL(LSFT(KC_Z)), KC_NO,      LCTL(LSFT(KC_C)), LCTL(LSFT(KC_V)), KC_NO,   KC_NO,
                                                      _______,       _______,        _______,
                        KC_NO,         KC_NO,         KC_NO,         KC_NO,          KC_NO,         KC_NO,
-        KC_EQL,        KC_NO,         KC_NO,         KC_NO,         LCTL(LSFT(KC_O)), LCTL(LSFT(KC_P)), KC_NO,
+        KC_EQL,        KC_NO,         KC_NO,         KC_NO,         LCTL(LSFT(KC_O)), LCTL(LSFT(KC_P)), LCTL(LSFT(KC_EQL)),
         _______,       KC_NO,         LALT(KC_UP),   LALT(KC_LEFT), LALT(KC_DOWN),  LALT(KC_RIGHT), KC_NO,
         KC_NO,         LCTL(LSFT(KC_N)), KC_NO,      KC_NO,         DOT_SLS,        KC_NO,         KC_NO,
                                                      TO(_LEADR),    QK_LEAD,        _______
