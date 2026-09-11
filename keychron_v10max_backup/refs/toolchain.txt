@@ -1,0 +1,9 @@
+arm-none-eabi-gcc (crosstool-NG 1.27.0.82_7f9d704 - qmk/qmk_toolchains @ a55a2b0) 15.2.0
+ref commit 1011db8c8d (2024-07-01) wireless_playground; built 2026-09-11
+Reference builds (all at fork commit 1011db8c8d, local QMK toolchain gcc 15.2.0):
+  ref1011_default(.elf/.map/.bin)      keymaps/default, no LTO       bin 92480
+  ref1011_default_lto                   keymaps/default, LTO_ENABLE   bin 85688
+  ref1011_via / ref1011_via_lto         keymaps/via (VIA on)          bin 95164 / 88324
+  ref1011_feat / ref1011_feat_lto       keymaps/ref_feat (recovered 6-layer table + placeholder TD/leader/custom keycodes, TAPPING_TERM 140, VIA off)  bin 95280 / 88168
+Round-trip: keymaps[] bytes of ref1011_feat and ref1011_feat_lto are byte-identical to dump_a.bin[0x169B8:0x16EC8].
+Dump code region 0x8000-0x17F04 (98052 B total image) for comparison.

@@ -1,0 +1,738 @@
+{
+ "action_layer": {
+  "default_layer_and": "0x0800dbf8",
+  "default_layer_or": "0x0800dbe8",
+  "default_layer_state": "0x20001630",
+  "default_layer_state_set": "0x0800dbd0",
+  "default_layer_xor": "0x0800dc08",
+  "layer_and": "0x0800dcb8",
+  "layer_clear": "0x0800dc34",
+  "layer_invert": "0x0800dc90",
+  "layer_move": "0x0800dc58",
+  "layer_off": "0x0800dc7c",
+  "layer_or": "0x0800dca8",
+  "layer_state": "0x2000162e",
+  "layer_state_is": "0x0800dc3c",
+  "layer_state_set": "0x0800dc24",
+  "layer_xor": "0x0800dcc8"
+ },
+ "consumer_lut": [
+  {
+   "addr": "0x08016ec8",
+   "refs": [
+    "0x0800d5fc in register_code"
+   ]
+  },
+  {
+   "addr": "0x08016efe",
+   "refs": [
+    "0x0800ea60 in action_for_keycode"
+   ]
+  }
+ ],
+ "crt0": {
+  "__bss_base__": "0x200013b8",
+  "__bss_end__": "0x20004b88",
+  "__data_base__": "0x20000c00",
+  "__data_end__": "0x200013b8",
+  "__textdata_base__": "0x0801774c",
+  "dloop_ldr_addrs": [
+   134250636,
+   134250638,
+   134250640
+  ],
+  "main": "0x0800f084"
+ },
+ "custom_keycodes": [
+  {
+   "actions": [
+    "register_code(KC_DOT)",
+    "unregister_code(KC_DOT)",
+    "register_code(KC_SLASH)",
+    "unregister_code(KC_SLASH)"
+   ],
+   "keycode": "0x7e40",
+   "name": "QK_USER_0",
+   "site": "0x0800d17e"
+  },
+  {
+   "actions": [
+    "register_code(KC_DOT)",
+    "unregister_code(KC_DOT)",
+    "register_code(KC_DOT)",
+    "unregister_code(KC_DOT)",
+    "register_code(KC_SLASH)",
+    "unregister_code(KC_SLASH)"
+   ],
+   "keycode": "0x7e41",
+   "name": "QK_USER_1",
+   "site": "0x0800d1a2"
+  }
+ ],
+ "dip_default_layer_set_sites": [
+  {
+   "in": "dip_switch_update_kb",
+   "preceding": [
+    "cmp r1, #0",
+    "ite eq",
+    "moveq r0, #4",
+    "movne r0, #1"
+   ],
+   "site": "0x0800cd28"
+  }
+ ],
+ "dip_switch_read": {
+  "addr": "0x0801189c",
+  "ram": [
+   "0x20001ff9",
+   "0x20001ffa"
+  ]
+ },
+ "dip_switch_update_kb": "0x0800cd18",
+ "encoder_event_path_funcs": [
+  {
+   "addr": "0x0800ea64",
+   "name": "keymap_key_to_keycode"
+  },
+  {
+   "addr": "0x080116d0",
+   "name": "sub_080116d0"
+  }
+ ],
+ "encoder_map": {
+  "accessor": "0x0800d2a8",
+  "addr": "0x080169a0",
+  "entries": [
+   {
+    "ccw": "0x00aa",
+    "ccw_name": "KC_AUDIO_VOL_DOWN",
+    "cw": "0x00a9",
+    "cw_name": "KC_AUDIO_VOL_UP",
+    "layer": 0
+   },
+   {
+    "ccw": "0x7828",
+    "ccw_name": "RGB_VAD",
+    "cw": "0x7827",
+    "cw_name": "RGB_VAI",
+    "layer": 1
+   },
+   {
+    "ccw": "0x00aa",
+    "ccw_name": "KC_AUDIO_VOL_DOWN",
+    "cw": "0x00a9",
+    "cw_name": "KC_AUDIO_VOL_UP",
+    "layer": 2
+   },
+   {
+    "ccw": "0x0000",
+    "ccw_name": "KC_NO",
+    "cw": "0x0000",
+    "cw_name": "KC_NO",
+    "layer": 3
+   },
+   {
+    "ccw": "0x0000",
+    "ccw_name": "KC_NO",
+    "cw": "0x0000",
+    "cw_name": "KC_NO",
+    "layer": 4
+   },
+   {
+    "ccw": "0x7828",
+    "ccw_name": "RGB_VAD",
+    "cw": "0x7827",
+    "cw_name": "RGB_VAI",
+    "layer": 5
+   }
+  ],
+  "layers": 6
+ },
+ "encoder_table_candidates": [
+  "0x080169a0",
+  "0x08016a94",
+  "0x08016b6c"
+ ],
+ "key_comb_list": {
+  "addr": "0x0801682c",
+  "refs": [
+   "0x0800c7d8"
+  ]
+ },
+ "keyboard_post_init_user": "0x0800cf60",
+ "keycode_at_keymap_location": "0x0800d2a4",
+ "keycode_at_keymap_location_raw": {
+  "addr": "0x0800d27c",
+  "cols": 18,
+  "layers": 6,
+  "literal_at": "0x0800d2a0",
+  "literal_value": "0x080169b8",
+  "rows": 6
+ },
+ "keymap_literal_refs": [
+  "0x0800d2a0"
+ ],
+ "leader_end_user": "0x0800cdfe",
+ "leader_sequence_ram": "0x20001ffc",
+ "leader_sequences": [
+  {
+   "actions": [
+    "register_code(KC_LEFT_GUI)",
+    "register_code(KC_P)",
+    "unregister_code(KC_LEFT_GUI)",
+    "unregister_code(KC_P)",
+    "register_code(KC_LEFT_GUI)",
+    "register_code(KC_K)",
+    "unregister_code(KC_LEFT_GUI)",
+    "unregister_code(KC_K)"
+   ],
+   "keys": [
+    "0x0009"
+   ],
+   "names": [
+    "KC_F"
+   ],
+   "site": "0x0800ce0c"
+  },
+  {
+   "actions": [
+    "register_code(KC_LEFT_CTRL)",
+    "register_code(KC_A)",
+    "unregister_code(KC_LEFT_CTRL)",
+    "unregister_code(KC_A)",
+    "register_code(KC_Z)",
+    "unregister_code(KC_Z)",
+    "register_code(KC_Q)",
+    "unregister_code(KC_Q)",
+    "register_code(KC_ENTER)",
+    "unregister_code(KC_ENTER)"
+   ],
+   "keys": [
+    "0x0004",
+    "0x0014"
+   ],
+   "names": [
+    "KC_A",
+    "KC_Q"
+   ],
+   "site": "0x0800ce46"
+  },
+  {
+   "actions": [
+    "register_code(KC_LEFT_CTRL)",
+    "register_code(KC_X)",
+    "unregister_code(KC_LEFT_CTRL)",
+    "unregister_code(KC_X)",
+    "register_code(KC_Y)",
+    "unregister_code(KC_Y)",
+    "register_code(KC_ENTER)",
+    "unregister_code(KC_ENTER)"
+   ],
+   "keys": [
+    "0x001c"
+   ],
+   "names": [
+    "KC_Y"
+   ],
+   "site": "0x0800ce8a"
+  },
+  {
+   "actions": [
+    "register_code(KC_LEFT_CTRL)",
+    "register_code(KC_LEFT_ALT)",
+    "register_code(KC_I)",
+    "unregister_code(KC_LEFT_CTRL)",
+    "unregister_code(KC_LEFT_ALT)",
+    "unregister_code(KC_I)"
+   ],
+   "keys": [
+    "0x00e0",
+    "0x000c"
+   ],
+   "names": [
+    "KC_LEFT_CTRL",
+    "KC_I"
+   ],
+   "site": "0x0800cec4"
+  },
+  {
+   "actions": [
+    "register_code(KC_LEFT_GUI)",
+    "register_code(KC_P)",
+    "unregister_code(KC_LEFT_GUI)",
+    "unregister_code(KC_P)"
+   ],
+   "keys": [
+    "0x000d"
+   ],
+   "names": [
+    "KC_J"
+   ],
+   "site": "0x0800cef0"
+  },
+  {
+   "actions": [
+    "register_code(KC_LEFT_GUI)",
+    "register_code(KC_QUOTE)",
+    "unregister_code(KC_LEFT_GUI)",
+    "unregister_code(KC_QUOTE)"
+   ],
+   "keys": [
+    "0x0009"
+   ],
+   "names": [
+    "KC_F"
+   ],
+   "site": "0x0800cf10"
+  },
+  {
+   "actions": [
+    "register_code(KC_LEFT_GUI)",
+    "register_code(KC_UP)",
+    "register_code(KC_LEFT)",
+    "unregister_code(KC_LEFT_GUI)",
+    "unregister_code(KC_UP)",
+    "unregister_code(KC_LEFT)"
+   ],
+   "keys": [
+    "0x004c"
+   ],
+   "names": [
+    "KC_DELETE"
+   ],
+   "site": "0x0800cf30"
+  }
+ ],
+ "leader_start_user": "0x0800cdf4",
+ "leader_timeout_ms": 525,
+ "mac_keycode": {
+  "addr": "0x0801683c",
+  "refs": []
+ },
+ "movs_r0_6_bx_lr": [
+  "0x08014c74"
+ ],
+ "names_assigned": {
+  "0x0800c720": "process_record_keychron_common?",
+  "0x0800ccf0": "dip_switch_update_user",
+  "0x0800cd18": "dip_switch_update_kb",
+  "0x0800cd38": "keyboard_post_init_kb",
+  "0x0800cdd8": "td0_on_reset",
+  "0x0800cdda": "td0_helper_0800cdda",
+  "0x0800cdf4": "leader_start_user",
+  "0x0800cdfe": "leader_end_user",
+  "0x0800cf60": "keyboard_post_init_user",
+  "0x0800d1c4": "td0_cur_dance",
+  "0x0800d1ec": "td0_on_dance_finished",
+  "0x0800d25c": "oneshot_layer_changed_user",
+  "0x0800d27c": "keycode_at_keymap_location_raw",
+  "0x0800d2a4": "keycode_at_keymap_location",
+  "0x0800d2a8": "keycode_at_encodermap_location_raw",
+  "0x0800d2c8": "keycode_at_encodermap_location",
+  "0x0800d570": "register_code",
+  "0x0800dbc4": "default_layer_state_set_user",
+  "0x0800dbc6": "default_layer_state_set_kb",
+  "0x0800dbd0": "default_layer_state_set",
+  "0x0800dbe8": "default_layer_or",
+  "0x0800dbf8": "default_layer_and",
+  "0x0800dc08": "default_layer_xor",
+  "0x0800dc18": "layer_state_set_user",
+  "0x0800dc1a": "layer_state_set_kb",
+  "0x0800dc24": "layer_state_set",
+  "0x0800dc34": "layer_clear",
+  "0x0800dc3c": "layer_state_is",
+  "0x0800dc58": "layer_move",
+  "0x0800dca8": "layer_or",
+  "0x0800dcb8": "layer_and",
+  "0x0800dcc8": "layer_xor",
+  "0x0800e8b0": "action_for_keycode",
+  "0x08011890": "dip_switch_update_mask_user",
+  "0x08011894": "dip_switch_update_mask_kb",
+  "0x0801189c": "dip_switch_read",
+  "0x080118f4": "process_leader",
+  "0x08011940": "leader_start",
+  "0x0801197c": "leader_end",
+  "0x080119c0": "leader_sequence_timed_out?",
+  "0x08011a08": "leader_sequence_is",
+  "0x08011a3c": "leader_sequence_one_key",
+  "0x08011a50": "leader_sequence_two_keys",
+  "0x08012574": "timer_read",
+  "0x0801682c": "key_comb_list",
+  "0x0801683c": "mac_keycode",
+  "0x080169a0": "encoder_map",
+  "0x08016ec8": "KEYCODE2CONSUMER_lut0",
+  "0x08016efe": "KEYCODE2CONSUMER_lut1"
+ },
+ "oneshot_layer_changed_user": "0x0800d25c",
+ "process_record_user": "0x0800d104",
+ "ram_names": {
+  "0x20000e7c": "tap_dance_actions",
+  "0x2000162e": "layer_state",
+  "0x20001630": "default_layer_state",
+  "0x20001ffc": "leader_sequence[5]",
+  "0x20002006": "leader_time"
+ },
+ "rodata_end": "0x1774c",
+ "tap_dance_actions": {
+  "fn": {
+   "on_dance_finished": "0x0800d1ed",
+   "on_each_release": "0x00000000",
+   "on_each_tap": "0x00000000",
+   "on_reset": "0x0800cdd9"
+  },
+  "init_image": "0x080179c8",
+  "ram": "0x20000e7c",
+  "user_data": "0x00000000"
+ },
+ "text_end": "0x166d0",
+ "tu_map": [
+  {
+   "addr": "0x0800ccf0",
+   "callees": [
+    "factory_test_send"
+   ],
+   "callers": [
+    "dip_switch_update_kb"
+   ],
+   "name": "dip_switch_update_user",
+   "size": 40
+  },
+  {
+   "addr": "0x0800cd18",
+   "callees": [
+    "default_layer_set",
+    "dip_switch_update_user"
+   ],
+   "callers": [
+    "dip_switch_read"
+   ],
+   "name": "dip_switch_update_kb",
+   "size": 32
+  },
+  {
+   "addr": "0x0800cd38",
+   "callees": [
+    "_pal_lld_setgroupmode",
+    "_pal_lld_setgroupmode",
+    "sub_0800a98c",
+    "sub_0800a240",
+    "timer_read32",
+    "sub_0800c810",
+    "keyboard_post_init_user"
+   ],
+   "callers": [
+    "sub_0800e788"
+   ],
+   "name": "keyboard_post_init_kb",
+   "size": 80
+  },
+  {
+   "addr": "0x0800cd88",
+   "callees": [
+    "timer_elapsed32"
+   ],
+   "callers": [
+    "sub_0800c6d4"
+   ],
+   "name": "keychron_task_kb",
+   "size": 48
+  },
+  {
+   "addr": "0x0800cdb8",
+   "callees": [
+    "factory_reset_indicating"
+   ],
+   "callers": [
+    "sub_0800bdcc"
+   ],
+   "name": "sub_0800cdb8",
+   "size": 32
+  },
+  {
+   "addr": "0x0800cdd8",
+   "callees": [],
+   "callers": [
+    "ptr@080179d8"
+   ],
+   "name": "td0_on_reset",
+   "size": 2
+  },
+  {
+   "addr": "0x0800cdda",
+   "callees": [
+    "layer_on",
+    "sub_0800e504",
+    "clear_oneshot_layer_state"
+   ],
+   "callers": [
+    "td0_on_dance_finished"
+   ],
+   "name": "td0_helper_0800cdda",
+   "size": 26
+  },
+  {
+   "addr": "0x0800cdf4",
+   "callees": [
+    "rgb_matrix_set_color_all"
+   ],
+   "callers": [
+    "leader_start"
+   ],
+   "name": "leader_start_user",
+   "size": 10
+  },
+  {
+   "addr": "0x0800cdfe",
+   "callees": [
+    "rgb_matrix_set_color_all",
+    "leader_sequence_one_key",
+    "register_code",
+    "register_code",
+    "unregister_code",
+    "unregister_code",
+    "register_code",
+    "register_code",
+    "unregister_code",
+    "unregister_code",
+    "leader_sequence_two_keys",
+    "register_code",
+    "register_code",
+    "unregister_code",
+    "unregister_code",
+    "register_code",
+    "unregister_code",
+    "register_code",
+    "unregister_code",
+    "register_code",
+    "unregister_code",
+    "leader_sequence_one_key",
+    "register_code",
+    "register_code",
+    "unregister_code",
+    "unregister_code",
+    "register_code",
+    "unregister_code",
+    "register_code",
+    "unregister_code",
+    "leader_sequence_two_keys",
+    "register_code",
+    "register_code",
+    "register_code",
+    "unregister_code",
+    "unregister_code",
+    "unregister_code",
+    "leader_sequence_one_key",
+    "register_code",
+    "register_code",
+    "unregister_code",
+    "unregister_code",
+    "leader_sequence_one_key",
+    "register_code",
+    "register_code",
+    "unregister_code",
+    "unregister_code",
+    "leader_sequence_one_key",
+    "register_code",
+    "register_code",
+    "register_code",
+    "unregister_code",
+    "unregister_code",
+    "unregister_code"
+   ],
+   "callers": [
+    "leader_end"
+   ],
+   "name": "leader_end_user",
+   "size": 354
+  },
+  {
+   "addr": "0x0800cf60",
+   "callees": [
+    "default_layer_set",
+    "rgb_matrix_mode"
+   ],
+   "callers": [
+    "keyboard_post_init_kb"
+   ],
+   "name": "keyboard_post_init_user",
+   "size": 20
+  },
+  {
+   "addr": "0x0800cf74",
+   "callees": [
+    "biton16",
+    "rgb_matrix_set_color",
+    "rgb_matrix_set_color"
+   ],
+   "callers": [
+    "sub_08010c4c"
+   ],
+   "name": "sub_0800cf74",
+   "size": 156
+  },
+  {
+   "addr": "0x0800d010",
+   "callees": [
+    "rgb_matrix_set_color_all",
+    "rgb_matrix_set_color_all",
+    "rgb_matrix_set_color_all",
+    "rgb_matrix_set_color_all"
+   ],
+   "callers": [
+    "sub_0800d088",
+    "sub_0800d08c"
+   ],
+   "name": "sub_0800d010",
+   "size": 120
+  },
+  {
+   "addr": "0x0800d088",
+   "callees": [
+    "sub_0800d010"
+   ],
+   "callers": [
+    "sub_0800e3e4"
+   ],
+   "name": "sub_0800d088",
+   "size": 4
+  },
+  {
+   "addr": "0x0800d08c",
+   "callees": [
+    "sub_0800d010"
+   ],
+   "callers": [
+    "sub_0800e38c"
+   ],
+   "name": "sub_0800d08c",
+   "size": 4
+  },
+  {
+   "addr": "0x0800d090",
+   "callees": [],
+   "callers": [
+    "sub_0800d0b4"
+   ],
+   "name": "sub_0800d090",
+   "size": 36
+  },
+  {
+   "addr": "0x0800d0b4",
+   "callees": [
+    "sub_0800d090",
+    "get_mods",
+    "sub_0800e424",
+    "sub_0800e3b0",
+    "sub_0800e380",
+    "sub_0800d684"
+   ],
+   "callers": [
+    "process_record_user"
+   ],
+   "name": "sub_0800d0b4",
+   "size": 80
+  },
+  {
+   "addr": "0x0800d104",
+   "callees": [
+    "process_record_keychron_common?",
+    "layer_state_is",
+    "sub_0800d0b4",
+    "host_keyboard_led_state",
+    "host_keyboard_led_state",
+    "register_code",
+    "unregister_code",
+    "register_code",
+    "unregister_code",
+    "register_code",
+    "unregister_code"
+   ],
+   "callers": [
+    "process_record_kb"
+   ],
+   "name": "process_record_user",
+   "size": 192
+  },
+  {
+   "addr": "0x0800d1c4",
+   "callees": [],
+   "callers": [
+    "td0_on_dance_finished"
+   ],
+   "name": "td0_cur_dance",
+   "size": 40
+  },
+  {
+   "addr": "0x0800d1ec",
+   "callees": [
+    "td0_cur_dance",
+    "layer_state_is",
+    "layer_clear",
+    "td0_helper_0800cdda",
+    "layer_clear",
+    "layer_move",
+    "layer_state_is",
+    "layer_clear",
+    "layer_move",
+    "layer_clear"
+   ],
+   "callers": [
+    "ptr@080179d4"
+   ],
+   "name": "td0_on_dance_finished",
+   "size": 112
+  },
+  {
+   "addr": "0x0800d25c",
+   "callees": [
+    "layer_clear",
+    "layer_move"
+   ],
+   "callers": [
+    "oneshot_layer_changed_kb"
+   ],
+   "name": "oneshot_layer_changed_user",
+   "size": 32
+  },
+  {
+   "addr": "0x0800d27c",
+   "callees": [],
+   "callers": [
+    "keycode_at_keymap_location"
+   ],
+   "name": "keycode_at_keymap_location_raw",
+   "size": 40
+  },
+  {
+   "addr": "0x0800d2a4",
+   "callees": [
+    "keycode_at_keymap_location_raw"
+   ],
+   "callers": [
+    "keymap_key_to_keycode"
+   ],
+   "name": "keycode_at_keymap_location",
+   "size": 4
+  },
+  {
+   "addr": "0x0800d2a8",
+   "callees": [],
+   "callers": [
+    "keycode_at_encodermap_location"
+   ],
+   "name": "keycode_at_encodermap_location_raw",
+   "size": 32
+  },
+  {
+   "addr": "0x0800d2c8",
+   "callees": [
+    "keycode_at_encodermap_location_raw"
+   ],
+   "callers": [
+    "keymap_key_to_keycode"
+   ],
+   "name": "keycode_at_encodermap_location",
+   "size": 4
+  }
+ ]
+}

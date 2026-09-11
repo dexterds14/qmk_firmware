@@ -1,0 +1,14 @@
+// thunk_FUN_080163c8 @ 0x0801410c  size=4  body=[[0801410c, 0801410f]]
+
+void thunk_FUN_080163c8(void)
+
+{
+  FUN_08014110(&DAT_20004b50);
+  DAT_20004b6c = &DAT_40013000;
+  DAT_20004b70 = 0;
+  DAT_20004b74 = 0;
+  DAT_20004b78 = 0x6010016;
+  DAT_20004b7c = 0x6010046;
+  return;
+}
+

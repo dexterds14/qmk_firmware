@@ -1,0 +1,3244 @@
+{
+ "source": {
+  "dump": "dump_a.bin",
+  "file_offset": "0x04000..0x04fff",
+  "flash_addr": "0x08004000..0x08004fff",
+  "format": "QMK wear_leveling (embedded_flash / EFL), BACKING 4096, LOGICAL 2048, WRITE_SIZE 4, bytes stored inverted"
+ },
+ "hash": {
+  "stored_le": "0x6d7f11b40813e83a",
+  "computed_fnv1a_64": "0x6d7f11b40813e83a",
+  "computed_fnv1_64_non_a": "0xebbd17700e2e5e30",
+  "ok": true
+ },
+ "log": {
+  "log_start_backing_offset": 2056,
+  "terminator_backing_offset": 2792,
+  "next_write_address": 2792,
+  "entries": 92,
+  "log_words_used": 184,
+  "log_words_capacity": 510,
+  "anomalies": [],
+  "tail_nonzero_bytes": 0,
+  "tail_length": 1304
+ },
+ "log_entries": [
+  {
+   "index": 0,
+   "backing_offset": 2056,
+   "file_offset": 18440,
+   "flash_addr": 134236168,
+   "raw_words_le": [
+    "0x41180028",
+    "0xaf3fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef3faf"
+  },
+  {
+   "index": 1,
+   "backing_offset": 2064,
+   "file_offset": 18448,
+   "flash_addr": 134236176,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 2,
+   "backing_offset": 2072,
+   "file_offset": 18456,
+   "flash_addr": 134236184,
+   "raw_words_le": [
+    "0x41180028",
+    "0xaf2fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef2faf"
+  },
+  {
+   "index": 3,
+   "backing_offset": 2080,
+   "file_offset": 18464,
+   "flash_addr": 134236192,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 4,
+   "backing_offset": 2088,
+   "file_offset": 18472,
+   "flash_addr": 134236200,
+   "raw_words_le": [
+    "0x40180028",
+    "0xaf1fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4000ef1faf"
+  },
+  {
+   "index": 5,
+   "backing_offset": 2096,
+   "file_offset": 18480,
+   "flash_addr": 134236208,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 6,
+   "backing_offset": 2104,
+   "file_offset": 18488,
+   "flash_addr": 134236216,
+   "raw_words_le": [
+    "0x41180028",
+    "0xaf2fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef2faf"
+  },
+  {
+   "index": 7,
+   "backing_offset": 2112,
+   "file_offset": 18496,
+   "flash_addr": 134236224,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 8,
+   "backing_offset": 2120,
+   "file_offset": 18504,
+   "flash_addr": 134236232,
+   "raw_words_le": [
+    "0x40180028",
+    "0xaf1fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4000ef1faf"
+  },
+  {
+   "index": 9,
+   "backing_offset": 2128,
+   "file_offset": 18512,
+   "flash_addr": 134236240,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 10,
+   "backing_offset": 2136,
+   "file_offset": 18520,
+   "flash_addr": 134236248,
+   "raw_words_le": [
+    "0x41180028",
+    "0xaf2fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef2faf"
+  },
+  {
+   "index": 11,
+   "backing_offset": 2144,
+   "file_offset": 18528,
+   "flash_addr": 134236256,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 12,
+   "backing_offset": 2152,
+   "file_offset": 18536,
+   "flash_addr": 134236264,
+   "raw_words_le": [
+    "0x41180028",
+    "0xaf3fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef3faf"
+  },
+  {
+   "index": 13,
+   "backing_offset": 2160,
+   "file_offset": 18544,
+   "flash_addr": 134236272,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 14,
+   "backing_offset": 2168,
+   "file_offset": 18552,
+   "flash_addr": 134236280,
+   "raw_words_le": [
+    "0x41180028",
+    "0xaf4fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef4faf"
+  },
+  {
+   "index": 15,
+   "backing_offset": 2176,
+   "file_offset": 18560,
+   "flash_addr": 134236288,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 16,
+   "backing_offset": 2184,
+   "file_offset": 18568,
+   "flash_addr": 134236296,
+   "raw_words_le": [
+    "0x41180028",
+    "0xaf5fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef5faf"
+  },
+  {
+   "index": 17,
+   "backing_offset": 2192,
+   "file_offset": 18576,
+   "flash_addr": 134236304,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 18,
+   "backing_offset": 2200,
+   "file_offset": 18584,
+   "flash_addr": 134236312,
+   "raw_words_le": [
+    "0x41180028",
+    "0xaf6fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef6faf"
+  },
+  {
+   "index": 19,
+   "backing_offset": 2208,
+   "file_offset": 18592,
+   "flash_addr": 134236320,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 20,
+   "backing_offset": 2216,
+   "file_offset": 18600,
+   "flash_addr": 134236328,
+   "raw_words_le": [
+    "0x41180028",
+    "0xaf7fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef7faf"
+  },
+  {
+   "index": 21,
+   "backing_offset": 2224,
+   "file_offset": 18608,
+   "flash_addr": 134236336,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 22,
+   "backing_offset": 2232,
+   "file_offset": 18616,
+   "flash_addr": 134236344,
+   "raw_words_le": [
+    "0x41180028",
+    "0xaf8fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef8faf"
+  },
+  {
+   "index": 23,
+   "backing_offset": 2240,
+   "file_offset": 18624,
+   "flash_addr": 134236352,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 24,
+   "backing_offset": 2248,
+   "file_offset": 18632,
+   "flash_addr": 134236360,
+   "raw_words_le": [
+    "0x41180028",
+    "0xaf9fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef9faf"
+  },
+  {
+   "index": 25,
+   "backing_offset": 2256,
+   "file_offset": 18640,
+   "flash_addr": 134236368,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 26,
+   "backing_offset": 2264,
+   "file_offset": 18648,
+   "flash_addr": 134236376,
+   "raw_words_le": [
+    "0x41180028",
+    "0xafafef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efafaf"
+  },
+  {
+   "index": 27,
+   "backing_offset": 2272,
+   "file_offset": 18656,
+   "flash_addr": 134236384,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 28,
+   "backing_offset": 2280,
+   "file_offset": 18664,
+   "flash_addr": 134236392,
+   "raw_words_le": [
+    "0x41180028",
+    "0xafbfef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efbfaf"
+  },
+  {
+   "index": 29,
+   "backing_offset": 2288,
+   "file_offset": 18672,
+   "flash_addr": 134236400,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 30,
+   "backing_offset": 2296,
+   "file_offset": 18680,
+   "flash_addr": 134236408,
+   "raw_words_le": [
+    "0x41180028",
+    "0xafcfef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efcfaf"
+  },
+  {
+   "index": 31,
+   "backing_offset": 2304,
+   "file_offset": 18688,
+   "flash_addr": 134236416,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 32,
+   "backing_offset": 2312,
+   "file_offset": 18696,
+   "flash_addr": 134236424,
+   "raw_words_le": [
+    "0x41180028",
+    "0xafdfef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efdfaf"
+  },
+  {
+   "index": 33,
+   "backing_offset": 2320,
+   "file_offset": 18704,
+   "flash_addr": 134236432,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 34,
+   "backing_offset": 2328,
+   "file_offset": 18712,
+   "flash_addr": 134236440,
+   "raw_words_le": [
+    "0x41180028",
+    "0xafefef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efefaf"
+  },
+  {
+   "index": 35,
+   "backing_offset": 2336,
+   "file_offset": 18720,
+   "flash_addr": 134236448,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 36,
+   "backing_offset": 2344,
+   "file_offset": 18728,
+   "flash_addr": 134236456,
+   "raw_words_le": [
+    "0x41180028",
+    "0xafffef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efffaf"
+  },
+  {
+   "index": 37,
+   "backing_offset": 2352,
+   "file_offset": 18736,
+   "flash_addr": 134236464,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 38,
+   "backing_offset": 2360,
+   "file_offset": 18744,
+   "flash_addr": 134236472,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbfffef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efffbf"
+  },
+  {
+   "index": 39,
+   "backing_offset": 2368,
+   "file_offset": 18752,
+   "flash_addr": 134236480,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 40,
+   "backing_offset": 2376,
+   "file_offset": 18760,
+   "flash_addr": 134236488,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbfefef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efefbf"
+  },
+  {
+   "index": 41,
+   "backing_offset": 2384,
+   "file_offset": 18768,
+   "flash_addr": 134236496,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 42,
+   "backing_offset": 2392,
+   "file_offset": 18776,
+   "flash_addr": 134236504,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbfdfef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efdfbf"
+  },
+  {
+   "index": 43,
+   "backing_offset": 2400,
+   "file_offset": 18784,
+   "flash_addr": 134236512,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 44,
+   "backing_offset": 2408,
+   "file_offset": 18792,
+   "flash_addr": 134236520,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbfcfef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efcfbf"
+  },
+  {
+   "index": 45,
+   "backing_offset": 2416,
+   "file_offset": 18800,
+   "flash_addr": 134236528,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 46,
+   "backing_offset": 2424,
+   "file_offset": 18808,
+   "flash_addr": 134236536,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbfbfef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efbfbf"
+  },
+  {
+   "index": 47,
+   "backing_offset": 2432,
+   "file_offset": 18816,
+   "flash_addr": 134236544,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 48,
+   "backing_offset": 2440,
+   "file_offset": 18824,
+   "flash_addr": 134236552,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbfafef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efafbf"
+  },
+  {
+   "index": 49,
+   "backing_offset": 2448,
+   "file_offset": 18832,
+   "flash_addr": 134236560,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 50,
+   "backing_offset": 2456,
+   "file_offset": 18840,
+   "flash_addr": 134236568,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf9fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef9fbf"
+  },
+  {
+   "index": 51,
+   "backing_offset": 2464,
+   "file_offset": 18848,
+   "flash_addr": 134236576,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 52,
+   "backing_offset": 2472,
+   "file_offset": 18856,
+   "flash_addr": 134236584,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf8fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef8fbf"
+  },
+  {
+   "index": 53,
+   "backing_offset": 2480,
+   "file_offset": 18864,
+   "flash_addr": 134236592,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 54,
+   "backing_offset": 2488,
+   "file_offset": 18872,
+   "flash_addr": 134236600,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf7fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef7fbf"
+  },
+  {
+   "index": 55,
+   "backing_offset": 2496,
+   "file_offset": 18880,
+   "flash_addr": 134236608,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 56,
+   "backing_offset": 2504,
+   "file_offset": 18888,
+   "flash_addr": 134236616,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf8fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef8fbf"
+  },
+  {
+   "index": 57,
+   "backing_offset": 2512,
+   "file_offset": 18896,
+   "flash_addr": 134236624,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 58,
+   "backing_offset": 2520,
+   "file_offset": 18904,
+   "flash_addr": 134236632,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf7fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef7fbf"
+  },
+  {
+   "index": 59,
+   "backing_offset": 2528,
+   "file_offset": 18912,
+   "flash_addr": 134236640,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 60,
+   "backing_offset": 2536,
+   "file_offset": 18920,
+   "flash_addr": 134236648,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf8fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef8fbf"
+  },
+  {
+   "index": 61,
+   "backing_offset": 2544,
+   "file_offset": 18928,
+   "flash_addr": 134236656,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 62,
+   "backing_offset": 2552,
+   "file_offset": 18936,
+   "flash_addr": 134236664,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf7fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef7fbf"
+  },
+  {
+   "index": 63,
+   "backing_offset": 2560,
+   "file_offset": 18944,
+   "flash_addr": 134236672,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 64,
+   "backing_offset": 2568,
+   "file_offset": 18952,
+   "flash_addr": 134236680,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf6fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef6fbf"
+  },
+  {
+   "index": 65,
+   "backing_offset": 2576,
+   "file_offset": 18960,
+   "flash_addr": 134236688,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 66,
+   "backing_offset": 2584,
+   "file_offset": 18968,
+   "flash_addr": 134236696,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf5fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef5fbf"
+  },
+  {
+   "index": 67,
+   "backing_offset": 2592,
+   "file_offset": 18976,
+   "flash_addr": 134236704,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 68,
+   "backing_offset": 2600,
+   "file_offset": 18984,
+   "flash_addr": 134236712,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf6fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef6fbf"
+  },
+  {
+   "index": 69,
+   "backing_offset": 2608,
+   "file_offset": 18992,
+   "flash_addr": 134236720,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 70,
+   "backing_offset": 2616,
+   "file_offset": 19000,
+   "flash_addr": 134236728,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf5fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef5fbf"
+  },
+  {
+   "index": 71,
+   "backing_offset": 2624,
+   "file_offset": 19008,
+   "flash_addr": 134236736,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 72,
+   "backing_offset": 2632,
+   "file_offset": 19016,
+   "flash_addr": 134236744,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf4fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef4fbf"
+  },
+  {
+   "index": 73,
+   "backing_offset": 2640,
+   "file_offset": 19024,
+   "flash_addr": 134236752,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 74,
+   "backing_offset": 2648,
+   "file_offset": 19032,
+   "flash_addr": 134236760,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf3fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef3fbf"
+  },
+  {
+   "index": 75,
+   "backing_offset": 2656,
+   "file_offset": 19040,
+   "flash_addr": 134236768,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 76,
+   "backing_offset": 2664,
+   "file_offset": 19048,
+   "flash_addr": 134236776,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf2fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef2fbf"
+  },
+  {
+   "index": 77,
+   "backing_offset": 2672,
+   "file_offset": 19056,
+   "flash_addr": 134236784,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 78,
+   "backing_offset": 2680,
+   "file_offset": 19064,
+   "flash_addr": 134236792,
+   "raw_words_le": [
+    "0x40180028",
+    "0xbf1fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4000ef1fbf"
+  },
+  {
+   "index": 79,
+   "backing_offset": 2688,
+   "file_offset": 19072,
+   "flash_addr": 134236800,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 80,
+   "backing_offset": 2696,
+   "file_offset": 19080,
+   "flash_addr": 134236808,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf2fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef2fbf"
+  },
+  {
+   "index": 81,
+   "backing_offset": 2704,
+   "file_offset": 19088,
+   "flash_addr": 134236816,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 82,
+   "backing_offset": 2712,
+   "file_offset": 19096,
+   "flash_addr": 134236824,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf3fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef3fbf"
+  },
+  {
+   "index": 83,
+   "backing_offset": 2720,
+   "file_offset": 19104,
+   "flash_addr": 134236832,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 84,
+   "backing_offset": 2728,
+   "file_offset": 19112,
+   "flash_addr": 134236840,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf4fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef4fbf"
+  },
+  {
+   "index": 85,
+   "backing_offset": 2736,
+   "file_offset": 19120,
+   "flash_addr": 134236848,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 86,
+   "backing_offset": 2744,
+   "file_offset": 19128,
+   "flash_addr": 134236856,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf3fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef3fbf"
+  },
+  {
+   "index": 87,
+   "backing_offset": 2752,
+   "file_offset": 19136,
+   "flash_addr": 134236864,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 88,
+   "backing_offset": 2760,
+   "file_offset": 19144,
+   "flash_addr": 134236872,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf2fef00"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef2fbf"
+  },
+  {
+   "index": 89,
+   "backing_offset": 2768,
+   "file_offset": 19152,
+   "flash_addr": 134236880,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  },
+  {
+   "index": 90,
+   "backing_offset": 2776,
+   "file_offset": 19160,
+   "flash_addr": 134236888,
+   "raw_words_le": [
+    "0x41180028",
+    "0xbf2fef08"
+   ],
+   "type": 0,
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4108ef2fbf"
+  },
+  {
+   "index": 91,
+   "backing_offset": 2784,
+   "file_offset": 19168,
+   "flash_addr": 134236896,
+   "raw_words_le": [
+    "0xff1d0018",
+    "0x00000000"
+   ],
+   "type": 0,
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000"
+  }
+ ],
+ "consolidated_nonzero_bytes": [
+  [
+   0,
+   "0xe6"
+  ],
+  [
+   1,
+   "0xfe"
+  ],
+  [
+   3,
+   "0x01"
+  ],
+  [
+   5,
+   "0x14"
+  ],
+  [
+   7,
+   "0xff"
+  ],
+  [
+   24,
+   "0x41"
+  ],
+  [
+   26,
+   "0xef"
+  ],
+  [
+   27,
+   "0x4f"
+  ],
+  [
+   28,
+   "0xaf"
+  ],
+  [
+   29,
+   "0xff"
+  ]
+ ],
+ "cache_nonzero_bytes": [
+  [
+   0,
+   "0xe6"
+  ],
+  [
+   1,
+   "0xfe"
+  ],
+  [
+   3,
+   "0x01"
+  ],
+  [
+   5,
+   "0x14"
+  ],
+  [
+   7,
+   "0xff"
+  ],
+  [
+   24,
+   "0x41"
+  ],
+  [
+   25,
+   "0x08"
+  ],
+  [
+   26,
+   "0xef"
+  ],
+  [
+   27,
+   "0x2f"
+  ],
+  [
+   28,
+   "0xbf"
+  ],
+  [
+   29,
+   "0xff"
+  ]
+ ],
+ "consolidated_vs_final_diffs": [
+  [
+   25,
+   "0x00",
+   "0x08"
+  ],
+  [
+   27,
+   "0x4f",
+   "0x2f"
+  ],
+  [
+   28,
+   "0xaf",
+   "0xbf"
+  ]
+ ],
+ "eeconfig_consolidated": {
+  "magic": "0xFEE6",
+  "magic_ok": true,
+  "debug": 0,
+  "default_layer_bitmask": "0x01",
+  "default_layer_index": 0,
+  "keymap_config": "0x1400",
+  "keymap_config_bits_set": [
+   "oneshot_enable",
+   "autocorrect_enable"
+  ],
+  "keymap_config_bits": {
+   "swap_control_capslock": false,
+   "capslock_to_control": false,
+   "swap_lalt_lgui": false,
+   "swap_ralt_rgui": false,
+   "no_gui": false,
+   "swap_grave_esc": false,
+   "swap_backslash_backspace": false,
+   "nkro": false,
+   "swap_lctl_lgui": false,
+   "swap_rctl_rgui": false,
+   "oneshot_enable": true,
+   "swap_escape_capslock": false,
+   "autocorrect_enable": true
+  },
+  "keymap_config_unknown_bits": "0x0000",
+  "backlight": 0,
+  "audio": 255,
+  "rgblight": "0x00000000",
+  "unicode_mode": 0,
+  "steno_mode": 0,
+  "handedness": 0,
+  "keyboard_u32": "0x00000000",
+  "user_u32": "0x00000000",
+  "unused_23": 0,
+  "rgb_matrix": {
+   "raw": "4100ef4fafff0000",
+   "enable": 1,
+   "mode": 16,
+   "mode_name_assuming_board_default_animations": "RGB_MATRIX_TYPING_HEATMAP",
+   "hue": 0,
+   "sat": 239,
+   "val": 79,
+   "speed": 175,
+   "flags": 255,
+   "flags_decoded": "LED_FLAG_ALL (0xFF)",
+   "padding_bytes_30_31": "0000"
+  },
+  "haptic": "0x00000000",
+  "rgblight_ext": 0,
+  "kb_data_37_63": "000000000000000000000000000000000000000000000000000000",
+  "keychron_kb": {
+   "language_37": 0,
+   "wireless_backlit_disable_time_38_39_u16": 0,
+   "wireless_connected_idle_time_40_41_u16": 0
+  },
+  "nonzero_bytes_beyond_63": []
+ },
+ "eeconfig_final": {
+  "magic": "0xFEE6",
+  "magic_ok": true,
+  "debug": 0,
+  "default_layer_bitmask": "0x01",
+  "default_layer_index": 0,
+  "keymap_config": "0x1400",
+  "keymap_config_bits_set": [
+   "oneshot_enable",
+   "autocorrect_enable"
+  ],
+  "keymap_config_bits": {
+   "swap_control_capslock": false,
+   "capslock_to_control": false,
+   "swap_lalt_lgui": false,
+   "swap_ralt_rgui": false,
+   "no_gui": false,
+   "swap_grave_esc": false,
+   "swap_backslash_backspace": false,
+   "nkro": false,
+   "swap_lctl_lgui": false,
+   "swap_rctl_rgui": false,
+   "oneshot_enable": true,
+   "swap_escape_capslock": false,
+   "autocorrect_enable": true
+  },
+  "keymap_config_unknown_bits": "0x0000",
+  "backlight": 0,
+  "audio": 255,
+  "rgblight": "0x00000000",
+  "unicode_mode": 0,
+  "steno_mode": 0,
+  "handedness": 0,
+  "keyboard_u32": "0x00000000",
+  "user_u32": "0x00000000",
+  "unused_23": 0,
+  "rgb_matrix": {
+   "raw": "4108ef2fbfff0000",
+   "enable": 1,
+   "mode": 16,
+   "mode_name_assuming_board_default_animations": "RGB_MATRIX_TYPING_HEATMAP",
+   "hue": 8,
+   "sat": 239,
+   "val": 47,
+   "speed": 191,
+   "flags": 255,
+   "flags_decoded": "LED_FLAG_ALL (0xFF)",
+   "padding_bytes_30_31": "0000"
+  },
+  "haptic": "0x00000000",
+  "rgblight_ext": 0,
+  "kb_data_37_63": "000000000000000000000000000000000000000000000000000000",
+  "keychron_kb": {
+   "language_37": 0,
+   "wireless_backlit_disable_time_38_39_u16": 0,
+   "wireless_connected_idle_time_40_41_u16": 0
+  },
+  "nonzero_bytes_beyond_63": []
+ },
+ "rgb_effect_enum_assumed": {
+  "0": "RGB_MATRIX_NONE",
+  "1": "RGB_MATRIX_SOLID_COLOR",
+  "2": "RGB_MATRIX_BREATHING",
+  "3": "RGB_MATRIX_BAND_SPIRAL_VAL",
+  "4": "RGB_MATRIX_CYCLE_ALL",
+  "5": "RGB_MATRIX_CYCLE_LEFT_RIGHT",
+  "6": "RGB_MATRIX_CYCLE_UP_DOWN",
+  "7": "RGB_MATRIX_RAINBOW_MOVING_CHEVRON",
+  "8": "RGB_MATRIX_CYCLE_OUT_IN",
+  "9": "RGB_MATRIX_CYCLE_OUT_IN_DUAL",
+  "10": "RGB_MATRIX_CYCLE_PINWHEEL",
+  "11": "RGB_MATRIX_CYCLE_SPIRAL",
+  "12": "RGB_MATRIX_DUAL_BEACON",
+  "13": "RGB_MATRIX_RAINBOW_BEACON",
+  "14": "RGB_MATRIX_JELLYBEAN_RAINDROPS",
+  "15": "RGB_MATRIX_PIXEL_RAIN",
+  "16": "RGB_MATRIX_TYPING_HEATMAP",
+  "17": "RGB_MATRIX_DIGITAL_RAIN",
+  "18": "RGB_MATRIX_SOLID_REACTIVE_SIMPLE",
+  "19": "RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE",
+  "20": "RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS",
+  "21": "RGB_MATRIX_SPLASH",
+  "22": "RGB_MATRIX_SOLID_SPLASH"
+ },
+ "rgb_effect_enum_note": "enum built from quantum/rgb_matrix/animations/rgb_matrix_effects.inc (44 headers, 49 RGB_MATRIX_EFFECT names, 22 enabled -> RGB_MATRIX_EFFECT_MAX = 23); info.json animations=21 true, RGB_MATRIX_FRAMEBUFFER_EFFECTS=True, RGB_MATRIX_KEYPRESSES=True",
+ "rgb_history": [
+  {
+   "entry": 0,
+   "backing_offset": "0x0808",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef3faf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 63,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "val 79->63"
+   ]
+  },
+  {
+   "entry": 1,
+   "backing_offset": "0x0810",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 63,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 2,
+   "backing_offset": "0x0818",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef2faf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 47,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "val 63->47"
+   ]
+  },
+  {
+   "entry": 3,
+   "backing_offset": "0x0820",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 47,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 4,
+   "backing_offset": "0x0828",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4000ef1faf",
+   "state_after": {
+    "enable": 0,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 31,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "enable 1->0",
+    "val 47->31"
+   ]
+  },
+  {
+   "entry": 5,
+   "backing_offset": "0x0830",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 0,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 31,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 6,
+   "backing_offset": "0x0838",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef2faf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 47,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "enable 0->1",
+    "val 31->47"
+   ]
+  },
+  {
+   "entry": 7,
+   "backing_offset": "0x0840",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 47,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 8,
+   "backing_offset": "0x0848",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4000ef1faf",
+   "state_after": {
+    "enable": 0,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 31,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "enable 1->0",
+    "val 47->31"
+   ]
+  },
+  {
+   "entry": 9,
+   "backing_offset": "0x0850",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 0,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 31,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 10,
+   "backing_offset": "0x0858",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef2faf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 47,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "enable 0->1",
+    "val 31->47"
+   ]
+  },
+  {
+   "entry": 11,
+   "backing_offset": "0x0860",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 47,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 12,
+   "backing_offset": "0x0868",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef3faf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 63,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "val 47->63"
+   ]
+  },
+  {
+   "entry": 13,
+   "backing_offset": "0x0870",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 63,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 14,
+   "backing_offset": "0x0878",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef4faf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 79,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "val 63->79"
+   ]
+  },
+  {
+   "entry": 15,
+   "backing_offset": "0x0880",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 79,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 16,
+   "backing_offset": "0x0888",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef5faf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 95,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "val 79->95"
+   ]
+  },
+  {
+   "entry": 17,
+   "backing_offset": "0x0890",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 95,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 18,
+   "backing_offset": "0x0898",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef6faf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 111,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "val 95->111"
+   ]
+  },
+  {
+   "entry": 19,
+   "backing_offset": "0x08a0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 111,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 20,
+   "backing_offset": "0x08a8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef7faf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 127,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "val 111->127"
+   ]
+  },
+  {
+   "entry": 21,
+   "backing_offset": "0x08b0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 127,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 22,
+   "backing_offset": "0x08b8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef8faf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 143,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "val 127->143"
+   ]
+  },
+  {
+   "entry": 23,
+   "backing_offset": "0x08c0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 143,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 24,
+   "backing_offset": "0x08c8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef9faf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 159,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "val 143->159"
+   ]
+  },
+  {
+   "entry": 25,
+   "backing_offset": "0x08d0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 159,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 26,
+   "backing_offset": "0x08d8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efafaf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 175,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "val 159->175"
+   ]
+  },
+  {
+   "entry": 27,
+   "backing_offset": "0x08e0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 175,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 28,
+   "backing_offset": "0x08e8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efbfaf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 191,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "val 175->191"
+   ]
+  },
+  {
+   "entry": 29,
+   "backing_offset": "0x08f0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 191,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 30,
+   "backing_offset": "0x08f8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efcfaf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 207,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "val 191->207"
+   ]
+  },
+  {
+   "entry": 31,
+   "backing_offset": "0x0900",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 207,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 32,
+   "backing_offset": "0x0908",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efdfaf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 223,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "val 207->223"
+   ]
+  },
+  {
+   "entry": 33,
+   "backing_offset": "0x0910",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 223,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 34,
+   "backing_offset": "0x0918",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efefaf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 239,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "val 223->239"
+   ]
+  },
+  {
+   "entry": 35,
+   "backing_offset": "0x0920",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 239,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 36,
+   "backing_offset": "0x0928",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efffaf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 255,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": [
+    "val 239->255"
+   ]
+  },
+  {
+   "entry": 37,
+   "backing_offset": "0x0930",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 255,
+    "speed": 175,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 38,
+   "backing_offset": "0x0938",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efffbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 255,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "speed 175->191"
+   ]
+  },
+  {
+   "entry": 39,
+   "backing_offset": "0x0940",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 255,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 40,
+   "backing_offset": "0x0948",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efefbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 239,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 255->239"
+   ]
+  },
+  {
+   "entry": 41,
+   "backing_offset": "0x0950",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 239,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 42,
+   "backing_offset": "0x0958",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efdfbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 223,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 239->223"
+   ]
+  },
+  {
+   "entry": 43,
+   "backing_offset": "0x0960",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 223,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 44,
+   "backing_offset": "0x0968",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efcfbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 207,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 223->207"
+   ]
+  },
+  {
+   "entry": 45,
+   "backing_offset": "0x0970",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 207,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 46,
+   "backing_offset": "0x0978",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efbfbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 191,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 207->191"
+   ]
+  },
+  {
+   "entry": 47,
+   "backing_offset": "0x0980",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 191,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 48,
+   "backing_offset": "0x0988",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100efafbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 175,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 191->175"
+   ]
+  },
+  {
+   "entry": 49,
+   "backing_offset": "0x0990",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 175,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 50,
+   "backing_offset": "0x0998",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef9fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 159,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 175->159"
+   ]
+  },
+  {
+   "entry": 51,
+   "backing_offset": "0x09a0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 159,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 52,
+   "backing_offset": "0x09a8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef8fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 143,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 159->143"
+   ]
+  },
+  {
+   "entry": 53,
+   "backing_offset": "0x09b0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 143,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 54,
+   "backing_offset": "0x09b8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef7fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 127,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 143->127"
+   ]
+  },
+  {
+   "entry": 55,
+   "backing_offset": "0x09c0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 127,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 56,
+   "backing_offset": "0x09c8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef8fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 143,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 127->143"
+   ]
+  },
+  {
+   "entry": 57,
+   "backing_offset": "0x09d0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 143,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 58,
+   "backing_offset": "0x09d8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef7fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 127,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 143->127"
+   ]
+  },
+  {
+   "entry": 59,
+   "backing_offset": "0x09e0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 127,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 60,
+   "backing_offset": "0x09e8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef8fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 143,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 127->143"
+   ]
+  },
+  {
+   "entry": 61,
+   "backing_offset": "0x09f0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 143,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 62,
+   "backing_offset": "0x09f8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef7fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 127,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 143->127"
+   ]
+  },
+  {
+   "entry": 63,
+   "backing_offset": "0x0a00",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 127,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 64,
+   "backing_offset": "0x0a08",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef6fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 111,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 127->111"
+   ]
+  },
+  {
+   "entry": 65,
+   "backing_offset": "0x0a10",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 111,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 66,
+   "backing_offset": "0x0a18",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef5fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 95,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 111->95"
+   ]
+  },
+  {
+   "entry": 67,
+   "backing_offset": "0x0a20",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 95,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 68,
+   "backing_offset": "0x0a28",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef6fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 111,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 95->111"
+   ]
+  },
+  {
+   "entry": 69,
+   "backing_offset": "0x0a30",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 111,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 70,
+   "backing_offset": "0x0a38",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef5fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 95,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 111->95"
+   ]
+  },
+  {
+   "entry": 71,
+   "backing_offset": "0x0a40",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 95,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 72,
+   "backing_offset": "0x0a48",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef4fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 79,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 95->79"
+   ]
+  },
+  {
+   "entry": 73,
+   "backing_offset": "0x0a50",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 79,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 74,
+   "backing_offset": "0x0a58",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef3fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 63,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 79->63"
+   ]
+  },
+  {
+   "entry": 75,
+   "backing_offset": "0x0a60",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 63,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 76,
+   "backing_offset": "0x0a68",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef2fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 47,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 63->47"
+   ]
+  },
+  {
+   "entry": 77,
+   "backing_offset": "0x0a70",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 47,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 78,
+   "backing_offset": "0x0a78",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4000ef1fbf",
+   "state_after": {
+    "enable": 0,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 31,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "enable 1->0",
+    "val 47->31"
+   ]
+  },
+  {
+   "entry": 79,
+   "backing_offset": "0x0a80",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 0,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 31,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 80,
+   "backing_offset": "0x0a88",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef2fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 47,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "enable 0->1",
+    "val 31->47"
+   ]
+  },
+  {
+   "entry": 81,
+   "backing_offset": "0x0a90",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 47,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 82,
+   "backing_offset": "0x0a98",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef3fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 63,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 47->63"
+   ]
+  },
+  {
+   "entry": 83,
+   "backing_offset": "0x0aa0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 63,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 84,
+   "backing_offset": "0x0aa8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef4fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 79,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 63->79"
+   ]
+  },
+  {
+   "entry": 85,
+   "backing_offset": "0x0ab0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 79,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 86,
+   "backing_offset": "0x0ab8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef3fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 63,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 79->63"
+   ]
+  },
+  {
+   "entry": 87,
+   "backing_offset": "0x0ac0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 63,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 88,
+   "backing_offset": "0x0ac8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4100ef2fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 47,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "val 63->47"
+   ]
+  },
+  {
+   "entry": 89,
+   "backing_offset": "0x0ad0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 0,
+    "sat": 239,
+    "val": 47,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  },
+  {
+   "entry": 90,
+   "backing_offset": "0x0ad8",
+   "eeprom_addr": 24,
+   "len": 5,
+   "bytes": "4108ef2fbf",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 8,
+    "sat": 239,
+    "val": 47,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": [
+    "hue 0->8"
+   ]
+  },
+  {
+   "entry": 91,
+   "backing_offset": "0x0ae0",
+   "eeprom_addr": 29,
+   "len": 3,
+   "bytes": "ff0000",
+   "state_after": {
+    "enable": 1,
+    "mode": 16,
+    "hue": 8,
+    "sat": 239,
+    "val": 47,
+    "speed": 191,
+    "flags": 255
+   },
+   "changes": []
+  }
+ ],
+ "sanity": {
+  "magic_is_0xFEE6": true,
+  "default_layer_bitmask": "0x01",
+  "default_layer_class": "1<<0 (layer 0)",
+  "rgb_mode_in_range": true,
+  "rgb_mode_max_plus_one": 23,
+  "hash_ok": true,
+  "log_all_multibyte": true,
+  "log_addresses_touched": [
+   24,
+   29
+  ],
+  "tail_clean": true,
+  "oracle": "MATCH: C oracle (fork wear_leveling.c) cache == Python replay, all 2048 bytes"
+ },
+ "python_cache_hex": "e6fe0001001400ff000000000000000000000000000000004108ef2fbfff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+}

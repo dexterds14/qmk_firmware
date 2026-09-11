@@ -1,0 +1,50 @@
+# Evidence-backed names for dump_a.bin (Keychron V10 Max custom firmware, build 2024-07-09-13:57:36).
+# Applied by scripts/ApplyNames.java (run_ghidra.sh names). Columns: addr,kind,name,evidence
+# kind = func (rename/create function, evidence -> plate comment) | label (data symbol, evidence -> EOL comment)
+# VERIFIED = read from the instructions at the address; INFERRED = from call position / QMK 0.23 source shape.
+addr,kind,name,evidence
+# ---- keymap lookup chain (quantum/keymap_introspection.c, keymap_common.c, action.c, action_layer.c)
+0x0800D27C,func,keycode_at_keymap_location_raw,VERIFIED: cmp r0#5/r1#5/r2#17 bhi -> movs r0#1 (KC_TRNS); idx = layer*0x6C + row*18 + col; ldr r3=[0x0800D2A0]=0x080169B8 keymaps; ldrh.w r0=[r3 + idx*2]; bx lr  (0x0800D27C-0x0800D29F)
+0x0800D2A4,func,keycode_at_keymap_location,VERIFIED: 4-byte ICF thunk 'b.w 0x0800D27C' (f7ff bfea); tail-jumped from keymap_key_to_keycode @0x0800EA78
+0x0800D2A8,func,keycode_at_encodermap_location_raw,VERIFIED: layer<6 && encoder_idx==0; idx = layer*2 + (clockwise^1); ldr r3=[0x0800D2C4]=0x080169A0 encoder_map; ldrh.w [r3 + idx*2]; else movs r0#1
+0x0800D2C8,func,keycode_at_encodermap_location,VERIFIED: ICF thunk 'b.w 0x0800D2A8'; tail-jumped from keymap_key_to_keycode @0x0800EA88
+0x0800EA64,func,keymap_key_to_keycode,VERIFIED: col=key&0xff row=(key>>8)&0xff; row<6&&col<18 -> keycode_at_keymap_location; row==0xFD (KEYLOC_ENCODER_CW) && col==0 -> encodermap(clockwise=1); row==0xFC (KEYLOC_ENCODER_CCW) -> clockwise=0; else KC_NO
+0x0800D2E8,func,get_event_keycode,VERIFIED shape of action.c get_event_keycode(): if !disable_action_cache(@0x200015F0) { if pressed && update_layer_cache: layer_switch_get_layer + update_source_layers_cache else read_source_layers_cache } else layer_switch_get_layer; tail b.w keymap_key_to_keycode 0x0800EA64
+0x0800D334,func,get_record_keycode,VERIFIED: loads record->event (ldrh [r0] [r0+2] [r0+4]) and tail-jumps b.w 0x0800D2E8 get_event_keycode
+0x0800DDB4,func,layer_switch_get_layer,VERIFIED: loops layer 15..0 over bits of (u16@0x2000162E | u16@0x20001630); calls 0x0800EA9E(layer,key) and returns first layer whose keycode != 1 (KC_TRNS); else 0
+0x0800DD34,func,update_source_layers_cache,INFERRED: second callee (key,layer) in the pressed&&update_layer_cache branch of get_event_keycode (QMK 0.23 action.c order)
+0x0800DD78,func,read_source_layers_cache,INFERRED: callee in the else-branch of get_event_keycode
+# ---- process_record chain (quantum/quantum.c, keychron_task.c)
+0x0800D3B6,func,process_record_quantum,VERIFIED shape: keycode=get_record_keycode(record,1); if preprocess_tap_dance(kc,rec) re-read; chain process_record_kb 0x0800C6E8 && process_tap_dance 0x08012040 && process_leader 0x080118F4 && process_rgb_matrix 0x08011530; if pressed: 0x7C00 QK_BOOT->0x0800D396 0x7C01 QK_REBOOT->0x0800D3A6 0x7C03 QK_CLEAR_EEPROM->0x0800E5CC+0x0800D3A6 0x7C5A/5B/5C OS_ON/OFF/TOGG->0x0800E5C0/E5C6/E5A8; return process_action_kb 0x0800D2D8
+0x08012000,func,preprocess_tap_dance,INFERRED: called (keycode,record) right after get_record_keycode; nonzero result triggers keycode re-read (QMK 0.23 process_record_quantum)
+0x08012040,func,process_tap_dance,VERIFIED: (keycode-0x5700) < 0x100 = QK_TAP_DANCE range; per-dance state stride 0x1C based at 0x20000E7C; active-td keycode @0x2000201C
+0x080118F4,func,process_leader,VERIFIED: compares keycode == 0x7C58 (QK_LEADER) when pressed
+0x08011530,func,process_rgb_matrix,VERIFIED: switch over 0x7820..0x783x (QK_RGB_MATRIX_* keycodes)
+0x0800C6E8,func,process_record_kb,VERIFIED shape of keychron_task.c:111 with process_record_keychron inlined: 0x0800D104 (process_record_user) && 0x0800A788 (wireless) && 0x0800C928 (factory test) && 0x0800C69C
+0x0800D104,func,process_record_user,CUSTOM KEYMAP CODE. INFERRED name: first callee of process_record_kb and begins with process_record_keychron_common (0x0800C720) exactly like the default keymap template. VERIFIED body: flag@0x200015E8 cleared unless keycode==0x5700 TD(0); flag@0x200015E9 cleared when 0x0800DC3C(1)==0; only when pressed: 0x39 KC_CAPS -> flag@0x200015DC from 0x08012148() bit1; (kc-0x52A2)<0x17 with mask 0x410041 = OSM(MOD_LSFT) 0x52A2 / OSM(MOD_LGUI) 0x52A8 / OSM(MOD_RSFT) 0x52B2 / OSM(MOD_RGUI) 0x52B8 -> custom one-shot handling via 0x0800D090/0x0800E310/0x0800E424/0x0800E3B0/0x0800E380/0x0800D684; 0x7E40 QK_USER_0 -> register/unregister_code 0x37 KC_DOT then 0x38 KC_SLASH ('./'); 0x7E41 QK_USER_1 -> DOT then falls into USER_0 path ('../'); returns false after handling
+0x0800C720,func,process_record_keychron_common,VERIFIED: switch 0x7E00-0x7E03 (KC_LOPTN..KC_RCMMD via mac_keycode table @0x0800EA3C) 0x7E04 KC_MCTRL->0xC1 0x7E05 KC_LNPAD->0xC2 0x7E06-0x7E09 KC_TASK..KC_CTANA via key_comb_list @0x0801682C stride 4 (keychron_common.c:87)
+0x0800A788,func,process_record_wireless,INFERRED: 2nd callee of process_record_kb (process_record_keychron order in keychron_task.c); body tests 0x7E0B 0x7E0E 0x7E0F (BT_HST*/P2P4G/BAT_LVL range)
+0x0800C928,func,process_record_factory_test,VERIFIED vs factory_test.c:171: keycodes 0x0D KC_J 0x1D KC_Z 0x4A KC_HOME (BL_TRIG_KEY) 0x4D KC_END 0x4F KC_RIGHT (BL_CYCLE_KEY) 0x5221/0x5223 MO(1)/MO(3) FN keys; state byte @0x200015D1; timer start 0x0800C918 when state==7 or 0x19
+0x0800C874,func,kc_raw_hid_rx,VERIFIED vs keychron_raw_hid.c kc_raw_hid_rx: ldrb data[0]; subs #0xA0; cmp #0xB; tbb @0x0800C882 (12 cases 0xA0..0xAB); case 0xA1 copies build-date string 0x080167AC (get_firmware_version); 0xAA -> 0x0800B290 (lkbt51_dfu_rx); 0xAB -> 0x0800CB90 (factory_test_rx)
+0x0800D570,func,register_code,VERIFIED shape of register_code(): 0->return; (kc-4)&0xff<0xA1 basic -> add_key path 0x08012238/0x08012350/0x0801231C; (kc+0x20)&0xff<8 mods 0xE0-0xE7 -> 0x0800E31C(1<<(kc&7)); 0xA5-0xA7 system -> 0x08012188(kc-0x24); 0xA8-0xC2 consumer -> 0x080121B8(u16 table @0x08016EC8); 0xCD-0xDF mouse -> 0x08011B84+0x08011D68; then send 0x0800E4DC
+0x0800D600,func,unregister_code,VERIFIED mirror of register_code: 0x08012350 del_key, 0x0800E32C del_mods, 0x08012188(0), 0x080121B8(0), 0x08011C48 mousekey_off
+0x0800D396,func,reset_keyboard,INFERRED: target of the QK_BOOT (0x7C00) case in process_record_quantum
+0x0800D3A6,func,soft_reset_keyboard,INFERRED: target of the QK_REBOOT (0x7C01) case in process_record_quantum
+0x0800D2D8,func,process_action_kb,INFERRED: 'movs r0,#1; bx lr' weak default returned at the end of process_record_quantum
+0x0800CB90,func,factory_test_rx,INFERRED: 0xAB case target of kc_raw_hid_rx; 392 bytes; references build-date string 0x080167AC
+0x0800B290,func,lkbt51_dfu_rx,INFERRED: 0xAA case target of kc_raw_hid_rx
+0x0800D488,func,get_highest_layer,VERIFIED use: kc_raw_hid_rx case 0xA3 calls it on default_layer_state and stores the byte result (keychron_raw_hid.c: data[1] = get_highest_layer(default_layer_state))
+0x08012C0C,func,raw_hid_send,VERIFIED use: called (data,length) at the end of kc_raw_hid_rx for the replying cases exactly where keychron_raw_hid.c calls raw_hid_send(data, length)
+0x080085BC,func,itoa,VERIFIED use: kc_raw_hid_rx case 0xA1 calls (1,&data[2],16),(0,&data[4],16),(0,&data[6],16) = get_firmware_version() itoa(...,16) for DEVICE_VER 0x0100
+0x0800883C,func,memcpy,INFERRED: 40 callers, (dst,src,n) with n=20 copying the build-date string in get_firmware_version; 306-byte newlib-style body
+# ---- data
+0x080169A0,label,encoder_map,VERIFIED: 24 bytes immediately BEFORE keymaps; read by keycode_at_encodermap_location_raw 0x0800D2A8 via literal @0x0800D2C4 as u16[layer<6][encoder 0][clockwise?0:1] (ENCODER_CCW_CW stores {cw,ccw})
+0x200015F0,label,disable_action_cache,VERIFIED: byte tested first in get_event_keycode 0x0800D2E8
+0x2000162E,label,layer_state,VERIFIED: u16 ORed with default_layer_state@0x20001630 in layer_switch_get_layer 0x0800DDB4; the other operand is identified as default_layer_state by kc_raw_hid_rx case 0xA3
+0x20001630,label,default_layer_state,VERIFIED: kc_raw_hid_rx 0x0800C874 case 0xA3 (KC_GET_DEFAULT_LAYER) does data[1] = get_highest_layer(u16@0x20001630), matching keychron_raw_hid.c get_highest_layer(default_layer_state)
+0x0800EA3C,label,mac_keycode,VERIFIED: 4-byte table indexed by keycode-0x7E00 in process_record_keychron_common 0x0800C720 (KC_LOPTN..KC_RCMMD)
+0x0801682C,label,key_comb_list,VERIFIED: stride-4 {len,kc[3]} table indexed by keycode-0x7E06 in process_record_keychron_common 0x0800C720
+0x08016EC8,label,consumer_usage_table,VERIFIED use: u16 table indexed by (kc+0x58)&0xff for keycodes 0xA8..0xC2 in register_code 0x0800D570 (KEYCODE2CONSUMER as a lookup table)
+0x200015E8,label,user_td0_flag,INFERRED: byte in process_record_user cleared on any keycode other than TD(0) 0x5700
+0x200015DC,label,user_capslock_flag,INFERRED: byte set/cleared in process_record_user on KC_CAPS press from 0x08012148() bit 1 (host LED state)
+0x200015D1,label,factory_reset_state,VERIFIED vs factory_test.c: bit flags for FN/J/Z/HOME/END/RIGHT in process_record_factory_test 0x0800C928

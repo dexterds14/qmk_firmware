@@ -1,0 +1,1382 @@
+# dump keychron_v10max_backup/dump_a.bin: code 0x8000.., text_end 0x166d0 (auto), rodata_end/.data image 0x1774c
+# crt0 literals: __textdata_base__=0x0801774c __data_base__=0x20000c00 __data_end__=0x200013b8 __bss_base__=0x200013b8 __bss_end__=0x20004b88 main=0x0800f084 (ldr sites ['0x0800808c', '0x0800808e', '0x08008090'])
+# linear sweep: 23632 insns, 644 distinct BL targets, 916 function starts
+
+====================================================================================================
+[0] ACTION_LAYER PRIMITIVES (identified from call structure anchored on matched layer_on/default_layer_set)
+  0x0800dbb8..0x0800dbc4 debug_record                 sub sp, #8 ; add r3, sp, #8 ; stmdb r3, {r0, r1} ; add sp, #8 ; bx lr
+  0x0800dbc4..0x0800dbc6 default_layer_state_set_user bx lr
+  0x0800dbc6..0x0800dbd0 default_layer_state_set_kb   push {r3, lr} ; bl #0x800dbc4 ; pop {r3, pc}
+  0x0800dbd0..0x0800dbe0 default_layer_state_set      push {r3, lr} ; bl #0x800dbc6 ; ldr r3, [pc, #4] ; strh r0, [r3] ; pop {r3, pc}
+  0x0800dbe0..0x0800dbe2 sub_0800dbe0                 bx lr
+  0x0800dbe2..0x0800dbe8 default_layer_set            b.w #0x800dbd0
+  0x0800dbe8..0x0800dbf8 default_layer_or             ldr r3, [pc, #8] ; ldrh r3, [r3] ; orrs r0, r3 ; b.w #0x800dbd0 ; nop 
+  0x0800dbf8..0x0800dc08 default_layer_and            ldr r3, [pc, #8] ; ldrh r3, [r3] ; ands r0, r3 ; b.w #0x800dbd0 ; nop 
+  0x0800dc08..0x0800dc18 default_layer_xor            ldr r3, [pc, #8] ; ldrh r3, [r3] ; eors r0, r3 ; b.w #0x800dbd0 ; nop 
+  0x0800dc18..0x0800dc1a layer_state_set_user         bx lr
+  0x0800dc1a..0x0800dc24 layer_state_set_kb           push {r3, lr} ; bl #0x800dc18 ; pop {r3, pc}
+  0x0800dc24..0x0800dc34 layer_state_set              push {r3, lr} ; bl #0x800dc1a ; ldr r3, [pc, #4] ; strh r0, [r3] ; pop {r3, pc}
+  0x0800dc34..0x0800dc3c layer_clear                  movs r0, #0 ; b.w #0x800dc24
+  0x0800dc3c..0x0800dc58 layer_state_is               ldr r3, [pc, #0x14] ; ldrh r3, [r3] ; cbnz r3, #0x800dc4a ; clz r0, r0 ; lsrs r0, r0, #5 ; bx lr ; asr.w r0, r
+  0x0800dc58..0x0800dc64 layer_move                   movs r3, #1 ; lsl.w r0, r3, r0 ; uxth r0, r0 ; b.w #0x800dc24
+  0x0800dc64..0x0800dc7c layer_on                     movs r3, #1 ; lsl.w r0, r3, r0 ; ldr r3, [pc, #0xc] ; ldrh r3, [r3] ; orrs r0, r3 ; uxth r0, r0 ; b.w #0x800dc
+  0x0800dc7c..0x0800dc90 layer_off                    ldr r2, [pc, #0xc] ; movs r3, #1 ; lsls r3, r0 ; ldrh r0, [r2] ; bic.w r0, r0, r3 ; b.w #0x800dc24
+  0x0800dc90..0x0800dca8 layer_invert                 movs r3, #1 ; lsl.w r0, r3, r0 ; ldr r3, [pc, #0xc] ; ldrh r3, [r3] ; eors r0, r3 ; uxth r0, r0 ; b.w #0x800dc
+  0x0800dca8..0x0800dcb8 layer_or                     ldr r3, [pc, #8] ; ldrh r3, [r3] ; orrs r0, r3 ; b.w #0x800dc24 ; nop 
+  0x0800dcb8..0x0800dcc8 layer_and                    ldr r3, [pc, #8] ; ldrh r3, [r3] ; ands r0, r3 ; b.w #0x800dc24 ; nop 
+  0x0800dcc8..0x0800dcd8 layer_xor                    ldr r3, [pc, #8] ; ldrh r3, [r3] ; eors r0, r3 ; b.w #0x800dc24 ; nop 
+  0x0800dcd8..0x0800dcda sub_0800dcd8                 bx lr
+  0x0800dcda..0x0800dd0c sub_0800dcda                 and r3, r1, #7 ; push {r4, r5, lr} ; lsrs r1, r1, #3 ; movs r4, #1 ; add.w r2, r2, r1, lsl #2 ; lsls r4, r3 ; 
+
+====================================================================================================
+[1] KEYMAP TABLE REFERENCES  (keymaps[] expected @ 0x080169b8)
+literal-pool words pointing into [0x080169b8,0x08016ec8): ['0x0800d2a0=0x080169b8']
+movw/movt sequences composing such a value: none
+
+enclosing function of literal 0x0800d2a0: sub_0800d27c [0x0800d27c..0x0800d2a4)
+  cmp immediates : r0#5@0800d27c, r1#5@0800d280, r2#17@0800d284
+  mov immediates : r3#108@0800d288, r3#18@0800d28c, r0#1@0800d29c
+  multiplies     : muls r0, r3, r0@0800d28a, mla r1, r3, r1, r0@0800d28e
+  => bounds: layer < 6, row < 6, col < 18 ; row stride const [108] (expect 108 = rows*cols) ; col const [18] (expect 18)
+  => layer_bytes = 6*18*2 = 216  matches keymaps[] stride 216
+  xrefs of raw: b.w@0800d2a4 in keycode_at_keymap_location
+  xrefs of wrapper keycode_at_keymap_location @0x0800d2a4: b.w@0800ea78 in keymap_key_to_keycode
+---- keycode_at_keymap_location_raw @ 0800d27c..0800d2a4 (40 bytes)
+  0800d27c:  cmp      r0, #5                       ; KC_B
+  0800d27e:  bhi      #0x800d29c
+  0800d280:  cmp      r1, #5                       ; KC_B
+  0800d282:  bhi      #0x800d29c
+  0800d284:  cmp      r2, #0x11                    ; KC_N
+  0800d286:  bhi      #0x800d29c
+  0800d288:  movs     r3, #0x6c                    ; KC_F17
+  0800d28a:  muls     r0, r3, r0
+  0800d28c:  movs     r3, #0x12                    ; KC_O
+  0800d28e:  mla      r1, r3, r1, r0
+  0800d292:  add      r2, r1
+  0800d294:  ldr      r3, [pc, #8]                 = 0x080169b8 flash rodata_080169b8
+  0800d296:  ldrh.w   r0, [r3, r2, lsl #1]
+  0800d29a:  bx       lr
+  0800d29c:  movs     r0, #1
+  0800d29e:  bx       lr
+  0800d2a0:  .word 0x080169b8    ; flash rodata_080169b8
+
+"movs r0,#6 ; bx lr" (keymap_layer_count_raw shape) occurrences: ['0x08014c74']
+  0x08014c74: function stm32_flash_check_errors [08014c54..08014c78) xrefs=[]
+
+====================================================================================================
+[2] ENCODER
+keycode_at_encodermap_location_raw shape at 0x0800d2a8 (function sub_0800d2a8): cmp r0,#5 -> 6 layers; cbnz r1 -> 1 encoder; eor clockwise^1; table literal = 0x080169a0
+---- keycode_at_encodermap_location_raw @ 0800d2a8..0800d2c8 (32 bytes)
+  0800d2a8:  cmp      r0, #5                       ; KC_B
+  0800d2aa:  bhi      #0x800d2be
+  0800d2ac:  cbnz     r1, #0x800d2be
+  0800d2ae:  eor      r2, r2, #1
+  0800d2b2:  ldr      r3, [pc, #0x10]              = 0x080169a0 flash rodata_080169a0
+  0800d2b4:  add.w    r0, r2, r0, lsl #1
+  0800d2b8:  ldrh.w   r0, [r3, r0, lsl #1]
+  0800d2bc:  bx       lr
+  0800d2be:  movs     r0, #1
+  0800d2c0:  bx       lr
+  0800d2c2:  nop
+  0800d2c4:  .word 0x080169a0    ; flash rodata_080169a0
+  weak wrapper keycode_at_encodermap_location = 0x0800d2c8 ; its xrefs: ['b.w@0800ea88 in keymap_key_to_keycode']
+  encoder_map[0] @0x080169a0 = {0x00a9, 0x00aa}  -> index[0]=clockwise KC_AUDIO_VOL_UP        index[1]=counter-clockwise KC_AUDIO_VOL_DOWN       == ENCODER_CCW_CW(KC_AUDIO_VOL_DOWN, KC_AUDIO_VOL_UP)
+  encoder_map[1] @0x080169a4 = {0x7827, 0x7828}  -> index[0]=clockwise RGB_VAI                index[1]=counter-clockwise RGB_VAD                 == ENCODER_CCW_CW(RGB_VAD, RGB_VAI)
+  encoder_map[2] @0x080169a8 = {0x00a9, 0x00aa}  -> index[0]=clockwise KC_AUDIO_VOL_UP        index[1]=counter-clockwise KC_AUDIO_VOL_DOWN       == ENCODER_CCW_CW(KC_AUDIO_VOL_DOWN, KC_AUDIO_VOL_UP)
+  encoder_map[3] @0x080169ac = {0x0000, 0x0000}  -> index[0]=clockwise KC_NO                  index[1]=counter-clockwise KC_NO                   == ENCODER_CCW_CW(KC_NO, KC_NO)
+  encoder_map[4] @0x080169b0 = {0x0000, 0x0000}  -> index[0]=clockwise KC_NO                  index[1]=counter-clockwise KC_NO                   == ENCODER_CCW_CW(KC_NO, KC_NO)
+  encoder_map[5] @0x080169b4 = {0x7827, 0x7828}  -> index[0]=clockwise RGB_VAI                index[1]=counter-clockwise RGB_VAD                 == ENCODER_CCW_CW(RGB_VAD, RGB_VAI)
+  table spans 0x080169a0..0x080169b8 (24 bytes); keymaps[] begins at 0x080169b8 -> contiguous, encoder_map immediately precedes keymaps[]
+
+rodata scan for 6-layer x {cw,ccw} u16 tables (pairs differ by 1 or both zero, >=3 non-zero pairs):
+  0x080169a0: {KC_AUDIO_VOL_UP,KC_AUDIO_VOL_DOWN} {RGB_VAI,RGB_VAD} {KC_AUDIO_VOL_UP,KC_AUDIO_VOL_DOWN} {KC_NO,KC_NO} {KC_NO,KC_NO} {RGB_VAI,RGB_VAD}
+  0x08016a94: {KC_F1,KC_F2} {KC_F3,KC_F4} {KC_F5,KC_F6} {KC_F7,KC_F8} {KC_F9,KC_F10} {KC_F11,KC_F12}
+  0x08016b6c: {KC_F1,KC_F2} {KC_F3,KC_F4} {KC_F5,KC_F6} {KC_F7,KC_F8} {KC_F9,KC_F10} {KC_F11,KC_F12}
+
+functions using both #0xFD and #0xFC immediates (KEYLOC_ENCODER_CW/CCW, i.e. encoder event path):
+  keymap_key_to_keycode @0x0800ea64  bl/b.w targets: keycode_at_keymap_location, keycode_at_encodermap_location
+---- keymap_key_to_keycode @ 0800ea64..0800ea9e (58 bytes)
+  0800ea64:  uxtb     r3, r1
+  0800ea66:  ubfx     r1, r1, #8, #8
+  0800ea6a:  cmp      r1, #5                       ; KC_B
+  0800ea6c:  sub      sp, #8
+  0800ea6e:  bhi      #0x800ea7c
+  0800ea70:  cmp      r3, #0x11                    ; KC_N
+  0800ea72:  bhi      #0x800ea98
+  0800ea74:  mov      r2, r3
+  0800ea76:  add      sp, #8
+  0800ea78:  b.w      #0x800d2a4                   <keycode_at_keymap_location>
+  0800ea7c:  cmp      r1, #0xfd
+  0800ea7e:  bne      #0x800ea8c
+  0800ea80:  cbnz     r3, #0x800ea98
+  0800ea82:  movs     r2, #1
+  0800ea84:  mov      r1, r3
+  0800ea86:  add      sp, #8
+  0800ea88:  b.w      #0x800d2c8                   <keycode_at_encodermap_location>
+  0800ea8c:  cmp      r1, #0xfc
+  0800ea8e:  bne      #0x800ea98
+  0800ea90:  cbnz     r3, #0x800ea98
+  0800ea92:  mov      r2, r3
+  0800ea94:  mov      r1, r3
+  0800ea96:  b        #0x800ea86
+  0800ea98:  movs     r0, #0
+  0800ea9a:  add      sp, #8
+  0800ea9c:  bx       lr
+  sub_080116d0 @0x080116d0  bl/b.w targets: sub_08012574, sub_0800d50c, chThdSleep, sub_08012574, sub_0800d50c, chThdSleep, sub_08012574, sub_0800d50c, chThdSleep, sub_08012574, sub_0800d50c, chThdSleep
+---- sub_080116d0 @ 080116d0..08011844 (372 bytes)
+  080116d0:  push.w   {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+  080116d4:  mov.w    sb, #0
+  080116d8:  ldr      r6, [pc, #0x14c]             = 0x40020400 periph
+  080116da:  ldr      r7, [pc, #0x150]             = 0x20001ff7 ram_20001ff7
+  080116dc:  sub      sp, #0x24
+  080116de:  mov      r5, sb
+  080116e0:  ldr      r3, [pc, #0x14c]             = 0x20001ff5 ram_20001ff5
+  080116e2:  ldrb     r3, [r3]
+  080116e4:  uxtb.w   r4, sb
+  080116e8:  cmp      r3, r4
+  080116ea:  bhi      #0x80116f4
+  080116ec:  mov      r0, r5
+  080116ee:  add      sp, #0x24
+  080116f0:  pop.w    {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+  080116f4:  ldr      r2, [r6, #0x10]
+  080116f6:  ldr      r3, [r6, #0x10]
+  080116f8:  ldr.w    r8, [pc, #0x140]             = 0x20001ff8 ram_20001ff8
+  080116fc:  lsrs     r3, r3, #0xd
+  080116fe:  ubfx     r2, r2, #0xf, #1
+  08011702:  and      r3, r3, #2
+  08011706:  orrs     r3, r2
+  08011708:  ldrb     r2, [r7, r4]
+  0801170a:  and      r1, r2, #3
+  0801170e:  cmp      r1, r3
+  08011710:  bne      #0x801171a
+  08011712:  ldrb.w   r1, [r8, r4]
+  08011716:  cmp      r1, #0
+  08011718:  beq      #0x8011818
+  0801171a:  orr.w    r3, r3, r2, lsl #2
+  0801171e:  uxtb     r3, r3
+  08011720:  ldr.w    sl, [pc, #0x11c]             = 0x20001ff6 ram_20001ff6
+  08011724:  ldr      r1, [pc, #0x10c]             = 0x080170b4 flash rodata_080170b4
+  08011726:  strb     r3, [r7, r4]
+  08011728:  and      r2, r3, #0xf
+  0801172c:  ldrb     r2, [r1, r2]
+  0801172e:  ldrb.w   r1, [sl, r4]
+  08011732:  add      r2, r1
+  08011734:  sxtb     r1, r2
+  08011736:  adds     r2, #3
+  08011738:  and      r2, r2, #0xff
+  0801173c:  cmp      r2, #6                       ; KC_C
+  0801173e:  strb.w   r1, [sl, r4]
+  08011742:  bhi      #0x801174c
+  08011744:  and      r3, r3, #3
+  08011748:  cmp      r3, #3
+  0801174a:  bne      #0x8011822
+  0801174c:  cmp      r1, #0
+  0801174e:  ble      #0x801181e
+  08011750:  ldr      r2, [pc, #0xe4]              = 0x20001ff4 ram_20001ff4
+  08011752:  strb.w   r4, [sp, #8]
+  08011756:  ldrb     r3, [r2, r4]
+  08011758:  mov.w    fp, #0xfc
+  0801175c:  adds     r3, #1
+  0801175e:  strb     r3, [r2, r4]
+  08011760:  strb.w   fp, [sp, #9]
+  08011764:  bl       #0x8012574                   <sub_08012574>
+  08011768:  movw     r3, #0x103                   ; kc LCTL(0x03)
+  0801176c:  strh.w   r3, [sp, #0xc]
+  08011770:  strh.w   r0, [sp, #0xa]
+  08011774:  ldrd     r0, r1, [sp, #8]
+  08011778:  bl       #0x800d50c                   <sub_0800d50c>
+  0801177c:  movs     r0, #0xc8                    ; 0x00C8
+  0801177e:  bl       #0x8013a7a                   <chThdSleep>
+  08011782:  strb.w   r4, [sp]
+  08011786:  strb.w   fp, [sp, #1]
+  0801178a:  bl       #0x8012574                   <sub_08012574>
+  0801178e:  movs     r3, #3
+  08011790:  strh.w   r3, [sp, #4]
+  08011794:  strh.w   r0, [sp, #2]
+  08011798:  ldrd     r0, r1, [sp]
+  0801179c:  bl       #0x800d50c                   <sub_0800d50c>
+  080117a0:  movs     r0, #0xc8                    ; 0x00C8
+  080117a2:  bl       #0x8013a7a                   <chThdSleep>
+  080117a6:  movs     r3, #1
+  080117a8:  ldrsb.w  r2, [sl, r4]
+  080117ac:  cmp      r2, #0
+  080117ae:  bge      #0x801180a
+  080117b0:  ldr      r2, [pc, #0x84]              = 0x20001ff4 ram_20001ff4
+  080117b2:  strb.w   r4, [sp, #0x18]
+  080117b6:  ldrb     r3, [r2, r4]
+  080117b8:  mov.w    fp, #0xfd
+  080117bc:  subs     r3, #1
+  080117be:  strb     r3, [r2, r4]
+  080117c0:  strb.w   fp, [sp, #0x19]
+  080117c4:  bl       #0x8012574                   <sub_08012574>
+  080117c8:  mov.w    r3, #0x102                   ; LCTL(0x02)
+  080117cc:  strh.w   r3, [sp, #0x1c]
+  080117d0:  strh.w   r0, [sp, #0x1a]
+  080117d4:  add      r3, sp, #0x20
+  080117d6:  ldmdb    r3, {r0, r1}
+  080117da:  bl       #0x800d50c                   <sub_0800d50c>
+  080117de:  movs     r0, #0xc8                    ; 0x00C8
+  080117e0:  bl       #0x8013a7a                   <chThdSleep>
+  080117e4:  strb.w   r4, [sp, #0x10]
+  080117e8:  strb.w   fp, [sp, #0x11]
+  080117ec:  bl       #0x8012574                   <sub_08012574>
+  080117f0:  movs     r3, #2
+  080117f2:  strh.w   r3, [sp, #0x14]
+  080117f6:  strh.w   r0, [sp, #0x12]
+  080117fa:  ldrd     r0, r1, [sp, #0x10]
+  080117fe:  bl       #0x800d50c                   <sub_0800d50c>
+  08011802:  movs     r0, #0xc8                    ; 0x00C8
+  08011804:  bl       #0x8013a7a                   <chThdSleep>
+  08011808:  movs     r3, #1
+  0801180a:  movs     r2, #0
+  0801180c:  strb.w   r2, [sl, r4]
+  08011810:  orrs     r5, r3
+  08011812:  movs     r3, #0
+  08011814:  strb.w   r3, [r8, r4]
+  08011818:  add.w    sb, sb, #1
+  0801181c:  b        #0x80116e0
+  0801181e:  movs     r3, #0
+  08011820:  b        #0x80117a8
+  08011822:  movs     r3, #0
+  08011824:  b        #0x8011810
+  08011826:  nop
+  08011828:  .word 0x40020400    ; periph
+  0801182c:  .word 0x20001ff7    ; ram_20001ff7
+  08011830:  .word 0x20001ff5    ; ram_20001ff5
+  08011834:  .word 0x080170b4    ; flash rodata_080170b4
+  08011838:  .word 0x20001ff4    ; ram_20001ff4
+  0801183c:  .word 0x20001ff8    ; ram_20001ff8
+  08011840:  .word 0x20001ff6    ; ram_20001ff6
+
+====================================================================================================
+[3] DIP SWITCH
+dip_switch_read candidate: dip_switch_read @0x0801189c (signature at 0x080118a8: GPIOA->IDR bit 8 = pin A8, active-low)
+---- dip_switch_read @ 0801189c..080118d8 (60 bytes)
+  0801189c:  ldr      r3, [pc, #0x2c]              = 0x40020000 periph
+  0801189e:  push     {r4, r5, r6, lr}
+  080118a0:  ldr      r1, [r3, #0x10]
+  080118a2:  ldr      r4, [pc, #0x2c]              = 0x20001ff9 ram_20001ff9
+  080118a4:  ldr      r5, [pc, #0x2c]              = 0x20001ffa ram_20001ffa
+  080118a6:  ldrb     r3, [r4]
+  080118a8:  mvn.w    r1, r1, lsr #8
+  080118ac:  and      r6, r1, #1
+  080118b0:  cmp      r3, r6
+  080118b2:  mov      r1, r6
+  080118b4:  strb     r6, [r5]
+  080118b6:  bne      #0x80118ba
+  080118b8:  cbz      r0, #0x80118ca
+  080118ba:  movs     r0, #0
+  080118bc:  bl       #0x800cd18                   <sub_0800cd18>
+  080118c0:  mov      r0, r6
+  080118c2:  bl       #0x8011894                   <sub_08011894>
+  080118c6:  ldrb     r3, [r5]
+  080118c8:  strb     r3, [r4]
+  080118ca:  pop      {r4, r5, r6, pc}
+  080118cc:  .word 0x40020000    ; periph
+  080118d0:  .word 0x20001ff9    ; ram_20001ff9
+  080118d4:  .word 0x20001ffa    ; ram_20001ffa
+  RAM vars: ['0x20001ff9', '0x20001ffa'] (dip_switch_state / last_dip_switch_state)
+
+  callee dip_switch_update_kb @0x0800cd18 (called from 0x080118bc):
+---- dip_switch_update_kb @ 0800cd18..0800cd38 (32 bytes)
+  0800cd18:  push     {r3, r4, r5, lr}
+  0800cd1a:  mov      r5, r1
+  0800cd1c:  mov      r4, r0
+  0800cd1e:  cbnz     r0, #0x800cd2c
+  0800cd20:  cmp      r1, #0
+  0800cd22:  ite      eq
+  0800cd24:  movs     r0, #4                       ; KC_A
+  0800cd26:  movs     r0, #1
+  0800cd28:  bl       #0x800dbe2                   <default_layer_set>
+  0800cd2c:  mov      r1, r5
+  0800cd2e:  mov      r0, r4
+  0800cd30:  bl       #0x800ccf0                   <dip_switch_update_user>
+  0800cd34:  movs     r0, #1
+  0800cd36:  pop      {r3, r4, r5, pc}
+
+  callee dip_switch_update_mask_kb @0x08011894 (called from 0x080118c2):
+---- dip_switch_update_mask_kb @ 08011894..0801189c (8 bytes)
+  08011894:  push     {r3, lr}
+  08011896:  bl       #0x8011890                   <dip_switch_update_mask_user>
+  0801189a:  pop      {r3, pc}
+
+  default_layer_set call at 0x0800cd28 in dip_switch_update_kb; preceding: cmp r1, #0 | ite eq | moveq r0, #4 | movne r0, #1
+
+====================================================================================================
+[4] TABLES AFTER keymaps[] AND KEYCHRON TABLES
+u16[27] at 0x08016ec8..0x08016efe: IDENTICAL to KEYCODE2CONSUMER(KC_AUDIO_MUTE..KC_LAUNCHPAD) HID consumer usages
+  literal 0x08016ec8 referenced from pool word 0x0800d5fc in register_code @0x0800d570 (callees: del_key_from_report, host_consumer_send, host_system_send, mousekey_on, send_keyboard_report, sub_0800e31c, sub_08011d68, sub_08012238, sub_0801231c)
+u16[27] at 0x08016efe..0x08016f34: IDENTICAL to KEYCODE2CONSUMER(KC_AUDIO_MUTE..KC_LAUNCHPAD) HID consumer usages
+  literal 0x08016efe referenced from pool word 0x0800ea60 in action_for_keycode @0x0800e8b0 (callees: keycode_config, sub_0800ebbc)
+  first 3 entries: KC_AUDIO_MUTE(0xA8)->0x0E2, KC_AUDIO_VOL_UP(0xA9)->0x0E9, KC_AUDIO_VOL_DOWN(0xAA)->0x0EA ...
+following words at 0x08016f34: 0x40020806 0x40020807 0x40020808 0x4002000e 0x4002000f 0x4002080a  (ChibiOS ioline_t: 0x40020000=GPIOA 0x40020400=GPIOB 0x40020800=GPIOC | pad) -> matrix pin arrays
+
+mac_keycode[4] = {KC_LOPT 0xE2, KC_ROPT 0xE6, KC_LCMD 0xE3, KC_RCMD 0xE7}: 0x0801683c
+key_comb_list[4] = {2,{LWIN,TAB}},{2,{LWIN,E}},{3,{LSFT,LCMD,4}},{2,{LWIN,C}}: 0x0801682c
+  bytes: 02 e3 2b 00 02 e3 08 00 03 e1 e3 21 02 e3 06 00
+  key_comb_list referenced from pool 0x0800c7d8 in sub_0800c720 @0x0800c720
+
+====================================================================================================
+[5] TAP DANCE (.data init image scan)
+.data init image: flash 0x0801774c..0x08017f04 (1976 bytes) -> RAM 0x20000c00..0x200013b8 ; bss 0x200013b8..0x20004b88
+candidates (state==0, fn pointers odd in text or NULL, user_data NULL/rodata/RAM):
+  file 0x0179c8 flash 0x080179c8 -> RAM 0x20000e7c : fn={on_each_tap=NULL, on_dance_finished=sub_0800d1ec, on_reset=sub_0800cdd8, on_each_release=NULL} user_data=0x00000000 ; code literal refs to RAM addr: ['0x0801203c in sub_08012000', '0x080120c4 in sub_08012040', '0x0801211c in sub_080120d0']
+
+tap_dance_actions[] = RAM 0x20000e7c (init image flash 0x080179c8). Entry 0: 00 00 00 00 00 00 00 00 00 00 00 00 ed d1 00 08 d9 cd 00 08 00 00 00 00 00 00 00 00
+  next 28 bytes (would be entry 1): a7 16 00 20 c7 16 00 20 85 ec 00 08 ff ff 00 00 ff ff ff ff ff ff ff ff 03 00 ff 00 -> NOT a tap dance entry => exactly 1 entry
+
+  referencing function sub_08012000 @0x08012000 (process_tap_dance.c; look for *28 stride: movs #28 / lsl #2 + lsl #3 ...):
+---- sub_08012000 @ 08012000..08012040 (64 bytes)
+  08012000:  push     {r3, r4, r5, lr}
+  08012002:  ldrb     r4, [r1, #5]
+  08012004:  mov      r2, r0
+  08012006:  cbz      r4, #0x801202e
+  08012008:  ldr      r3, [pc, #0x2c]              = 0x2000201c ram_2000201c
+  0801200a:  ldrh     r3, [r3]
+  0801200c:  cbz      r3, #0x8012032
+  0801200e:  cmp      r3, r0
+  08012010:  beq      #0x8012032
+  08012012:  ldr      r5, [pc, #0x28]              = 0x20000e7c tap_dance_actions
+  08012014:  movs     r1, #0x1c                    ; KC_Y
+  08012016:  uxtb     r3, r3
+  08012018:  muls     r3, r1, r3
+  0801201a:  adds     r0, r5, r3
+  0801201c:  ldrb     r1, [r0, #5]
+  0801201e:  orr      r1, r1, #4
+  08012022:  strb     r1, [r0, #5]
+  08012024:  strh     r2, [r5, r3]
+  08012026:  bl       #0x8011fb8                   <sub_08011fb8>
+  0801202a:  bl       #0x800e374                   <sub_0800e374>
+  0801202e:  mov      r0, r4
+  08012030:  pop      {r3, r4, r5, pc}
+  08012032:  movs     r4, #0
+  08012034:  b        #0x801202e
+  08012036:  nop
+  08012038:  .word 0x2000201c    ; ram_2000201c
+  0801203c:  .word 0x20000e7c    ; tap_dance_actions
+
+  referencing function sub_08012040 @0x08012040 (process_tap_dance.c; look for *28 stride: movs #28 / lsl #2 + lsl #3 ...):
+---- sub_08012040 @ 08012040..080120d0 (144 bytes)
+  08012040:  sub.w    r3, r0, #0x5700
+  08012044:  cmp      r3, #0xff
+  08012046:  push     {r4, r5, r6, lr}
+  08012048:  mov      r5, r0
+  0801204a:  bhi      #0x801209e
+  0801204c:  ldr      r4, [pc, #0x74]              = 0x20000e7c tap_dance_actions
+  0801204e:  ldrb     r6, [r1, #5]
+  08012050:  uxtb     r3, r0
+  08012052:  movs     r2, #0x1c                    ; KC_Y
+  08012054:  mla      r4, r2, r3, r4
+  08012058:  ldrb     r3, [r4, #5]
+  0801205a:  bfi      r3, r6, #0, #1
+  0801205e:  strb     r3, [r4, #5]
+  08012060:  cbz      r6, #0x80120a2
+  08012062:  bl       #0x8012574                   <sub_08012574>
+  08012066:  ldr      r3, [pc, #0x60]              = 0x2000201a ram_2000201a
+  08012068:  strh     r0, [r3]
+  0801206a:  ldrb     r3, [r4, #2]
+  0801206c:  adds     r3, #1
+  0801206e:  strb     r3, [r4, #2]
+  08012070:  bl       #0x800e310                   <get_mods>
+  08012074:  strb     r0, [r4, #3]
+  08012076:  bl       #0x800e348                   <sub_0800e348>
+  0801207a:  ldrb     r3, [r4, #3]
+  0801207c:  orrs     r0, r3
+  0801207e:  strb     r0, [r4, #3]
+  08012080:  bl       #0x800e380                   <sub_0800e380>
+  08012084:  ldr      r2, [r4, #8]
+  08012086:  strb     r0, [r4, #4]
+  08012088:  ldr      r1, [r4, #0x18]
+  0801208a:  mov      r0, r4
+  0801208c:  bl       #0x8011f8c                   <sub_08011f8c>
+  08012090:  ldrb     r3, [r4, #5]
+  08012092:  tst.w    r3, #2
+  08012096:  ldr      r3, [pc, #0x34]              = 0x2000201c ram_2000201c
+  08012098:  it       ne
+  0801209a:  movs     r5, #0
+  0801209c:  strh     r5, [r3]
+  0801209e:  movs     r0, #1
+  080120a0:  pop      {r4, r5, r6, pc}
+  080120a2:  ldr      r2, [r4, #0x14]
+  080120a4:  ldr      r1, [r4, #0x18]
+  080120a6:  mov      r0, r4
+  080120a8:  bl       #0x8011f8c                   <sub_08011f8c>
+  080120ac:  ldrb     r3, [r4, #5]
+  080120ae:  lsls     r3, r3, #0x1e
+  080120b0:  bpl      #0x801209e
+  080120b2:  mov      r0, r4
+  080120b4:  bl       #0x8011f92                   <sub_08011f92>
+  080120b8:  ldr      r3, [pc, #0x10]              = 0x2000201c ram_2000201c
+  080120ba:  ldrh     r2, [r3]
+  080120bc:  cmp      r2, r5
+  080120be:  it       eq
+  080120c0:  strh     r6, [r3]
+  080120c2:  b        #0x801209e
+  080120c4:  .word 0x20000e7c    ; tap_dance_actions
+  080120c8:  .word 0x2000201a    ; ram_2000201a
+  080120cc:  .word 0x2000201c    ; ram_2000201c
+
+  referencing function sub_080120d0 @0x080120d0 (process_tap_dance.c; look for *28 stride: movs #28 / lsl #2 + lsl #3 ...):
+---- sub_080120d0 @ 080120d0..08012120 (80 bytes)
+  080120d0:  push     {r0, r1, r2, r4, r5, lr}
+  080120d2:  ldr      r4, [pc, #0x40]              = 0x2000201c ram_2000201c
+  080120d4:  ldrh     r3, [r4]
+  080120d6:  cbz      r3, #0x801210e
+  080120d8:  ldr      r3, [pc, #0x3c]              = 0x2000201a ram_2000201a
+  080120da:  ldrh     r0, [r3]
+  080120dc:  bl       #0x801257e                   <timer_elapsed>
+  080120e0:  movs     r3, #0
+  080120e2:  mov      r5, r0
+  080120e4:  mov      r1, sp
+  080120e6:  ldrh     r0, [r4]
+  080120e8:  strd     r3, r3, [sp]
+  080120ec:  bl       #0x800defc                   <sub_0800defc>
+  080120f0:  cmp      r5, r0
+  080120f2:  bls      #0x801210e
+  080120f4:  ldrb     r3, [r4]
+  080120f6:  ldr      r0, [pc, #0x24]              = 0x20000e7c tap_dance_actions
+  080120f8:  movs     r2, #0x1c                    ; KC_Y
+  080120fa:  mla      r0, r2, r3, r0
+  080120fe:  ldrb     r3, [r0, #5]
+  08012100:  lsls     r3, r3, #0x1d
+  08012102:  bmi      #0x801210e
+  08012104:  add      sp, #0xc
+  08012106:  pop.w    {r4, r5, lr}
+  0801210a:  b.w      #0x8011fb8                   <sub_08011fb8>
+  0801210e:  add      sp, #0xc
+  08012110:  pop      {r4, r5, pc}
+  08012112:  nop
+  08012114:  .word 0x2000201c    ; ram_2000201c
+  08012118:  .word 0x2000201a    ; ram_2000201a
+  0801211c:  .word 0x20000e7c    ; tap_dance_actions
+
+  callback on_dance_finished = 0x0800d1ed:
+---- td0_on_dance_finished @ 0800d1ec..0800d25c (112 bytes)
+  0800d1ec:  push     {r3, r4, r5, lr}
+  0800d1ee:  bl       #0x800d1c4                   <td0_cur_dance>
+  0800d1f2:  cmp      r0, #3
+  0800d1f4:  beq      #0x800d23e
+  0800d1f6:  cmp      r0, #4                       ; KC_A
+  0800d1f8:  beq      #0x800d24c
+  0800d1fa:  cmp      r0, #2
+  0800d1fc:  bne      #0x800d22c
+  0800d1fe:  movs     r0, #4                       ; KC_A
+  0800d200:  bl       #0x800dc3c                   <layer_state_is>
+  0800d204:  mov      r4, r0
+  0800d206:  cbz      r0, #0x800d21a
+  0800d208:  ldr      r3, [pc, #0x48]              = 0x200015e9 ram_200015e9
+  0800d20a:  movs     r2, #1
+  0800d20c:  strb     r2, [r3]
+  0800d20e:  bl       #0x800dc34                   <layer_clear>
+  0800d212:  pop.w    {r3, r4, r5, lr}
+  0800d216:  b.w      #0x800cdda                   <td0_helper_0800cdda>
+  0800d21a:  ldr      r5, [pc, #0x3c]              = 0x200015e8 ram_200015e8
+  0800d21c:  ldrb     r3, [r5]
+  0800d21e:  cbz      r3, #0x800d22e
+  0800d220:  bl       #0x800dc34                   <layer_clear>
+  0800d224:  movs     r0, #1
+  0800d226:  bl       #0x800dc58                   <layer_move>
+  0800d22a:  strb     r4, [r5]
+  0800d22c:  pop      {r3, r4, r5, pc}
+  0800d22e:  movs     r0, #1
+  0800d230:  bl       #0x800dc3c                   <layer_state_is>
+  0800d234:  cmp      r0, #0
+  0800d236:  bne      #0x800d20e
+  0800d238:  movs     r3, #1
+  0800d23a:  strb     r3, [r5]
+  0800d23c:  b        #0x800d212
+  0800d23e:  bl       #0x800dc34                   <layer_clear>
+  0800d242:  movs     r0, #4                       ; KC_A
+  0800d244:  pop.w    {r3, r4, r5, lr}
+  0800d248:  b.w      #0x800dc58                   <layer_move>
+  0800d24c:  bl       #0x800dc34                   <layer_clear>
+  0800d250:  movs     r0, #1
+  0800d252:  b        #0x800d244
+  0800d254:  .word 0x200015e9    ; ram_200015e9
+  0800d258:  .word 0x200015e8    ; ram_200015e8
+
+    helper td0_cur_dance @0x0800d1c4 (called from 0x0800d1ee):
+---- td0_cur_dance @ 0800d1c4..0800d1ec (40 bytes)
+  0800d1c4:  ldrb     r3, [r0, #2]
+  0800d1c6:  cmp      r3, #1
+  0800d1c8:  bne      #0x800d1dc
+  0800d1ca:  ldrb     r3, [r0, #5]
+  0800d1cc:  lsls     r2, r3, #0x1f
+  0800d1ce:  bpl      #0x800d1e6
+  0800d1d0:  tst.w    r3, #4
+  0800d1d4:  ite      eq
+  0800d1d6:  movs     r0, #3
+  0800d1d8:  movs     r0, #1
+  0800d1da:  bx       lr
+  0800d1dc:  cmp      r3, #2
+  0800d1de:  ite      eq
+  0800d1e0:  movs     r0, #4                       ; KC_A
+  0800d1e2:  movs     r0, #1
+  0800d1e4:  bx       lr
+  0800d1e6:  movs     r0, #2
+  0800d1e8:  bx       lr
+  0800d1ea:  movs     r0, r0
+
+    helper td0_helper_0800cdda @0x0800cdda (called from 0x0800d216):
+---- td0_helper_0800cdda @ 0800cdda..0800cdf4 (26 bytes)
+  0800cdda:  push     {r3, lr}
+  0800cddc:  movs     r0, #1
+  0800cdde:  bl       #0x800dc64                   <layer_on>
+  0800cde2:  movs     r0, #1
+  0800cde4:  movs     r1, #3
+  0800cde6:  bl       #0x800e504                   <sub_0800e504>
+  0800cdea:  pop.w    {r3, lr}
+  0800cdee:  movs     r0, #1
+  0800cdf0:  b.w      #0x800e548                   <clear_oneshot_layer_state>
+
+      helper sub_0800e504 @0x0800e504 (called from 0x0800cde6):
+---- sub_0800e504 @ 0800e504..0800e534 (48 bytes)
+  0800e504:  ldr      r2, [pc, #0x24]              = 0x200047d4 ram_200047d4
+  0800e506:  ldrb     r2, [r2, #1]
+  0800e508:  lsls     r2, r2, #0x1d
+  0800e50a:  push     {r4, lr}
+  0800e50c:  bpl      #0x800e524
+  0800e50e:  ldr      r4, [pc, #0x20]              = 0x200016a4 ram_200016a4
+  0800e510:  orr.w    r1, r1, r0, lsl #3
+  0800e514:  strb     r1, [r4]
+  0800e516:  bl       #0x800dc64                   <layer_on>
+  0800e51a:  ldrb     r0, [r4]
+  0800e51c:  lsrs     r0, r0, #3
+  0800e51e:  bl       #0x800e4fc                   <oneshot_layer_changed_kb>
+  0800e522:  pop      {r4, pc}
+  0800e524:  pop.w    {r4, lr}
+  0800e528:  b.w      #0x800dc64                   <layer_on>
+  0800e52c:  .word 0x200047d4    ; ram_200047d4
+  0800e530:  .word 0x200016a4    ; ram_200016a4
+
+  callback on_reset = 0x0800cdd9:
+---- td0_on_reset @ 0800cdd8..0800cdda (2 bytes)
+  0800cdd8:  bx       lr
+
+====================================================================================================
+[6] LEADER KEY
+movw #0x7C58 (QK_LEADER) sites: ['0x08011930 in sub_080118f4']
+---- process_leader @ 080118f4..08011940 (76 bytes)
+  080118f4:  push     {r3, r4, r5, lr}
+  080118f6:  ldrb     r3, [r1, #5]
+  080118f8:  mov      r4, r0
+  080118fa:  cbnz     r3, #0x8011902
+  080118fc:  movs     r5, #1
+  080118fe:  mov      r0, r5
+  08011900:  pop      {r3, r4, r5, pc}
+  08011902:  bl       #0x8011990                   <sub_08011990>
+  08011906:  cbz      r0, #0x8011930
+  08011908:  bl       #0x80119c0                   <sub_080119c0>
+  0801190c:  mov      r5, r0
+  0801190e:  cbnz     r0, #0x8011930
+  08011910:  sub.w    r3, r4, #0x2000
+  08011914:  cmp.w    r3, #0x3000                  ; 0x3000
+  08011918:  it       lo
+  0801191a:  uxtb     r4, r4
+  0801191c:  mov      r0, r4
+  0801191e:  bl       #0x801199c                   <sub_0801199c>
+  08011922:  cbnz     r0, #0x801192a
+  08011924:  bl       #0x801197c                   <sub_0801197c>
+  08011928:  b        #0x80118fc
+  0801192a:  bl       #0x80119f8                   <sub_080119f8>
+  0801192e:  b        #0x80118fe
+  08011930:  movw     r3, #0x7c58                  ; kc QK_LEADER
+  08011934:  cmp      r4, r3
+  08011936:  bne      #0x80118fc
+  08011938:  bl       #0x8011940                   <sub_08011940>
+  0801193c:  b        #0x80118fc
+  0801193e:  movs     r0, r0
+
+process_leader callees:
+  0x08011902 -> sub_08011990 @0x08011990
+  0x08011908 -> sub_080119c0 @0x080119c0
+  0x0801191e -> sub_0801199c @0x0801199c
+  0x08011924 -> leader_end @0x0801197c
+  0x0801192a -> sub_080119f8 @0x080119f8
+  0x08011938 -> leader_start @0x08011940
+---- sub_08011990 @ 08011990..0801199c (12 bytes)
+  08011990:  ldr      r3, [pc, #4]                 = 0x20002008 ram_20002008
+  08011992:  ldrb     r0, [r3]
+  08011994:  bx       lr
+  08011996:  nop
+  08011998:  .word 0x20002008    ; ram_20002008
+---- sub_080119c0 @ 080119c0..080119dc (28 bytes)
+  080119c0:  push     {r3, lr}
+  080119c2:  ldr      r3, [pc, #0x14]              = 0x20002006 ram_20002006
+  080119c4:  ldrh     r0, [r3]
+  080119c6:  bl       #0x801257e                   <timer_elapsed>
+  080119ca:  movw     r3, #0x20d                   ; kc LSFT(KC_J)
+  080119ce:  cmp      r0, r3
+  080119d0:  ite      ls
+  080119d2:  movs     r0, #0
+  080119d4:  movs     r0, #1
+  080119d6:  pop      {r3, pc}
+  080119d8:  .word 0x20002006    ; ram_20002006
+---- sub_0801199c @ 0801199c..080119c0 (36 bytes)
+  0801199c:  ldr      r2, [pc, #0x18]              = 0x20001ffb ram_20001ffb
+  0801199e:  ldrb     r3, [r2]
+  080119a0:  cmp      r3, #4                       ; KC_A
+  080119a2:  itttt    ls
+  080119a4:  ldr      r1, [pc, #0x14]              = 0x20001ffc ram_20001ffc
+  080119a6:  strh.w   r0, [r1, r3, lsl #1]
+  080119aa:  adds     r3, #1
+  080119ac:  movs     r0, #1
+  080119ae:  ite      ls
+  080119b0:  strb     r3, [r2]
+  080119b2:  movs     r0, #0
+  080119b4:  bx       lr
+  080119b6:  nop
+  080119b8:  .word 0x20001ffb    ; ram_20001ffb
+  080119bc:  subs     r4, r7, #7
+  080119be:  movs     r0, #0
+---- leader_end @ 0801197c..08011990 (20 bytes)
+  0801197c:  push     {r3, lr}
+  0801197e:  ldr      r3, [pc, #0xc]               = 0x20002008 ram_20002008
+  08011980:  movs     r2, #0
+  08011982:  strb     r2, [r3]
+  08011984:  bl       #0x800cdfe                   <leader_end_user>
+  08011988:  pop      {r3, pc}
+  0801198a:  nop
+  0801198c:  .word 0x20002008    ; ram_20002008
+---- sub_080119f8 @ 080119f8..08011a08 (16 bytes)
+  080119f8:  push     {r3, lr}
+  080119fa:  bl       #0x8012574                   <sub_08012574>
+  080119fe:  ldr      r3, [pc, #4]                 = 0x20002006 ram_20002006
+  08011a00:  strh     r0, [r3]
+  08011a02:  pop      {r3, pc}
+  08011a04:  .word 0x20002006    ; ram_20002006
+---- leader_start @ 08011940..0801197c (60 bytes)
+  08011940:  push     {r3, r4, r5, lr}
+  08011942:  ldr      r5, [pc, #0x28]              = 0x20002008 ram_20002008
+  08011944:  ldrb     r4, [r5]
+  08011946:  cbnz     r4, #0x801196a
+  08011948:  bl       #0x800cdf4                   <sub_0800cdf4>
+  0801194c:  movs     r3, #1
+  0801194e:  strb     r3, [r5]
+  08011950:  bl       #0x8012574                   <sub_08012574>
+  08011954:  ldr      r3, [pc, #0x18]              = 0x20002006 ram_20002006
+  08011956:  strh     r0, [r3]
+  08011958:  ldr      r3, [pc, #0x18]              = 0x20001ffb ram_20001ffb
+  0801195a:  ldr      r0, [pc, #0x1c]              = 0x20001ffc ram_20001ffc
+  0801195c:  strb     r4, [r3]
+  0801195e:  mov      r1, r4
+  08011960:  movs     r2, #0xa                     ; KC_G
+  08011962:  pop.w    {r3, r4, r5, lr}
+  08011966:  b.w      #0x8008798                   <memset>
+  0801196a:  pop      {r3, r4, r5, pc}
+  0801196c:  .word 0x20002008    ; ram_20002008
+  08011970:  .word 0x20002006    ; ram_20002006
+  08011974:  .word 0x20001ffb    ; ram_20001ffb
+  08011978:  .word 0x20001ffc    ; ram_20001ffc
+
+  leader_start callee leader_start_user @0x0800cdf4:
+---- leader_start_user @ 0800cdf4..0800cdfe (10 bytes)
+  0800cdf4:  movs     r2, #0xff
+  0800cdf6:  movs     r1, #0
+  0800cdf8:  mov      r0, r2
+  0800cdfa:  b.w      #0x800fee4                   <rgb_matrix_set_color_all>
+
+  leader_start callee timer_read @0x08012574:
+---- timer_read @ 08012574..0801257e (10 bytes)
+  08012574:  push     {r3, lr}
+  08012576:  bl       #0x8012508                   <timer_read32>
+  0801257a:  uxth     r0, r0
+  0801257c:  pop      {r3, pc}
+
+  leader_start callee memset @0x08008798:
+---- memset @ 08008798..0800883c (164 bytes)
+  08008798:  lsls     r3, r0, #0x1e
+  0800879a:  push     {r4, r5, lr}
+  0800879c:  beq      #0x800882e
+  0800879e:  subs     r4, r2, #1
+  080087a0:  cmp      r2, #0
+  080087a2:  beq      #0x8008822
+  080087a4:  uxtb     r2, r1
+  080087a6:  mov      r3, r0
+  080087a8:  b        #0x80087ae
+  080087aa:  subs     r4, #1
+  080087ac:  blo      #0x8008822
+  080087ae:  strb     r2, [r3], #1
+  080087b2:  lsls     r5, r3, #0x1e
+  080087b4:  bne      #0x80087aa
+  080087b6:  cmp      r4, #3
+  080087b8:  bls      #0x8008814
+  080087ba:  uxtb     r5, r1
+  080087bc:  add.w    r5, r5, r5, lsl #8
+  080087c0:  cmp      r4, #0xf                     ; KC_L
+  080087c2:  add.w    r5, r5, r5, lsl #16
+  080087c6:  bls      #0x8008834
+  080087c8:  sub.w    r2, r4, #0x10
+  080087cc:  bic      ip, r2, #0xf
+  080087d0:  add.w    lr, r3, #0x10
+  080087d4:  add      lr, ip
+  080087d6:  lsr.w    ip, r2, #4
+  080087da:  mov      r2, r3
+  080087dc:  strd     r5, r5, [r2]
+  080087e0:  strd     r5, r5, [r2, #8]
+  080087e4:  adds     r2, #0x10
+  080087e6:  cmp      r2, lr
+  080087e8:  bne      #0x80087dc
+  080087ea:  add.w    r2, ip, #1
+  080087ee:  tst.w    r4, #0xc
+  080087f2:  add.w    r2, r3, r2, lsl #4
+  080087f6:  and      ip, r4, #0xf
+  080087fa:  beq      #0x8008824
+  080087fc:  sub.w    r3, ip, #4
+  08008800:  bic      r3, r3, #3
+  08008804:  adds     r3, #4
+  08008806:  add      r3, r2
+  08008808:  str      r5, [r2], #4
+  0800880c:  cmp      r3, r2
+  0800880e:  bne      #0x8008808
+  08008810:  and      r4, ip, #3
+  08008814:  cbz      r4, #0x8008822
+  08008816:  uxtb     r1, r1
+  08008818:  add      r4, r3
+  0800881a:  strb     r1, [r3], #1
+  0800881e:  cmp      r3, r4
+  08008820:  bne      #0x800881a
+  08008822:  pop      {r4, r5, pc}
+  08008824:  mov      r4, ip
+  08008826:  mov      r3, r2
+  08008828:  cmp      r4, #0
+  0800882a:  bne      #0x8008816
+  0800882c:  b        #0x8008822
+  0800882e:  mov      r3, r0
+  08008830:  mov      r4, r2
+  08008832:  b        #0x80087b6
+  08008834:  mov      r2, r3
+  08008836:  mov      ip, r4
+  08008838:  b        #0x80087fc
+  0800883a:  nop
+
+leader_sequence_is @0x08011a08 (leader_sequence[] = ['0x20001ffc']):
+---- leader_sequence_is @ 08011a08..08011a3c (52 bytes)
+  08011a08:  push     {r4, r5, lr}
+  08011a0a:  ldr      r4, [pc, #0x2c]              = 0x20001ffc leader_sequence[5]
+  08011a0c:  ldrh     r5, [r4]
+  08011a0e:  cmp      r5, r0
+  08011a10:  bne      #0x8011a32
+  08011a12:  ldrh     r0, [r4, #2]
+  08011a14:  cmp      r0, r1
+  08011a16:  bne      #0x8011a32
+  08011a18:  ldrh     r1, [r4, #4]
+  08011a1a:  cmp      r1, r2
+  08011a1c:  bne      #0x8011a32
+  08011a1e:  ldrh     r2, [r4, #6]
+  08011a20:  cmp      r2, r3
+  08011a22:  bne      #0x8011a32
+  08011a24:  ldrh     r0, [r4, #8]
+  08011a26:  ldrh.w   r3, [sp, #0xc]
+  08011a2a:  subs     r3, r0, r3
+  08011a2c:  rsbs     r0, r3, #0
+  08011a2e:  adcs     r0, r3
+  08011a30:  pop      {r4, r5, pc}
+  08011a32:  movs     r0, #0
+  08011a34:  b        #0x8011a30
+  08011a36:  nop
+  08011a38:  .word 0x20001ffc    ; leader_sequence[5]
+  leader_sequence_one_key @0x08011a3c (zeroes ['r1', 'r2', 'r3'])
+---- leader_sequence_one_key @ 08011a3c..08011a50 (20 bytes)
+  08011a3c:  push     {r0, r1, r2, lr}
+  08011a3e:  movs     r3, #0
+  08011a40:  str      r3, [sp]
+  08011a42:  mov      r2, r3
+  08011a44:  mov      r1, r3
+  08011a46:  bl       #0x8011a08                   <leader_sequence_is>
+  08011a4a:  add      sp, #0xc
+  08011a4c:  ldr      pc, [sp], #4
+  leader_sequence_two_keys @0x08011a50 (zeroes ['r2', 'r3'])
+---- leader_sequence_two_keys @ 08011a50..08011a62 (18 bytes)
+  08011a50:  push     {r0, r1, r2, lr}
+  08011a52:  movs     r3, #0
+  08011a54:  str      r3, [sp]
+  08011a56:  mov      r2, r3
+  08011a58:  bl       #0x8011a08                   <leader_sequence_is>
+  08011a5c:  add      sp, #0xc
+  08011a5e:  ldr      pc, [sp], #4
+
+leader_sequence_timed_out candidate sub_080119c0 @0x080119c0: timer_elapsed(leader_time@['0x20002006']) > 525  => LEADER_TIMEOUT = 525 ms
+---- leader_sequence_timed_out? @ 080119c0..080119dc (28 bytes)
+  080119c0:  push     {r3, lr}
+  080119c2:  ldr      r3, [pc, #0x14]              = 0x20002006 leader_time
+  080119c4:  ldrh     r0, [r3]
+  080119c6:  bl       #0x801257e                   <timer_elapsed>
+  080119ca:  movw     r3, #0x20d                   ; kc LSFT(KC_J)
+  080119ce:  cmp      r0, r3
+  080119d0:  ite      ls
+  080119d2:  movs     r0, #0
+  080119d4:  movs     r0, #1
+  080119d6:  pop      {r3, pc}
+  080119d8:  .word 0x20002006    ; leader_time
+
+leader_end_user @0x0800cdfe:
+---- leader_end_user @ 0800cdfe..0800cf60 (354 bytes)
+  0800cdfe:  movs     r2, #0
+  0800ce00:  push     {r3, lr}
+  0800ce02:  mov      r0, r2
+  0800ce04:  mov      r1, r2
+  0800ce06:  bl       #0x800fee4                   <rgb_matrix_set_color_all>
+  0800ce0a:  movs     r0, #9                       ; KC_F
+  0800ce0c:  bl       #0x8011a3c                   <leader_sequence_one_key>
+  0800ce10:  cbz      r0, #0x800ce42
+  0800ce12:  movs     r0, #0xe3                    ; KC_LEFT_GUI
+  0800ce14:  bl       #0x800d570                   <register_code>
+  0800ce18:  movs     r0, #0x13                    ; KC_P
+  0800ce1a:  bl       #0x800d570                   <register_code>
+  0800ce1e:  movs     r0, #0xe3                    ; KC_LEFT_GUI
+  0800ce20:  bl       #0x800d600                   <unregister_code>
+  0800ce24:  movs     r0, #0x13                    ; KC_P
+  0800ce26:  bl       #0x800d600                   <unregister_code>
+  0800ce2a:  movs     r0, #0xe3                    ; KC_LEFT_GUI
+  0800ce2c:  bl       #0x800d570                   <register_code>
+  0800ce30:  movs     r0, #0xe                     ; KC_K
+  0800ce32:  bl       #0x800d570                   <register_code>
+  0800ce36:  movs     r0, #0xe3                    ; KC_LEFT_GUI
+  0800ce38:  bl       #0x800d600                   <unregister_code>
+  0800ce3c:  movs     r0, #0xe                     ; KC_K
+  0800ce3e:  bl       #0x800d600                   <unregister_code>
+  0800ce42:  movs     r1, #0x14                    ; KC_Q
+  0800ce44:  movs     r0, #4                       ; KC_A
+  0800ce46:  bl       #0x8011a50                   <leader_sequence_two_keys>
+  0800ce4a:  cbz      r0, #0x800ce88
+  0800ce4c:  movs     r0, #0xe0                    ; KC_LEFT_CTRL
+  0800ce4e:  bl       #0x800d570                   <register_code>
+  0800ce52:  movs     r0, #4                       ; KC_A
+  0800ce54:  bl       #0x800d570                   <register_code>
+  0800ce58:  movs     r0, #0xe0                    ; KC_LEFT_CTRL
+  0800ce5a:  bl       #0x800d600                   <unregister_code>
+  0800ce5e:  movs     r0, #4                       ; KC_A
+  0800ce60:  bl       #0x800d600                   <unregister_code>
+  0800ce64:  movs     r0, #0x1d                    ; KC_Z
+  0800ce66:  bl       #0x800d570                   <register_code>
+  0800ce6a:  movs     r0, #0x1d                    ; KC_Z
+  0800ce6c:  bl       #0x800d600                   <unregister_code>
+  0800ce70:  movs     r0, #0x14                    ; KC_Q
+  0800ce72:  bl       #0x800d570                   <register_code>
+  0800ce76:  movs     r0, #0x14                    ; KC_Q
+  0800ce78:  bl       #0x800d600                   <unregister_code>
+  0800ce7c:  movs     r0, #0x28                    ; KC_ENTER
+  0800ce7e:  bl       #0x800d570                   <register_code>
+  0800ce82:  movs     r0, #0x28                    ; KC_ENTER
+  0800ce84:  bl       #0x800d600                   <unregister_code>
+  0800ce88:  movs     r0, #0x1c                    ; KC_Y
+  0800ce8a:  bl       #0x8011a3c                   <leader_sequence_one_key>
+  0800ce8e:  cbz      r0, #0x800cec0
+  0800ce90:  movs     r0, #0xe0                    ; KC_LEFT_CTRL
+  0800ce92:  bl       #0x800d570                   <register_code>
+  0800ce96:  movs     r0, #0x1b                    ; KC_X
+  0800ce98:  bl       #0x800d570                   <register_code>
+  0800ce9c:  movs     r0, #0xe0                    ; KC_LEFT_CTRL
+  0800ce9e:  bl       #0x800d600                   <unregister_code>
+  0800cea2:  movs     r0, #0x1b                    ; KC_X
+  0800cea4:  bl       #0x800d600                   <unregister_code>
+  0800cea8:  movs     r0, #0x1c                    ; KC_Y
+  0800ceaa:  bl       #0x800d570                   <register_code>
+  0800ceae:  movs     r0, #0x1c                    ; KC_Y
+  0800ceb0:  bl       #0x800d600                   <unregister_code>
+  0800ceb4:  movs     r0, #0x28                    ; KC_ENTER
+  0800ceb6:  bl       #0x800d570                   <register_code>
+  0800ceba:  movs     r0, #0x28                    ; KC_ENTER
+  0800cebc:  bl       #0x800d600                   <unregister_code>
+  0800cec0:  movs     r1, #0xc                     ; KC_I
+  0800cec2:  movs     r0, #0xe0                    ; KC_LEFT_CTRL
+  0800cec4:  bl       #0x8011a50                   <leader_sequence_two_keys>
+  0800cec8:  cbz      r0, #0x800ceee
+  0800ceca:  movs     r0, #0xe0                    ; KC_LEFT_CTRL
+  0800cecc:  bl       #0x800d570                   <register_code>
+  0800ced0:  movs     r0, #0xe2                    ; KC_LEFT_ALT
+  0800ced2:  bl       #0x800d570                   <register_code>
+  0800ced6:  movs     r0, #0xc                     ; KC_I
+  0800ced8:  bl       #0x800d570                   <register_code>
+  0800cedc:  movs     r0, #0xe0                    ; KC_LEFT_CTRL
+  0800cede:  bl       #0x800d600                   <unregister_code>
+  0800cee2:  movs     r0, #0xe2                    ; KC_LEFT_ALT
+  0800cee4:  bl       #0x800d600                   <unregister_code>
+  0800cee8:  movs     r0, #0xc                     ; KC_I
+  0800ceea:  bl       #0x800d600                   <unregister_code>
+  0800ceee:  movs     r0, #0xd                     ; KC_J
+  0800cef0:  bl       #0x8011a3c                   <leader_sequence_one_key>
+  0800cef4:  cbz      r0, #0x800cf0e
+  0800cef6:  movs     r0, #0xe3                    ; KC_LEFT_GUI
+  0800cef8:  bl       #0x800d570                   <register_code>
+  0800cefc:  movs     r0, #0x13                    ; KC_P
+  0800cefe:  bl       #0x800d570                   <register_code>
+  0800cf02:  movs     r0, #0xe3                    ; KC_LEFT_GUI
+  0800cf04:  bl       #0x800d600                   <unregister_code>
+  0800cf08:  movs     r0, #0x13                    ; KC_P
+  0800cf0a:  bl       #0x800d600                   <unregister_code>
+  0800cf0e:  movs     r0, #9                       ; KC_F
+  0800cf10:  bl       #0x8011a3c                   <leader_sequence_one_key>
+  0800cf14:  cbz      r0, #0x800cf2e
+  0800cf16:  movs     r0, #0xe3                    ; KC_LEFT_GUI
+  0800cf18:  bl       #0x800d570                   <register_code>
+  0800cf1c:  movs     r0, #0x34                    ; KC_QUOTE
+  0800cf1e:  bl       #0x800d570                   <register_code>
+  0800cf22:  movs     r0, #0xe3                    ; KC_LEFT_GUI
+  0800cf24:  bl       #0x800d600                   <unregister_code>
+  0800cf28:  movs     r0, #0x34                    ; KC_QUOTE
+  0800cf2a:  bl       #0x800d600                   <unregister_code>
+  0800cf2e:  movs     r0, #0x4c                    ; KC_DELETE
+  0800cf30:  bl       #0x8011a3c                   <leader_sequence_one_key>
+  0800cf34:  cbz      r0, #0x800cf5e
+  0800cf36:  movs     r0, #0xe3                    ; KC_LEFT_GUI
+  0800cf38:  bl       #0x800d570                   <register_code>
+  0800cf3c:  movs     r0, #0x52                    ; KC_UP
+  0800cf3e:  bl       #0x800d570                   <register_code>
+  0800cf42:  movs     r0, #0x50                    ; KC_LEFT
+  0800cf44:  bl       #0x800d570                   <register_code>
+  0800cf48:  movs     r0, #0xe3                    ; KC_LEFT_GUI
+  0800cf4a:  bl       #0x800d600                   <unregister_code>
+  0800cf4e:  movs     r0, #0x52                    ; KC_UP
+  0800cf50:  bl       #0x800d600                   <unregister_code>
+  0800cf54:  pop.w    {r3, lr}
+  0800cf58:  movs     r0, #0x50                    ; KC_LEFT
+  0800cf5a:  b.w      #0x800d600                   <unregister_code>
+  0800cf5e:  pop      {r3, pc}
+
+Decoded leader sequences (condition -> actions):
+  LEAD, KC_F                           -> register_code(KC_LEFT_GUI) ; register_code(KC_P) ; unregister_code(KC_LEFT_GUI) ; unregister_code(KC_P) ; register_code(KC_LEFT_GUI) ; register_code(KC_K) ; unregister_code(KC_LEFT_GUI) ; unregister_code(KC_K)
+  LEAD, KC_A, KC_Q                     -> register_code(KC_LEFT_CTRL) ; register_code(KC_A) ; unregister_code(KC_LEFT_CTRL) ; unregister_code(KC_A) ; register_code(KC_Z) ; unregister_code(KC_Z) ; register_code(KC_Q) ; unregister_code(KC_Q) ; register_code(KC_ENTER) ; unregister_code(KC_ENTER)
+  LEAD, KC_Y                           -> register_code(KC_LEFT_CTRL) ; register_code(KC_X) ; unregister_code(KC_LEFT_CTRL) ; unregister_code(KC_X) ; register_code(KC_Y) ; unregister_code(KC_Y) ; register_code(KC_ENTER) ; unregister_code(KC_ENTER)
+  LEAD, KC_LEFT_CTRL, KC_I             -> register_code(KC_LEFT_CTRL) ; register_code(KC_LEFT_ALT) ; register_code(KC_I) ; unregister_code(KC_LEFT_CTRL) ; unregister_code(KC_LEFT_ALT) ; unregister_code(KC_I)
+  LEAD, KC_J                           -> register_code(KC_LEFT_GUI) ; register_code(KC_P) ; unregister_code(KC_LEFT_GUI) ; unregister_code(KC_P)
+  LEAD, KC_F                           -> register_code(KC_LEFT_GUI) ; register_code(KC_QUOTE) ; unregister_code(KC_LEFT_GUI) ; unregister_code(KC_QUOTE)
+  LEAD, KC_DELETE                      -> register_code(KC_LEFT_GUI) ; register_code(KC_UP) ; register_code(KC_LEFT) ; unregister_code(KC_LEFT_GUI) ; unregister_code(KC_UP) ; unregister_code(KC_LEFT)
+  prologue (unconditional, before first test): rgb_matrix_set_color_all(0,0,0)
+
+====================================================================================================
+[7] process_record_user / custom keycodes / oneshot hooks
+process_record_user @0x0800d104, xrefs: ['bl@0800c6ee in process_record_kb']
+---- process_record_user @ 0800d104..0800d1c4 (192 bytes)
+  0800d104:  push     {r3, r4, r5, r6, r7, lr}
+  0800d106:  mov      r4, r0
+  0800d108:  mov      r6, r1
+  0800d10a:  bl       #0x800c720                   <process_record_keychron_common?>
+  0800d10e:  mov      r5, r0
+  0800d110:  cmp      r0, #0
+  0800d112:  beq      #0x800d19e
+  0800d114:  ldr      r3, [pc, #0xa0]              = 0x200015e8 ram_200015e8
+  0800d116:  ldrb     r2, [r3]
+  0800d118:  cbz      r2, #0x800d124
+  0800d11a:  cmp.w    r4, #0x5700                  ; TD(0)
+  0800d11e:  itt      ne
+  0800d120:  movs     r2, #0
+  0800d122:  strb     r2, [r3]
+  0800d124:  ldr      r7, [pc, #0x94]              = 0x200015e9 ram_200015e9
+  0800d126:  ldrb     r3, [r7]
+  0800d128:  cbz      r3, #0x800d134
+  0800d12a:  movs     r0, #1
+  0800d12c:  bl       #0x800dc3c                   <layer_state_is>
+  0800d130:  cbnz     r0, #0x800d134
+  0800d132:  strb     r0, [r7]
+  0800d134:  ldrb     r3, [r6, #5]
+  0800d136:  cbz      r3, #0x800d16c
+  0800d138:  cmp      r4, #0x39                    ; KC_CAPS_LOCK
+  0800d13a:  beq      #0x800d15e
+  0800d13c:  sub.w    r3, r4, #0x5280
+  0800d140:  subs     r3, #0x22
+  0800d142:  uxth     r3, r3
+  0800d144:  cmp      r3, #0x16                    ; KC_S
+  0800d146:  bhi      #0x800d17e
+  0800d148:  mov.w    r2, #0x410041
+  0800d14c:  lsr.w    r3, r2, r3
+  0800d150:  lsls     r1, r3, #0x1f
+  0800d152:  bpl      #0x800d16c
+  0800d154:  mov      r0, r4
+  0800d156:  pop.w    {r3, r4, r5, r6, r7, lr}
+  0800d15a:  b.w      #0x800d0b4                   <sub_0800d0b4>
+  0800d15e:  bl       #0x8012148                   <host_keyboard_led_state>
+  0800d162:  lsls     r2, r0, #0x1e
+  0800d164:  bmi      #0x800d170
+  0800d166:  ldr      r3, [pc, #0x58]              = 0x200015dc ram_200015dc
+  0800d168:  movs     r2, #1
+  0800d16a:  strb     r2, [r3]
+  0800d16c:  mov      r0, r5
+  0800d16e:  pop      {r3, r4, r5, r6, r7, pc}
+  0800d170:  bl       #0x8012148                   <host_keyboard_led_state>
+  0800d174:  lsls     r3, r0, #0x1e
+  0800d176:  bpl      #0x800d16c
+  0800d178:  ldr      r3, [pc, #0x44]              = 0x200015dc ram_200015dc
+  0800d17a:  movs     r2, #0
+  0800d17c:  b        #0x800d16a
+  0800d17e:  movw     r3, #0x7e40                  ; kc QK_USER_0
+  0800d182:  cmp      r4, r3
+  0800d184:  bne      #0x800d1a2
+  0800d186:  movs     r0, #0x37                    ; KC_DOT
+  0800d188:  bl       #0x800d570                   <register_code>
+  0800d18c:  movs     r0, #0x37                    ; KC_DOT
+  0800d18e:  bl       #0x800d600                   <unregister_code>
+  0800d192:  movs     r0, #0x38                    ; KC_SLASH
+  0800d194:  bl       #0x800d570                   <register_code>
+  0800d198:  movs     r0, #0x38                    ; KC_SLASH
+  0800d19a:  bl       #0x800d600                   <unregister_code>
+  0800d19e:  movs     r5, #0
+  0800d1a0:  b        #0x800d16c
+  0800d1a2:  movw     r3, #0x7e41                  ; kc QK_USER_1
+  0800d1a6:  cmp      r4, r3
+  0800d1a8:  bne      #0x800d16c
+  0800d1aa:  movs     r0, #0x37                    ; KC_DOT
+  0800d1ac:  bl       #0x800d570                   <register_code>
+  0800d1b0:  movs     r0, #0x37                    ; KC_DOT
+  0800d1b2:  bl       #0x800d600                   <unregister_code>
+  0800d1b6:  b        #0x800d186
+  0800d1b8:  .word 0x200015e8    ; ram_200015e8
+  0800d1bc:  .word 0x200015e9    ; ram_200015e9
+  0800d1c0:  .word 0x200015dc    ; ram_200015dc
+  QK_USER_0 (0x7e40) pressed -> register_code(KC_DOT) ; unregister_code(KC_DOT) ; register_code(KC_SLASH) ; unregister_code(KC_SLASH)
+  QK_USER_1 (0x7e41) pressed -> register_code(KC_DOT) ; unregister_code(KC_DOT) ; register_code(KC_DOT) ; unregister_code(KC_DOT) ; register_code(KC_SLASH) ; unregister_code(KC_SLASH)
+
+  helper sub_0800d0b4 @0x0800d0b4 (called from 0x0800d15a):
+---- sub_0800d0b4 @ 0800d0b4..0800d104 (80 bytes)
+  0800d0b4:  push     {r3, r4, r5, lr}
+  0800d0b6:  mov      r5, r0
+  0800d0b8:  bl       #0x800d090                   <sub_0800d090>
+  0800d0bc:  mov      r4, r0
+  0800d0be:  cbz      r0, #0x800d0f2
+  0800d0c0:  bl       #0x800e310                   <get_mods>
+  0800d0c4:  cbnz     r0, #0x800d0ca
+  0800d0c6:  movs     r0, #0
+  0800d0c8:  pop      {r3, r4, r5, pc}
+  0800d0ca:  ldrh     r3, [r4]
+  0800d0cc:  cmp      r3, r5
+  0800d0ce:  beq      #0x800d0c6
+  0800d0d0:  bl       #0x800e424                   <sub_0800e424>
+  0800d0d4:  bl       #0x800e3b0                   <sub_0800e3b0>
+  0800d0d8:  bl       #0x800e380                   <sub_0800e380>
+  0800d0dc:  bl       #0x800d684                   <sub_0800d684>
+  0800d0e0:  ldr      r2, [pc, #0x14]              = 0x200015e0 ram_200015e0
+  0800d0e2:  movs     r3, #0
+  0800d0e4:  str      r3, [r2]
+  0800d0e6:  str      r3, [r2, #4]
+  0800d0e8:  ldr      r2, [pc, #0x10]              = 0x200015de ram_200015de
+  0800d0ea:  strb     r3, [r2]
+  0800d0ec:  ldr      r2, [pc, #0x10]              = 0x200015dd ram_200015dd
+  0800d0ee:  strb     r3, [r2]
+  0800d0f0:  b        #0x800d0c6
+  0800d0f2:  movs     r0, #1
+  0800d0f4:  b        #0x800d0c8
+  0800d0f6:  nop
+  0800d0f8:  .word 0x200015e0    ; ram_200015e0
+  0800d0fc:  .word 0x200015de    ; ram_200015de
+  0800d100:  .word 0x200015dd    ; ram_200015dd
+
+    helper sub_0800d090 @0x0800d090 (called from 0x0800d0b8):
+---- sub_0800d090 @ 0800d090..0800d0b4 (36 bytes)
+  0800d090:  ldr      r2, [pc, #0x1c]              = 0x200015e0 ram_200015e0
+  0800d092:  mov      r3, r0
+  0800d094:  ldr      r0, [r2]
+  0800d096:  cbz      r0, #0x800d0ac
+  0800d098:  ldrh     r2, [r0]
+  0800d09a:  cmp      r2, r3
+  0800d09c:  beq      #0x800d0aa
+  0800d09e:  adds     r2, r0, #4
+  0800d0a0:  ldrh     r1, [r0, #4]
+  0800d0a2:  cmp      r1, r3
+  0800d0a4:  ite      eq
+  0800d0a6:  mov      r0, r2
+  0800d0a8:  movs     r0, #0
+  0800d0aa:  bx       lr
+  0800d0ac:  movs     r2, #4                       ; KC_A
+  0800d0ae:  b        #0x800d0a0
+  0800d0b0:  .word 0x200015e0    ; ram_200015e0
+
+    helper sub_0800e424 @0x0800e424 (called from 0x0800d0d0):
+---- sub_0800e424 @ 0800e424..0800e43c (24 bytes)
+  0800e424:  push     {r3, lr}
+  0800e426:  ldr      r3, [pc, #0x10]              = 0x200016a6 ram_200016a6
+  0800e428:  ldrb     r2, [r3]
+  0800e42a:  cbz      r2, #0x800e434
+  0800e42c:  movs     r0, #0
+  0800e42e:  strb     r0, [r3]
+  0800e430:  bl       #0x800e3e4                   <sub_0800e3e4>
+  0800e434:  pop      {r3, pc}
+  0800e436:  nop
+  0800e438:  .word 0x200016a6    ; ram_200016a6
+
+    helper sub_0800e3b0 @0x0800e3b0 (called from 0x0800d0d4):
+---- sub_0800e3b0 @ 0800e3b0..0800e3c8 (24 bytes)
+  0800e3b0:  push     {r3, lr}
+  0800e3b2:  ldr      r3, [pc, #0x10]              = 0x200016a5 ram_200016a5
+  0800e3b4:  ldrb     r2, [r3]
+  0800e3b6:  cbz      r2, #0x800e3c0
+  0800e3b8:  movs     r0, #0
+  0800e3ba:  strb     r0, [r3]
+  0800e3bc:  bl       #0x800e38c                   <sub_0800e38c>
+  0800e3c0:  pop      {r3, pc}
+  0800e3c2:  nop
+  0800e3c4:  .word 0x200016a5    ; ram_200016a5
+
+    helper sub_0800e380 @0x0800e380 (called from 0x0800d0d8):
+---- sub_0800e380 @ 0800e380..0800e38c (12 bytes)
+  0800e380:  ldr      r3, [pc, #4]                 = 0x200016a6 ram_200016a6
+  0800e382:  ldrb     r0, [r3]
+  0800e384:  bx       lr
+  0800e386:  nop
+  0800e388:  .word 0x200016a6    ; ram_200016a6
+
+    helper sub_0800d684 @0x0800d684 (called from 0x0800d0dc):
+---- sub_0800d684 @ 0800d684..0800d698 (20 bytes)
+  0800d684:  push     {r3, lr}
+  0800d686:  cbz      r0, #0x800d694
+  0800d688:  bl       #0x800e32c                   <del_mods>
+  0800d68c:  pop.w    {r3, lr}
+  0800d690:  b.w      #0x800e4dc                   <send_keyboard_report>
+  0800d694:  pop      {r3, pc}
+  0800d696:  movs     r0, r0
+
+oneshot_layer_changed_user (sole callee of matched oneshot_layer_changed_kb @0x0800e4fc) = 0x0800d25c:
+---- oneshot_layer_changed_user @ 0800d25c..0800d27c (32 bytes)
+  0800d25c:  push     {r3, r4, r5, lr}
+  0800d25e:  mov      r4, r0
+  0800d260:  cbnz     r0, #0x800d274
+  0800d262:  ldr      r5, [pc, #0x14]              = 0x200015e9 ram_200015e9
+  0800d264:  ldrb     r3, [r5]
+  0800d266:  cbz      r3, #0x800d274
+  0800d268:  bl       #0x800dc34                   <layer_clear>
+  0800d26c:  movs     r0, #4                       ; KC_A
+  0800d26e:  bl       #0x800dc58                   <layer_move>
+  0800d272:  strb     r4, [r5]
+  0800d274:  pop      {r3, r4, r5, pc}
+  0800d276:  nop
+  0800d278:  .word 0x200015e9    ; ram_200015e9
+
+clear_oneshot_layer_state @0x0800e548 callees: layer_off@0800dc7c, reset_oneshot_layer@0800e534
+
+reset_oneshot_layer @0x0800e534 callees: oneshot_layer_changed_kb@0800e4fc
+
+====================================================================================================
+[8] TRANSLATION-UNIT MAP 0x0800ccf0..0x0800d2cc (custom keymap.c / v10_max.c region)
+  0800ccf0   40 dip_switch_update_user             callers=dip_switch_update_kb
+                                                       callees=factory_test_send
+  0800cd18   32 dip_switch_update_kb               callers=dip_switch_read
+                                                       callees=default_layer_set, dip_switch_update_user
+  0800cd38   80 keyboard_post_init_kb              callers=sub_0800e788
+                                                       callees=_pal_lld_setgroupmode, _pal_lld_setgroupmode, sub_0800a98c, sub_0800a240, timer_read32, sub_0800c810, keyboard_post_init_user
+  0800cd88   48 keychron_task_kb                   callers=sub_0800c6d4
+                                                       callees=timer_elapsed32
+  0800cdb8   32 sub_0800cdb8                       callers=sub_0800bdcc
+                                                       callees=factory_reset_indicating
+  0800cdd8    2 td0_on_reset                       callers=ptr@080179d8
+                                                       callees=-
+  0800cdda   26 td0_helper_0800cdda                callers=td0_on_dance_finished
+                                                       callees=layer_on, sub_0800e504, clear_oneshot_layer_state
+  0800cdf4   10 leader_start_user                  callers=leader_start
+                                                       callees=rgb_matrix_set_color_all
+  0800cdfe  354 leader_end_user                    callers=leader_end
+                                                       callees=rgb_matrix_set_color_all, leader_sequence_one_key, register_code, register_code, unregister_code, unregister_code, register_code, register_code, unregister_code, unregister_code, leader_sequence_two_keys, register_code, register_code, unregister_code, unregister_code, register_code, unregister_code, register_code, unregister_code, register_code, unregister_code, leader_sequence_one_key, register_code, register_code, unregister_code, unregister_code, register_code, unregister_code, register_code, unregister_code, leader_sequence_two_keys, register_code, register_code, register_code, unregister_code, unregister_code, unregister_code, leader_sequence_one_key, register_code, register_code, unregister_code, unregister_code, leader_sequence_one_key, register_code, register_code, unregister_code, unregister_code, leader_sequence_one_key, register_code, register_code, register_code, unregister_code, unregister_code, unregister_code
+  0800cf60   20 keyboard_post_init_user            callers=keyboard_post_init_kb
+                                                       callees=default_layer_set, rgb_matrix_mode
+  0800cf74  156 sub_0800cf74                       callers=sub_08010c4c
+                                                       callees=biton16, rgb_matrix_set_color, rgb_matrix_set_color
+  0800d010  120 sub_0800d010                       callers=sub_0800d088, sub_0800d08c
+                                                       callees=rgb_matrix_set_color_all, rgb_matrix_set_color_all, rgb_matrix_set_color_all, rgb_matrix_set_color_all
+  0800d088    4 sub_0800d088                       callers=sub_0800e3e4
+                                                       callees=sub_0800d010
+  0800d08c    4 sub_0800d08c                       callers=sub_0800e38c
+                                                       callees=sub_0800d010
+  0800d090   36 sub_0800d090                       callers=sub_0800d0b4
+                                                       callees=-
+  0800d0b4   80 sub_0800d0b4                       callers=process_record_user
+                                                       callees=sub_0800d090, get_mods, sub_0800e424, sub_0800e3b0, sub_0800e380, sub_0800d684
+  0800d104  192 process_record_user                callers=process_record_kb
+                                                       callees=process_record_keychron_common?, layer_state_is, sub_0800d0b4, host_keyboard_led_state, host_keyboard_led_state, register_code, unregister_code, register_code, unregister_code, register_code, unregister_code
+  0800d1c4   40 td0_cur_dance                      callers=td0_on_dance_finished
+                                                       callees=-
+  0800d1ec  112 td0_on_dance_finished              callers=ptr@080179d4
+                                                       callees=td0_cur_dance, layer_state_is, layer_clear, td0_helper_0800cdda, layer_clear, layer_move, layer_state_is, layer_clear, layer_move, layer_clear
+  0800d25c   32 oneshot_layer_changed_user         callers=oneshot_layer_changed_kb
+                                                       callees=layer_clear, layer_move
+  0800d27c   40 keycode_at_keymap_location_raw     callers=keycode_at_keymap_location
+                                                       callees=-
+  0800d2a4    4 keycode_at_keymap_location         callers=keymap_key_to_keycode
+                                                       callees=keycode_at_keymap_location_raw
+  0800d2a8   32 keycode_at_encodermap_location_raw callers=keycode_at_encodermap_location
+                                                       callees=-
+  0800d2c8    4 keycode_at_encodermap_location     callers=keymap_key_to_keycode
+                                                       callees=keycode_at_encodermap_location_raw
+---- keyboard_post_init_kb @ 0800cd38..0800cd88 (80 bytes)
+  0800cd38:  push     {r4, lr}
+  0800cd3a:  ldr      r4, [pc, #0x40]              = 0x40020000 periph
+  0800cd3c:  movs     r2, #0
+  0800cd3e:  mov      r0, r4
+  0800cd40:  mov.w    r1, #0x400                   ; LALT(KC_NO)
+  0800cd44:  bl       #0x8015338                   <_pal_lld_setgroupmode>
+  0800cd48:  mov.w    r1, #0x200                   ; LSFT(KC_NO)
+  0800cd4c:  mov      r0, r4
+  0800cd4e:  movs     r2, #0
+  0800cd50:  bl       #0x8015338                   <_pal_lld_setgroupmode>
+  0800cd54:  ldr      r3, [pc, #0x28]              = 0x40020400 periph
+  0800cd56:  mov.w    r2, #0x1000                  ; KC_NO
+  0800cd5a:  strh     r2, [r3, #0x18]
+  0800cd5c:  movs     r0, #0
+  0800cd5e:  bl       #0x800a98c                   <sub_0800a98c>
+  0800cd62:  bl       #0x800a240                   <sub_0800a240>
+  0800cd66:  bl       #0x8012508                   <timer_read32>
+  0800cd6a:  ldr      r3, [pc, #0x18]              = 0x200015d8 ram_200015d8
+  0800cd6c:  str      r0, [r3]
+  0800cd6e:  bl       #0x800c810                   <sub_0800c810>
+  0800cd72:  pop.w    {r4, lr}
+  0800cd76:  b.w      #0x800cf60                   <keyboard_post_init_user>
+  0800cd7a:  nop
+  0800cd7c:  .word 0x40020000    ; periph
+  0800cd80:  .word 0x40020400    ; periph
+  0800cd84:  .word 0x200015d8    ; ram_200015d8
+---- keyboard_post_init_user @ 0800cf60..0800cf74 (20 bytes)
+  0800cf60:  push     {r3, lr}
+  0800cf62:  movs     r0, #0
+  0800cf64:  bl       #0x800dbe2                   <default_layer_set>
+  0800cf68:  pop.w    {r3, lr}
+  0800cf6c:  movs     r0, #0x10                    ; KC_M
+  0800cf6e:  b.w      #0x8010d40                   <rgb_matrix_mode>
+  0800cf72:  movs     r0, r0
+
+====================================================================================================
+[extra] function containing 0x0800cf74
+xrefs: ['bl@08010c4e in sub_08010c4c']
+---- sub_0800cf74 @ 0800cf74..0800d010 (156 bytes)
+  0800cf74:  push.w   {r4, r5, r6, r7, r8, lr}
+  0800cf78:  ldr      r6, [pc, #0x80]              = 0x2000162e layer_state
+  0800cf7a:  ldr      r7, [pc, #0x84]              = 0x20001630 default_layer_state
+  0800cf7c:  ldr.w    r8, [pc, #0x8c]              = 0x200015dd ram_200015dd
+  0800cf80:  mov      r5, r1
+  0800cf82:  mov      r4, r0
+  0800cf84:  uxtb     r3, r4
+  0800cf86:  cmp      r5, r3
+  0800cf88:  bhi      #0x800cf90
+  0800cf8a:  movs     r0, #0
+  0800cf8c:  pop.w    {r4, r5, r6, r7, r8, pc}
+  0800cf90:  ldrh     r0, [r6]
+  0800cf92:  ldrh     r3, [r7]
+  0800cf94:  orrs     r0, r3
+  0800cf96:  uxth     r0, r0
+  0800cf98:  bl       #0x800d488                   <biton16>
+  0800cf9c:  subs     r0, #1
+  0800cf9e:  cmp      r0, #4                       ; KC_A
+  0800cfa0:  bhi      #0x800cfb8
+  0800cfa2:  tbb      [pc, r0]
+  0800cfa6:  lsls     r0, r3, #0xc
+  0800cfa8:  subs     r4, r2, r4
+  0800cfaa:  movs     r6, r3
+  0800cfac:  movs     r3, #0xff
+  0800cfae:  movs     r2, #0
+  0800cfb0:  movs     r1, #0
+  0800cfb2:  mov      r0, r4
+  0800cfb4:  bl       #0x800fe78                   <rgb_matrix_set_color>
+  0800cfb8:  ldrb.w   r3, [r8]
+  0800cfbc:  cbz      r3, #0x800cfe8
+  0800cfbe:  movs     r2, #0xff
+  0800cfc0:  movs     r3, #0
+  0800cfc2:  mov      r1, r2
+  0800cfc4:  mov      r0, r4
+  0800cfc6:  bl       #0x800fe78                   <rgb_matrix_set_color>
+  0800cfca:  adds     r4, #1
+  0800cfcc:  b        #0x800cf84
+  0800cfce:  movs     r3, #0
+  0800cfd0:  movs     r2, #0x80                    ; KC_KB_VOLUME_UP
+  0800cfd2:  movs     r1, #0xff
+  0800cfd4:  b        #0x800cfb2
+  0800cfd6:  movs     r3, #0
+  0800cfd8:  movs     r2, #0xff
+  0800cfda:  b        #0x800cfb0
+  0800cfdc:  movs     r3, #0x80                    ; KC_KB_VOLUME_UP
+  0800cfde:  mov      r2, r3
+  0800cfe0:  b        #0x800cfb0
+  0800cfe2:  movs     r3, #0
+  0800cfe4:  mov      r2, r3
+  0800cfe6:  b        #0x800cfd2
+  0800cfe8:  ldr      r3, [pc, #0x18]              = 0x200015de ram_200015de
+  0800cfea:  ldr      r2, [pc, #0x1c]              = 0x200015dc ram_200015dc
+  0800cfec:  ldrb     r3, [r3]
+  0800cfee:  ldrb     r2, [r2]
+  0800cff0:  orrs     r3, r2
+  0800cff2:  beq      #0x800cfca
+  0800cff4:  movs     r3, #0xff
+  0800cff6:  mov      r2, r3
+  0800cff8:  mov      r1, r3
+  0800cffa:  b        #0x800cfc4
+  0800cffc:  .word 0x2000162e    ; layer_state
+  0800d000:  .word 0x20001630    ; default_layer_state
+  0800d004:  .word 0x200015de    ; ram_200015de
+  0800d008:  .word 0x200015dc    ; ram_200015dc
+  0800d00c:  .word 0x200015dd    ; ram_200015dd
+
+====================================================================================================
+[extra] function containing 0x0800d010
+xrefs: ['b.w@0800d088 in sub_0800d088', 'b.w@0800d08c in sub_0800d08c']
+---- sub_0800d010 @ 0800d010..0800d088 (120 bytes)
+  0800d010:  push     {r3, r4, r5, r6, r7, lr}
+  0800d012:  ands     r5, r0, #0x22
+  0800d016:  bic      r4, r0, #0x77
+  0800d01a:  bne      #0x800d044
+  0800d01c:  ldr      r6, [pc, #0x60]              = 0x200015de ram_200015de
+  0800d01e:  ldrb     r3, [r6]
+  0800d020:  cbz      r3, #0x800d044
+  0800d022:  mov      r2, r5
+  0800d024:  mov      r1, r5
+  0800d026:  mov      r0, r5
+  0800d028:  bl       #0x800fee4                   <rgb_matrix_set_color_all>
+  0800d02c:  strb     r5, [r6]
+  0800d02e:  cbz      r4, #0x800d042
+  0800d030:  ldr      r4, [pc, #0x50]              = 0x200015dd ram_200015dd
+  0800d032:  ldrb     r2, [r4]
+  0800d034:  cbnz     r2, #0x800d042
+  0800d036:  movs     r1, #0xff
+  0800d038:  mov      r0, r1
+  0800d03a:  bl       #0x800fee4                   <rgb_matrix_set_color_all>
+  0800d03e:  movs     r3, #1
+  0800d040:  strb     r3, [r4]
+  0800d042:  pop      {r3, r4, r5, r6, r7, pc}
+  0800d044:  and      r6, r4, #0xff
+  0800d048:  cbnz     r4, #0x800d078
+  0800d04a:  ldr      r7, [pc, #0x38]              = 0x200015dd ram_200015dd
+  0800d04c:  ldrb     r3, [r7]
+  0800d04e:  cbz      r3, #0x800d05c
+  0800d050:  mov      r2, r6
+  0800d052:  mov      r1, r6
+  0800d054:  mov      r0, r6
+  0800d056:  bl       #0x800fee4                   <rgb_matrix_set_color_all>
+  0800d05a:  strb     r6, [r7]
+  0800d05c:  cmp      r5, #0
+  0800d05e:  beq      #0x800d042
+  0800d060:  ldr      r5, [pc, #0x1c]              = 0x200015de ram_200015de
+  0800d062:  ldrb     r3, [r5]
+  0800d064:  cmp      r3, #0
+  0800d066:  bne      #0x800d02e
+  0800d068:  movs     r2, #0xff
+  0800d06a:  mov      r1, r2
+  0800d06c:  mov      r0, r2
+  0800d06e:  bl       #0x800fee4                   <rgb_matrix_set_color_all>
+  0800d072:  movs     r3, #1
+  0800d074:  strb     r3, [r5]
+  0800d076:  b        #0x800d02e
+  0800d078:  cmp      r5, #0
+  0800d07a:  bne      #0x800d060
+  0800d07c:  b        #0x800d030
+  0800d07e:  nop
+  0800d080:  .word 0x200015de    ; ram_200015de
+  0800d084:  .word 0x200015dd    ; ram_200015dd
+
+====================================================================================================
+[extra] function containing 0x0800e504
+xrefs: ['bl@0800cde6 in td0_helper_0800cdda', 'bl@0800da5a in sub_0800d698']
+---- sub_0800e504 @ 0800e504..0800e534 (48 bytes)
+  0800e504:  ldr      r2, [pc, #0x24]              = 0x200047d4 ram_200047d4
+  0800e506:  ldrb     r2, [r2, #1]
+  0800e508:  lsls     r2, r2, #0x1d
+  0800e50a:  push     {r4, lr}
+  0800e50c:  bpl      #0x800e524
+  0800e50e:  ldr      r4, [pc, #0x20]              = 0x200016a4 ram_200016a4
+  0800e510:  orr.w    r1, r1, r0, lsl #3
+  0800e514:  strb     r1, [r4]
+  0800e516:  bl       #0x800dc64                   <layer_on>
+  0800e51a:  ldrb     r0, [r4]
+  0800e51c:  lsrs     r0, r0, #3
+  0800e51e:  bl       #0x800e4fc                   <oneshot_layer_changed_kb>
+  0800e522:  pop      {r4, pc}
+  0800e524:  pop.w    {r4, lr}
+  0800e528:  b.w      #0x800dc64                   <layer_on>
+  0800e52c:  .word 0x200047d4    ; ram_200047d4
+  0800e530:  .word 0x200016a4    ; ram_200016a4
+
+# facts written to keychron_v10max_backup/code_anchors.json

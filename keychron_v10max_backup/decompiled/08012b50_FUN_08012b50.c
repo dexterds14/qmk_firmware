@@ -1,0 +1,21 @@
+// FUN_08012b50 @ 0x08012b50  size=90  body=[[08012b50, 08012ba9]]
+
+undefined4 FUN_08012b50(char *param_1)
+
+{
+  undefined4 uVar1;
+  
+  FUN_08012da8(0x20000f64);
+  FUN_08012e08(0x20000f64);
+  FUN_08012da8(0x2000100c);
+  FUN_08012e08(0x2000100c);
+  FUN_08012da8(0x200010b4);
+  FUN_08012e08(0x200010b4);
+  FUN_08012de0(0x20000edc);
+  FUN_08012e28(0x20000edc);
+  FUN_08014242(param_1);
+  FUN_08013a7a(5000);
+  uVar1 = FUN_0801421c(param_1,&PTR_FUN_080129b4_1_080170c4);
+  return uVar1;
+}
+

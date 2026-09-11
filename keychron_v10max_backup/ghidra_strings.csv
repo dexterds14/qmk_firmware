@@ -1,0 +1,15 @@
+addr,len,type,value,xrefs
+0x0801679B,17,string,"Keychron V10 Max",0800C54E@FUN_0800c54c
+0x080167AC,20,string,2024-07-09-13:57:36,"0800CC86@factory_test_rx | 0800C8CC@kc_raw_hid_rx"
+0x080167C0,60,string,"Invalid sector count intended to be used with wear_leveling",0800F656@FUN_0800f5f4
+0x080167FC,13,string,"            ",08011304@FUN_0801124c
+0x08016816,12,string,"DMA failure","0801630E@FUN_08016304 | 0801634C@FUN_08016340"
+0x0801765C,23,string,"REENT malloc succeeded","0800850A@FUN_080084ac | 08008488@FUN_08008448"
+0x08017674,44,string,../../../../../../newlib/libc/stdlib/rand.c,"0800850C@FUN_080084ac | 0800848A@FUN_08008448"
+0x080176A0,16,string,", function: ",0800855C@FUN_08008544
+0x080176B0,47,string,"assertion ""%s"" failed: file ""%s"", line %d%s%s\n",08008562@FUN_08008544
+0x080176E0,37,string,0123456789abcdefghijklmnopqrstuvwxyz,"08008606@FUN_080085f8 | 08008610@FUN_080085f8 | 08008616@FUN_080085f8"
+0x08017708,6,string,"#-0+ ",08008B54@FUN_08008abc
+0x08017714,7,string,efgEFG,08008BB8@FUN_08008abc
+0x0801771C,17,string,0123456789ABCDEF,08009F64@FUN_08009d4c
+0x08017730,17,string,0123456789abcdef,"08009FB8@FUN_08009d4c | 08009F64@FUN_08009d4c"

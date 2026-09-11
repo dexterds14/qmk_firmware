@@ -1,0 +1,3851 @@
+{
+ "ambiguous": {
+  "SOLID_SPLASH": [
+   "0x8010750",
+   "0x801076c"
+  ],
+  "SPLASH": [
+   "0x8010750",
+   "0x801076c"
+  ],
+  "__port_irq_epilogue": [
+   "0x8013c7c(ok 0/1)"
+  ],
+  "_usb_ep0in": [
+   "0x8014740(ok 0/2)"
+  ],
+  "add_key_to_report": [
+   "0x801231c",
+   "0x8012350"
+  ],
+  "add_mods": [
+   "0x800e31c",
+   "0x800e354",
+   "0x800fbf0"
+  ],
+  "add_weak_mods": [
+   "0x800e31c",
+   "0x800e354",
+   "0x800fbf0"
+  ],
+  "backing_store_read_bulk": [
+   "0x800f29c(ok 0/1)"
+  ],
+  "bat_level_animiation_start": [
+   "0x800c2ac(ok 0/1)"
+  ],
+  "chMtxLock": [
+   "0x80134d8",
+   "0x8013ba4"
+  ],
+  "chSysInit": [
+   "0x801354c(ok 0/1)"
+  ],
+  "clear_oneshot_mods": [
+   "0x800e3b0",
+   "0x800e424"
+  ],
+  "del_key_from_report": [
+   "0x801231c",
+   "0x8012350"
+  ],
+  "del_mods": [
+   "0x800e32c",
+   "0x800e364"
+  ],
+  "del_oneshot_locked_mods": [
+   "0x800e3c8",
+   "0x800e408"
+  ],
+  "del_oneshot_mods": [
+   "0x800e3c8",
+   "0x800e408"
+  ],
+  "del_weak_mods": [
+   "0x800e32c",
+   "0x800e364"
+  ],
+  "dmaStreamFreeI": [
+   "0x8015258(ok 0/1)"
+  ],
+  "eeconfig_flag_rgb_matrix": [
+   "0x800e31c",
+   "0x800e354",
+   "0x800fbf0"
+  ],
+  "eeconfig_flush_rgb_matrix.part.0": [
+   "0x800fd14(ok 0/1)"
+  ],
+  "eeprom_update_byte": [
+   "0x800f170",
+   "0x800f18c",
+   "0x800f1a8"
+  ],
+  "eeprom_update_dword": [
+   "0x800f170",
+   "0x800f18c",
+   "0x800f1a8"
+  ],
+  "eeprom_update_word": [
+   "0x800f170",
+   "0x800f18c",
+   "0x800f1a8"
+  ],
+  "factory_test_task": [
+   "0x800ca84(ok 0/5)"
+  ],
+  "indicator_task": [
+   "0x800b8dc(ok 0/1)"
+  ],
+  "keychron_common_task": [
+   "0x800c7dc(ok 0/2)"
+  ],
+  "last_encoder_activity_trigger": [
+   "0x800e700",
+   "0x800e718"
+  ],
+  "last_matrix_activity_trigger": [
+   "0x800e700",
+   "0x800e718"
+  ],
+  "layer_switch_get_action": [
+   "0x800ddf8(ok 0/1)"
+  ],
+  "layer_switch_get_layer": [
+   "0x800ddb4(ok 0/1)"
+  ],
+  "lkbt51_wake": [
+   "0x800aa20(ok 0/1)"
+  ],
+  "lpm_task": [
+   "0x800bdcc(ok 0/16)"
+  ],
+  "obnotify": [
+   "0x8012d30(ok 0/1)"
+  ],
+  "process_record": [
+   "0x800dad8(ok 0/3)"
+  ],
+  "process_record_handler": [
+   "0x800dab4(ok 0/1)"
+  ],
+  "process_record_keychron_common": [
+   "0x800c720(ok 2/6)"
+  ],
+  "protocol_pre_init": [
+   "0x8012c6c(ok 0/1)"
+  ],
+  "register_code": [
+   "0x800d570(ok 0/1)"
+  ],
+  "register_mods": [
+   "0x800d672",
+   "0x800d684"
+  ],
+  "rgb_matrix_enable": [
+   "0x8010ef0(ok 0/1)"
+  ],
+  "spiStop": [
+   "0x8014142(ok 0/1)"
+  ],
+  "spi_init": [
+   "0x8012674(ok 0/2)"
+  ],
+  "spi_lld_serve_tx_interrupt": [
+   "0x8016304(ok 0/1)"
+  ],
+  "spi_lld_stop": [
+   "0x80164c0(ok 0/2)"
+  ],
+  "spi_start": [
+   "0x80126e8(ok 0/1)"
+  ],
+  "spi_stop": [
+   "0x80127d8(ok 0/1)"
+  ],
+  "store_or_get_action": [
+   "0x800de10(ok 0/1)"
+  ],
+  "unregister_mods": [
+   "0x800d672",
+   "0x800d684"
+  ],
+  "usb_endpoint_in_configure_cb": [
+   "0x8012e94(ok 0/2)"
+  ],
+  "usb_endpoint_in_suspend_cb": [
+   "0x8012e46(ok 0/2)"
+  ],
+  "usb_endpoint_out_configure_cb": [
+   "0x8012eb4(ok 0/1)"
+  ],
+  "usb_event_cb": [
+   "0x80129b4(ok 2/10)"
+  ],
+  "usb_get_descriptor_cb": [
+   "0x8012914(ok 0/1)"
+  ],
+  "usb_remote_wakeup": [
+   "0x800bbc0(ok 1/7)"
+  ],
+  "usb_start_receive": [
+   "0x8012d6a(ok 0/1)"
+  ],
+  "wear_leveling_unlock": [
+   "0x800f200(ok 0/1)"
+  ],
+  "wireless_enter_disconnected_kb": [
+   "0x800c598(ok 0/1)"
+  ],
+  "wireless_init": [
+   "0x800a240(ok 1/3)"
+  ],
+  "wireless_send_extra": [
+   "0x800a4b0(ok 0/1)"
+  ],
+  "wireless_send_keyboard": [
+   "0x800a2dc(ok 0/2)"
+  ],
+  "wireless_send_mouse": [
+   "0x800a3a0(ok 0/1)"
+  ],
+  "wireless_task": [
+   "0x800a754(ok 0/3)"
+  ],
+  "wireless_tasks": [
+   "0x800b972(ok 0/2)"
+  ]
+ },
+ "meta": {
+  "dump": "dump_a.bin",
+  "matched": 356,
+  "ref_elf": "refs/ref1011_default.elf",
+  "ref_funcs": 758
+ },
+ "symbols": {
+  "CYCLE_ALL_math": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800f860",
+   "fixed_bytes": 34,
+   "ref_addr": "0x800d588",
+   "size": 38
+  },
+  "CYCLE_LEFT_RIGHT_math": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800f888",
+   "fixed_bytes": 48,
+   "ref_addr": "0x800d5b0",
+   "size": 56
+  },
+  "CYCLE_OUT_IN_math": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800f94c",
+   "fixed_bytes": 46,
+   "ref_addr": "0x800d670",
+   "size": 50
+  },
+  "CYCLE_UP_DOWN_math": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800f8c0",
+   "fixed_bytes": 48,
+   "ref_addr": "0x800d5e8",
+   "size": 56
+  },
+  "DUAL_BEACON_math": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800f9c8",
+   "fixed_bytes": 76,
+   "ref_addr": "0x800d6f0",
+   "size": 80
+  },
+  "RAINBOW_BEACON_math": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800fa18",
+   "fixed_bytes": 76,
+   "ref_addr": "0x800d740",
+   "size": 80
+  },
+  "SOLID_REACTIVE_NEXUS_math": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800fae4",
+   "fixed_bytes": 112,
+   "ref_addr": "0x800d80c",
+   "size": 120
+  },
+  "SOLID_REACTIVE_SIMPLE_math": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800fa68",
+   "fixed_bytes": 52,
+   "ref_addr": "0x800d790",
+   "size": 52
+  },
+  "SOLID_REACTIVE_WIDE_math": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800fa9c",
+   "fixed_bytes": 72,
+   "ref_addr": "0x800d7c4",
+   "size": 72
+  },
+  "SOLID_SPLASH_math": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800fbaa",
+   "fixed_bytes": 68,
+   "ref_addr": "0x800d8d0",
+   "size": 68
+  },
+  "SVC_Handler": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013c14",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8011958",
+   "size": 32
+  },
+  "Vector120": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801500c",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8012d4c",
+   "size": 40
+  },
+  "Vector130": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80150b8",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8012df8",
+   "size": 40
+  },
+  "Vector48": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8015ef4",
+   "fixed_bytes": 92,
+   "ref_addr": "0x8013c30",
+   "size": 104
+  },
+  "Vector4C": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8015f5c",
+   "fixed_bytes": 44,
+   "ref_addr": "0x8013c98",
+   "size": 56
+  },
+  "Vector58": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80148c4",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8012600",
+   "size": 40
+  },
+  "Vector5C": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80148ec",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8012628",
+   "size": 40
+  },
+  "Vector60": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014914",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8012650",
+   "size": 40
+  },
+  "Vector64": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801493c",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8012678",
+   "size": 40
+  },
+  "Vector68": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014964",
+   "fixed_bytes": 28,
+   "ref_addr": "0x80126a0",
+   "size": 40
+  },
+  "Vector6C": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014eb4",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8012bf4",
+   "size": 40
+  },
+  "Vector7C": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014f60",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8012ca0",
+   "size": 40
+  },
+  "Vector9C": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801498c",
+   "fixed_bytes": 88,
+   "ref_addr": "0x80126c8",
+   "size": 100
+  },
+  "VectorE0": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80149f0",
+   "fixed_bytes": 100,
+   "ref_addr": "0x801272c",
+   "size": 112
+  },
+  "VectorE4": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8015f94",
+   "fixed_bytes": 64,
+   "ref_addr": "0x8013cd0",
+   "size": 76
+  },
+  "__NVIC_SystemReset": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8012598",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8010328",
+   "size": 36
+  },
+  "__core_init": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013494",
+   "fixed_bytes": 12,
+   "ref_addr": "0x80111fc",
+   "size": 24
+  },
+  "__sch_ready_ahead": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013854",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8011598",
+   "size": 28
+  },
+  "__sch_ready_behind": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013838",
+   "fixed_bytes": 28,
+   "ref_addr": "0x801157c",
+   "size": 28
+  },
+  "__sch_reschedule_ahead": {
+   "aliases": [
+    "chSchDoPreemption"
+   ],
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x8013928",
+   "fixed_bytes": 28,
+   "ref_addr": "0x801166c",
+   "size": 40
+  },
+  "__thd_object_init": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80139ec",
+   "fixed_bytes": 20,
+   "ref_addr": "0x8011730",
+   "size": 20
+  },
+  "_pal_lld_disablepadevent": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8015474",
+   "fixed_bytes": 76,
+   "ref_addr": "0x80131b4",
+   "size": 88
+  },
+  "_pal_lld_init": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801531c",
+   "fixed_bytes": 24,
+   "ref_addr": "0x8013068",
+   "size": 28
+  },
+  "_pal_lld_setgroupmode": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8015338",
+   "fixed_bytes": 0,
+   "named_by": [
+    "dip_switch_init",
+    "enter_power_mode",
+    "lpm_init",
+    "setPinInputHigh_atomic"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8013084",
+   "size": 204
+  },
+  "_read_r": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801668e",
+   "fixed_bytes": 10,
+   "ref_addr": "0x80143c2",
+   "size": 10
+  },
+  "_sbrk_r": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80166a4",
+   "fixed_bytes": 22,
+   "ref_addr": "0x80143d8",
+   "size": 26
+  },
+  "_usb_ep0out": {
+   "calls_checked": 2,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x80147f2",
+   "fixed_bytes": 108,
+   "ref_addr": "0x8012532",
+   "size": 120
+  },
+  "_usb_wakeup": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014462",
+   "fixed_bytes": 22,
+   "ref_addr": "0x80121a0",
+   "size": 22
+  },
+  "action_for_key": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800ea9e",
+   "fixed_bytes": 14,
+   "ref_addr": "0x800c7d2",
+   "size": 22
+  },
+  "add_key_byte": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801229c",
+   "fixed_bytes": 44,
+   "ref_addr": "0x8010030",
+   "size": 44
+  },
+  "backing_store_erase": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800f574",
+   "fixed_bytes": 0,
+   "named_by": [
+    "wear_leveling_erase"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800d2a4",
+   "size": 76
+  },
+  "backing_store_lock": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800f5e4",
+   "fixed_bytes": 0,
+   "named_by": [
+    "wear_leveling_lock"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800d31c",
+   "size": 16
+  },
+  "backing_store_read": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800f67c",
+   "fixed_bytes": 48,
+   "ref_addr": "0x800d3c4",
+   "size": 68
+  },
+  "backing_store_unlock": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800f55c",
+   "fixed_bytes": 16,
+   "ref_addr": "0x800d28c",
+   "size": 24
+  },
+  "backing_store_write": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800f5b4",
+   "fixed_bytes": 0,
+   "named_by": [
+    "backing_store_write_bulk",
+    "wear_leveling_append_raw"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800d2f0",
+   "size": 44
+  },
+  "backing_store_write_bulk": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800f2c2",
+   "fixed_bytes": 34,
+   "ref_addr": "0x800cff2",
+   "size": 38
+  },
+  "bat_level_animiation_actived": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800c304",
+   "fixed_bytes": 12,
+   "ref_addr": "0x800a634",
+   "size": 16
+  },
+  "bat_level_animiation_indicate": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800c314",
+   "fixed_bytes": 88,
+   "ref_addr": "0x800a644",
+   "size": 124
+  },
+  "bat_level_animiation_task": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800c43c",
+   "fixed_bytes": 28,
+   "ref_addr": "0x800a76c",
+   "size": 48
+  },
+  "bat_level_animiation_update": {
+   "calls_checked": 3,
+   "calls_ok": 2,
+   "candidates": 1,
+   "dump_addr": "0x800c390",
+   "fixed_bytes": 116,
+   "ref_addr": "0x800a6c0",
+   "size": 172
+  },
+  "battery_check_critical_low": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800c1ac",
+   "fixed_bytes": 40,
+   "ref_addr": "0x800a4dc",
+   "size": 52
+  },
+  "battery_check_empty": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800c16c",
+   "fixed_bytes": 44,
+   "ref_addr": "0x800a49c",
+   "size": 64
+  },
+  "battery_is_critical_low": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800c158",
+   "fixed_bytes": 16,
+   "ref_addr": "0x800a488",
+   "size": 20
+  },
+  "battery_is_empty": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800c144",
+   "fixed_bytes": 16,
+   "ref_addr": "0x800a474",
+   "size": 20
+  },
+  "biton16": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800d488",
+   "fixed_bytes": 0,
+   "named_by": [
+    "via_command_kb"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800b2e4",
+   "size": 34
+  },
+  "bootloader_marker_active": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80125cc",
+   "fixed_bytes": 16,
+   "ref_addr": "0x801035c",
+   "size": 24
+  },
+  "bootloader_marker_disable": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x80125e4",
+   "fixed_bytes": 0,
+   "named_by": [
+    "enter_bootloader_mode_if_requested"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8010374",
+   "size": 12
+  },
+  "bootmagic": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800ecc2",
+   "fixed_bytes": 0,
+   "named_by": [
+    "magic"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800c9f6",
+   "size": 8
+  },
+  "bootmagic_lite": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800ec98",
+   "fixed_bytes": 16,
+   "ref_addr": "0x800c9cc",
+   "size": 42
+  },
+  "bootmagic_lite_reset_eeprom": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800ec94",
+   "fixed_bytes": 0,
+   "named_by": [
+    "bootmagic_lite"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800c9c8",
+   "size": 4
+  },
+  "bt_transport_enable": {
+   "calls_checked": 2,
+   "calls_ok": 2,
+   "candidates": 1,
+   "dump_addr": "0x800b990",
+   "fixed_bytes": 64,
+   "ref_addr": "0x8009ce0",
+   "size": 104
+  },
+  "chCoreAllocFromBase": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 2,
+   "dump_addr": "0x80134d8",
+   "fixed_bytes": 16,
+   "ref_addr": "0x8011240",
+   "size": 20
+  },
+  "chCoreAllocFromBaseI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80134ac",
+   "fixed_bytes": 40,
+   "ref_addr": "0x8011214",
+   "size": 44
+  },
+  "chMtxObjectInit": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013b34",
+   "fixed_bytes": 10,
+   "ref_addr": "0x8011878",
+   "size": 10
+  },
+  "chMtxUnlock": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x8013bb8",
+   "fixed_bytes": 80,
+   "ref_addr": "0x80118fc",
+   "size": 92
+  },
+  "chRFCUCollectFaultsI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80135dc",
+   "fixed_bytes": 12,
+   "ref_addr": "0x8011338",
+   "size": 16
+  },
+  "chSchDoPreemption": {
+   "aliases": [
+    "__sch_reschedule_ahead"
+   ],
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x8013928",
+   "fixed_bytes": 28,
+   "ref_addr": "0x801166c",
+   "size": 40
+  },
+  "chSchGoSleepS": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80138b8",
+   "fixed_bytes": 20,
+   "ref_addr": "0x80115fc",
+   "size": 28
+  },
+  "chSchGoSleepTimeoutS": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x80138d4",
+   "fixed_bytes": 0,
+   "named_by": [
+    "chThdSleep"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8011618",
+   "size": 60
+  },
+  "chSchIsPreemptionRequired": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013910",
+   "fixed_bytes": 16,
+   "ref_addr": "0x8011654",
+   "size": 24
+  },
+  "chSchReadyI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x80138b4",
+   "fixed_bytes": 0,
+   "named_by": [
+    "chMtxUnlock",
+    "chThdDequeueAllI"
+   ],
+   "propagated": true,
+   "ref_addr": "0x80115f8",
+   "size": 4
+  },
+  "chSchRescheduleS": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013950",
+   "fixed_bytes": 16,
+   "ref_addr": "0x8011694",
+   "size": 24
+  },
+  "chSysGetStatusAndLockX": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013598",
+   "fixed_bytes": 18,
+   "ref_addr": "0x80112f4",
+   "size": 18
+  },
+  "chSysHalt": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801357c",
+   "fixed_bytes": 16,
+   "ref_addr": "0x80112d8",
+   "size": 24
+  },
+  "chSysPolledDelayX": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80135c8",
+   "fixed_bytes": 16,
+   "ref_addr": "0x8011324",
+   "size": 20
+  },
+  "chSysRestoreStatusX": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x80135aa",
+   "fixed_bytes": 26,
+   "ref_addr": "0x8011306",
+   "size": 30
+  },
+  "chSysTimerHandlerI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8013594",
+   "fixed_bytes": 0,
+   "named_by": [
+    "st_lld_serve_interrupt"
+   ],
+   "propagated": true,
+   "ref_addr": "0x80112f0",
+   "size": 4
+  },
+  "chThdCreateSuspendedI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013a00",
+   "fixed_bytes": 72,
+   "ref_addr": "0x8011744",
+   "size": 80
+  },
+  "chThdDequeueAllI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013afa",
+   "fixed_bytes": 24,
+   "ref_addr": "0x801183e",
+   "size": 28
+  },
+  "chThdEnqueueTimeoutS": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8013ac4",
+   "fixed_bytes": 0,
+   "named_by": [
+    "ibqGetFullBufferTimeoutS",
+    "obqGetEmptyBufferTimeoutS"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8011808",
+   "size": 32
+  },
+  "chThdResumeI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8013ab0",
+   "fixed_bytes": 0,
+   "named_by": [
+    "usbDisableEndpointsI"
+   ],
+   "propagated": true,
+   "ref_addr": "0x80117f4",
+   "size": 18
+  },
+  "chThdSleep": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013a7a",
+   "fixed_bytes": 20,
+   "ref_addr": "0x80117be",
+   "size": 24
+  },
+  "ch_dlist_insert": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80135ec",
+   "fixed_bytes": 42,
+   "ref_addr": "0x8011348",
+   "size": 42
+  },
+  "ch_sch_prio_insert": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013b16",
+   "fixed_bytes": 30,
+   "ref_addr": "0x801185a",
+   "size": 30
+  },
+  "clear_keyboard": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800db44",
+   "fixed_bytes": 0,
+   "named_by": [
+    "shutdown_quantum",
+    "wireless_low_battery_shutdown"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800b94c",
+   "size": 14
+  },
+  "clear_keys_from_report": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8012384",
+   "fixed_bytes": 36,
+   "ref_addr": "0x8010114",
+   "size": 56
+  },
+  "clear_oneshot_layer_state": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800e548",
+   "fixed_bytes": 36,
+   "ref_addr": "0x800c28c",
+   "size": 52
+  },
+  "debounce_free": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800ef1c",
+   "fixed_bytes": 12,
+   "ref_addr": "0x800cc54",
+   "size": 20
+  },
+  "debug_record": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800dbb8",
+   "fixed_bytes": 0,
+   "named_by": [
+    "debug_waiting_buffer"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800b9c4",
+   "size": 10
+  },
+  "debug_waiting_buffer": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800de58",
+   "fixed_bytes": 48,
+   "ref_addr": "0x800bc38",
+   "size": 64
+  },
+  "default_layer_set": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800dbe2",
+   "fixed_bytes": 0,
+   "named_by": [
+    "magic"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800b9ea",
+   "size": 4
+  },
+  "del_key_byte": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80122c8",
+   "fixed_bytes": 24,
+   "ref_addr": "0x801005c",
+   "size": 24
+  },
+  "del_key_from_report": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8012350",
+   "fixed_bytes": 0,
+   "named_by": [
+    "unregister_code"
+   ],
+   "propagated": true,
+   "ref_addr": "0x80100e0",
+   "size": 52
+  },
+  "del_mods": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800e32c",
+   "fixed_bytes": 0,
+   "named_by": [
+    "unregister_code"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800c0b0",
+   "size": 16
+  },
+  "dip_switch_init": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80118d8",
+   "fixed_bytes": 16,
+   "ref_addr": "0x800f668",
+   "size": 28
+  },
+  "dmaInit": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8015164",
+   "fixed_bytes": 56,
+   "ref_addr": "0x8012ea8",
+   "size": 68
+  },
+  "dmaStreamAllocI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x80151a8",
+   "fixed_bytes": 0,
+   "named_by": [
+    "spi_lld_start"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8012eec",
+   "size": 176
+  },
+  "dmaStreamFreeI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8015258",
+   "fixed_bytes": 0,
+   "named_by": [
+    "spi_lld_start"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8012f9c",
+   "size": 88
+  },
+  "eeconfig_flag_rgb_matrix": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800fbf0",
+   "fixed_bytes": 0,
+   "named_by": [
+    "rgb_matrix_toggle_eeprom_helper"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800d914",
+   "size": 16
+  },
+  "eeconfig_init": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800e6c4",
+   "fixed_bytes": 0,
+   "named_by": [
+    "magic",
+    "rgb_matrix_init"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800c400",
+   "size": 4
+  },
+  "eeconfig_init_rgb_matrix": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800fc00",
+   "fixed_bytes": 20,
+   "ref_addr": "0x800d924",
+   "size": 32
+  },
+  "eeconfig_is_enabled": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800e5e0",
+   "fixed_bytes": 12,
+   "ref_addr": "0x800c320",
+   "size": 20
+  },
+  "eeconfig_read_debug": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800e5f4",
+   "fixed_bytes": 0,
+   "named_by": [
+    "magic"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800c334",
+   "size": 6
+  },
+  "eeconfig_read_default_layer": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800e5fa",
+   "fixed_bytes": 0,
+   "named_by": [
+    "magic"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800c33a",
+   "size": 6
+  },
+  "eeconfig_read_keymap": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800e600",
+   "fixed_bytes": 0,
+   "named_by": [
+    "magic"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800c340",
+   "size": 6
+  },
+  "eeconfig_update_keymap": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800e606",
+   "fixed_bytes": 0,
+   "named_by": [
+    "oneshot_set"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800c346",
+   "size": 8
+  },
+  "eeconfig_update_rgb_matrix_default": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800fe14",
+   "fixed_bytes": 0,
+   "named_by": [
+    "rgb_matrix_init"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800db3c",
+   "size": 44
+  },
+  "eeprom_read_block": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800f1cc",
+   "fixed_bytes": 0,
+   "named_by": [
+    "eeconfig_init_rgb_matrix",
+    "eeprom_update_block",
+    "indicator_eeconfig_reload"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800cefc",
+   "size": 10
+  },
+  "eeprom_read_word": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800f0be",
+   "fixed_bytes": 0,
+   "named_by": [
+    "eeconfig_is_enabled"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800cdf8",
+   "size": 28
+  },
+  "eeprom_update_block": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800f13c",
+   "fixed_bytes": 40,
+   "ref_addr": "0x800ce6c",
+   "size": 52
+  },
+  "eeprom_write_block": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800f1d6",
+   "fixed_bytes": 0,
+   "named_by": [
+    "eeprom_update_block"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800cf06",
+   "size": 10
+  },
+  "eflObjectInit": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014090",
+   "fixed_bytes": 12,
+   "ref_addr": "0x8011dd8",
+   "size": 20
+  },
+  "eflStart": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x80140a4",
+   "fixed_bytes": 24,
+   "ref_addr": "0x8011dec",
+   "size": 28
+  },
+  "eflStop": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x80140c0",
+   "fixed_bytes": 22,
+   "ref_addr": "0x8011e08",
+   "size": 26
+  },
+  "efl_lld_init": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x8014c78",
+   "fixed_bytes": 60,
+   "ref_addr": "0x80129b8",
+   "size": 92
+  },
+  "efl_lld_query_erase": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014e3c",
+   "fixed_bytes": 46,
+   "ref_addr": "0x8012b7a",
+   "size": 50
+  },
+  "efl_lld_start": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014cd4",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8012a14",
+   "size": 40
+  },
+  "efl_lld_start_erase_all": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014dea",
+   "fixed_bytes": 12,
+   "ref_addr": "0x8012b28",
+   "size": 12
+  },
+  "efl_lld_stop": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014cfc",
+   "fixed_bytes": 12,
+   "ref_addr": "0x8012a3c",
+   "size": 12
+  },
+  "efl_lld_verify_erase": {
+   "calls_checked": 2,
+   "calls_ok": 2,
+   "candidates": 1,
+   "dump_addr": "0x8014e6e",
+   "fixed_bytes": 58,
+   "ref_addr": "0x8012bac",
+   "size": 70
+  },
+  "enter_bootloader_mode_if_requested": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x8012600",
+   "fixed_bytes": 100,
+   "ref_addr": "0x8010390",
+   "size": 116
+  },
+  "enter_power_mode": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800bff4",
+   "fixed_bytes": 72,
+   "ref_addr": "0x800a334",
+   "size": 100
+  },
+  "factory_reset_indicating": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800ca74",
+   "fixed_bytes": 12,
+   "ref_addr": "0x800ad8c",
+   "size": 16
+  },
+  "factory_test_rx": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800cb90",
+   "fixed_bytes": 272,
+   "ref_addr": "0x800aea4",
+   "size": 352
+  },
+  "factory_test_send": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800cb44",
+   "fixed_bytes": 0,
+   "named_by": [
+    "factory_test_rx"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800ae5c",
+   "size": 72
+  },
+  "factory_timer_start": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800c918",
+   "fixed_bytes": 0,
+   "named_by": [
+    "process_record_factory_test"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800ac30",
+   "size": 16
+  },
+  "flashGetOffsetAddress": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014064",
+   "fixed_bytes": 16,
+   "ref_addr": "0x8011dac",
+   "size": 16
+  },
+  "flashGetSectorOffset": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014030",
+   "fixed_bytes": 26,
+   "ref_addr": "0x8011d78",
+   "size": 26
+  },
+  "flashGetSectorSize": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801404a",
+   "fixed_bytes": 26,
+   "ref_addr": "0x8011d92",
+   "size": 26
+  },
+  "fnv_64a_buf": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80115f0",
+   "fixed_bytes": 112,
+   "ref_addr": "0x800f388",
+   "size": 112
+  },
+  "free": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8008980",
+   "fixed_bytes": 0,
+   "named_by": [
+    "debounce_free"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8014484",
+   "size": 16
+  },
+  "get_mods": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800e310",
+   "fixed_bytes": 0,
+   "named_by": [
+    "process_rgb"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800c094",
+   "size": 12
+  },
+  "get_mods_for_report": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800e43c",
+   "fixed_bytes": 0,
+   "named_by": [
+    "send_6kro_report",
+    "send_nkro_report"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800c17c",
+   "size": 48
+  },
+  "get_oneshot_layer_state": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800e2ec",
+   "fixed_bytes": 12,
+   "ref_addr": "0x800c070",
+   "size": 16
+  },
+  "get_record_keycode": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800d334",
+   "fixed_bytes": 0,
+   "named_by": [
+    "post_process_record_quantum",
+    "pre_process_record_quantum"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800b19c",
+   "size": 22
+  },
+  "get_transport": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800bbb4",
+   "fixed_bytes": 0,
+   "named_by": [
+    "factory_test_rx",
+    "os_state_indicate",
+    "process_record_wireless",
+    "rgb_matrix_none_indicators_kb"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8009ef8",
+   "size": 12
+  },
+  "get_usb_descriptor": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8012cb8",
+   "fixed_bytes": 92,
+   "ref_addr": "0x8010a2c",
+   "size": 120
+  },
+  "gpio_init": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80165e8",
+   "fixed_bytes": 30,
+   "ref_addr": "0x8014320",
+   "size": 30
+  },
+  "hal_lld_init": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x8014ab4",
+   "fixed_bytes": 152,
+   "ref_addr": "0x80127f0",
+   "size": 168
+  },
+  "handleKeycodeRGB": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8011528",
+   "fixed_bytes": 0,
+   "named_by": [
+    "process_rgb"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800f2c0",
+   "size": 6
+  },
+  "has_mouse_report_changed": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80123bc",
+   "fixed_bytes": 72,
+   "ref_addr": "0x801014c",
+   "size": 72
+  },
+  "host_consumer_send": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80121b8",
+   "fixed_bytes": 36,
+   "ref_addr": "0x800ff50",
+   "size": 48
+  },
+  "host_keyboard_led_state": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8012148",
+   "fixed_bytes": 0,
+   "named_by": [
+    "os_state_indicate",
+    "rgb_matrix_driver_allow_shutdown"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800fee0",
+   "size": 8
+  },
+  "host_keyboard_leds": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8012138",
+   "fixed_bytes": 12,
+   "ref_addr": "0x800fed0",
+   "size": 16
+  },
+  "host_keyboard_send": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8012150",
+   "fixed_bytes": 12,
+   "ref_addr": "0x800fee8",
+   "size": 16
+  },
+  "host_set_driver": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8012120",
+   "fixed_bytes": 0,
+   "named_by": [
+    "bt_transport_enable",
+    "p24g_transport_enable"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800feb8",
+   "size": 12
+  },
+  "host_system_send": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8012188",
+   "fixed_bytes": 36,
+   "ref_addr": "0x800ff20",
+   "size": 48
+  },
+  "ibqGetEmptyBufferI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013d68",
+   "fixed_bytes": 20,
+   "ref_addr": "0x8011aac",
+   "size": 20
+  },
+  "ibqGetFullBufferTimeoutS": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013d9c",
+   "fixed_bytes": 42,
+   "ref_addr": "0x8011ae0",
+   "size": 50
+  },
+  "ibqObjectInit": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013d24",
+   "fixed_bytes": 46,
+   "ref_addr": "0x8011a68",
+   "size": 46
+  },
+  "ibqPostFullBufferI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013d7c",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8011ac0",
+   "size": 32
+  },
+  "ibqReadTimeout": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8013df2",
+   "fixed_bytes": 0,
+   "named_by": [
+    "usb_endpoint_out_receive"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8011b36",
+   "size": 130
+  },
+  "ibqReleaseEmptyBufferS": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013dce",
+   "fixed_bytes": 36,
+   "ref_addr": "0x8011b12",
+   "size": 36
+  },
+  "ibqResetI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013d52",
+   "fixed_bytes": 18,
+   "ref_addr": "0x8011a96",
+   "size": 22
+  },
+  "indicator_battery_low_backlit_enable": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800b420",
+   "fixed_bytes": 0,
+   "named_by": [
+    "battery_check_empty",
+    "process_record_wireless",
+    "wireless_low_battery_shutdown"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800975c",
+   "size": 128
+  },
+  "indicator_battery_low_enable": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800b3ec",
+   "fixed_bytes": 32,
+   "ref_addr": "0x8009728",
+   "size": 52
+  },
+  "indicator_disable": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800b366",
+   "fixed_bytes": 0,
+   "named_by": [
+    "bat_level_animiation_update"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800969e",
+   "size": 4
+  },
+  "indicator_eeconfig_reload": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800b378",
+   "fixed_bytes": 24,
+   "ref_addr": "0x80096b0",
+   "size": 36
+  },
+  "indicator_enable": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800b354",
+   "fixed_bytes": 10,
+   "ref_addr": "0x800968c",
+   "size": 18
+  },
+  "indicator_is_enabled": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800b36a",
+   "fixed_bytes": 10,
+   "ref_addr": "0x80096a2",
+   "size": 14
+  },
+  "indicator_is_running": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800b39c",
+   "fixed_bytes": 0,
+   "named_by": [
+    "wireless_connect"
+   ],
+   "propagated": true,
+   "ref_addr": "0x80096d4",
+   "size": 44
+  },
+  "indicator_set": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800b6ac",
+   "fixed_bytes": 0,
+   "named_by": [
+    "wireless_connect"
+   ],
+   "propagated": true,
+   "ref_addr": "0x80099fc",
+   "size": 340
+  },
+  "indicator_stop": {
+   "calls_checked": 2,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800b3c4",
+   "fixed_bytes": 20,
+   "ref_addr": "0x8009700",
+   "size": 40
+  },
+  "irqInit": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014a6e",
+   "fixed_bytes": 38,
+   "ref_addr": "0x80127aa",
+   "size": 70
+  },
+  "is_oneshot_layer_active": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800e2fc",
+   "fixed_bytes": 16,
+   "ref_addr": "0x800c080",
+   "size": 20
+  },
+  "itoa": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x80085bc",
+   "fixed_bytes": 0,
+   "named_by": [
+    "factory_test_rx",
+    "via_command_kb"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8014470",
+   "size": 4
+  },
+  "keychron_task_kb": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800cd88",
+   "fixed_bytes": 36,
+   "ref_addr": "0x800b098",
+   "size": 48
+  },
+  "keychron_wireless_common_task": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800c5c4",
+   "fixed_bytes": 28,
+   "ref_addr": "0x800a8e8",
+   "size": 40
+  },
+  "keycode_config": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800eab4",
+   "fixed_bytes": 256,
+   "ref_addr": "0x800c7e8",
+   "size": 264
+  },
+  "keymap_key_to_keycode": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800ea64",
+   "fixed_bytes": 50,
+   "ref_addr": "0x800c798",
+   "size": 58
+  },
+  "layer_invert": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800dc90",
+   "fixed_bytes": 16,
+   "ref_addr": "0x800ba7c",
+   "size": 24
+  },
+  "layer_off": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800dc7c",
+   "fixed_bytes": 12,
+   "ref_addr": "0x800ba68",
+   "size": 20
+  },
+  "layer_on": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800dc64",
+   "fixed_bytes": 16,
+   "ref_addr": "0x800ba50",
+   "size": 24
+  },
+  "led_set": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800d4ba",
+   "fixed_bytes": 0,
+   "named_by": [
+    "led_task"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800b310",
+   "size": 16
+  },
+  "led_task": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800d4e0",
+   "fixed_bytes": 24,
+   "ref_addr": "0x800b338",
+   "size": 44
+  },
+  "led_update_kb": {
+   "calls_checked": 7,
+   "calls_ok": 7,
+   "candidates": 1,
+   "dump_addr": "0x800b91c",
+   "fixed_bytes": 40,
+   "ref_addr": "0x8009c6c",
+   "size": 84
+  },
+  "led_update_ports": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800d4b6",
+   "fixed_bytes": 0,
+   "named_by": [
+    "led_update_kb"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800b30c",
+   "size": 2
+  },
+  "led_update_user": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800d4b2",
+   "fixed_bytes": 0,
+   "named_by": [
+    "led_update_kb"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800b308",
+   "size": 4
+  },
+  "lkbt51_dfu_rx": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800b290",
+   "fixed_bytes": 0,
+   "named_by": [
+    "via_command_kb"
+   ],
+   "propagated": true,
+   "ref_addr": "0x80095c4",
+   "size": 156
+  },
+  "lkbt51_dfu_tx": {
+   "calls_checked": 2,
+   "calls_ok": 2,
+   "candidates": 1,
+   "dump_addr": "0x800af8c",
+   "fixed_bytes": 100,
+   "ref_addr": "0x80092bc",
+   "size": 124
+  },
+  "lpm_init": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800bc8c",
+   "fixed_bytes": 12,
+   "ref_addr": "0x8009fcc",
+   "size": 24
+  },
+  "lpm_timer_reset": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800bc70",
+   "fixed_bytes": 16,
+   "ref_addr": "0x8009fb0",
+   "size": 28
+  },
+  "lpm_timer_stop": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800bca4",
+   "fixed_bytes": 12,
+   "ref_addr": "0x8009fe4",
+   "size": 20
+  },
+  "magic": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800eccc",
+   "fixed_bytes": 20,
+   "ref_addr": "0x800ca00",
+   "size": 64
+  },
+  "matrix_get_row": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800ed20",
+   "fixed_bytes": 0,
+   "named_by": [
+    "bootmagic_lite",
+    "suspend_wakeup_condition"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800ca54",
+   "size": 12
+  },
+  "matrix_init_pins": {
+   "calls_checked": 2,
+   "calls_ok": 2,
+   "candidates": 1,
+   "dump_addr": "0x800ed7c",
+   "fixed_bytes": 44,
+   "ref_addr": "0x800cab0",
+   "size": 60
+  },
+  "matrix_output_select_delay": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800ed36",
+   "fixed_bytes": 26,
+   "ref_addr": "0x800ca6a",
+   "size": 26
+  },
+  "matrix_power_down": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8012456",
+   "fixed_bytes": 0,
+   "named_by": [
+    "suspend_wakeup_condition"
+   ],
+   "propagated": true,
+   "ref_addr": "0x80101e6",
+   "size": 2
+  },
+  "matrix_power_up": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8012454",
+   "fixed_bytes": 0,
+   "named_by": [
+    "suspend_wakeup_condition"
+   ],
+   "propagated": true,
+   "ref_addr": "0x80101e4",
+   "size": 2
+  },
+  "matrix_scan": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800ee8c",
+   "fixed_bytes": 0,
+   "named_by": [
+    "bootmagic_lite",
+    "suspend_wakeup_condition"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800cbb8",
+   "size": 104
+  },
+  "memcmp": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x80089d4",
+   "fixed_bytes": 0,
+   "named_by": [
+    "eeprom_update_block",
+    "send_6kro_report",
+    "send_nkro_report"
+   ],
+   "propagated": true,
+   "ref_addr": "0x80146d0",
+   "size": 32
+  },
+  "memcpy": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800883c",
+   "fixed_bytes": 0,
+   "named_by": [
+    "bat_level_animiation_indicate",
+    "factory_test_rx",
+    "lkbt51_dfu_tx",
+    "report_buffer_dequeue",
+    "report_buffer_enqueue",
+    "send_6kro_report",
+    "send_nkro_report",
+    "via_command_kb",
+    "wireless_event_enqueue"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8014788",
+   "size": 28
+  },
+  "memset": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8008798",
+   "fixed_bytes": 0,
+   "named_by": [
+    "lkbt51_dfu_tx",
+    "mousekey_clear",
+    "report_buffer_init",
+    "rgb_matrix_init",
+    "usbInitEndpointI",
+    "usb_event_queue_init",
+    "usb_reset_report",
+    "usb_shared_reset_report",
+    "wireless_event_queue_init",
+    "wireless_low_battery_shutdown"
+   ],
+   "propagated": true,
+   "ref_addr": "0x80146f0",
+   "size": 16
+  },
+  "mousekey_clear": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8011da0",
+   "fixed_bytes": 24,
+   "ref_addr": "0x800fba4",
+   "size": 44
+  },
+  "mousekey_off": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8011c48",
+   "fixed_bytes": 0,
+   "named_by": [
+    "register_mouse",
+    "unregister_code"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800fa50",
+   "size": 280
+  },
+  "mousekey_on": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8011b84",
+   "fixed_bytes": 0,
+   "named_by": [
+    "register_mouse"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800f98c",
+   "size": 196
+  },
+  "notify_usb_device_state_change_kb": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8012406",
+   "fixed_bytes": 0,
+   "named_by": [
+    "usb_device_state_set_configuration",
+    "usb_device_state_set_reset",
+    "usb_device_state_set_suspend"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8010196",
+   "size": 8
+  },
+  "nvicDisableVector": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014896",
+   "fixed_bytes": 44,
+   "ref_addr": "0x80125d4",
+   "size": 44
+  },
+  "nvicEnableVector": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x801486a",
+   "fixed_bytes": 0,
+   "named_by": [
+    "irqInit",
+    "usb_lld_start"
+   ],
+   "propagated": true,
+   "ref_addr": "0x80125aa",
+   "size": 42
+  },
+  "obqFlush": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x8013fd2",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8011d16",
+   "size": 32
+  },
+  "obqGetEmptyBufferTimeoutS": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013ef4",
+   "fixed_bytes": 42,
+   "ref_addr": "0x8011c38",
+   "size": 50
+  },
+  "obqGetFullBufferI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013eba",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8011bfe",
+   "size": 28
+  },
+  "obqObjectInit": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013e74",
+   "fixed_bytes": 46,
+   "ref_addr": "0x8011bb8",
+   "size": 46
+  },
+  "obqPostFullBufferS": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013f26",
+   "fixed_bytes": 38,
+   "ref_addr": "0x8011c6a",
+   "size": 38
+  },
+  "obqReleaseEmptyBufferI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013ed6",
+   "fixed_bytes": 26,
+   "ref_addr": "0x8011c1a",
+   "size": 30
+  },
+  "obqResetI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013ea2",
+   "fixed_bytes": 20,
+   "ref_addr": "0x8011be6",
+   "size": 24
+  },
+  "oneshot_layer_changed_kb": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800e4fc",
+   "fixed_bytes": 0,
+   "named_by": [
+    "reset_oneshot_layer"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800c23e",
+   "size": 8
+  },
+  "oneshot_set": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800e57c",
+   "fixed_bytes": 32,
+   "ref_addr": "0x800c2c0",
+   "size": 44
+  },
+  "os_state_indicate": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800b494",
+   "fixed_bytes": 32,
+   "ref_addr": "0x80097dc",
+   "size": 48
+  },
+  "otg_disable_ep": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x80154cc",
+   "fixed_bytes": 0,
+   "named_by": [
+    "usb_lld_start"
+   ],
+   "propagated": true,
+   "ref_addr": "0x801320c",
+   "size": 86
+  },
+  "otg_txfifo_flush.isra.0": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8015522",
+   "fixed_bytes": 16,
+   "ref_addr": "0x8013262",
+   "size": 20
+  },
+  "p24g_transport_enable": {
+   "calls_checked": 2,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800b9f8",
+   "fixed_bytes": 64,
+   "ref_addr": "0x8009d48",
+   "size": 104
+  },
+  "palSetLineCallbackI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80140dc",
+   "fixed_bytes": 20,
+   "ref_addr": "0x8011e24",
+   "size": 24
+  },
+  "port_init": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013c34",
+   "fixed_bytes": 60,
+   "ref_addr": "0x8011978",
+   "size": 72
+  },
+  "post_process_record_kb": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800d2de",
+   "fixed_bytes": 0,
+   "named_by": [
+    "post_process_record_quantum"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800b14a",
+   "size": 8
+  },
+  "post_process_record_quantum": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800d35e",
+   "fixed_bytes": 10,
+   "ref_addr": "0x800b1c4",
+   "size": 18
+  },
+  "pre_process_record_kb": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800d2d0",
+   "fixed_bytes": 0,
+   "named_by": [
+    "pre_process_record_quantum"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800b13c",
+   "size": 8
+  },
+  "pre_process_record_quantum": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800d34c",
+   "fixed_bytes": 10,
+   "ref_addr": "0x800b1b2",
+   "size": 18
+  },
+  "process_record_factory_test": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800c928",
+   "fixed_bytes": 220,
+   "ref_addr": "0x800ac40",
+   "size": 240
+  },
+  "process_record_kb": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800c6e8",
+   "fixed_bytes": 18,
+   "ref_addr": "0x800aa06",
+   "size": 26
+  },
+  "process_record_tap_hint": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800d54c",
+   "fixed_bytes": 10,
+   "ref_addr": "0x800b3a0",
+   "size": 14
+  },
+  "process_record_user": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800d104",
+   "fixed_bytes": 0,
+   "named_by": [
+    "process_record_kb"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800b0e4",
+   "size": 4
+  },
+  "process_record_wireless": {
+   "calls_checked": 3,
+   "calls_ok": 2,
+   "candidates": 1,
+   "dump_addr": "0x800a788",
+   "fixed_bytes": 40,
+   "ref_addr": "0x8008ab4",
+   "size": 68
+  },
+  "process_rgb": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8011530",
+   "fixed_bytes": 136,
+   "ref_addr": "0x800f2c8",
+   "size": 192
+  },
+  "raw_hid_receive": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800c908",
+   "fixed_bytes": 10,
+   "ref_addr": "0x800ac20",
+   "size": 14
+  },
+  "raw_hid_send": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8012c0c",
+   "fixed_bytes": 12,
+   "ref_addr": "0x8010984",
+   "size": 16
+  },
+  "read_source_layers_cache_impl": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800dd0c",
+   "fixed_bytes": 38,
+   "ref_addr": "0x800baf6",
+   "size": 38
+  },
+  "register_mouse": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800d55a",
+   "fixed_bytes": 10,
+   "ref_addr": "0x800b3ae",
+   "size": 22
+  },
+  "report_buffer_dequeue": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800a840",
+   "fixed_bytes": 36,
+   "ref_addr": "0x8008b6c",
+   "size": 52
+  },
+  "report_buffer_enqueue": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800a808",
+   "fixed_bytes": 36,
+   "ref_addr": "0x8008b34",
+   "size": 56
+  },
+  "report_buffer_init": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800a7cc",
+   "fixed_bytes": 32,
+   "ref_addr": "0x8008af8",
+   "size": 60
+  },
+  "report_buffer_is_empty": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800a874",
+   "fixed_bytes": 16,
+   "ref_addr": "0x8008ba0",
+   "size": 24
+  },
+  "report_buffer_next_inverval": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800a89c",
+   "fixed_bytes": 16,
+   "ref_addr": "0x8008bc8",
+   "size": 32
+  },
+  "report_buffer_task": {
+   "calls_checked": 3,
+   "calls_ok": 3,
+   "candidates": 1,
+   "dump_addr": "0x800a8d4",
+   "fixed_bytes": 128,
+   "ref_addr": "0x8008c00",
+   "size": 184
+  },
+  "reset_oneshot_layer": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800e534",
+   "fixed_bytes": 12,
+   "ref_addr": "0x800c278",
+   "size": 20
+  },
+  "rgb_matrix_decrease_speed_helper": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8010f7c",
+   "fixed_bytes": 12,
+   "ref_addr": "0x800ed40",
+   "size": 20
+  },
+  "rgb_matrix_decrease_val_helper": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8010f1c",
+   "fixed_bytes": 44,
+   "ref_addr": "0x800ece0",
+   "size": 56
+  },
+  "rgb_matrix_disable_noeeprom": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8010cd4",
+   "fixed_bytes": 24,
+   "ref_addr": "0x800ea9c",
+   "size": 32
+  },
+  "rgb_matrix_driver_allow_shutdown": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800b81c",
+   "fixed_bytes": 12,
+   "ref_addr": "0x8009b6c",
+   "size": 16
+  },
+  "rgb_matrix_driver_exit_shutdown": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8010fe4",
+   "fixed_bytes": 16,
+   "ref_addr": "0x800eda8",
+   "size": 24
+  },
+  "rgb_matrix_driver_shutdown": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8010fcc",
+   "fixed_bytes": 16,
+   "ref_addr": "0x800ed90",
+   "size": 24
+  },
+  "rgb_matrix_enable_noeeprom": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8010ebc",
+   "fixed_bytes": 36,
+   "ref_addr": "0x800ec80",
+   "size": 52
+  },
+  "rgb_matrix_increase_hue_helper": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8010db8",
+   "fixed_bytes": 12,
+   "ref_addr": "0x800eb84",
+   "size": 20
+  },
+  "rgb_matrix_increase_speed_helper": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8010f5c",
+   "fixed_bytes": 16,
+   "ref_addr": "0x800ed20",
+   "size": 24
+  },
+  "rgb_matrix_increase_val_helper": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8010e4c",
+   "fixed_bytes": 0,
+   "named_by": [
+    "rgb_matrix_enable_noeeprom",
+    "rgb_matrix_toggle_eeprom_helper"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800ec14",
+   "size": 44
+  },
+  "rgb_matrix_init": {
+   "calls_checked": 2,
+   "calls_ok": 2,
+   "candidates": 1,
+   "dump_addr": "0x8010c70",
+   "fixed_bytes": 52,
+   "ref_addr": "0x800ea38",
+   "size": 100
+  },
+  "rgb_matrix_is_enabled": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8010cf4",
+   "fixed_bytes": 12,
+   "ref_addr": "0x800eabc",
+   "size": 16
+  },
+  "rgb_matrix_map_row_column_to_led": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800fe44",
+   "fixed_bytes": 32,
+   "ref_addr": "0x800db6c",
+   "size": 40
+  },
+  "rgb_matrix_map_row_column_to_led_kb": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800fe40",
+   "fixed_bytes": 0,
+   "named_by": [
+    "rgb_matrix_map_row_column_to_led"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800db68",
+   "size": 4
+  },
+  "rgb_matrix_mode": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8010d40",
+   "fixed_bytes": 0,
+   "named_by": [
+    "process_rgb"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800eb0c",
+   "size": 6
+  },
+  "rgb_matrix_none_indicators_kb": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800b800",
+   "fixed_bytes": 16,
+   "ref_addr": "0x8009b50",
+   "size": 28
+  },
+  "rgb_matrix_set_color": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800fe78",
+   "fixed_bytes": 0,
+   "named_by": [
+    "bat_level_animiation_indicate"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800dba0",
+   "size": 16
+  },
+  "rgb_matrix_set_color_all": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800fee4",
+   "fixed_bytes": 0,
+   "named_by": [
+    "led_update_kb"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800dc08",
+   "size": 12
+  },
+  "rgb_matrix_sethsv_eeprom_helper": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8010d94",
+   "fixed_bytes": 0,
+   "named_by": [
+    "rgb_matrix_decrease_val_helper"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800eb64",
+   "size": 32
+  },
+  "rgb_matrix_step_reverse_helper": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8010d6c",
+   "fixed_bytes": 24,
+   "ref_addr": "0x800eb3c",
+   "size": 32
+  },
+  "rgb_matrix_timeouted": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8010fb0",
+   "fixed_bytes": 20,
+   "ref_addr": "0x800ed74",
+   "size": 28
+  },
+  "rgb_matrix_toggle": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8010eb4",
+   "fixed_bytes": 0,
+   "named_by": [
+    "process_rgb"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800ec78",
+   "size": 6
+  },
+  "rgb_matrix_toggle_eeprom_helper": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8010e7c",
+   "fixed_bytes": 40,
+   "ref_addr": "0x800ec40",
+   "size": 56
+  },
+  "rtc_enter_init": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8015e74",
+   "fixed_bytes": 20,
+   "ref_addr": "0x8013bac",
+   "size": 24
+  },
+  "rtc_lld_get_time": {
+   "calls_checked": 2,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x8016130",
+   "fixed_bytes": 232,
+   "ref_addr": "0x8013e6c",
+   "size": 252
+  },
+  "send_6kro_report": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800e46c",
+   "fixed_bytes": 32,
+   "ref_addr": "0x800c1ac",
+   "size": 56
+  },
+  "send_keyboard_report": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800e4dc",
+   "fixed_bytes": 16,
+   "ref_addr": "0x800c21c",
+   "size": 32
+  },
+  "send_nkro_report": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800e4a4",
+   "fixed_bytes": 32,
+   "ref_addr": "0x800c1e4",
+   "size": 56
+  },
+  "send_report": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8012bc4",
+   "fixed_bytes": 24,
+   "ref_addr": "0x801093c",
+   "size": 32
+  },
+  "setPinInputHigh_atomic": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800ed58",
+   "fixed_bytes": 30,
+   "ref_addr": "0x800ca8c",
+   "size": 34
+  },
+  "set_led_transfer_cb": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8012958",
+   "fixed_bytes": 44,
+   "ref_addr": "0x80106ec",
+   "size": 52
+  },
+  "shutdown_kb": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800d374",
+   "fixed_bytes": 0,
+   "named_by": [
+    "shutdown_quantum"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800b1da",
+   "size": 8
+  },
+  "shutdown_quantum": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800d37c",
+   "fixed_bytes": 14,
+   "ref_addr": "0x800b1e2",
+   "size": 26
+  },
+  "snled27351_set_color": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8011338",
+   "fixed_bytes": 52,
+   "ref_addr": "0x800f0f0",
+   "size": 64
+  },
+  "snled27351_set_color_all": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x8011378",
+   "fixed_bytes": 26,
+   "ref_addr": "0x800f130",
+   "size": 30
+  },
+  "spiExchange": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x80141bc",
+   "fixed_bytes": 26,
+   "ref_addr": "0x8011efe",
+   "size": 34
+  },
+  "spiObjectInit": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014110",
+   "fixed_bytes": 12,
+   "ref_addr": "0x8011e58",
+   "size": 16
+  },
+  "spiSend": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x80141de",
+   "fixed_bytes": 26,
+   "ref_addr": "0x8011f20",
+   "size": 34
+  },
+  "spiStart": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x8014120",
+   "fixed_bytes": 30,
+   "ref_addr": "0x8011e68",
+   "size": 34
+  },
+  "spiStartExchangeI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8014196",
+   "fixed_bytes": 0,
+   "named_by": [
+    "spiExchange"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8011eda",
+   "size": 12
+  },
+  "spiStartSendI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x80141a4",
+   "fixed_bytes": 0,
+   "named_by": [
+    "spiSend"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8011ee6",
+   "size": 8
+  },
+  "spiSynchronizeS": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80141ac",
+   "fixed_bytes": 10,
+   "ref_addr": "0x8011eee",
+   "size": 16
+  },
+  "spi_lld_configure": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801622c",
+   "fixed_bytes": 46,
+   "ref_addr": "0x8013f68",
+   "size": 46
+  },
+  "spi_lld_exchange": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801650c",
+   "fixed_bytes": 50,
+   "ref_addr": "0x8014244",
+   "size": 54
+  },
+  "spi_lld_send": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8016542",
+   "fixed_bytes": 54,
+   "ref_addr": "0x801427a",
+   "size": 54
+  },
+  "spi_lld_start": {
+   "calls_checked": 2,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x80163f4",
+   "fixed_bytes": 172,
+   "ref_addr": "0x801412c",
+   "size": 204
+  },
+  "spi_transmit": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x80127c4",
+   "fixed_bytes": 10,
+   "ref_addr": "0x8010554",
+   "size": 20
+  },
+  "stGetCounter": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8013cfa",
+   "fixed_bytes": 0,
+   "named_by": [
+    "timer_clear",
+    "vt_enqueue.constprop.0",
+    "vt_set_alarm"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8011a3e",
+   "size": 8
+  },
+  "stSetAlarm": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8013d1c",
+   "fixed_bytes": 0,
+   "named_by": [
+    "vt_set_alarm"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8011a60",
+   "size": 8
+  },
+  "stStartAlarm": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013d02",
+   "fixed_bytes": 16,
+   "ref_addr": "0x8011a46",
+   "size": 16
+  },
+  "stStopAlarm": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013d12",
+   "fixed_bytes": 10,
+   "ref_addr": "0x8011a56",
+   "size": 10
+  },
+  "st_lld_init": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8016578",
+   "fixed_bytes": 64,
+   "ref_addr": "0x80142b0",
+   "size": 72
+  },
+  "st_lld_serve_interrupt": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80165c0",
+   "fixed_bytes": 36,
+   "ref_addr": "0x80142f8",
+   "size": 40
+  },
+  "stm32_clock_init": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014b5c",
+   "fixed_bytes": 212,
+   "ref_addr": "0x8012898",
+   "size": 248
+  },
+  "stm32_flash_check_errors": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8014c54",
+   "fixed_bytes": 0,
+   "named_by": [
+    "efl_lld_query_erase"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8012990",
+   "size": 38
+  },
+  "suspend_power_down": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801249e",
+   "fixed_bytes": 10,
+   "ref_addr": "0x801022e",
+   "size": 18
+  },
+  "suspend_power_down_quantum": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800d45c",
+   "fixed_bytes": 0,
+   "named_by": [
+    "suspend_power_down"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800b2b8",
+   "size": 24
+  },
+  "suspend_wakeup_condition": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801246c",
+   "fixed_bytes": 20,
+   "ref_addr": "0x80101fc",
+   "size": 36
+  },
+  "timer_clear": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80124d8",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8010268",
+   "size": 44
+  },
+  "timer_elapsed": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801257e",
+   "fixed_bytes": 10,
+   "ref_addr": "0x801030e",
+   "size": 14
+  },
+  "timer_elapsed32": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x801258c",
+   "fixed_bytes": 0,
+   "named_by": [
+    "bat_level_animiation_task",
+    "bt_transport_enable",
+    "keychron_task_kb",
+    "keychron_wireless_common_task",
+    "p24g_transport_enable",
+    "report_buffer_next_inverval",
+    "report_buffer_task"
+   ],
+   "propagated": true,
+   "ref_addr": "0x801031c",
+   "size": 12
+  },
+  "timer_read32": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8012508",
+   "fixed_bytes": 0,
+   "named_by": [
+    "bat_level_animiation_update",
+    "bt_transport_enable",
+    "indicator_battery_low_enable",
+    "led_task",
+    "lpm_timer_reset",
+    "p24g_transport_enable",
+    "report_buffer_init",
+    "report_buffer_task",
+    "timer_elapsed",
+    "wireless_connect"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8010298",
+   "size": 108
+  },
+  "unregister_code": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800d600",
+   "fixed_bytes": 78,
+   "ref_addr": "0x800b454",
+   "size": 114
+  },
+  "usbDisableEndpointsI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80142c6",
+   "fixed_bytes": 62,
+   "ref_addr": "0x8012006",
+   "size": 74
+  },
+  "usbInitEndpointI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014294",
+   "fixed_bytes": 38,
+   "ref_addr": "0x8011fd4",
+   "size": 50
+  },
+  "usbObjectInit": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8014204",
+   "fixed_bytes": 24,
+   "ref_addr": "0x8011f46",
+   "size": 24
+  },
+  "usbStartTransmitI": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8014334",
+   "fixed_bytes": 0,
+   "named_by": [
+    "_usb_ep0out",
+    "usb_endpoint_in_tx_complete_cb"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8012074",
+   "size": 36
+  },
+  "usbWakeupHost": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x8014358",
+   "fixed_bytes": 58,
+   "ref_addr": "0x8012098",
+   "size": 62
+  },
+  "usb_device_state_set_configuration": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8012410",
+   "fixed_bytes": 12,
+   "ref_addr": "0x80101a0",
+   "size": 20
+  },
+  "usb_device_state_set_reset": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801243c",
+   "fixed_bytes": 12,
+   "ref_addr": "0x80101cc",
+   "size": 20
+  },
+  "usb_device_state_set_suspend": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8012424",
+   "fixed_bytes": 12,
+   "ref_addr": "0x80101b4",
+   "size": 20
+  },
+  "usb_endpoint_in_is_inactive": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013040",
+   "fixed_bytes": 52,
+   "ref_addr": "0x8010db0",
+   "size": 56
+  },
+  "usb_endpoint_in_send": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x8012fa2",
+   "fixed_bytes": 0,
+   "named_by": [
+    "send_report"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8010d16",
+   "size": 154
+  },
+  "usb_endpoint_in_start": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8012e08",
+   "fixed_bytes": 32,
+   "ref_addr": "0x8010b7c",
+   "size": 32
+  },
+  "usb_endpoint_in_tx_complete_cb": {
+   "calls_checked": 3,
+   "calls_ok": 2,
+   "candidates": 1,
+   "dump_addr": "0x8012eca",
+   "fixed_bytes": 134,
+   "ref_addr": "0x8010c3e",
+   "size": 150
+  },
+  "usb_endpoint_out_receive": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013078",
+   "fixed_bytes": 72,
+   "ref_addr": "0x8010de8",
+   "size": 76
+  },
+  "usb_endpoint_out_start": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8012e28",
+   "fixed_bytes": 30,
+   "ref_addr": "0x8010b9c",
+   "size": 30
+  },
+  "usb_endpoint_out_suspend_cb": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x8012e6e",
+   "fixed_bytes": 18,
+   "ref_addr": "0x8010be2",
+   "size": 26
+  },
+  "usb_event_queue_enqueue.isra.0": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801298c",
+   "fixed_bytes": 28,
+   "ref_addr": "0x8010720",
+   "size": 40
+  },
+  "usb_event_queue_init": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8012a74",
+   "fixed_bytes": 20,
+   "ref_addr": "0x8010808",
+   "size": 36
+  },
+  "usb_get_idle_cb": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80133f8",
+   "fixed_bytes": 68,
+   "ref_addr": "0x8011160",
+   "size": 80
+  },
+  "usb_get_idle_rate": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013210",
+   "fixed_bytes": 12,
+   "ref_addr": "0x8010f7c",
+   "size": 12
+  },
+  "usb_get_report": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80130ea",
+   "fixed_bytes": 18,
+   "ref_addr": "0x8010e5a",
+   "size": 22
+  },
+  "usb_get_report_cb": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801319c",
+   "fixed_bytes": 72,
+   "ref_addr": "0x8010f08",
+   "size": 88
+  },
+  "usb_lld_clear_in": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8015e60",
+   "fixed_bytes": 20,
+   "ref_addr": "0x8013b98",
+   "size": 20
+  },
+  "usb_lld_clear_out": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8015e4c",
+   "fixed_bytes": 20,
+   "ref_addr": "0x8013b84",
+   "size": 20
+  },
+  "usb_lld_get_status_in": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8015868",
+   "fixed_bytes": 26,
+   "ref_addr": "0x801359c",
+   "size": 26
+  },
+  "usb_lld_get_status_out": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801584e",
+   "fixed_bytes": 26,
+   "ref_addr": "0x8013582",
+   "size": 26
+  },
+  "usb_lld_reset": {
+   "calls_checked": 2,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x8015668",
+   "fixed_bytes": 160,
+   "ref_addr": "0x80133a8",
+   "size": 176
+  },
+  "usb_lld_set_address": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8015718",
+   "fixed_bytes": 24,
+   "ref_addr": "0x8013458",
+   "size": 24
+  },
+  "usb_lld_stall_in": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8015e38",
+   "fixed_bytes": 20,
+   "ref_addr": "0x8013b70",
+   "size": 20
+  },
+  "usb_lld_stall_out": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8015e24",
+   "fixed_bytes": 20,
+   "ref_addr": "0x8013b5c",
+   "size": 20
+  },
+  "usb_lld_start": {
+   "calls_checked": 2,
+   "calls_ok": 2,
+   "candidates": 1,
+   "dump_addr": "0x8015558",
+   "fixed_bytes": 164,
+   "ref_addr": "0x8013298",
+   "size": 204
+  },
+  "usb_power_connected": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800bcb8",
+   "fixed_bytes": 12,
+   "ref_addr": "0x8009ff8",
+   "size": 16
+  },
+  "usb_reset_report": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013100",
+   "fixed_bytes": 24,
+   "ref_addr": "0x8010e70",
+   "size": 28
+  },
+  "usb_set_idle_cb": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013448",
+   "fixed_bytes": 68,
+   "ref_addr": "0x80111b0",
+   "size": 76
+  },
+  "usb_set_idle_rate": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x80131f4",
+   "fixed_bytes": 24,
+   "ref_addr": "0x8010f60",
+   "size": 28
+  },
+  "usb_shared_get_idle_rate": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013290",
+   "fixed_bytes": 18,
+   "ref_addr": "0x8010ffc",
+   "size": 22
+  },
+  "usb_shared_get_report": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013158",
+   "fixed_bytes": 24,
+   "ref_addr": "0x8010ec6",
+   "size": 28
+  },
+  "usb_shared_reset_report": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013174",
+   "fixed_bytes": 34,
+   "ref_addr": "0x8010ee2",
+   "size": 38
+  },
+  "usb_shared_set_idle_rate": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x801326c",
+   "fixed_bytes": 32,
+   "ref_addr": "0x8010fd8",
+   "size": 36
+  },
+  "via_command_kb": {
+   "calls_checked": 2,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800c874",
+   "fixed_bytes": 104,
+   "ref_addr": "0x800ab8c",
+   "size": 148
+  },
+  "vt_enqueue.constprop.0": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x80136a4",
+   "fixed_bytes": 56,
+   "ref_addr": "0x8011400",
+   "size": 80
+  },
+  "vt_set_alarm": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x8013616",
+   "fixed_bytes": 42,
+   "ref_addr": "0x8011372",
+   "size": 54
+  },
+  "waiting_buffer_typed.isra.0": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800deb8",
+   "fixed_bytes": 56,
+   "ref_addr": "0x800bd1c",
+   "size": 68
+  },
+  "wear_leveling_append_raw": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800f36c",
+   "fixed_bytes": 28,
+   "ref_addr": "0x800d09c",
+   "size": 40
+  },
+  "wear_leveling_clear_cache": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800f1e0",
+   "fixed_bytes": 0,
+   "named_by": [
+    "wear_leveling_erase"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800cf10",
+   "size": 32
+  },
+  "wear_leveling_consolidate_if_needed": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800f354",
+   "fixed_bytes": 16,
+   "ref_addr": "0x800d084",
+   "size": 24
+  },
+  "wear_leveling_erase": {
+   "calls_checked": 3,
+   "calls_ok": 2,
+   "candidates": 1,
+   "dump_addr": "0x800f244",
+   "fixed_bytes": 30,
+   "ref_addr": "0x800cf74",
+   "size": 50
+  },
+  "wear_leveling_lock": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800f220",
+   "fixed_bytes": 28,
+   "ref_addr": "0x800cf50",
+   "size": 36
+  },
+  "wear_leveling_unlock": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800f200",
+   "fixed_bytes": 0,
+   "named_by": [
+    "wear_leveling_erase"
+   ],
+   "propagated": true,
+   "ref_addr": "0x800cf30",
+   "size": 32
+  },
+  "wireless_connect": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800a298",
+   "fixed_bytes": 40,
+   "ref_addr": "0x80085c8",
+   "size": 68
+  },
+  "wireless_disconnect": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800a41c",
+   "fixed_bytes": 12,
+   "ref_addr": "0x8008748",
+   "size": 16
+  },
+  "wireless_event_enqueue": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800a1fc",
+   "fixed_bytes": 52,
+   "ref_addr": "0x800852c",
+   "size": 68
+  },
+  "wireless_event_queue_init": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800a1d8",
+   "fixed_bytes": 20,
+   "ref_addr": "0x8008508",
+   "size": 36
+  },
+  "wireless_get_state": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 0,
+   "dump_addr": "0x800a77c",
+   "fixed_bytes": 0,
+   "named_by": [
+    "bt_transport_enable",
+    "p24g_transport_enable",
+    "report_buffer_task"
+   ],
+   "propagated": true,
+   "ref_addr": "0x8008aa8",
+   "size": 12
+  },
+  "wireless_low_battery_shutdown": {
+   "calls_checked": 7,
+   "calls_ok": 7,
+   "candidates": 1,
+   "dump_addr": "0x800a4e8",
+   "fixed_bytes": 82,
+   "ref_addr": "0x8008814",
+   "size": 136
+  },
+  "wireless_pairing_ex": {
+   "calls_checked": 1,
+   "calls_ok": 1,
+   "candidates": 1,
+   "dump_addr": "0x800a268",
+   "fixed_bytes": 32,
+   "ref_addr": "0x8008598",
+   "size": 48
+  },
+  "wireless_send_consumer": {
+   "calls_checked": 3,
+   "calls_ok": 3,
+   "candidates": 1,
+   "dump_addr": "0x800a458",
+   "fixed_bytes": 60,
+   "ref_addr": "0x8008784",
+   "size": 88
+  },
+  "wireless_send_system": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800a438",
+   "fixed_bytes": 20,
+   "ref_addr": "0x8008764",
+   "size": 32
+  },
+  "wreless_keyboard_leds": {
+   "calls_checked": 0,
+   "calls_ok": 0,
+   "candidates": 1,
+   "dump_addr": "0x800a1c0",
+   "fixed_bytes": 16,
+   "ref_addr": "0x80084f0",
+   "size": 24
+  }
+ }
+}

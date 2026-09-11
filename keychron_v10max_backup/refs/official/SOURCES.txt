@@ -1,0 +1,8 @@
+Official Keychron V10 Max ANSI encoder firmware images, downloaded 2026-09-11T01:26:25Z with curl (renamed; original names in URL):
+v10_max_ansi_encoder_v1.0.0.bin  https://cdn.shopify.com/s/files/1/0059/0630/1017/files/v10_max_ansi_encoder_v1.0.0_2401101715.bin?v=1705905492
+v10_max_ansi_encoder_v1.1.0.bin  https://cdn.shopify.com/s/files/1/0059/0630/1017/files/v10_max_ansi_encoder_v1.1.0_2502191722.bin?v=1743154529
+v10_max_ansi_encoder_v1.1.1.bin  https://cdn.shopify.com/s/files/1/0059/0630/1017/files/v10_max_ansi_encoder_v1.1.1_2507021639.bin?v=1751881796
+sha256:
+2791d382aedf514963e664bffc72fde9ca900849f33e713566dab0c66326317d  v10_max_ansi_encoder_v1.0.0.bin
+57140b39c65f1e7f2b66d5f03bd306e252f60cec2a85ded9378ba1e8a5dcbcf0  v10_max_ansi_encoder_v1.1.0.bin
+65260dece19e939f1354b0b10e4416f58a117ac8d60c98d91595aefbf620af3a  v10_max_ansi_encoder_v1.1.1.bin
