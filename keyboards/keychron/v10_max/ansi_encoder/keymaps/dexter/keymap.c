@@ -19,12 +19,16 @@ enum layers {
     _RAISE2,     // Keychron Fn content: RGB, BT hosts, QK_BOOT   (orange)
     _MOUSE,      // mouse keys; TD(0) hold                        (teal)
     _LEADR,      // leader key + Ctrl/Shift chords; OSL(_LEADR)   (red)
+    _GAMING,     // gaming mode: stock Windows base (M1 = GM_TOGG); solid blue + blue heatmap
+    _GAME_FN,    // gaming mode Fn: stock Windows Fn (F-keys, media, RGB, Bluetooth)
 };
 
-/* SAFE_RANGE == QK_USER_0 == 0x7E40 in this fork. Only these two custom keycodes exist in the image. */
+/* SAFE_RANGE == QK_USER_0 == 0x7E40 in this fork. DOT_SLS/DIR_UP are recovered from the image;
+ * GM_TOGG is a post-recovery addition (gaming-mode toggle, placed on the M1 key). */
 enum custom_keycodes {
     DOT_SLS = SAFE_RANGE, // 0x7E40: types "./"
     DIR_UP,               // 0x7E41: types "../"
+    GM_TOGG,              // 0x7E42: toggle gaming mode
 };
 
 enum tap_dance_keys {
@@ -62,6 +66,23 @@ static uint8_t caps_active  = 0; // this keyboard toggled caps lock on -> board 
  * bare `bx lr` and layr_dn_finished never stores cur_dance()'s result. Kept for fidelity with the source. */
 static td_tap_t layr_dn_tap_state = {.is_press_action = true, .state = TD_NONE};
 
+/* ---- gaming mode (feature added post-recovery, not in the original dump) --------------------
+ * M1 (GM_TOGG) makes the stock Windows base (_GAMING) + its Fn layer (_GAME_FN) the base layer,
+ * and paints the board a solid dark blue with the live typing heatmap recoloured toward light
+ * blue on "heating up" keys. Colours approximate the V10 Max keycaps (outer dark navy / inner
+ * light blue); each is a one-line tweak. Set gaming_mode's RGB brightness via these RGB triples
+ * directly (rgb_matrix_set_color writes raw PWM, so the brightness knob does not scale them). */
+#define GAME_OUTER_R  10   // solid base: dark navy (outer keycaps)
+#define GAME_OUTER_G  25
+#define GAME_OUTER_B  80
+#define GAME_INNER_R 110   // heat peak: light blue (inner keycaps)
+#define GAME_INNER_G 175
+#define GAME_INNER_B 235
+static bool gaming_mode = false;
+static inline uint8_t game_lerp(uint8_t a, uint8_t b, uint8_t t) {
+    return (uint8_t)(a + ((int32_t)b - a) * t / 255); // a..b blended by heat t (0..255)
+}
+
 /* ---- keymap ---------------------------------------------------------------------------------
  * Byte-identical to the dump's keymaps[] at flash 0x080169B8 (6 x 6 x 18 u16, verified by round-trip).
  */
@@ -69,7 +90,7 @@ static td_tap_t layr_dn_tap_state = {.is_press_action = true, .state = TD_NONE};
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT_ansi_89(
         KC_AUDIO_MUTE,          KC_ESCAPE,       KC_BRIGHTNESS_DOWN, KC_BRIGHTNESS_UP, KC_MCTRL,         KC_LNPAD,              RGB_VAD,                RGB_VAI,           KC_MEDIA_PREV_TRACK, KC_MEDIA_PLAY_PAUSE,   KC_MEDIA_NEXT_TRACK, KC_AUDIO_MUTE,    KC_AUDIO_VOL_DOWN, KC_AUDIO_VOL_UP, KC_INSERT,                                   KC_DELETE,
-        KC_BACKSPACE,           OSL(_LEADR),     KC_1,               KC_2,             KC_3,             KC_4,                  KC_5,                   KC_6,              KC_7,                KC_8,                  KC_9,                KC_0,             LSFT(KC_EQUAL),    KC_EQUAL,        KC_BACKSPACE,                                KC_PAGE_UP,
+        GM_TOGG,                OSL(_LEADR),     KC_1,               KC_2,             KC_3,             KC_4,                  KC_5,                   KC_6,              KC_7,                KC_8,                  KC_9,                KC_0,             LSFT(KC_EQUAL),    KC_EQUAL,        KC_BACKSPACE,                                KC_PAGE_UP,
         MC_2,                   KC_GRAVE,        KC_Q,               KC_W,             KC_E,             KC_R,                  KC_T,                                      KC_Y,                KC_U,                  KC_I,                KC_O,             KC_P,              KC_MINUS,        KC_RIGHT_BRACKET,     KC_BACKSLASH,          KC_PAGE_DOWN,
         MC_3,                   OSM(MOD_LSFT),   KC_A,               KC_S,             KC_D,             KC_F,                  KC_G,                                      KC_H,                KC_J,                  KC_K,                KC_L,             KC_QUOTE,          OSM(MOD_RSFT),   KC_SEMICOLON,                                KC_HOME,
         MC_4,                   KC_TAB,                              KC_Z,             KC_X,             KC_C,                  KC_V,                   KC_B,              KC_BACKSPACE,        KC_N,                  KC_M,                KC_COMMA,         KC_DOT,            KC_SLASH,        KC_RIGHT_SHIFT,                     KC_UP,
@@ -114,6 +135,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,                XXXXXXX,         XXXXXXX,            LSFT(LCTL(KC_S)), LALT(LSFT(KC_D)), LSFT(LCTL(KC_F)),      XXXXXXX,                                   XXXXXXX,             LALT(KC_UP),           LALT(KC_LEFT),       LALT(KC_DOWN),    LALT(KC_RIGHT),    XXXXXXX,         _______,                                     KC_END,
         _______,                XXXXXXX,                             LSFT(LCTL(KC_Z)), XXXXXXX,          LSFT(LCTL(KC_C)),      LSFT(LCTL(KC_V)),       XXXXXXX,           BAT_LVL,             LSFT(LCTL(KC_N)),      XXXXXXX,             XXXXXXX,          DOT_SLS,           XXXXXXX,         XXXXXXX,                            _______,
         _______,                _______,         _______,                              _______,                                 _______,                TO(_QWERTY),                            _______,                                    TO(_LEADR),                                                                 _______,      _______, _______
+    ),
+    [_GAMING] = LAYOUT_ansi_89(
+        KC_MUTE,                KC_ESC,          KC_F1,              KC_F2,            KC_F3,            KC_F4,                 KC_F5,                  KC_F6,             KC_F7,               KC_F8,                 KC_F9,               KC_F10,           KC_F11,            KC_F12,          KC_INS,                                      KC_DEL,
+        GM_TOGG,                KC_GRV,          KC_1,               KC_2,             KC_3,             KC_4,                  KC_5,                   KC_6,              KC_7,                KC_8,                  KC_9,                KC_0,             KC_MINS,           KC_EQL,          KC_BSPC,                                     KC_PGUP,
+        MC_2,                   KC_TAB,          KC_Q,               KC_W,             KC_E,             KC_R,                  KC_T,                                      KC_Y,                KC_U,                  KC_I,                KC_O,             KC_P,              KC_LBRC,         KC_RBRC,              KC_BSLS,               KC_PGDN,
+        MC_3,                   KC_CAPS,         KC_A,               KC_S,             KC_D,             KC_F,                  KC_G,                                      KC_H,                KC_J,                  KC_K,                KC_L,             KC_SCLN,           KC_QUOT,         KC_ENT,                                      KC_HOME,
+        MC_4,                   KC_LSFT,                             KC_Z,             KC_X,             KC_C,                  KC_V,                   KC_B,              KC_BSPC,             KC_N,                  KC_M,                KC_COMM,          KC_DOT,            KC_SLSH,         KC_RSFT,                            KC_UP,
+        MC_5,                   KC_LCTL,         KC_LWIN,                              KC_LALT,                                 KC_SPC,                 MO(_GAME_FN),                           KC_ENT,                                     KC_RALT,                                                                    KC_LEFT,      KC_DOWN, KC_RGHT
+    ),
+    [_GAME_FN] = LAYOUT_ansi_89(
+        RGB_TOG,                _______,         KC_BRID,            KC_BRIU,          KC_TASK,          KC_FILE,               RGB_VAD,                RGB_VAI,           KC_MPRV,             KC_MPLY,               KC_MNXT,             KC_MUTE,          KC_VOLD,           KC_VOLU,         _______,                                     _______,
+        _______,                _______,         BT_HST1,            BT_HST2,          BT_HST3,          P2P4G,                 _______,                _______,           _______,             _______,               _______,             _______,          _______,           _______,         _______,                                     _______,
+        _______,                RGB_TOG,         RGB_MOD,            RGB_VAI,          RGB_HUI,          RGB_SAI,               RGB_SPI,                                   _______,             _______,               _______,             _______,          _______,           _______,         _______,              _______,               _______,
+        _______,                _______,         RGB_RMOD,           RGB_VAD,          RGB_HUD,          RGB_SAD,               RGB_SPD,                                   _______,             _______,               _______,             _______,          _______,           _______,         _______,                                     KC_END,
+        _______,                _______,                             _______,          _______,          _______,               _______,                BAT_LVL,           BAT_LVL,             NK_TOGG,               _______,             _______,          _______,           _______,         _______,                            _______,
+        _______,                _______,         _______,                              _______,                                 _______,                _______,                                _______,                                    _______,                                                                    _______,      _______, _______
     )
 };
 
@@ -126,6 +163,8 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [_RAISE2] = {ENCODER_CCW_CW(KC_NO,   KC_NO)},
     [_MOUSE]  = {ENCODER_CCW_CW(KC_NO,   KC_NO)},
     [_LEADR]  = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+    [_GAMING] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+    [_GAME_FN]= {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
 };
 #endif
 // clang-format on
@@ -309,6 +348,25 @@ void keyboard_post_init_user(void) {
  * order-independent).
  */
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    /* Gaming mode: solid dark-blue base + the live typing-heatmap recoloured toward light blue.
+     * The active effect stays RGB_MATRIX_TYPING_HEATMAP (so the heat buffer keeps being fed and
+     * decayed); we only recolour here. When asleep the effect is NONE and indicators do not run,
+     * so the LEDs still go fully dark on idle/sleep and return on wake. */
+    if (gaming_mode) {
+        for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+            for (uint8_t col = 0; col < MATRIX_COLS; col++) {
+                uint8_t i = g_led_config.matrix_co[row][col];
+                if (i == NO_LED || i < led_min || i >= led_max) continue;
+                uint8_t heat = g_rgb_frame_buffer[row][col]; // 0..255 live heatmap
+                rgb_matrix_set_color(i,
+                    game_lerp(GAME_OUTER_R, GAME_INNER_R, heat),
+                    game_lerp(GAME_OUTER_G, GAME_INNER_G, heat),
+                    game_lerp(GAME_OUTER_B, GAME_INNER_B, heat));
+            }
+        }
+        return false;
+    }
+
     for (uint8_t i = led_min; i < led_max; i++) {
         switch (get_highest_layer(layer_state | default_layer_state)) {
             case _RAISE:
@@ -419,6 +477,18 @@ bool check_unlock_osm(uint16_t keycode) {
 /* ---- process_record_user (dump 0x0800D104, 192 B) ------------------------------------------ */
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!process_record_keychron_common(keycode, record)) {
+        return false;
+    }
+
+    // Gaming-mode toggle (M1). default_layer_set is RAM-only, so a reboot/replug returns to
+    // _QWERTY; STOP-sleep preserves RAM, so the mode survives sleep. layer_clear() drops any
+    // momentary layer so the swap is clean.
+    if (keycode == GM_TOGG) {
+        if (record->event.pressed) {
+            gaming_mode = !gaming_mode;
+            layer_clear();
+            default_layer_set(1UL << (gaming_mode ? _GAMING : _QWERTY));
+        }
         return false;
     }
 

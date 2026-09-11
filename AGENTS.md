@@ -27,6 +27,26 @@ itself; the fork's board files are what the original firmware was built from.
 - Behavioral differences vs the original that are known and accepted are listed in
   `keymaps/dexter/readme.md`.
 
+## Features added after recovery
+
+The `dexter` keymap started as a byte-faithful reconstruction of the dumped firmware. Changes
+made since (documented in `keymaps/dexter/readme.md`):
+- **Gaming mode** — the **M1** key (`GM_TOGG`, matrix `[1,0]`, replacing that key's base-layer
+  Backspace) toggles two new layers `_GAMING` (stock Windows base + Fn-thumb → `MO(_GAME_FN)`,
+  right space → Enter, right B → Backspace) and `_GAME_FN` (stock Windows Fn). It flips a
+  `gaming_mode` flag and `default_layer_set`s the base; RGB becomes a solid dark blue with the
+  live typing heatmap recoloured to light blue via an overlay in
+  `rgb_matrix_indicators_advanced_user` (no effect/EEPROM change; sleep still blanks the LEDs).
+  Tune the blues via `GAME_OUTER_*`/`GAME_INNER_*` in `keymap.c`.
+- Only `_QWERTY[1,0]` changed among the six recovered layers (verified: all other keymap bytes
+  still equal the dump). This is a new feature, so the build is intentionally no longer
+  byte-identical to `dump_a.bin`.
+- No `QK_BOOTLOADER` key was added — the recovered one on `_RAISE2` Esc (right-Cmd, right-Cmd,
+  Esc) already replaces the physical reset button.
+
+Auto-sleep and idle-RGB-off/on in wireless mode were confirmed already-default (only on battery;
+USB power blocks sleep); no config change was needed.
+
 ## Build / flash
 
 Run `qmk` from inside this worktree (the CLI resolves the firmware tree from cwd first; do NOT run
