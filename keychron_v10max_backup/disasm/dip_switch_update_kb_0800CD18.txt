@@ -1,0 +1,17 @@
+; dip_switch_update_kb  dump 0x0800CD18..0x0800CD38 (32 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800cd18:	b538      	push	{r3, r4, r5, lr}
+ 800cd1a:	460d      	mov	r5, r1
+ 800cd1c:	4604      	mov	r4, r0
+ 800cd1e:	b928      	cbnz	r0, 0x800cd2c	; local
+ 800cd20:	2900      	cmp	r1, #0
+ 800cd22:	bf0c      	ite	eq
+ 800cd24:	2004      	moveq	r0, #4
+ 800cd26:	2001      	movne	r0, #1
+ 800cd28:	f000 ff5b 	bl	0x800dbe2	; -> default_layer_set
+ 800cd2c:	4629      	mov	r1, r5
+ 800cd2e:	4620      	mov	r0, r4
+ 800cd30:	f7ff ffde 	bl	0x800ccf0	; -> dip_switch_update_user
+ 800cd34:	2001      	movs	r0, #1
+ 800cd36:	bd38      	pop	{r3, r4, r5, pc}

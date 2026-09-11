@@ -1,0 +1,92 @@
+hook,dump_addr,size,status,ref_elf,evidence
+process_record_user,0x0800D104,192,UNMATCHED-custom-code-candidate,,bl from process_record_kb@0x0800C6E8+0x6
+process_record_kb,0x0800C6E8,26,exact,"ref1011_default,ref1011_feat,ref1011_via",
+process_record_keychron,0x0800C6A0,38,fuzzy-anchored,ref1011_feat,process_record_keychron:b.w from process_record_kb@0x0800C6E8+0x14
+process_record_keychron_common,0x0800C720,188,exact,"ref1011_default,ref1011_feat,ref1011_via",
+process_record_quantum,0x0800D3B6,166,fuzzy-anchored,ref1011_default,process_record_quantum:bl from process_record@0x0800DAD8+0x8
+housekeeping_task_user,0x0800E768,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",housekeeping_task_user:bl from housekeeping_task@0x0800E76A+0x6
+housekeeping_task_kb,0x0800C714,4,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",housekeeping_task_kb:bl from housekeeping_task@0x0800E76A+0x2
+matrix_scan_user,0x0800ED16,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",matrix_scan_user:bl from matrix_scan_kb@0x0800ED18+0x2
+matrix_scan_kb,0x0800ED18,8,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",matrix_scan_kb:bl(fuzzy-paired) from matrix_scan@0x0800EE8C+0x58
+keyboard_post_init_user,0x0800CF60,20,UNMATCHED-custom-code-candidate,,b.w(fuzzy-paired) from keyboard_post_init_kb@0x0800CD38+0x3E
+keyboard_post_init_kb,0x0800CD38,80,fuzzy-anchored,ref1011_feat,keyboard_post_init_kb:bl from keyboard_init@0x0800E788+0x16
+keyboard_pre_init_user,0x0800E732,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",keyboard_pre_init_user:bl from keyboard_pre_init_kb@0x0800E734+0x2
+keyboard_pre_init_kb,0x0800E734,8,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",keyboard_pre_init_kb:bl from keyboard_setup@0x0800E740+0x10
+layer_state_set_user,0x0800DC18,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",layer_state_set_user:bl from layer_state_set_kb@0x0800DC1A+0x2
+layer_state_set_kb,0x0800DC1A,8,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",layer_state_set_kb:b.w from magic@0x0800ECCC+0x30
+default_layer_state_set_user,0x0800DBC4,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",default_layer_state_set_user:bl from default_layer_state_set_kb@0x0800DBC6+0x2
+default_layer_state_set_kb,0x0800DBC6,8,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",default_layer_state_set_kb:bl from default_layer_state_set@0x0800DBD0+0x2
+rgb_matrix_indicators_user,,,not-found,,"no body match, no caller vote"
+rgb_matrix_indicators_kb,0x0800C702,18,UNMATCHED-custom-code-candidate,,bl(fuzzy-paired) from rgb_matrix_task@0x08011058+0xC8
+rgb_matrix_indicators_advanced_user,0x0800CF74,276,UNMATCHED-custom-code-candidate,,bl from rgb_matrix_indicators_advanced_kb@0x08010C4C+0x2
+rgb_matrix_indicators_advanced_kb,0x08010C4C,8,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",rgb_matrix_indicators_advanced_kb:bl(fuzzy-paired) from rgb_matrix_indicators_advanced@0x08010C54+0x12
+dip_switch_update_kb,0x0800CD18,32,UNMATCHED-custom-code-candidate,,bl(fuzzy-paired) from dip_switch_read@0x0801189C+0x20
+dip_switch_update_user,,,not-found,,"no body match, no caller vote"
+dip_switch_update_mask_kb,0x08011894,8,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",dip_switch_update_mask_kb:bl(fuzzy-paired) from dip_switch_read@0x0801189C+0x26
+dip_switch_update_mask_user,0x08011890,4,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",dip_switch_update_mask_user:bl from dip_switch_update_mask_kb@0x08011894+0x2
+encoder_update_user,,,not-found,,"no body match, no caller vote"
+encoder_update_kb,,,not-found,,"no body match, no caller vote"
+keycode_at_encodermap_location_raw,0x0800D2A8,32,fuzzy-anchored,ref1011_feat,keycode_at_encodermap_location_raw:b.w from keycode_at_encodermap_location@0x0800D2C8+0x0
+keycode_at_keymap_location_raw,0x0800D27C,40,UNMATCHED-custom-code-candidate,,b.w from keycode_at_keymap_location@0x0800D2A4+0x0
+leader_start_user,0x0800CDF4,10,UNMATCHED-custom-code-candidate,,bl from leader_start@0x08011940+0x8
+leader_end_user,0x0800CDFE,354,UNMATCHED-custom-code-candidate,,bl from leader_end@0x0801197C+0x8
+raw_hid_receive,0x0800C908,14,exact,"ref1011_default,ref1011_feat",raw_hid_receive:bl(fuzzy-paired) from raw_hid_task@0x08012C1C+0x1C
+raw_hid_receive_kb,,,not-found,,"no body match, no caller vote"
+eeconfig_init_user,0x0800E61E,6,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",eeconfig_init_user:bl from eeconfig_init_kb@0x0800E624+0x8
+eeconfig_init_kb,0x0800E624,14,exact,"ref1011_default,ref1011_feat,ref1011_via",
+get_tapping_term,,,not-found,,"no body match, no caller vote"
+process_tap_dance,0x08012040,144,exact,ref1011_feat,
+tap_dance_task,0x080120D0,68,fuzzy-anchored,ref1011_feat,tap_dance_task:bl from quantum_task@0x0800E7A4+0x2
+preprocess_tap_dance,0x08012000,64,fuzzy,ref1011_feat,
+process_leader,,,not-found,,"no body match, no caller vote"
+leader_task,0x080119DC,28,exact,ref1011_feat,leader_task:bl from quantum_task@0x0800E7A4+0x6
+shutdown_user,0x0800D370,4,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",shutdown_user:bl from shutdown_kb@0x0800D374+0x2
+shutdown_kb,0x0800D374,8,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",shutdown_kb:bl from shutdown_quantum@0x0800D37C+0xA
+suspend_power_down_user,0x08012458,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",suspend_power_down_user:bl from suspend_power_down_kb@0x0801245A+0x2
+suspend_power_down_kb,0x0801245A,8,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",suspend_power_down_kb:bl from suspend_power_down_quantum@0x0800D45C+0x2
+suspend_wakeup_init_user,0x08012462,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",suspend_wakeup_init_user:bl from suspend_wakeup_init_kb@0x08012464+0x2
+suspend_wakeup_init_kb,0x08012464,8,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",suspend_wakeup_init_kb:b.w from suspend_wakeup_init_quantum@0x0800D474+0x10
+led_update_user,0x0800D4B2,4,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",led_update_user:bl from led_update_kb@0x0800B91C+0x4
+led_update_kb,0x0800B91C,84,exact,"ref1011_default,ref1011_feat,ref1011_via",led_update_kb:bl from led_set@0x0800D4BA+0xA
+via_custom_value_command_kb,,,not-found,,"no body match, no caller vote"
+process_record_via,,,not-found,,"no body match, no caller vote"
+get_hold_on_other_key_press,,,not-found,,"no body match, no caller vote"
+get_permissive_hold,,,not-found,,"no body match, no caller vote"
+get_retro_tapping,,,not-found,,"no body match, no caller vote"
+pre_process_record_user,0x0800D2CC,4,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",pre_process_record_user:bl from pre_process_record_kb@0x0800D2D0+0x2
+pre_process_record_kb,0x0800D2D0,8,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",pre_process_record_kb:bl from pre_process_record_quantum@0x0800D34C+0xC
+post_process_record_user,0x0800D2DC,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",post_process_record_user:bl from post_process_record_kb@0x0800D2DE+0x2
+post_process_record_kb,0x0800D2DE,8,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",post_process_record_kb:bl from post_process_record_quantum@0x0800D35E+0xC
+battery_low_user,,,not-found,,"no body match, no caller vote"
+wireless_pre_task,0x0800C5EC,176,fuzzy-anchored,ref1011_feat,wireless_pre_task:bl from wireless_tasks@0x0800B972+0x2
+wireless_post_task,0x0800B970,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",wireless_post_task:bl from wireless_tasks@0x0800B972+0xA
+keyboard_init,0x0800E788,28,exact,"ref1011_default,ref1011_feat",keyboard_init:bl from protocol_init@0x0800F060+0x6
+keyboard_task,0x0800E7B8,248,fuzzy-anchored,ref1011_feat,keyboard_task:bl from protocol_task@0x0800F072+0x6
+main,0x0800F084,28,exact,"ref1011_default,ref1011_feat,ref1011_via",main:bl from endinitloop@0x080080C8+0x0
+rgb_matrix_map_row_column_to_led_kb,0x0800FE40,4,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",rgb_matrix_map_row_column_to_led_kb:bl from rgb_matrix_map_row_column_to_led@0x0800FE44+0x8
+oneshot_locked_mods_changed_kb,0x0800E38C,,vote points inside bootmagic|default_layer_state_set_kb|dip_switch_update_mask_kb|host_keyboard_led_state|keyboard_pre_init_kb|layer_state_set_kb|matrix_init_kb|matrix_output_unselect_delay|matrix_scan_kb|notify_usb_device_state_change_kb|oneshot_layer_changed_kb|oneshot_locked_mods_changed_kb|oneshot_mods_changed_kb|post_process_record_kb|pre_process_record_kb|rgb_matrix_indicators_advanced_kb|should_process_keypress|shutdown_kb|suspend_power_down_kb|suspend_wakeup_init_kb@0x0800E38C+0x0 (exact-ambiguous),,bl from add_oneshot_locked_mods@0x0800E394+0x10 ; other names voted here: oneshot_mods_changed_kb
+oneshot_mods_changed_kb,0x0800E3E4,8,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",oneshot_mods_changed_kb:bl from clear_oneshot_mods@0x0800E424+0xC
+oneshot_mods_changed_kb,0x0800E38C,,vote points inside bootmagic|default_layer_state_set_kb|dip_switch_update_mask_kb|host_keyboard_led_state|keyboard_pre_init_kb|layer_state_set_kb|matrix_init_kb|matrix_output_unselect_delay|matrix_scan_kb|notify_usb_device_state_change_kb|oneshot_layer_changed_kb|oneshot_locked_mods_changed_kb|oneshot_mods_changed_kb|post_process_record_kb|pre_process_record_kb|rgb_matrix_indicators_advanced_kb|should_process_keypress|shutdown_kb|suspend_power_down_kb|suspend_wakeup_init_kb@0x0800E38C+0x0 (exact-ambiguous),,bl from clear_oneshot_mods@0x0800E3B0+0xC ; other names voted here: oneshot_locked_mods_changed_kb
+keychron_task_kb,0x0800CD88,48,exact,"ref1011_default,ref1011_feat,ref1011_via",keychron_task_kb:bl from keychron_task@0x0800C6D4+0xE
+oneshot_layer_changed_kb,0x0800E4FC,8,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",oneshot_layer_changed_kb:bl from reset_oneshot_layer@0x0800E534+0x8
+notify_usb_device_state_change_kb,0x08012406,8,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",notify_usb_device_state_change_kb:bl from usb_device_state_set_configuration@0x08012410+0xA
+led_set_user,0x0800D4B0,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",led_set_user:bl from led_set@0x0800D4BA+0x4
+via_command_kb,0x0800C874,148,exact,"ref1011_default,ref1011_feat",via_command_kb:b.w from raw_hid_receive@0x0800C908+0x8
+eeconfig_update_kb,0x0800E60E,8,exact,"ref1011_default,ref1011_feat,ref1011_via",eeconfig_update_kb:bl from eeconfig_init_kb@0x0800E624+0x4
+oneshot_mods_changed_user,0x0800D088,8,UNMATCHED-custom-code-candidate,,bl from oneshot_mods_changed_kb@0x0800E3E4+0x2
+oneshot_layer_changed_user,0x0800D25C,32,UNMATCHED-custom-code-candidate,,bl from oneshot_layer_changed_kb@0x0800E4FC+0x2
+notify_usb_device_state_change_user,0x08012404,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",notify_usb_device_state_change_user:bl from notify_usb_device_state_change_kb@0x08012406+0x2
+eeconfig_update_user,0x0800E616,8,exact,"ref1011_default,ref1011_feat,ref1011_via",eeconfig_update_user:b.w from eeconfig_init_user@0x0800E61E+0x2
+wireless_enter_reset_kb,0x0800C594,4,UNMATCHED-custom-code-candidate,,bl(fuzzy-paired) from wireless_event_task@0x0800A570+0x26
+wireless_enter_connected_kb,0x0800A430,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",wireless_enter_connected_kb:bl(fuzzy-paired) from wireless_event_task@0x0800A570+0x44
+wireless_enter_discoverable_kb,0x0800A42C,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",wireless_enter_discoverable_kb:bl(fuzzy-paired) from wireless_event_task@0x0800A570+0x78
+wireless_enter_reconnecting_kb,0x0800A42E,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",wireless_enter_reconnecting_kb:bl(fuzzy-paired) from wireless_event_task@0x0800A570+0x92
+wireless_enter_disconnected_kb,0x0800C598,44,exact,"ref1011_default,ref1011_feat,ref1011_via",wireless_enter_disconnected_kb:bl(fuzzy-paired) from wireless_event_task@0x0800A570+0xDE
+wireless_enter_bluetooth_pin_code_entry_kb,0x0800A432,2,exact-ambiguous,"ref1011_default,ref1011_default_lto,ref1011_feat,ref1011_feat_lto,ref1011_via,ref1011_via_lto",wireless_enter_bluetooth_pin_code_entry_kb:bl(fuzzy-paired) from wireless_event_task@0x0800A570+0x106
+wireless_exit_bluetooth_pin_code_entry_kb,0x0800A434,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",wireless_exit_bluetooth_pin_code_entry_kb:bl(fuzzy-paired) from wireless_event_task@0x0800A570+0x11C
+wireless_enter_sleep_kb,0x0800A436,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",wireless_enter_sleep_kb:bl(fuzzy-paired) from wireless_event_task@0x0800A570+0x138
+matrix_init_kb,0x0800ED0E,8,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",matrix_init_kb:b.w(fuzzy-paired) from matrix_init@0x0800EE58+0x26
+process_record_keychron_kb,0x0800C69C,4,UNMATCHED-custom-code-candidate,,bl(fuzzy-paired) from process_record_keychron@0x0800C6A0+0x20
+matrix_init_user,0x0800ED0C,2,exact-ambiguous,"ref1011_default,ref1011_feat,ref1011_via",matrix_init_user:bl from matrix_init_kb@0x0800ED0E+0x2
+tap_dance_actions[0].fn.on_dance_finished,0x0800D1EC,112,UNMATCHED-custom-code-candidate,,pointer 0x0800D1ED in tap_dance_actions init image
+tap_dance_actions[0].fn.on_reset,0x0800CDD8,28,UNMATCHED-custom-code-candidate,,pointer 0x0800CDD9 in tap_dance_actions init image

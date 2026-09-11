@@ -1,0 +1,10 @@
+start,size,kind,fn_starts,suggested_names,callers,callees
+0x08015C04,836,post-text(rodata/.data image),0x08015C0E 0x08015C7C 0x08015C84 0x08015C9A 0x08015CB6 0x08015D3E 0x08015D70 0x08015D9E 0x08015DB0 0x08015DD2 0x08015DE6,,0x08015C0E<-lkbt51_param_init@0x0800A8A0(ptr) 0x08015C84<-chInstanceObjectInit@0x08011F74(ptr) 0x08015C9A<-_kill@0x08014CE0(ptr) 0x08015CB6<-rand@0x08014E98(ptr) 0x08015D3E<-__utoa@0x08014F14(ptr) 0x08015D70<-__assert_func@0x08015068(ptr) 0x08015D9E<-__assert_func@0x08015068(ptr) 0x08015DB0<-_printf_i@0x08015460(ptr) 0x08015DD2<-process_record_keychron_common@0x0800AA68(ptr) 0x08015DE6<-snled27351_set_led_control_register@0x0800F22C(ptr) 0x08015DE6<-snled27351_set_color@0x0800F1CC(ptr),0x08015DDC->ProductString+0x2 0x08015DE2->keymaps+0x28E 0x08015DE4->ProductString+0x14 0x08015F44->keymaps+0x14
+0x08016534,32,zeros,,,,
+0x08016564,60,post-text(rodata/.data image),,,,
+0x08016637,493,post-text(rodata/.data image),0x08016648 0x0801666A 0x08016720,,,0x0801672B->0x08016581
+0x08016A30,36,post-text(rodata/.data image),,,,
+0x08016BFD,83,post-text(rodata/.data image),,,,
+0x08016CB0,408,post-text(rodata/.data image),,,,
+0x08016E50,36,post-text(rodata/.data image),,,,
+0x080170F4,712,post-text(rodata/.data image),,,,

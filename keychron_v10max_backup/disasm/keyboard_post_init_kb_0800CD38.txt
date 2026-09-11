@@ -1,0 +1,29 @@
+; keyboard_post_init_kb  dump 0x0800CD38..0x0800CD88 (80 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800cd38:	b510      	push	{r4, lr}
+ 800cd3a:	4c10      	ldr	r4, [pc, #64]	@ (0x800cd7c)	; = 0x40020000 const 0x40020000 (1073872896)
+ 800cd3c:	2200      	movs	r2, #0
+ 800cd3e:	4620      	mov	r0, r4
+ 800cd40:	f44f 6180 	mov.w	r1, #1024	@ 0x400
+ 800cd44:	f008 faf8 	bl	0x8015338	; -> _pal_lld_setgroupmode
+ 800cd48:	f44f 7100 	mov.w	r1, #512	@ 0x200
+ 800cd4c:	4620      	mov	r0, r4
+ 800cd4e:	2200      	movs	r2, #0
+ 800cd50:	f008 faf2 	bl	0x8015338	; -> _pal_lld_setgroupmode
+ 800cd54:	4b0a      	ldr	r3, [pc, #40]	@ (0x800cd80)	; = 0x40020400 const 0x40020400 (1073873920)
+ 800cd56:	f44f 5280 	mov.w	r2, #4096	@ 0x1000
+ 800cd5a:	831a      	strh	r2, [r3, #24]
+ 800cd5c:	2000      	movs	r0, #0
+ 800cd5e:	f7fd fe15 	bl	0x800a98c	; -> lkbt51_init
+ 800cd62:	f7fd fa6d 	bl	0x800a240	; -> wireless_init
+ 800cd66:	f005 fbcf 	bl	0x8012508	; -> timer_read32
+ 800cd6a:	4b06      	ldr	r3, [pc, #24]	@ (0x800cd84)	; = 0x200015D8 RAM 0x200015D8 (unnamed)
+ 800cd6c:	6018      	str	r0, [r3, #0]
+ 800cd6e:	f7ff fd4f 	bl	0x800c810	; -> encoder_cb_init
+ 800cd72:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+ 800cd76:	f000 b8f3 	b.w	0x800cf60	; -> keyboard_post_init_user [user]
+ 800cd7a:	bf00      	nop
+ 0800cd7c:	40020000     	.word	0x40020000	; const 0x40020000 (1073872896)
+ 0800cd80:	40020400     	.word	0x40020400	; const 0x40020400 (1073873920)
+ 0800cd84:	200015d8     	.word	0x200015D8	; RAM 0x200015D8 (unnamed)

@@ -1,0 +1,47 @@
+funcmatch calibration summary (tools/funcmatch.py, masked-signature matcher; generated 2026-09-11T01:26Z)
+
+1) SELF-TEST  ref1011_via.bin vs refsyms_ref1011_via.json (same compiler gcc 15.2.0; expect ~all function bytes)
+exact function bytes       :  55912 (89.61%)  [907 ranges, 11 ambiguous-unresolved]
+fuzzy function bytes       :      0 (0.00%)  [0 ranges, threshold 0.85]
+fuzzy-anchored bytes       :      0 (0.00%)  [0 ranges, threshold 0.50; NOT stock, similar-only]
+data object bytes          :   3468 (5.56%)  [36 ranges]
+function coverage (exact+fuzzy) : 89.61%
+total assigned (incl. data, anchored): 95.17%
+unmatched bytes            :   3016 (4.83%) in 107 regions (9 regions >= 32 bytes, 2696 bytes)
+   (remaining unmatched = anonymous rodata/.data image without symbol sizes; 0 misplaced functions when checked against ELF addresses)
+
+2) CROSS-COMPILER CEILING  stock keychron_v10_max_ansi_encoder_via.bin (Keychron Jenkins GCC 10, VIA on, 96448 B) vs ref1011_via (gcc 15.2, same source era)
+exact function bytes       :  16622 (26.10%)  [565 ranges, 77 ambiguous-unresolved]
+fuzzy function bytes       :   8012 (12.58%)  [64 ranges, threshold 0.85]
+fuzzy-anchored bytes       :  12746 (20.02%)  [119 ranges, threshold 0.50; NOT stock, similar-only]
+data object bytes          :   4003 (6.29%)  [38 ranges]
+function coverage (exact+fuzzy) : 38.68%
+total assigned (incl. data, anchored): 64.99%
+unmatched bytes            :  22297 (35.01%) in 178 regions (98 regions >= 32 bytes, 21801 bytes)
+  keymaps          at 0x08016250 size 864 (data)
+
+3) LTO DISCRIMINATION on the stock (non-LTO) bin: vs ref1011_via_lto
+exact function bytes       :   4768 (7.49%)  [149 ranges, 17 ambiguous-unresolved]
+fuzzy function bytes       :   1890 (2.97%)  [21 ranges, threshold 0.85]
+fuzzy-anchored bytes       :   1916 (3.01%)  [30 ranges, threshold 0.50; NOT stock, similar-only]
+data object bytes          :   4003 (6.29%)  [38 ranges]
+function coverage (exact+fuzzy) : 10.46%
+
+4) DUMP dump_a.bin vs ref1011_feat only
+exact function bytes       :  20870 (31.97%)  [581 ranges, 65 ambiguous-unresolved]
+fuzzy function bytes       :   6894 (10.56%)  [54 ranges, threshold 0.85]
+fuzzy-anchored bytes       :  10736 (16.45%)  [107 ranges, threshold 0.50; NOT stock, similar-only]
+data object bytes          :   3851 (5.90%)  [34 ranges]
+function coverage (exact+fuzzy) : 42.53%
+total assigned (incl. data, anchored): 64.87%
+unmatched bytes            :  22933 (35.13%) in 153 regions (76 regions >= 32 bytes, 22349 bytes)
+
+5) DUMP vs ref1011_feat_lto + ref1011_default_lto
+exact function bytes       :   4838 (7.41%)  [130 ranges, 12 ambiguous-unresolved]
+fuzzy function bytes       :   1440 (2.21%)  [21 ranges, threshold 0.85]
+fuzzy-anchored bytes       :   1442 (2.21%)  [22 ranges, threshold 0.50; NOT stock, similar-only]
+data object bytes          :   3851 (5.90%)  [34 ranges]
+function coverage (exact+fuzzy) : 9.62%
+
+6) DUMP vs all six refs = final run (top-level functions_matched.csv / unmatched_regions.csv / coverage.txt / hooks.csv / matches.json)
+   see coverage.txt

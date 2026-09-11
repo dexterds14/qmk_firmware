@@ -1,0 +1,494 @@
+{
+ "generated_by": "tools/disasm_hooks.py",
+ "dump": "dump_a.bin",
+ "tap_dance_actions_init_image": {
+  "flash_addr": "0x080179C8",
+  "ram_addr": "0x20000E7C",
+  "mapping": "RAM = flash - __textdata_base__(0x0801774C) + __data_base__(0x20000C00) from crt0 literal triple @0x080080F8; RAM address also the literal at process_tap_dance@0x08012040+0x84",
+  "entry_size": 28,
+  "entries": 1,
+  "words": [
+   "0x00000000",
+   "0x00000000",
+   "0x00000000",
+   "0x0800D1ED",
+   "0x0800CDD9",
+   "0x00000000",
+   "0x00000000"
+  ],
+  "decoded": {
+   "state": "0x00000000 (count/interrupted/pressed/... zero-init)",
+   "state_pad": "0x00000000",
+   "on_each_tap": "0x00000000 (NULL)",
+   "on_dance_finished": "0x0800D1ED -> td0_on_dance_finished [user]",
+   "on_reset": "0x0800CDD9 -> td0_on_reset [user]",
+   "on_each_release": "0x00000000 (NULL)",
+   "user_data": "0x00000000 (NULL)"
+  },
+  "next_object": "0x200016A7 0x200016C7 0x0800EC85 (nkro/keyboard report pointers 0x200016A7 0x200016C7 + fn ptr = following .data object; so exactly one tap-dance entry)"
+ },
+ "encoder_map": {
+  "flash_addr": "0x080169A0",
+  "layers": {
+   "layer0": "ENCODER_CCW_CW(KC_VOLU, KC_VOLD)  [0x00A9,0x00AA]",
+   "layer1": "ENCODER_CCW_CW(RGB_VAI, RGB_VAD)  [0x7827,0x7828]",
+   "layer2": "ENCODER_CCW_CW(KC_VOLU, KC_VOLD)  [0x00A9,0x00AA]",
+   "layer3": "ENCODER_CCW_CW(KC_NO, KC_NO)  [0x0000,0x0000]",
+   "layer4": "ENCODER_CCW_CW(KC_NO, KC_NO)  [0x0000,0x0000]",
+   "layer5": "ENCODER_CCW_CW(RGB_VAI, RGB_VAD)  [0x7827,0x7828]"
+  }
+ },
+ "hooks": [
+  {
+   "hook": "process_record_user",
+   "dump_addr": "0x0800D104",
+   "size": 192,
+   "status": "custom",
+   "callers": [
+    "process_record_kb@0x0800C6EE bl (keychron_task.c, exact 26 B, both methods)"
+   ],
+   "evidence": "192 B incl. literal pool (0x0800D1B8-0x0800D1C4). Calls process_record_keychron_common first; TD(0)=0x5700 press clears flag 0x200015E8; layer_state_is(1)==false clears 0x200015E9; KC_CAPS press -> host_keyboard_led_state().caps_lock -> flag 0x200015DC; pressed OSM(MOD_LSFT/LGUI/RSFT/RGUI) (0x52A2/A8/B2/B8 via sub #0x52A2, mask 0x410041) -> tail-call osm_press_handler; QK_USER_0 -> register/unregister KC_DOT, KC_SLSH ('./'), QK_USER_1 -> KC_DOT then falls into QK_USER_0 ('../'); both return false. A+B agree on address/size/semantics.",
+   "disasm": "disasm/process_record_user_0800D104.txt"
+  },
+  {
+   "hook": "process_record_kb",
+   "dump_addr": "0x0800C6E8",
+   "size": 26,
+   "status": "stock-kb",
+   "callers": [
+    "process_record_quantum@0x0800D3B6 (fuzzy-anchored, 14 BLs vs ref 17: MAGIC/GRAVE_ESC/SPACE_CADET absent)"
+   ],
+   "evidence": "keychron_task.c: bl process_record_user then b.w process_record_keychron 0x0800C6A0. Exact match in both methods.",
+   "disasm": "disasm/process_record_kb_0800C6E8.txt"
+  },
+  {
+   "hook": "tap_dance_actions[0].fn.on_dance_finished (td0_on_dance_finished)",
+   "dump_addr": "0x0800D1EC",
+   "size": 112,
+   "status": "custom",
+   "callers": [
+    "pointer 0x0800D1ED in tap_dance_actions init image @0x080179D4",
+    "process_tap_dance_action_on_dance_finished@0x08011FB8 (exact) calls through the table"
+   ],
+   "evidence": "112 B incl. pool (0x0800D24C-0x0800D25C). r0=td_cur_dance(state): 3 (hold) -> layer_clear; layer_move(4); 4 (double tap) -> layer_clear; layer_move(1); 2 (single tap) -> if layer_state_is(4): flag 0x200015E9=1, layer_clear, tail td_oneshot_layer1_helper; elif flag 0x200015E8: layer_clear, layer_move(1), flag=0; elif layer_state_is(1): layer_clear + helper; else flag 0x200015E8=1 + helper.",
+   "disasm": "disasm/td0_on_dance_finished_0800D1EC.txt"
+  },
+  {
+   "hook": "tap_dance_actions[0].fn.on_reset (td0_on_reset)",
+   "dump_addr": "0x0800CDD8",
+   "size": 2,
+   "status": "custom",
+   "callers": [
+    "pointer 0x0800CDD9 in tap_dance_actions init image @0x080179D8"
+   ],
+   "evidence": "2 B: bx lr (empty reset callback).",
+   "disasm": "disasm/td0_on_reset_0800CDD8.txt"
+  },
+  {
+   "hook": "tap_dance_actions[0].fn.on_each_tap / on_each_release / user_data",
+   "dump_addr": null,
+   "size": null,
+   "status": "not-found",
+   "callers": [
+    "words 0x080179D0 / 0x080179DC / 0x080179E0 are 0"
+   ],
+   "evidence": "NULL in the init image."
+  },
+  {
+   "hook": "td_cur_dance (static helper)",
+   "dump_addr": "0x0800D1C4",
+   "size": 40,
+   "status": "custom",
+   "callers": [
+    "td0_on_dance_finished@0x0800D1F0 bl"
+   ],
+   "evidence": "40 B: count==1 -> (!pressed:2 | pressed&&!interrupted:3 | else 1); count==2 -> 4; else 1 (same coding as the common 'cur_dance' example: SINGLE_TAP=2? see disasm for exact constants).",
+   "disasm": "disasm/td_cur_dance_0800D1C4.txt"
+  },
+  {
+   "hook": "td_oneshot_layer1_helper (static helper)",
+   "dump_addr": "0x0800CDDA",
+   "size": 26,
+   "status": "custom",
+   "callers": [
+    "td0_on_dance_finished b.w tail-calls"
+   ],
+   "evidence": "26 B: layer_on(1); set_oneshot_layer(1, ONESHOT_START=3); b.w clear_oneshot_layer_state(ONESHOT_PRESSED=1).",
+   "disasm": "disasm/td_oneshot_layer1_helper_0800CDDA.txt"
+  },
+  {
+   "hook": "leader_end_user",
+   "dump_addr": "0x0800CDFE",
+   "size": 354,
+   "status": "custom",
+   "callers": [
+    "leader_end@0x08011984 bl (leader_end exact 20 B)"
+   ],
+   "evidence": "354 B: rgb_matrix_set_color_all(0,0,0); then 7 sequence checks (see disasm): F -> LGUI+P, LGUI+K; A,Q -> LCTL+A, Z, Q, ENTER; Y -> LCTL+X, Y, ENTER; LCTL,I -> LCTL+LALT+I; J -> LGUI+P; F -> LGUI+QUOTE (dead: shadowed by the first F check); DEL -> LGUI+UP, LEFT. All via register_code/unregister_code (no register_code16/tap_code16/SEND_STRING in the image).",
+   "disasm": "disasm/leader_end_user_0800CDFE.txt"
+  },
+  {
+   "hook": "leader_start_user",
+   "dump_addr": "0x0800CDF4",
+   "size": 10,
+   "status": "custom",
+   "callers": [
+    "leader_start@0x08011948 bl (leader_start exact 60 B)"
+   ],
+   "evidence": "10 B: rgb_matrix_set_color_all(255,0,255).",
+   "disasm": "disasm/leader_start_user_0800CDF4.txt"
+  },
+  {
+   "hook": "housekeeping_task_user",
+   "dump_addr": "0x0800E768",
+   "size": 2,
+   "status": "stock-default",
+   "callers": [
+    "housekeeping_task@0x0800E770 bl"
+   ],
+   "evidence": "2 B 'bx lr' weak default at 0x0800E768 (keyboard.o position); not user-defined."
+  },
+  {
+   "hook": "housekeeping_task_kb",
+   "dump_addr": "0x0800C714",
+   "size": 4,
+   "status": "stock-kb",
+   "callers": [
+    "housekeeping_task@0x0800E76C bl"
+   ],
+   "evidence": "4 B 'b.w keychron_task 0x0800C6D4' (keychron_task.c)."
+  },
+  {
+   "hook": "matrix_scan_user",
+   "dump_addr": "0x0800ED16",
+   "size": 2,
+   "status": "stock-default",
+   "callers": [
+    "matrix_scan_kb@0x0800ED1A bl"
+   ],
+   "evidence": "2 B 'bx lr' default at 0x0800ED16; matrix_scan_kb 0x0800ED18 8 B stock."
+  },
+  {
+   "hook": "layer_state_set_user",
+   "dump_addr": "0x0800DC18",
+   "size": 2,
+   "status": "stock-default",
+   "callers": [
+    "layer_state_set_kb@0x0800DC1C bl"
+   ],
+   "evidence": "2 B 'bx lr' default at 0x0800DC18; layer_state_set_kb 0x0800DC1A (8 B: push; bl user; pop) stock; layer_state_set 0x0800DC24 exact."
+  },
+  {
+   "hook": "layer_state_set_kb",
+   "dump_addr": "0x0800DC1A",
+   "size": 10,
+   "status": "stock-kb",
+   "callers": [
+    "layer_state_set@0x0800DC24 (bl)",
+    "magic@0x0800ECCC b.w"
+   ],
+   "evidence": "8 B stock wrapper."
+  },
+  {
+   "hook": "default_layer_state_set_user",
+   "dump_addr": "0x0800DBC4",
+   "size": 2,
+   "status": "stock-default",
+   "callers": [
+    "default_layer_state_set_kb@0x0800DBC8 bl"
+   ],
+   "evidence": "2 B 'bx lr' at 0x0800DBC4; default_layer_state_set_kb 0x0800DBC6 8 B stock; default_layer_state_set 0x0800DBD0 writes 0x20001630."
+  },
+  {
+   "hook": "rgb_matrix_indicators_user",
+   "dump_addr": "0x0801017A",
+   "size": 4,
+   "status": "stock-default",
+   "callers": [
+    "rgb_matrix_indicators_kb@0x0800C704 bl"
+   ],
+   "evidence": "4 B 'movs r0,#1; bx lr' at 0x0801017A (rgb_matrix.o position, after rgb_matrix_none_indicators); A ambiguous set resolved by B/caller."
+  },
+  {
+   "hook": "rgb_matrix_indicators_kb",
+   "dump_addr": "0x0800C702",
+   "size": 18,
+   "status": "stock-kb",
+   "callers": [
+    "rgb_matrix_task@0x08011120 bl"
+   ],
+   "evidence": "18 B keychron_task.c: if (!rgb_matrix_indicators_user()) return false; rgb_matrix_indicators_keychron(); B opsim 0.62 + gcc13 agree; A left unmatched (compiler variant).",
+   "disasm": "disasm/rgb_matrix_indicators_kb_0800C702.txt"
+  },
+  {
+   "hook": "rgb_matrix_indicators_advanced_user",
+   "dump_addr": "0x0800CF74",
+   "size": 156,
+   "status": "custom",
+   "callers": [
+    "rgb_matrix_indicators_advanced_kb@0x08010C4E bl (8 B stock kb wrapper, itself bl from rgb_matrix_indicators_advanced@0x08010C66)"
+   ],
+   "evidence": "156 B incl. pool (0x0800CFFC-0x0800D010). For i in led_min..led_max: layer = biton16(layer_state|default_layer_state); tbb switch layer 1..5 -> rgb_matrix_set_color(i, rgb): L1 (0,255,0) L2 (0,0,255) L3 (255,128,0) L4 (0,128,128) L5 (255,0,0); then if flag 0x200015DD -> (255,255,0); else if flag 0x200015DE || flag 0x200015DC -> (255,255,255). Returns false.",
+   "disasm": "disasm/rgb_matrix_indicators_advanced_user_0800CF74.txt"
+  },
+  {
+   "hook": "rgb_matrix_indicators_advanced_kb",
+   "dump_addr": "0x08010C4C",
+   "size": 8,
+   "status": "stock-kb",
+   "callers": [
+    "rgb_matrix_indicators_advanced@0x08010C66 bl"
+   ],
+   "evidence": "8 B: push; bl advanced_user; pop (exact-ambiguous resolved by caller in A, opsim 1.0 in B)."
+  },
+  {
+   "hook": "oneshot_mods_changed_user",
+   "dump_addr": "0x0800D088",
+   "size": 4,
+   "status": "custom",
+   "callers": [
+    "oneshot_mods_changed_kb@0x0800E3E6 bl"
+   ],
+   "evidence": "4 B 'b.w osm_indicator_helper 0x0800D010'.",
+   "disasm": "disasm/oneshot_mods_changed_user_0800D088.txt"
+  },
+  {
+   "hook": "oneshot_locked_mods_changed_user",
+   "dump_addr": "0x0800D08C",
+   "size": 4,
+   "status": "custom",
+   "callers": [
+    "oneshot_locked_mods_changed_kb@0x0800E38E bl"
+   ],
+   "evidence": "4 B 'b.w osm_indicator_helper 0x0800D010'.",
+   "disasm": "disasm/oneshot_locked_mods_changed_user_0800D08C.txt"
+  },
+  {
+   "hook": "osm_indicator_helper (static helper)",
+   "dump_addr": "0x0800D010",
+   "size": 120,
+   "status": "custom",
+   "callers": [
+    "b.w from both oneshot_*_mods_changed_user"
+   ],
+   "evidence": "120 B incl. pool; see disasm for the shift(0x22)/GUI(0x88) -> colour/flag logic.",
+   "disasm": "disasm/osm_indicator_helper_0800D010.txt"
+  },
+  {
+   "hook": "oneshot_layer_changed_user",
+   "dump_addr": "0x0800D25C",
+   "size": 32,
+   "status": "custom",
+   "callers": [
+    "oneshot_layer_changed_kb@0x0800E4FE bl"
+   ],
+   "evidence": "32 B: if (layer==0 && flag 0x200015E9) { layer_clear(); layer_move(4); flag=0; }",
+   "disasm": "disasm/oneshot_layer_changed_user_0800D25C.txt"
+  },
+  {
+   "hook": "osm_press_handler / osm_lookup_helper (static helpers)",
+   "dump_addr": "0x0800D0B4",
+   "size": 80,
+   "status": "custom",
+   "callers": [
+    "process_record_user@0x0800D15A b.w tail-call"
+   ],
+   "evidence": "80 B + 36 B; see disasm.",
+   "disasm": "disasm/osm_press_handler_0800D0B4.txt"
+  },
+  {
+   "hook": "dip_switch_update_kb",
+   "dump_addr": "0x0800CD18",
+   "size": 32,
+   "status": "stock-kb",
+   "callers": [
+    "dip_switch_read@0x0801189C+0x20 bl"
+   ],
+   "evidence": "32 B v10_max.c (opsim 1.0, callgraph 3/3 in B): default_layer_set(1UL<<(active?2:0)); dip_switch_update_user(...). A left it unmatched (compiler variant).",
+   "disasm": "disasm/dip_switch_update_kb_0800CD18.txt"
+  },
+  {
+   "hook": "dip_switch_update_user",
+   "dump_addr": "0x0800CCF0",
+   "size": 40,
+   "status": "stock-kb",
+   "callers": [
+    "dip_switch_update_kb@0x0800CD2C bl"
+   ],
+   "evidence": "40 B Keychron factory_test.c version at 0x0800CCF0 (opsim 0.89), calls factory_test_send; not the user's."
+  },
+  {
+   "hook": "encoder_update_user / encoder_update_kb",
+   "dump_addr": null,
+   "size": null,
+   "status": "not-found",
+   "callers": [],
+   "evidence": "Not in the image: ENCODER_MAP_ENABLE path (keycode_at_encodermap_location_raw + encoder_read 0x080116D0 / encoder_init 0x08011668 match the ref)."
+  },
+  {
+   "hook": "keycode_at_encodermap_location_raw",
+   "dump_addr": "0x0800D2A8",
+   "size": 32,
+   "status": "custom",
+   "callers": [
+    "keycode_at_encodermap_location@0x0800D2C8 b.w thunk (called from encoder code)"
+   ],
+   "evidence": "32 B; literal 0x080169A0 = encoder_map[6][1][2] (24 B): layer0: ENCODER_CCW_CW(KC_VOLU, KC_VOLD)  [0x00A9,0x00AA]; layer1: ENCODER_CCW_CW(RGB_VAI, RGB_VAD)  [0x7827,0x7828]; layer2: ENCODER_CCW_CW(KC_VOLU, KC_VOLD)  [0x00A9,0x00AA]; layer3: ENCODER_CCW_CW(KC_NO, KC_NO)  [0x0000,0x0000]; layer4: ENCODER_CCW_CW(KC_NO, KC_NO)  [0x0000,0x0000]; layer5: ENCODER_CCW_CW(RGB_VAI, RGB_VAD)  [0x7827,0x7828]",
+   "disasm": "disasm/keycode_at_encodermap_location_raw_0800D2A8.txt"
+  },
+  {
+   "hook": "raw_hid_receive",
+   "dump_addr": "0x0800C908",
+   "size": 16,
+   "status": "stock-kb",
+   "callers": [
+    "raw_hid_task@0x08012C1C+0x1C bl"
+   ],
+   "evidence": "14 B (+2 pad) keychron_common.c #else branch (VIA off): b.w via_command_kb 0x0800C874 (148 B exact). A exact vs default/feat refs only; B opsim 0.92.",
+   "disasm": "disasm/raw_hid_receive_0800C908.txt"
+  },
+  {
+   "hook": "keyboard_post_init_user",
+   "dump_addr": "0x0800CF60",
+   "size": 20,
+   "status": "custom",
+   "callers": [
+    "keyboard_post_init_kb@0x0800CD76 b.w tail-call (last insn of the 80-B v10_max.c hook)"
+   ],
+   "evidence": "20 B: default_layer_set(0) then b.w rgb_matrix_mode(16); mode 16 = TYPING_HEATMAP (rgb_task_render@0x08010A8E 'cmp r6,#22; tbb' case 16 -> bl TYPING_HEATMAP 0x08010920; 22 enabled effects = info.json animations).",
+   "disasm": "disasm/keyboard_post_init_user_0800CF60.txt"
+  },
+  {
+   "hook": "keyboard_post_init_kb",
+   "dump_addr": "0x0800CD38",
+   "size": 80,
+   "status": "stock-kb",
+   "callers": [
+    "keyboard_init@0x0800E79E bl (keyboard_init exact 28 B)"
+   ],
+   "evidence": "80 B v10_max.c: _pal_lld_setgroupmode x2, lkbt51_init, wireless_init, timer_read32, encoder_cb_init, then b.w keyboard_post_init_user (B opsim 0.91; A fuzzy-anchored).",
+   "disasm": "disasm/keyboard_post_init_kb_0800CD38.txt"
+  },
+  {
+   "hook": "eeconfig_init_user",
+   "dump_addr": "0x0800E61E",
+   "size": 6,
+   "status": "stock-default",
+   "callers": [
+    "eeconfig_init_kb@0x0800E62C bl"
+   ],
+   "evidence": "6 B default at 0x0800E61E: b.w eeconfig_update_user 0x0800E616 (exact)."
+  },
+  {
+   "hook": "eeconfig_init_kb",
+   "dump_addr": "0x0800E624",
+   "size": 16,
+   "status": "stock-kb",
+   "callers": [
+    "eeconfig_init_quantum@0x0800E634 bl"
+   ],
+   "evidence": "14 B (+2) exact: eeconfig_update_kb 0x0800E60E + eeconfig_init_user."
+  },
+  {
+   "hook": "get_tapping_term",
+   "dump_addr": "0x0800DEFC",
+   "size": 4,
+   "status": "stock-default",
+   "callers": [
+    "tap_dance_task@0x080120EC bl (keyrecord_t built on stack)",
+    "waiting_buffer_scan_tap@0x0800DF52 bl",
+    "process_tapping@0x0800E016 bl",
+    "process_tapping@0x0800E192 bl"
+   ],
+   "evidence": "4 B 'movs r0,#175; bx lr' at 0x0800DEFC (action_tapping.o position) = the weak default returning TAPPING_TERM=175, compiled because TAPPING_TERM_PER_KEY is defined (the ref without it inlines 'cmp #140'). Not overridden by the user. Method B's 'PER_KEY off' was wrong (conflict resolved by the four call sites).",
+   "disasm": "disasm/get_tapping_term_0800DEFC.txt"
+  },
+  {
+   "hook": "process_tapping (variant)",
+   "dump_addr": "0x0800DF94",
+   "size": 648,
+   "status": "stock",
+   "callers": [
+    "action_tapping_process@0x0800E21C bl"
+   ],
+   "evidence": "648 B at 0x0800DF94 (ref 584 B, opsim 0.80): two bl get_tapping_term + 'cmp r7,#174' (QUICK_TAP_TERM = TAPPING_TERM = 175, no QUICK_TAP_TERM_PER_KEY); no PERMISSIVE_HOLD/HOLD_ON_OTHER_KEY_PRESS/RETRO_TAPPING getters (get_permissive_hold/get_hold_on_other_key_press/get_retro_tapping absent in both methods)."
+  },
+  {
+   "hook": "tap_dance_task (variant)",
+   "dump_addr": "0x080120D0",
+   "size": 80,
+   "status": "stock",
+   "callers": [
+    "quantum_task@0x0800E7A6 bl"
+   ],
+   "evidence": "80 B at 0x080120D0 (ref 60 B) - the extra 20 B are the keyrecord_t stack frame + bl get_tapping_term.",
+   "disasm": "disasm/tap_dance_task_080120D0.txt"
+  },
+  {
+   "hook": "keycode_at_keymap_location_raw",
+   "dump_addr": "0x0800D27C",
+   "size": 40,
+   "status": "custom",
+   "callers": [
+    "keycode_at_keymap_location@0x0800D2A4 b.w thunk"
+   ],
+   "evidence": "40 B: 6 layers x 6 rows x 18 cols (cmp #5/#5/#17, muls #0x6C), literal 0x080169B8 = keymaps[] (1296 B, byte-identical to refs/ref_feat_keymap).",
+   "disasm": "disasm/keycode_at_keymap_location_raw_0800D27C.txt"
+  },
+  {
+   "hook": "keymap_layer_count_raw / keymap_layer_count",
+   "dump_addr": null,
+   "size": null,
+   "status": "not-found",
+   "callers": [],
+   "evidence": "Absent from the dump and from every reference ELF (gc-sections removes it: nothing calls it without VIA/dynamic keymaps); keymap_introspection object is exactly 80 B (4 functions 0x0800D27C-0x0800D2CC)."
+  },
+  {
+   "hook": "pre_process_record_user / post_process_record_user",
+   "dump_addr": null,
+   "size": null,
+   "status": "stock-default",
+   "callers": [
+    "pre_process_record_kb@0x0800D2D2 bl",
+    "post_process_record_kb@0x0800D2E0 bl"
+   ],
+   "evidence": "4 B 'movs r0,#1; bx lr' at 0x0800D2CC and 2 B 'bx lr' at 0x0800D2DC (quantum.o position, exact-ambiguous in A, opsim 1.0 in B)."
+  },
+  {
+   "hook": "shutdown_user / suspend_power_down_user / suspend_wakeup_init_user / led_update_user / keyboard_pre_init_user",
+   "dump_addr": null,
+   "size": null,
+   "status": "stock-default",
+   "callers": [
+    "shutdown_kb@0x0800D374",
+    "suspend_power_down_kb@0x0801245A",
+    "suspend_wakeup_init_kb@0x08012464",
+    "led_update_kb@0x0800B91C",
+    "keyboard_pre_init_kb@0x0800E734"
+   ],
+   "evidence": "all tiny weak defaults at their stock positions (A exact-ambiguous resolved by caller, B match)."
+  }
+ ],
+ "user_statics_bss": {
+  "0x200015DC": "USER static (bss): caps-lock-active flag (u8) - set/cleared in process_record_user from host_keyboard_led_state().caps_lock on KC_CAPS press; lights white in indicators (sibling source: caps_active)",
+  "0x200015DD": "USER static (bss): gui_active (u8) - set by handle_oneshots/osm_indicator_helper when oneshot mods & 0x88; indicators -> yellow",
+  "0x200015DE": "USER static (bss): shift_active (u8) - set by handle_oneshots when oneshot mods & 0x22; indicators -> white",
+  "0x200015E0": "USER static (bss): held_osm[0] (uint16_t*) - find_osm_slot/check_unlock_osm",
+  "0x200015E4": "USER static (bss): held_osm[1] (uint16_t*)",
+  "0x200015E8": "USER static (bss): move_to_lower (u8) - TD(0) single tap from base arms oneshot layer 1 (_LOWER)",
+  "0x200015E9": "USER static (bss): return_to_mouse (u8) - TD(0) single tap on layer 4 (_MOUSE): after the oneshot layer finishes, oneshot_layer_changed_user moves back to layer 4"
+ },
+ "config_inferences": {
+  "TAPPING_TERM": "175 (get_tapping_term default body movs r0,#175; process_tapping cmp r7,#174 for QUICK_TAP_TERM)",
+  "TAPPING_TERM_PER_KEY": "defined (four bl get_tapping_term call sites; ref without it inlines cmp #TAPPING_TERM)",
+  "ONESHOT_TAP_TOGGLE": "2 (process_action@0x0800D832 cmp.w r8,#2 -> register_mods; del_oneshot_mods; add_oneshot_locked_mods = action.c:462-466)",
+  "ONESHOT_TIMEOUT": "not defined (no has_oneshot_*_timed_out bodies; add_oneshot_mods 24 B has no timer_read; set_oneshot_layer 48 B)",
+  "LEADER_PER_KEY_TIMING": "defined (leader_reset_timer 0x080119F8 present and called from process_leader)",
+  "LEADER_TIMEOUT": "525 (leader_sequence_timed_out@0x080119C0 movw #0x20D) - from Method B, not re-verified here",
+  "VIA_ENABLE": "no (raw_hid_receive = keychron_common.c #else stub; no via_/dynamic_keymap_ functions)",
+  "ENCODER_MAP_ENABLE": "yes (encoder_map @0x080169A0, keycode_at_encodermap_location_raw present, no encoder_update_*)",
+  "TAP_DANCE_ENABLE / LEADER_ENABLE / MOUSEKEY_ENABLE": "yes / yes / yes (process_tap_dance exact; leader_* exact; mousekey_task 412 B @0x08011DF0)",
+  "MAGIC_ENABLE / GRAVE_ESC_ENABLE / SPACE_CADET_ENABLE": "no (process_magic/process_grave_esc/process_space_cadet absent; process_record_quantum has 14 BLs vs ref 17) - Method B, consistent with A leaving no unmatched code of those sizes",
+  "RGB default mode": "rgb_matrix_mode(16) in keyboard_post_init_user = TYPING_HEATMAP (dump tbb case table)"
+ }
+}

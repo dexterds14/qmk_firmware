@@ -1,0 +1,125 @@
+; leader_end_user  dump 0x0800CDFE..0x0800CF60 (354 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800cdfe:	2200      	movs	r2, #0
+ 800ce00:	b508      	push	{r3, lr}
+ 800ce02:	4610      	mov	r0, r2
+ 800ce04:	4611      	mov	r1, r2
+ 800ce06:	f003 f86d 	bl	0x800fee4	; -> rgb_matrix_set_color_all
+ 800ce0a:	2009      	movs	r0, #9	; KC_F
+ 800ce0c:	f004 fe16 	bl	0x8011a3c	; -> leader_sequence_one_key
+ 800ce10:	b1b8      	cbz	r0, 0x800ce42	; local
+ 800ce12:	20e3      	movs	r0, #227	@ 0xe3	; KC_LGUI
+ 800ce14:	f000 fbac 	bl	0x800d570	; -> register_code
+ 800ce18:	2013      	movs	r0, #19	; KC_P
+ 800ce1a:	f000 fba9 	bl	0x800d570	; -> register_code
+ 800ce1e:	20e3      	movs	r0, #227	@ 0xe3	; KC_LGUI
+ 800ce20:	f000 fbee 	bl	0x800d600	; -> unregister_code
+ 800ce24:	2013      	movs	r0, #19	; KC_P
+ 800ce26:	f000 fbeb 	bl	0x800d600	; -> unregister_code
+ 800ce2a:	20e3      	movs	r0, #227	@ 0xe3	; KC_LGUI
+ 800ce2c:	f000 fba0 	bl	0x800d570	; -> register_code
+ 800ce30:	200e      	movs	r0, #14	; KC_K
+ 800ce32:	f000 fb9d 	bl	0x800d570	; -> register_code
+ 800ce36:	20e3      	movs	r0, #227	@ 0xe3	; KC_LGUI
+ 800ce38:	f000 fbe2 	bl	0x800d600	; -> unregister_code
+ 800ce3c:	200e      	movs	r0, #14	; KC_K
+ 800ce3e:	f000 fbdf 	bl	0x800d600	; -> unregister_code
+ 800ce42:	2114      	movs	r1, #20	; KC_Q
+ 800ce44:	2004      	movs	r0, #4	; KC_A
+ 800ce46:	f004 fe03 	bl	0x8011a50	; -> leader_sequence_two_keys
+ 800ce4a:	b1e8      	cbz	r0, 0x800ce88	; local
+ 800ce4c:	20e0      	movs	r0, #224	@ 0xe0	; KC_LCTL
+ 800ce4e:	f000 fb8f 	bl	0x800d570	; -> register_code
+ 800ce52:	2004      	movs	r0, #4	; KC_A
+ 800ce54:	f000 fb8c 	bl	0x800d570	; -> register_code
+ 800ce58:	20e0      	movs	r0, #224	@ 0xe0	; KC_LCTL
+ 800ce5a:	f000 fbd1 	bl	0x800d600	; -> unregister_code
+ 800ce5e:	2004      	movs	r0, #4	; KC_A
+ 800ce60:	f000 fbce 	bl	0x800d600	; -> unregister_code
+ 800ce64:	201d      	movs	r0, #29	; KC_Z
+ 800ce66:	f000 fb83 	bl	0x800d570	; -> register_code
+ 800ce6a:	201d      	movs	r0, #29	; KC_Z
+ 800ce6c:	f000 fbc8 	bl	0x800d600	; -> unregister_code
+ 800ce70:	2014      	movs	r0, #20	; KC_Q
+ 800ce72:	f000 fb7d 	bl	0x800d570	; -> register_code
+ 800ce76:	2014      	movs	r0, #20	; KC_Q
+ 800ce78:	f000 fbc2 	bl	0x800d600	; -> unregister_code
+ 800ce7c:	2028      	movs	r0, #40	@ 0x28	; KC_ENTER
+ 800ce7e:	f000 fb77 	bl	0x800d570	; -> register_code
+ 800ce82:	2028      	movs	r0, #40	@ 0x28	; KC_ENTER
+ 800ce84:	f000 fbbc 	bl	0x800d600	; -> unregister_code
+ 800ce88:	201c      	movs	r0, #28	; KC_Y
+ 800ce8a:	f004 fdd7 	bl	0x8011a3c	; -> leader_sequence_one_key
+ 800ce8e:	b1b8      	cbz	r0, 0x800cec0	; local
+ 800ce90:	20e0      	movs	r0, #224	@ 0xe0	; KC_LCTL
+ 800ce92:	f000 fb6d 	bl	0x800d570	; -> register_code
+ 800ce96:	201b      	movs	r0, #27	; KC_X
+ 800ce98:	f000 fb6a 	bl	0x800d570	; -> register_code
+ 800ce9c:	20e0      	movs	r0, #224	@ 0xe0	; KC_LCTL
+ 800ce9e:	f000 fbaf 	bl	0x800d600	; -> unregister_code
+ 800cea2:	201b      	movs	r0, #27	; KC_X
+ 800cea4:	f000 fbac 	bl	0x800d600	; -> unregister_code
+ 800cea8:	201c      	movs	r0, #28	; KC_Y
+ 800ceaa:	f000 fb61 	bl	0x800d570	; -> register_code
+ 800ceae:	201c      	movs	r0, #28	; KC_Y
+ 800ceb0:	f000 fba6 	bl	0x800d600	; -> unregister_code
+ 800ceb4:	2028      	movs	r0, #40	@ 0x28	; KC_ENTER
+ 800ceb6:	f000 fb5b 	bl	0x800d570	; -> register_code
+ 800ceba:	2028      	movs	r0, #40	@ 0x28	; KC_ENTER
+ 800cebc:	f000 fba0 	bl	0x800d600	; -> unregister_code
+ 800cec0:	210c      	movs	r1, #12	; KC_I
+ 800cec2:	20e0      	movs	r0, #224	@ 0xe0	; KC_LCTL
+ 800cec4:	f004 fdc4 	bl	0x8011a50	; -> leader_sequence_two_keys
+ 800cec8:	b188      	cbz	r0, 0x800ceee	; local
+ 800ceca:	20e0      	movs	r0, #224	@ 0xe0	; KC_LCTL
+ 800cecc:	f000 fb50 	bl	0x800d570	; -> register_code
+ 800ced0:	20e2      	movs	r0, #226	@ 0xe2	; KC_LALT
+ 800ced2:	f000 fb4d 	bl	0x800d570	; -> register_code
+ 800ced6:	200c      	movs	r0, #12	; KC_I
+ 800ced8:	f000 fb4a 	bl	0x800d570	; -> register_code
+ 800cedc:	20e0      	movs	r0, #224	@ 0xe0	; KC_LCTL
+ 800cede:	f000 fb8f 	bl	0x800d600	; -> unregister_code
+ 800cee2:	20e2      	movs	r0, #226	@ 0xe2	; KC_LALT
+ 800cee4:	f000 fb8c 	bl	0x800d600	; -> unregister_code
+ 800cee8:	200c      	movs	r0, #12	; KC_I
+ 800ceea:	f000 fb89 	bl	0x800d600	; -> unregister_code
+ 800ceee:	200d      	movs	r0, #13	; KC_J
+ 800cef0:	f004 fda4 	bl	0x8011a3c	; -> leader_sequence_one_key
+ 800cef4:	b158      	cbz	r0, 0x800cf0e	; local
+ 800cef6:	20e3      	movs	r0, #227	@ 0xe3	; KC_LGUI
+ 800cef8:	f000 fb3a 	bl	0x800d570	; -> register_code
+ 800cefc:	2013      	movs	r0, #19	; KC_P
+ 800cefe:	f000 fb37 	bl	0x800d570	; -> register_code
+ 800cf02:	20e3      	movs	r0, #227	@ 0xe3	; KC_LGUI
+ 800cf04:	f000 fb7c 	bl	0x800d600	; -> unregister_code
+ 800cf08:	2013      	movs	r0, #19	; KC_P
+ 800cf0a:	f000 fb79 	bl	0x800d600	; -> unregister_code
+ 800cf0e:	2009      	movs	r0, #9	; KC_F
+ 800cf10:	f004 fd94 	bl	0x8011a3c	; -> leader_sequence_one_key
+ 800cf14:	b158      	cbz	r0, 0x800cf2e	; local
+ 800cf16:	20e3      	movs	r0, #227	@ 0xe3	; KC_LGUI
+ 800cf18:	f000 fb2a 	bl	0x800d570	; -> register_code
+ 800cf1c:	2034      	movs	r0, #52	@ 0x34	; KC_QUOT
+ 800cf1e:	f000 fb27 	bl	0x800d570	; -> register_code
+ 800cf22:	20e3      	movs	r0, #227	@ 0xe3	; KC_LGUI
+ 800cf24:	f000 fb6c 	bl	0x800d600	; -> unregister_code
+ 800cf28:	2034      	movs	r0, #52	@ 0x34	; KC_QUOT
+ 800cf2a:	f000 fb69 	bl	0x800d600	; -> unregister_code
+ 800cf2e:	204c      	movs	r0, #76	@ 0x4c	; KC_DEL
+ 800cf30:	f004 fd84 	bl	0x8011a3c	; -> leader_sequence_one_key
+ 800cf34:	b198      	cbz	r0, 0x800cf5e	; local
+ 800cf36:	20e3      	movs	r0, #227	@ 0xe3	; KC_LGUI
+ 800cf38:	f000 fb1a 	bl	0x800d570	; -> register_code
+ 800cf3c:	2052      	movs	r0, #82	@ 0x52	; KC_UP
+ 800cf3e:	f000 fb17 	bl	0x800d570	; -> register_code
+ 800cf42:	2050      	movs	r0, #80	@ 0x50	; KC_LEFT
+ 800cf44:	f000 fb14 	bl	0x800d570	; -> register_code
+ 800cf48:	20e3      	movs	r0, #227	@ 0xe3	; KC_LGUI
+ 800cf4a:	f000 fb59 	bl	0x800d600	; -> unregister_code
+ 800cf4e:	2052      	movs	r0, #82	@ 0x52	; KC_UP
+ 800cf50:	f000 fb56 	bl	0x800d600	; -> unregister_code
+ 800cf54:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+ 800cf58:	2050      	movs	r0, #80	@ 0x50	; KC_LEFT
+ 800cf5a:	f000 bb51 	b.w	0x800d600	; -> unregister_code
+ 800cf5e:	bd08      	pop	{r3, pc}

@@ -1,0 +1,20 @@
+; keycode_at_keymap_location_raw  dump 0x0800D27C..0x0800D2A4 (40 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800d27c:	2805      	cmp	r0, #5
+ 800d27e:	d80d      	bhi.n	0x800d29c	; local
+ 800d280:	2905      	cmp	r1, #5
+ 800d282:	d80b      	bhi.n	0x800d29c	; local
+ 800d284:	2a11      	cmp	r2, #17
+ 800d286:	d809      	bhi.n	0x800d29c	; local
+ 800d288:	236c      	movs	r3, #108	@ 0x6c
+ 800d28a:	4358      	muls	r0, r3
+ 800d28c:	2312      	movs	r3, #18
+ 800d28e:	fb03 0101 	mla	r1, r3, r1, r0
+ 800d292:	440a      	add	r2, r1
+ 800d294:	4b02      	ldr	r3, [pc, #8]	@ (0x800d2a0)	; = 0x080169B8 code ptr -> keymaps
+ 800d296:	f833 0012 	ldrh.w	r0, [r3, r2, lsl #1]
+ 800d29a:	4770      	bx	lr
+ 800d29c:	2001      	movs	r0, #1
+ 800d29e:	4770      	bx	lr
+ 0800d2a0:	080169b8     	.word	0x080169B8	; code ptr -> keymaps

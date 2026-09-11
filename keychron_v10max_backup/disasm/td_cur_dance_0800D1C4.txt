@@ -1,0 +1,21 @@
+; td_cur_dance  dump 0x0800D1C4..0x0800D1EC (40 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800d1c4:	7883      	ldrb	r3, [r0, #2]
+ 800d1c6:	2b01      	cmp	r3, #1
+ 800d1c8:	d108      	bne.n	0x800d1dc	; local
+ 800d1ca:	7943      	ldrb	r3, [r0, #5]
+ 800d1cc:	07da      	lsls	r2, r3, #31
+ 800d1ce:	d50a      	bpl.n	0x800d1e6	; local
+ 800d1d0:	f013 0f04 	tst.w	r3, #4
+ 800d1d4:	bf0c      	ite	eq
+ 800d1d6:	2003      	moveq	r0, #3
+ 800d1d8:	2001      	movne	r0, #1
+ 800d1da:	4770      	bx	lr
+ 800d1dc:	2b02      	cmp	r3, #2
+ 800d1de:	bf0c      	ite	eq
+ 800d1e0:	2004      	moveq	r0, #4
+ 800d1e2:	2001      	movne	r0, #1
+ 800d1e4:	4770      	bx	lr
+ 800d1e6:	2002      	movs	r0, #2
+ 800d1e8:	4770      	bx	lr

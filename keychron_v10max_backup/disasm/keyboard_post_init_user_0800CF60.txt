@@ -1,0 +1,9 @@
+; keyboard_post_init_user  dump 0x0800CF60..0x0800CF74 (20 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800cf60:	b508      	push	{r3, lr}
+ 800cf62:	2000      	movs	r0, #0
+ 800cf64:	f000 fe3d 	bl	0x800dbe2	; -> default_layer_set
+ 800cf68:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+ 800cf6c:	2010      	movs	r0, #16
+ 800cf6e:	f003 bee7 	b.w	0x8010d40	; -> rgb_matrix_mode

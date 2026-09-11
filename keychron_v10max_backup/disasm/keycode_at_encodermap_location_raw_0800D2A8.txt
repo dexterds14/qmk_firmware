@@ -1,0 +1,15 @@
+; keycode_at_encodermap_location_raw  dump 0x0800D2A8..0x0800D2C8 (32 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800d2a8:	2805      	cmp	r0, #5
+ 800d2aa:	d808      	bhi.n	0x800d2be	; local
+ 800d2ac:	b939      	cbnz	r1, 0x800d2be	; local
+ 800d2ae:	f082 0201 	eor.w	r2, r2, #1
+ 800d2b2:	4b04      	ldr	r3, [pc, #16]	@ (0x800d2c4)	; = 0x080169A0 rodata @0x080169A0: a9 00 aa 00 27 78 28 78 a9 00 aa 00 00 00 00 00 |....'x(x........|
+ 800d2b4:	eb02 0040 	add.w	r0, r2, r0, lsl #1
+ 800d2b8:	f833 0010 	ldrh.w	r0, [r3, r0, lsl #1]
+ 800d2bc:	4770      	bx	lr
+ 800d2be:	2001      	movs	r0, #1
+ 800d2c0:	4770      	bx	lr
+ 800d2c2:	bf00      	nop
+ 0800d2c4:	080169a0     	.word	0x080169A0	; rodata @0x080169A0: a9 00 aa 00 27 78 28 78 a9 00 aa 00 00 00 00 00 |....'x(x........|

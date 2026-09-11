@@ -1,0 +1,239 @@
+dump_addr,size,ref_symbol,ref_elf,ref_addr,match_type,score,notes
+0x08008000,116,_crt0_entry,ref1011_via_lto,0x08008000,exact,1.000,size inferred from next symbol (asm routine)
+0x08008074,14,msloop,ref1011_via_lto,0x08008074,exact,1.000,size inferred from next symbol (asm routine)
+0x08008082,16,psloop,ref1011_via_lto,0x08008082,exact,1.000,size inferred from next symbol (asm routine)
+0x08008092,20,dloop,ref1011_via_lto,0x08008092,exact,1.000,size inferred from next symbol (asm routine)
+0x080080A6,22,bloop,ref1011_via_lto,0x080080A6,exact,1.000,size inferred from next symbol (asm routine)
+0x080080BC,12,finiloop|initloop,ref1011_via_lto,0x080080BC,exact-ambiguous,1.000,size inferred from next symbol (asm routine) ; identical body for: finiloop|initloop
+0x080080C8,8,endinitloop,ref1011_via_lto,0x080080C8,exact,1.000,size inferred from next symbol (asm routine)
+0x080080D0,12,finiloop|initloop,ref1011_via_lto,0x080080BC,exact-ambiguous,1.000,size inferred from next symbol (asm routine) ; identical body for: finiloop|initloop
+0x08008124,24,__port_switch,ref1011_via_lto,0x08008124,exact,1.000,size inferred from next symbol (asm routine) ; xrefs: chSchGoSleepS@0x080120CC(b)
+0x0800813C,16,__port_thread_start,ref1011_via_lto,0x0800813C,exact,1.000,size inferred from next symbol (asm routine)
+0x08008158,48,__aeabi_uldivmod,ref1011_via_lto,0x08008210,exact,1.000,size inferred from next symbol (asm routine)
+0x08008458,2,__aeabi_idiv0,ref1011_via_lto,0x080084EC,exact-ambiguous,1.000,tiny body placed (vote) ; ambiguous body {__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb} resolved by caller: b.w from __aeabi_uldivmod@0x08008158+0x14 ; same body also matches: __aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb ; xrefs: __aeabi_uldivmod@0x08008158(b)
+0x0800845C,16,strlen,ref1011_via_lto,0x08008200,exact,1.000,
+0x08008470,160,memchr,ref1011_via_lto,0x08008160,exact,1.000,size inferred from next symbol (asm routine)
+0x08008510,24,wreless_keyboard_leds,ref1011_via_lto,0x08008574,exact,1.000,
+0x08008B0C,12,keyboard_leds,ref1011_via_lto,0x08010184,exact,1.000,
+0x08008B5C,60,report_buffer_init,ref1011_via_lto,0x0800A184,exact,1.000,
+0x08008C1C,16,factory_timer_start,ref1011_via_lto,0x0800A068,exact,1.000,
+0x0800977C,52,indicator_battery_low_enable,ref1011_via_lto,0x08009EA4,exact,1.000,
+0x08009F48,12,keyboard_leds,ref1011_via_lto,0x08010184,exact,1.000,
+0x0800A020,28,lpm_timer_reset,ref1011_via_lto,0x08009F40,exact,1.000,
+0x0800ACD4,16,factory_timer_start,ref1011_via_lto,0x0800A068,exact,1.000,
+0x0800B538,114,unregister_code,ref1011_via_lto,0x0800B1B8,exact,1.000,
+0x0800B5DA,18,unregister_mods,ref1011_via_lto,0x0800A5E4,exact,1.000,
+0x0800B5EC,18,unregister_mods,ref1011_via_lto,0x0800A5E4,exact,1.000,
+0x0800BBFA,40,read_source_layers_cache_impl,ref1011_via_lto,0x080086C6,exact,1.000,
+0x0800BE6C,68,waiting_buffer_typed.isra.0,ref1011_via_lto,0x08008790,exact,1.000,
+0x0800C1FC,12,keyboard_leds,ref1011_via_lto,0x08010184,exact,1.000,
+0x0800C208,16,eeconfig_flag_rgb_matrix,ref1011_via_lto,0x080092C4,exact,1.000,xrefs: unregister_mods@0x0800B5DA(bl)
+0x0800C218,16,del_mods,ref1011_via_lto,0x08008890,fuzzy-anchored,0.857,call-anchored: bl from unregister_code@0x0800B538+0x2E ; xrefs: unregister_code@0x0800B538(bl) unregister_mods@0x0800B5EC(bl)
+0x0800C234,16,eeconfig_flag_rgb_matrix,ref1011_via_lto,0x080092C4,exact,1.000,
+0x0800CC1C,34,setPinInputHigh_atomic,ref1011_via_lto,0x0800B3D0,exact,1.000,
+0x0800CF7C,30,eeprom_read_byte,ref1011_via_lto,0x0800A21C,fuzzy-anchored,0.800,call-anchored: bl from via_get_layout_options@0x080105CA+0x4 ; xrefs: via_get_layout_options@0x080105CA(bl)
+0x0800D23C,24,wear_leveling_consolidate_if_needed,ref1011_via_lto,0x0800BB30,exact,1.000,xrefs: wear_leveling_append_raw@0x0800D254(b)
+0x0800D254,40,wear_leveling_append_raw,ref1011_via_lto,0x0800BB48,exact,1.000,
+0x0800D4A4,48,backing_store_write,ref1011_via_lto,0x08008CA0,fuzzy-anchored,0.571,call-anchored: bl from wear_leveling_append_raw@0x0800D254+0xA ; xrefs: wear_leveling_append_raw@0x0800D254(bl)
+0x0800D74C,38,CYCLE_ALL_math,ref1011_via_lto,0x08008F0A,exact,1.000,
+0x0800D838,50,CYCLE_OUT_IN_math,ref1011_via_lto,0x08008FF0,exact,1.000,
+0x0800D986,2,__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb,ref1011_via_lto,0x080084EC,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb
+0x0800D988,72,SOLID_REACTIVE_WIDE_math,ref1011_via_lto,0x08009174,exact,1.000,
+0x0800D9D0,120,SOLID_REACTIVE_NEXUS_math,ref1011_via_lto,0x080091BC,exact,1.000,
+0x0800DA48,76,SPLASH_math,ref1011_via_lto,0x08009234,fuzzy,0.873,
+0x0800DA94,2,__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb,ref1011_via_lto,0x080084EC,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb
+0x0800DA96,68,SOLID_SPLASH_math,ref1011_via_lto,0x08009280,exact,1.000,
+0x0800DADC,16,eeconfig_flag_rgb_matrix,ref1011_via_lto,0x080092C4,exact,1.000,xrefs: rgb_matrix_toggle_eeprom_helper@0x0800EDD8(bl) rgb_matrix_enable@0x0800EE50(bl)
+0x0800DB58,70,BAND_SPIRAL_VAL_math,ref1011_via_lto,0x08008EC6,fuzzy,0.857,
+0x0800DB9E,48,CYCLE_PINWHEEL_math,ref1011_via_lto,0x0800906E,exact,1.000,
+0x0800DBCE,54,CYCLE_SPIRAL_math,ref1011_via_lto,0x0800909E,fuzzy,0.850,
+0x0800DC04,28,eeconfig_flush_rgb_matrix.part.0,ref1011_via_lto,0x0800BC48,fuzzy-anchored,0.857,call-anchored: b.w from eeconfig_update_rgb_matrix_default@0x0800DD0C+0x1E ; xrefs: eeconfig_update_rgb_matrix_default@0x0800DD0C(b)
+0x0800DD0C,44,eeconfig_update_rgb_matrix_default,ref1011_via_lto,0x0800BC60,exact,1.000,
+0x0800DD38,4,_close_r|_lseek_r|null_sendchar_func|sendchar,ref1011_via_lto,0x08008C0C,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: _close_r|_lseek_r|null_sendchar_func|sendchar
+0x0800EBF4,32,rgb_matrix_disable_noeeprom,ref1011_via_lto,0x0800980C,fuzzy,0.857,
+0x0800EDA8,48,rgb_matrix_increase_val_helper,ref1011_via_lto,0x0800992C,fuzzy-anchored,0.842,call-anchored: bl from rgb_matrix_toggle_eeprom_helper@0x0800EDD8+0x28 ; xrefs: rgb_matrix_toggle_eeprom_helper@0x0800EDD8(bl) rgb_matrix_enable_noeeprom@0x0800EE1C(bl) rgb_matrix_enable@0x0800EE50(bl) rgb_matrix_increase_val@0x0800EE74(b)
+0x0800EDD8,56,rgb_matrix_toggle_eeprom_helper,ref1011_via_lto,0x08009960,exact,1.000,xrefs: rgb_matrix_increase_val@0x0800EE16(b)
+0x0800EE16,6,rgb_matrix_increase_val,ref1011_via_lto,0x08009958,exact,1.000,tiny body placed (adjacent)
+0x0800EE1C,52,rgb_matrix_enable_noeeprom,ref1011_via_lto,0x08009998,exact,1.000,xrefs: rgb_matrix_enable@0x0800EE50(bl)
+0x0800EE50,36,rgb_matrix_enable,ref1011_via_lto,0x080099E0,exact,1.000,
+0x0800EE74,6,rgb_matrix_increase_val,ref1011_via_lto,0x08009958,exact,1.000,tiny body placed (adjacent)
+0x0800EF78,12,keyboard_leds,ref1011_via_lto,0x08010184,exact,1.000,
+0x0800F2B8,64,snled27351_set_color,ref1011_via_lto,0x08009A68,exact,1.000,xrefs: snled27351_set_color_all@0x0800F2F8(bl)
+0x0800F2F8,30,snled27351_set_color_all,ref1011_via_lto,0x08009AA8,exact,1.000,
+0x0800F490,12,snled27351_shutdown,ref1011_via_lto,0x08009AC8,exact,1.000,
+0x0800F49C,12,snled27351_exit_shutdown,ref1011_via_lto,0x08009AD4,exact,1.000,
+0x0800F4A8,6,handleKeycodeRGB,ref1011_via_lto,0x08009AE0,exact,1.000,tiny body placed (adjacent)
+0x0800F858,28,dip_switch_init,ref1011_via_lto,0x0800B810,exact,1.000,
+0x0800FAAC,24,dynamic_keymap_macro_reset,ref1011_via_lto,0x0800C47C,exact,1.000,xrefs: eeconfig_init_via@0x080105EA(bl~)
+0x0800FF64,292,mousekey_off,ref1011_via_lto,0x08009C58,fuzzy-anchored,0.559,call-anchored: bl from unregister_code@0x0800B538+0x64 ; xrefs: unregister_code@0x0800B538(bl)
+0x08010548,12,keyboard_leds,ref1011_via_lto,0x08010184,exact,1.000,
+0x08010554,12,keyboard_leds,ref1011_via_lto,0x08010184,exact,1.000,
+0x08010560,12,keyboard_leds,ref1011_via_lto,0x08010184,exact,1.000,
+0x080105C8,2,__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb,ref1011_via_lto,0x080084EC,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb
+0x080105CA,10,via_get_layout_options,ref1011_via_lto,0x0800A43A,exact,1.000,
+0x080105D4,2,__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb,ref1011_via_lto,0x080084EC,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb
+0x080105EA,32,eeconfig_init_via,ref1011_via_lto,0x0800C4C6,fuzzy,0.870,
+0x08010910,16,host_keyboard_leds,ref1011_via_lto,0x0800A7E4,exact,1.000,
+0x08010960,48,host_system_send,ref1011_via_lto,0x0800B158,fuzzy-anchored,0.739,call-anchored: b.w from unregister_code@0x0800B538+0x44 ; xrefs: unregister_code@0x0800B538(b)
+0x08010990,48,host_consumer_send,ref1011_via_lto,0x0800B188,fuzzy-anchored,0.739,call-anchored: b.w from unregister_code@0x0800B538+0x58 ; xrefs: unregister_code@0x0800B538(b)
+0x08010CEC,108,timer_read32,ref1011_via_lto,0x08009E34,fuzzy-anchored,0.764,call-anchored: bl from report_buffer_init@0x08008B5C+0x1C ; xrefs: report_buffer_init@0x08008B5C(bl) indicator_battery_low_enable@0x0800977C(bl) indicator_battery_low_enable@0x0800977C(bl) lpm_timer_reset@0x0800A020(bl) ...
+0x08010D7C,36,__NVIC_SystemReset,ref1011_via_lto,0x0800A0C4,exact,1.000,
+0x08010E58,116,spi_init,ref1011_via_lto,0x080131C0,exact,1.000,
+0x08010ECC,232,spi_start,ref1011_via_lto,0x08013234,fuzzy,0.865,
+0x08010FB4,20,spi_transmit,ref1011_via_lto,0x08013310,exact,1.000,
+0x08010FC8,36,spi_stop,ref1011_via_lto,0x08013324,exact,1.000,
+0x08010FEC,2,__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb,ref1011_via_lto,0x080084EC,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb
+0x08011150,52,set_led_transfer_cb,ref1011_via_lto,0x0800FFA0,exact,1.000,
+0x08011184,40,usb_event_queue_enqueue.isra.0,ref1011_via_lto,0x0800FF78,exact,1.000,
+0x0801126C,36,usb_event_queue_init,ref1011_via_lto,0x08010C30,exact,1.000,
+0x080113AC,12,keyboard_leds,ref1011_via_lto,0x08010184,exact,1.000,
+0x080113D8,10,send_keyboard,ref1011_via_lto,0x08011B00,exact,1.000,
+0x080113E2,10,send_nkro,ref1011_via_lto,0x08011B0A,exact,1.000,
+0x080113EC,10,send_mouse,ref1011_via_lto,0x08011B14,exact,1.000,
+0x080113F6,10,send_extra,ref1011_via_lto,0x08011B1E,exact,1.000,
+0x08011838,56,usb_endpoint_in_is_inactive,ref1011_via_lto,0x08010D1C,exact,1.000,
+0x080118E6,22,usb_get_report,ref1011_via_lto,0x08010A82,exact,1.000,
+0x080118FC,28,usb_reset_report,ref1011_via_lto,0x08010A22,exact,1.000,
+0x08011954,28,usb_shared_get_report,ref1011_via_lto,0x08010ABC,exact,1.000,
+0x08011970,38,usb_shared_reset_report,ref1011_via_lto,0x08010A3E,exact,1.000,
+0x080119F0,28,usb_set_idle_rate,ref1011_via_lto,0x08010190,exact,1.000,
+0x08011A0C,12,usb_get_idle_rate,ref1011_via_lto,0x080101AC,exact,1.000,
+0x08011A64,36,usb_shared_set_idle_rate,ref1011_via_lto,0x08010208,exact,1.000,
+0x08011A88,22,usb_shared_get_idle_rate,ref1011_via_lto,0x0801022C,exact,1.000,
+0x08011CFC,2,__cpu_init,ref1011_via_lto,0x0800A7E0,exact-ambiguous,1.000,tiny body placed (vote) ; ambiguous body {__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb} resolved by caller: bl from _crt0_entry@0x08008000+0x64 ; same body also matches: __aeabi_idiv0|__aeabi_ldiv0|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb ; xrefs: _crt0_entry@0x08008000(bl)
+0x08011CFE,2,__late_init,ref1011_via_lto,0x08010D54,exact-ambiguous,1.000,tiny body placed (vote) ; ambiguous body {__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb} resolved by caller: bl from bloop@0x080080A6+0xE ; same body also matches: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb ; xrefs: bloop@0x080080A6(bl)
+0x08011D04,82,__init_ram_areas,ref1011_via_lto,0x08010D58,fuzzy-anchored,0.706,call-anchored: bl from bloop@0x080080A6+0xA ; xrefs: bloop@0x080080A6(bl)
+0x08011DAE,12,chSysGetStatusAndLockX.part.0,ref1011_via_lto,0x08010DD8,exact,1.000,
+0x08011DBA,30,chSysRestoreStatusX,ref1011_via_lto,0x08011834,exact,1.000,
+0x08011DD8,20,chSysPolledDelayX,ref1011_via_lto,0x08010DB0,exact,1.000,xrefs: otg_txfifo_flush.isra.0@0x08013D5E(b)
+0x0801204C,28,__sch_ready_behind.isra.0,ref1011_via_lto,0x08010DE4,exact,1.000,xrefs: __sch_wakeup@0x08012084(bl~)
+0x08012084,68,__sch_wakeup,ref1011_via_lto,0x08010E00,fuzzy,0.945,
+0x080120CC,28,chSchGoSleepS,ref1011_via_lto,0x08010B94,exact,1.000,
+0x08012164,24,chSchRescheduleS,ref1011_via_lto,0x0801181C,exact,1.000,xrefs: chSysRestoreStatusX@0x08011DBA(bl)
+0x0801217C,4,__idle_thread.lto_priv.0,ref1011_via_lto,0x0801029C,exact,1.000,tiny body placed (adjacent)
+0x0801228E,24,chThdSleep,ref1011_via_lto,0x08011B4C,exact,1.000,xrefs: spi_init@0x08010E58(bl)
+0x080122C4,18,chThdResumeI,ref1011_via_lto,0x08010EB4,exact,1.000,xrefs: otg_epout_handler.constprop.0@0x08014150(bl~)
+0x0801230E,28,chThdDequeueAllI.constprop.0,ref1011_via_lto,0x08011568,fuzzy,0.923,
+0x0801232A,30,ch_sch_prio_insert,ref1011_via_lto,0x080102A0,exact,1.000,
+0x08012428,32,SVC_Handler,ref1011_via_lto,0x08011B64,exact,1.000,xrefs: _vectors@0x0800002C(vec)
+0x08012490,84,__port_irq_epilogue,ref1011_via_lto,0x08010BD4,fuzzy-anchored,0.580,call-anchored: b.w from VectorE0@0x0801321C+0x64 ; xrefs: VectorE0@0x0801321C(b) Vector48@0x0801475C(b) Vector9C@0x080131B8(b) VectorE4@0x080147FC(b) ...
+0x080126BA,24,obqResetI,ref1011_via_lto,0x08011586,fuzzy,0.900,
+0x0801273E,38,obqPostFullBufferS,ref1011_via_lto,0x080102BE,exact,1.000,
+0x0801284C,26,flashGetSectorOffset,ref1011_via_lto,0x08011B84,exact,1.000,xrefs: efl_lld_verify_erase@0x080136A8(bl~)
+0x08012866,26,flashGetSectorSize,ref1011_via_lto,0x08011B9E,exact,1.000,xrefs: efl_lld_verify_erase@0x080136A8(bl~)
+0x0801297A,28,spiSelect,ref1011_via_lto,0x08011D34,fuzzy,0.917,xrefs: spi_start@0x08010ECC(bl~)
+0x08012996,28,spiUnselect,ref1011_via_lto,0x08011D4E,fuzzy-anchored,0.880,call-anchored: bl from spi_stop@0x08010FC8+0xA ; xrefs: spi_stop@0x08010FC8(bl)
+0x080130F0,40,Vector58,ref1011_via_lto,0x08012054,exact,1.000,xrefs: _vectors@0x08000058(vec)
+0x08013118,40,Vector5C,ref1011_via_lto,0x0801207C,exact,1.000,xrefs: _vectors@0x0800005C(vec)
+0x08013140,40,Vector60,ref1011_via_lto,0x080120A4,exact,1.000,xrefs: _vectors@0x08000060(vec)
+0x08013168,40,Vector64,ref1011_via_lto,0x080120CC,exact,1.000,xrefs: _vectors@0x08000064(vec)
+0x08013190,40,Vector68,ref1011_via_lto,0x080120F4,exact,1.000,xrefs: _vectors@0x08000068(vec)
+0x080131B8,100,Vector9C,ref1011_via_lto,0x0801211C,exact,1.000,xrefs: _vectors@0x0800009C(vec)
+0x0801321C,112,VectorE0,ref1011_via_lto,0x08012180,exact,1.000,xrefs: _vectors@0x080000E0(vec)
+0x08013388,248,stm32_clock_init,ref1011_via_lto,0x080122CC,exact,1.000,
+0x08013480,40,stm32_flash_check_errors,ref1011_via_lto,0x08010300,fuzzy-anchored,0.872,call-anchored: bl from efl_lld_query_erase@0x08013678+0x1A ; xrefs: efl_lld_query_erase@0x08013678(bl) efl_lld_program@0x0801356A(bl~)
+0x0801356A,188,efl_lld_program,ref1011_via_lto,0x0801032A,fuzzy,0.877,
+0x08013670,4,_close_r|_lseek_r|null_sendchar_func|sendchar,ref1011_via_lto,0x08008C0C,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: _close_r|_lseek_r|null_sendchar_func|sendchar
+0x08013674,4,_getpid|_isatty_r,ref1011_via_lto,0x0801319A,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: _getpid|_isatty_r
+0x08013678,48,efl_lld_query_erase,ref1011_via_lto,0x0801042A,exact,1.000,
+0x080136A8,72,efl_lld_verify_erase,ref1011_via_lto,0x08011BB8,fuzzy,0.984,
+0x080136F0,40,Vector6C,ref1011_via_lto,0x080124B8,exact,1.000,xrefs: _vectors@0x0800006C(vec)
+0x08013718,44,Vector70,ref1011_via_lto,0x080124E0,fuzzy-anchored,0.649,call-anchored: vector slot 0x70 ; xrefs: _vectors@0x08000070(vec)
+0x08013744,44,Vector74,ref1011_via_lto,0x0801250C,fuzzy-anchored,0.649,call-anchored: vector slot 0x74 ; xrefs: _vectors@0x08000074(vec)
+0x08013770,44,Vector78,ref1011_via_lto,0x08012538,fuzzy-anchored,0.727,call-anchored: vector slot 0x78 ; xrefs: _vectors@0x08000078(vec)
+0x0801379C,40,Vector7C,ref1011_via_lto,0x08012564,exact,1.000,xrefs: _vectors@0x0800007C(vec)
+0x080137C4,44,Vector80,ref1011_via_lto,0x0801258C,fuzzy-anchored,0.649,call-anchored: vector slot 0x80 ; xrefs: _vectors@0x08000080(vec)
+0x080137F0,44,Vector84,ref1011_via_lto,0x080125B8,fuzzy-anchored,0.649,call-anchored: vector slot 0x84 ; xrefs: _vectors@0x08000084(vec)
+0x0801381C,44,VectorFC,ref1011_via_lto,0x080125E4,fuzzy-anchored,0.727,call-anchored: vector slot 0xFC ; xrefs: _vectors@0x080000FC(vec)
+0x08013848,40,Vector120,ref1011_via_lto,0x08012610,exact,1.000,xrefs: _vectors@0x08000120(vec)
+0x08013870,44,Vector124,ref1011_via_lto,0x08012638,fuzzy-anchored,0.649,call-anchored: vector slot 0x124 ; xrefs: _vectors@0x08000124(vec)
+0x0801389C,44,Vector128,ref1011_via_lto,0x08012664,fuzzy-anchored,0.649,call-anchored: vector slot 0x128 ; xrefs: _vectors@0x08000128(vec)
+0x080138C8,44,Vector12C,ref1011_via_lto,0x08012690,fuzzy-anchored,0.727,call-anchored: vector slot 0x12C ; xrefs: _vectors@0x0800012C(vec)
+0x080138F4,40,Vector130,ref1011_via_lto,0x080126BC,exact,1.000,xrefs: _vectors@0x08000130(vec)
+0x0801391C,44,Vector150,ref1011_via_lto,0x080126E4,fuzzy-anchored,0.649,call-anchored: vector slot 0x150 ; xrefs: _vectors@0x08000150(vec)
+0x08013948,44,Vector154,ref1011_via_lto,0x08012710,fuzzy-anchored,0.649,call-anchored: vector slot 0x154 ; xrefs: _vectors@0x08000154(vec)
+0x08013974,44,Vector158,ref1011_via_lto,0x0801273C,fuzzy-anchored,0.564,call-anchored: vector slot 0x158 ; xrefs: _vectors@0x08000158(vec)
+0x08013B74,216,_pal_lld_setgroupmode,ref1011_via_lto,0x0801276C,fuzzy-anchored,0.745,call-anchored: bl from spi_init@0x08010E58+0x12 ; xrefs: spi_init@0x08010E58(bl) spi_init@0x08010E58(bl) spi_init@0x08010E58(bl) spi_init@0x08010E58(bl) ...
+0x08013CB0,88,_pal_lld_disablepadevent.isra.0,ref1011_via_lto,0x08012890,fuzzy,1.000,
+0x08013D08,86,otg_disable_ep,ref1011_via_lto,0x08010580,exact,1.000,
+0x08013D5E,20,otg_txfifo_flush.isra.0,ref1011_via_lto,0x08010DC4,exact,1.000,
+0x080140D4,124,usb_lld_start_out,ref1011_via_lto,0x080105D6,fuzzy,0.857,xrefs: otg_epout_handler.constprop.0@0x08014150(bl~)
+0x08014150,176,otg_epout_handler.constprop.0,ref1011_via_lto,0x08011308,fuzzy,0.890,
+0x080146DA,2,__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb,ref1011_via_lto,0x080084EC,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb
+0x080146DC,24,rtc_enter_init.lto_priv.0,ref1011_via_lto,0x08012D20,exact,1.000,
+0x080146F4,4,_getsize,ref1011_via_lto,0x080108C6,exact,1.000,tiny body placed (adjacent)
+0x08014722,58,_write,ref1011_via_lto,0x080108F4,fuzzy,0.955,
+0x0801475C,104,Vector48,ref1011_via_lto,0x08012D38,exact,1.000,xrefs: _vectors@0x08000048(vec)
+0x080147C4,56,Vector4C,ref1011_via_lto,0x08012DA0,exact,1.000,xrefs: _vectors@0x0800004C(vec)
+0x080147FC,76,VectorE4,ref1011_via_lto,0x08012DD8,exact,1.000,xrefs: _vectors@0x080000E4(vec)
+0x08014A9C,46,spi_lld_configure,ref1011_via_lto,0x08010930,exact,1.000,
+0x08014E64,30,gpio_init,ref1011_via_lto,0x08010A04,exact,1.000,
+0x08014F08,2,__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb,ref1011_via_lto,0x080084EC,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb
+0x08014F0A,10,_read_r,ref1011_via_lto,0x08013130,exact,1.000,xrefs: __sread@0x08015F88(bl)
+0x08014F14,4,_lseek_r,ref1011_via_lto,0x0801313A,exact-ambiguous,1.000,tiny body placed (vote) ; ambiguous body {_close_r|_lseek_r|null_sendchar_func|sendchar} resolved by caller: bl from __swrite@0x08015FAA+0x1A ; same body also matches: _close_r|null_sendchar_func|sendchar ; xrefs: __swrite@0x08015FAA(bl)
+0x08014F18,4,_write_r,ref1011_via_lto,0x0801313E,exact,1.000,tiny body placed (vote) ; xrefs: __swrite@0x08015FAA(b)
+0x08014F1C,4,_close_r,ref1011_via_lto,0x08013142,exact-ambiguous,1.000,tiny body placed (vote) ; ambiguous body {_close_r|_lseek_r|null_sendchar_func|sendchar} resolved by caller: b.w from __sclose@0x08016006+0x4 ; same body also matches: _lseek_r|null_sendchar_func|sendchar ; xrefs: __sclose@0x08016006(b)
+0x08014F3A,24,_fstat_r,ref1011_via_lto,0x08013184,fuzzy,0.857,
+0x08014F58,16,_exit,ref1011_via_lto,0x080131A0,fuzzy-anchored,0.667,call-anchored: bl from abort@0x08014F7E+0xA ; xrefs: abort@0x08014F7E(bl)
+0x08014F78,4,_getpid|_isatty_r,ref1011_via_lto,0x0801319A,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: _getpid|_isatty_r
+0x08014F7C,2,__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb,ref1011_via_lto,0x080084EC,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb
+0x08014F7E,14,abort,ref1011_via_lto,0x08013638,exact,1.000,xrefs: __assert_func@0x08015374(bl~)
+0x08014F8C,48,__itoa,ref1011_via_lto,0x08013348,exact,1.000,
+0x08014FC0,16,free|malloc|raise,ref1011_via_lto,0x080134B4,exact-ambiguous,1.000,identical body for: free|malloc|raise
+0x08014FD0,16,free|malloc|raise,ref1011_via_lto,0x080134B4,exact-ambiguous,1.000,identical body for: free|malloc|raise
+0x08014FE0,32,memcmp,ref1011_via_lto,0x080141AC,exact,1.000,
+0x08015000,28,memcpy,ref1011_via_lto,0x08013FAC,exact,1.000,xrefs: eeconfig_update_rgb_matrix_default@0x0800DD0C(bl) usb_shared_get_report@0x08011954(b) usb_get_report@0x080118E6(b)
+0x0801501C,16,memset,ref1011_via_lto,0x08013F14,exact,1.000,xrefs: std@0x08015CCC(bl) report_buffer_init@0x08008B5C(bl) usb_shared_reset_report@0x08011970(bl) usb_event_queue_init@0x0801126C(bl) ...
+0x0801502C,152,_free_r,ref1011_via_lto,0x08013648,fuzzy,0.946,xrefs: __sflush_r@0x08015B48(bl~)
+0x08015268,80,_raise_r,ref1011_via_lto,0x08013F24,fuzzy-anchored,0.971,call-anchored: b.w from raise@0x080152B8+0x6 ; xrefs: raise@0x080152B8(b)
+0x080152B8,16,raise,ref1011_via_lto,0x08013F74,exact-ambiguous,1.000,ambiguous body {free|malloc|raise} resolved by caller: bl from abort@0x08014F7E+0x4 ; same body also matches: free|malloc ; xrefs: abort@0x08014F7E(bl)
+0x080152C8,36,_kill_r,ref1011_via_lto,0x08013F84,fuzzy,0.941,
+0x080152F0,132,__utoa,ref1011_via_lto,0x080133F8,fuzzy-anchored,0.879,call-anchored: bl from __itoa@0x08014F8C+0x26 ; xrefs: __itoa@0x08014F8C(bl)
+0x08015374,60,__assert_func,ref1011_via_lto,0x08013478,fuzzy,0.870,
+0x080153B0,36,fiprintf,ref1011_via_lto,0x08013614,exact-ambiguous,1.000,ambiguous body {fiprintf|fprintf} resolved by caller: bl(fuzzy-paired) from __assert_func@0x08015374+0x1C ; same body also matches: fprintf ; xrefs: __assert_func@0x08015374(bl~)
+0x080153EC,44,__sfputc_r,ref1011_via_lto,0x080136E0,fuzzy-anchored,0.872,call-anchored: bl from __sfputs_r@0x0801541A+0x1A ; xrefs: __sfputs_r@0x0801541A(bl)
+0x08015418,2,__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb,ref1011_via_lto,0x080084EC,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb
+0x0801541A,36,__sfputs_r,ref1011_via_lto,0x0801370A,exact,1.000,
+0x08015B48,268,__sflush_r,ref1011_via_lto,0x08013FC8,fuzzy,0.865,
+0x08015CCC,72,std,ref1011_via_lto,0x08013C34,exact,1.000,
+0x08015F88,34,__sread,ref1011_via_lto,0x08013D6A,exact,1.000,xrefs: std@0x08015CCC(ptr)
+0x08015FAA,56,__swrite,ref1011_via_lto,0x08013D8C,exact,1.000,xrefs: std@0x08015CCC(ptr)
+0x08016006,8,__sclose,ref1011_via_lto,0x08013DEA,exact,1.000,xrefs: std@0x08015CCC(ptr)
+0x08016020,24,spicfg,ref1011_via_lto,0x08014CEC,data,1.000,
+0x0801603C,24,connected_config,ref1011_via_lto,0x08014CBC,data,1.000,
+0x08016054,24,disconnected_config,ref1011_via_lto,0x08014CD4,data,1.000,
+0x0801606C,24,pairing_config,ref1011_via_lto,0x08014CA4,data,1.000,
+0x08016084,24,reconnecting_config,ref1011_via_lto,0x08014C8C,data,1.000,
+0x080160CC,16,key_comb_list,ref1011_via_lto,0x08014C02,data,1.000,
+0x080160E0,352,g_snled27351_leds,ref1011_via_lto,0x0801473C,data,1.000,
+0x08016240,16,encoder_map,ref1011_via_lto,0x0801472C,data,1.000,
+0x08016250,864,keymaps,ref1011_via_lto,0x080143CC,data,1.000,
+0x080165B0,54,CSWTCH.7,ref1011_via_lto,0x08014B2C,data-ambiguous,1.000,object bytes occur at 2 places
+0x080165E6,54,CSWTCH.7,ref1011_via_lto,0x08014B2C,data-ambiguous,1.000,object bytes occur at 2 places
+0x0801661C,72,col_pins|pins_col,ref1011_via_lto,0x08014C28,data-ambiguous,1.000,object bytes occur at 2 places
+0x08016664,24,pins_row|row_pins,ref1011_via_lto,0x08014C70,data-ambiguous,1.000,object bytes occur at 2 places
+0x080166B8,8,b_m16_interleave,ref1011_via_lto,0x080148A4,data,1.000,
+0x0801693E,18,DeviceDescriptor,ref1011_via_lto,0x0801438F,data,1.000,
+0x08016950,68,KeyboardReport,ref1011_via_lto,0x080142B4,data,1.000,
+0x08016998,20,ManufacturerString,ref1011_via_lto,0x0801431C,data,1.000,
+0x080169AC,36,ProductString,ref1011_via_lto,0x080142F8,data,1.000,
+0x080169D0,34,RawReport,ref1011_via_lto,0x08014292,data,1.000,
+0x080169F2,182,SharedReport,ref1011_via_lto,0x080141DC,data,1.000,
+0x08016B74,40,efl_lld_sect1,ref1011_via_lto,0x08014DAC,data-ambiguous,1.000,object bytes occur at 4 places
+0x08016B9C,48,efl_lld_sect2,ref1011_via_lto,0x08014D7C,data-ambiguous,1.000,object bytes occur at 3 places
+0x08016BCC,56,efl_lld_sect3,ref1011_via_lto,0x08014D44,data-ambiguous,1.000,object bytes occur at 2 places
+0x08016C04,64,efl_lld_sect4,ref1011_via_lto,0x08014D04,data,1.000,
+0x08016C44,28,efl_lld_size1,ref1011_via_lto,0x08014E28,data,1.000,
+0x08016C60,28,efl_lld_size2,ref1011_via_lto,0x08014E0C,data,1.000,
+0x08016C7C,28,efl_lld_size3,ref1011_via_lto,0x08014DF0,data,1.000,
+0x08016C98,28,efl_lld_size4,ref1011_via_lto,0x08014DD4,data,1.000,
+0x08016CB4,192,_stm32_dma_streams,ref1011_via_lto,0x08014E70,data,1.000,
+0x08016D98,12,fsparams,ref1011_via_lto,0x08014F58,data,1.000,
+0x08016DB0,168,gpio_default_config,ref1011_via_lto,0x08014FE4,data,1.000,
+0x08016E62,257,_ctype_,ref1011_via_lto,0x08015264,data,1.000,
+0x08017148,72,col_pins|pins_col,ref1011_via_lto,0x08014C28,data-ambiguous,1.000,object bytes occur at 2 places
+0x08017190,24,pins_row|row_pins,ref1011_via_lto,0x08014C70,data-ambiguous,1.000,object bytes occur at 2 places
+0x080171AC,372,g_led_config,ref1011_via_lto,0x080149B8,data,1.000,
+0x08017344,8,cs_pins,ref1011_via_lto,0x0801489C,data,1.000,
+0x080175BC,504,usb_endpoints_in,ref1011_via_lto,0x20000EE4,data,1.000,
+0x080177B4,136,usb_endpoints_out,ref1011_via_lto,0x20000E5C,data,1.000,

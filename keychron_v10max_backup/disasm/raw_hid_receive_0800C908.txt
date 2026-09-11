@@ -1,0 +1,9 @@
+; raw_hid_receive  dump 0x0800C908..0x0800C918 (16 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800c908:	7803      	ldrb	r3, [r0, #0]
+ 800c90a:	3baa      	subs	r3, #170	@ 0xaa
+ 800c90c:	2b01      	cmp	r3, #1
+ 800c90e:	d801      	bhi.n	0x800c914	; local
+ 800c910:	f7ff bfb0 	b.w	0x800c874	; -> via_command_kb
+ 800c914:	4770      	bx	lr

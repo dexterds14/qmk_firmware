@@ -1,0 +1,34 @@
+; tap_dance_task  dump 0x080120D0..0x08012120 (80 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 80120d0:	b537      	push	{r0, r1, r2, r4, r5, lr}
+ 80120d2:	4c10      	ldr	r4, [pc, #64]	@ (0x8012114)	; = 0x2000201C RAM 0x2000201C (unnamed)
+ 80120d4:	8823      	ldrh	r3, [r4, #0]
+ 80120d6:	b1d3      	cbz	r3, 0x801210e	; local
+ 80120d8:	4b0f      	ldr	r3, [pc, #60]	@ (0x8012118)	; = 0x2000201A RAM 0x2000201A (unnamed)
+ 80120da:	8818      	ldrh	r0, [r3, #0]
+ 80120dc:	f000 fa4f 	bl	0x801257e	; -> timer_elapsed
+ 80120e0:	2300      	movs	r3, #0
+ 80120e2:	4605      	mov	r5, r0
+ 80120e4:	4669      	mov	r1, sp
+ 80120e6:	8820      	ldrh	r0, [r4, #0]
+ 80120e8:	e9cd 3300 	strd	r3, r3, [sp]
+ 80120ec:	f7fb ff06 	bl	0x800defc	; -> get_tapping_term
+ 80120f0:	4285      	cmp	r5, r0
+ 80120f2:	d90c      	bls.n	0x801210e	; local
+ 80120f4:	7823      	ldrb	r3, [r4, #0]
+ 80120f6:	4809      	ldr	r0, [pc, #36]	@ (0x801211c)	; = 0x20000E7C RAM tap_dance_actions[] (.data)
+ 80120f8:	221c      	movs	r2, #28
+ 80120fa:	fb02 0003 	mla	r0, r2, r3, r0
+ 80120fe:	7943      	ldrb	r3, [r0, #5]
+ 8012100:	075b      	lsls	r3, r3, #29
+ 8012102:	d404      	bmi.n	0x801210e	; local
+ 8012104:	b003      	add	sp, #12
+ 8012106:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
+ 801210a:	f7ff bf55 	b.w	0x8011fb8	; -> process_tap_dance_action_on_dance_finished
+ 801210e:	b003      	add	sp, #12
+ 8012110:	bd30      	pop	{r4, r5, pc}
+ 8012112:	bf00      	nop
+ 08012114:	2000201c     	.word	0x2000201C	; RAM 0x2000201C (unnamed)
+ 08012118:	2000201a     	.word	0x2000201A	; RAM 0x2000201A (unnamed)
+ 0801211c:	20000e7c     	.word	0x20000E7C	; RAM tap_dance_actions[] (.data)

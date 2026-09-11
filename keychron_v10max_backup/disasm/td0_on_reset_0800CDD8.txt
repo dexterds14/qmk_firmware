@@ -1,0 +1,4 @@
+; td0_on_reset  dump 0x0800CDD8..0x0800CDDA (2 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800cdd8:	4770      	bx	lr

@@ -1,0 +1,16 @@
+; oneshot_layer_changed_user  dump 0x0800D25C..0x0800D27C (32 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800d25c:	b538      	push	{r3, r4, r5, lr}
+ 800d25e:	4604      	mov	r4, r0
+ 800d260:	b940      	cbnz	r0, 0x800d274	; local
+ 800d262:	4d05      	ldr	r5, [pc, #20]	@ (0x800d278)	; = 0x200015E9 RAM USER static (bss): return_to_mouse (u8) - TD(0) single tap on layer 4 (_MOUSE): after the oneshot layer finishes, oneshot_layer_changed_user moves back to layer 4
+ 800d264:	782b      	ldrb	r3, [r5, #0]
+ 800d266:	b12b      	cbz	r3, 0x800d274	; local
+ 800d268:	f000 fce4 	bl	0x800dc34	; -> layer_clear
+ 800d26c:	2004      	movs	r0, #4
+ 800d26e:	f000 fcf3 	bl	0x800dc58	; -> layer_move
+ 800d272:	702c      	strb	r4, [r5, #0]
+ 800d274:	bd38      	pop	{r3, r4, r5, pc}
+ 800d276:	bf00      	nop
+ 0800d278:	200015e9     	.word	0x200015E9	; RAM USER static (bss): return_to_mouse (u8) - TD(0) single tap on layer 4 (_MOUSE): after the oneshot layer finishes, oneshot_layer_changed_user moves back to layer 4

@@ -1,0 +1,45 @@
+; td0_on_dance_finished  dump 0x0800D1EC..0x0800D25C (112 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800d1ec:	b538      	push	{r3, r4, r5, lr}
+ 800d1ee:	f7ff ffe9 	bl	0x800d1c4	; -> td_cur_dance [user static]
+ 800d1f2:	2803      	cmp	r0, #3
+ 800d1f4:	d023      	beq.n	0x800d23e	; local
+ 800d1f6:	2804      	cmp	r0, #4
+ 800d1f8:	d028      	beq.n	0x800d24c	; local
+ 800d1fa:	2802      	cmp	r0, #2
+ 800d1fc:	d116      	bne.n	0x800d22c	; local
+ 800d1fe:	2004      	movs	r0, #4
+ 800d200:	f000 fd1c 	bl	0x800dc3c	; -> layer_state_is
+ 800d204:	4604      	mov	r4, r0
+ 800d206:	b140      	cbz	r0, 0x800d21a	; local
+ 800d208:	4b12      	ldr	r3, [pc, #72]	@ (0x800d254)	; = 0x200015E9 RAM USER static (bss): return_to_mouse (u8) - TD(0) single tap on layer 4 (_MOUSE): after the oneshot layer finishes, oneshot_layer_changed_user moves back to layer 4
+ 800d20a:	2201      	movs	r2, #1
+ 800d20c:	701a      	strb	r2, [r3, #0]
+ 800d20e:	f000 fd11 	bl	0x800dc34	; -> layer_clear
+ 800d212:	e8bd 4038 	ldmia.w	sp!, {r3, r4, r5, lr}
+ 800d216:	f7ff bde0 	b.w	0x800cdda	; -> td_oneshot_layer1_helper [user static]
+ 800d21a:	4d0f      	ldr	r5, [pc, #60]	@ (0x800d258)	; = 0x200015E8 RAM USER static (bss): move_to_lower (u8) - TD(0) single tap from base arms oneshot layer 1 (_LOWER)
+ 800d21c:	782b      	ldrb	r3, [r5, #0]
+ 800d21e:	b133      	cbz	r3, 0x800d22e	; local
+ 800d220:	f000 fd08 	bl	0x800dc34	; -> layer_clear
+ 800d224:	2001      	movs	r0, #1
+ 800d226:	f000 fd17 	bl	0x800dc58	; -> layer_move
+ 800d22a:	702c      	strb	r4, [r5, #0]
+ 800d22c:	bd38      	pop	{r3, r4, r5, pc}
+ 800d22e:	2001      	movs	r0, #1
+ 800d230:	f000 fd04 	bl	0x800dc3c	; -> layer_state_is
+ 800d234:	2800      	cmp	r0, #0
+ 800d236:	d1ea      	bne.n	0x800d20e	; local
+ 800d238:	2301      	movs	r3, #1
+ 800d23a:	702b      	strb	r3, [r5, #0]
+ 800d23c:	e7e9      	b.n	0x800d212	; local
+ 800d23e:	f000 fcf9 	bl	0x800dc34	; -> layer_clear
+ 800d242:	2004      	movs	r0, #4
+ 800d244:	e8bd 4038 	ldmia.w	sp!, {r3, r4, r5, lr}
+ 800d248:	f000 bd06 	b.w	0x800dc58	; -> layer_move
+ 800d24c:	f000 fcf2 	bl	0x800dc34	; -> layer_clear
+ 800d250:	2001      	movs	r0, #1
+ 800d252:	e7f7      	b.n	0x800d244	; local
+ 0800d254:	200015e9     	.word	0x200015E9	; RAM USER static (bss): return_to_mouse (u8) - TD(0) single tap on layer 4 (_MOUSE): after the oneshot layer finishes, oneshot_layer_changed_user moves back to layer 4
+ 0800d258:	200015e8     	.word	0x200015E8	; RAM USER static (bss): move_to_lower (u8) - TD(0) single tap from base arms oneshot layer 1 (_LOWER)

@@ -1,0 +1,13 @@
+; process_record_kb  dump 0x0800C6E8..0x0800C702 (26 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800c6e8:	b538      	push	{r3, r4, r5, lr}
+ 800c6ea:	4604      	mov	r4, r0
+ 800c6ec:	460d      	mov	r5, r1
+ 800c6ee:	f000 fd09 	bl	0x800d104	; -> process_record_user [user]
+ 800c6f2:	b128      	cbz	r0, 0x800c700	; local
+ 800c6f4:	4629      	mov	r1, r5
+ 800c6f6:	4620      	mov	r0, r4
+ 800c6f8:	e8bd 4038 	ldmia.w	sp!, {r3, r4, r5, lr}
+ 800c6fc:	f7ff bfd0 	b.w	0x800c6a0	; -> process_record_keychron
+ 800c700:	bd38      	pop	{r3, r4, r5, pc}

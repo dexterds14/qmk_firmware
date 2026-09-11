@@ -1,0 +1,12 @@
+; td_oneshot_layer1_helper  dump 0x0800CDDA..0x0800CDF4 (26 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800cdda:	b508      	push	{r3, lr}
+ 800cddc:	2001      	movs	r0, #1
+ 800cdde:	f000 ff41 	bl	0x800dc64	; -> layer_on
+ 800cde2:	2001      	movs	r0, #1
+ 800cde4:	2103      	movs	r1, #3
+ 800cde6:	f001 fb8d 	bl	0x800e504	; -> set_oneshot_layer
+ 800cdea:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+ 800cdee:	2001      	movs	r0, #1
+ 800cdf0:	f001 bbaa 	b.w	0x800e548	; -> clear_oneshot_layer_state

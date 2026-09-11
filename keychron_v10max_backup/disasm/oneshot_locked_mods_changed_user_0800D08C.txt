@@ -1,0 +1,4 @@
+; oneshot_locked_mods_changed_user  dump 0x0800D08C..0x0800D090 (4 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800d08c:	f7ff bfc0 	b.w	0x800d010	; -> osm_indicator_helper [user static]

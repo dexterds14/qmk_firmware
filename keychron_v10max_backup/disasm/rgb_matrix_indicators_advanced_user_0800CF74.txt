@@ -1,0 +1,66 @@
+; rgb_matrix_indicators_advanced_user  dump 0x0800CF74..0x0800D010 (156 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800cf74:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+ 800cf78:	4e20      	ldr	r6, [pc, #128]	@ (0x800cffc)	; = 0x2000162E RAM layer_state (u16; written by layer_state_set 0x0800DC24)
+ 800cf7a:	4f21      	ldr	r7, [pc, #132]	@ (0x800d000)	; = 0x20001630 RAM default_layer_state (u16; written by default_layer_state_set 0x0800DBD0)
+ 800cf7c:	f8df 808c 	ldr.w	r8, [pc, #140]	@ 0x800d00c	; = 0x200015DD RAM USER static (bss): gui_active (u8) - set by handle_oneshots/osm_indicator_helper when oneshot mods & 0x88; indicators -> yellow
+ 800cf80:	460d      	mov	r5, r1
+ 800cf82:	4604      	mov	r4, r0
+ 800cf84:	b2e3      	uxtb	r3, r4
+ 800cf86:	429d      	cmp	r5, r3
+ 800cf88:	d802      	bhi.n	0x800cf90	; local
+ 800cf8a:	2000      	movs	r0, #0
+ 800cf8c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+ 800cf90:	8830      	ldrh	r0, [r6, #0]
+ 800cf92:	883b      	ldrh	r3, [r7, #0]
+ 800cf94:	4318      	orrs	r0, r3
+ 800cf96:	b280      	uxth	r0, r0
+ 800cf98:	f000 fa76 	bl	0x800d488	; -> biton16
+ 800cf9c:	3801      	subs	r0, #1
+ 800cf9e:	2804      	cmp	r0, #4
+ 800cfa0:	d80a      	bhi.n	0x800cfb8	; local
+ 800cfa2:	e8df f000 	tbb	[pc, r0]	; case 0 -> 0x0800CFD6; case 1 -> 0x0800CFAC; case 2 -> 0x0800CFCE; case 3 -> 0x0800CFDC; case 4 -> 0x0800CFE2
+ 0800cfa6:	18 03 14 1b 1e 00	.byte	(tbb table, 5 entries)
+ 800cfac:	23ff      	movs	r3, #255	@ 0xff
+ 800cfae:	2200      	movs	r2, #0
+ 800cfb0:	2100      	movs	r1, #0
+ 800cfb2:	4620      	mov	r0, r4
+ 800cfb4:	f002 ff60 	bl	0x800fe78	; -> rgb_matrix_set_color
+ 800cfb8:	f898 3000 	ldrb.w	r3, [r8]
+ 800cfbc:	b1a3      	cbz	r3, 0x800cfe8	; local
+ 800cfbe:	22ff      	movs	r2, #255	@ 0xff
+ 800cfc0:	2300      	movs	r3, #0
+ 800cfc2:	4611      	mov	r1, r2
+ 800cfc4:	4620      	mov	r0, r4
+ 800cfc6:	f002 ff57 	bl	0x800fe78	; -> rgb_matrix_set_color
+ 800cfca:	3401      	adds	r4, #1
+ 800cfcc:	e7da      	b.n	0x800cf84	; local
+ 800cfce:	2300      	movs	r3, #0
+ 800cfd0:	2280      	movs	r2, #128	@ 0x80
+ 800cfd2:	21ff      	movs	r1, #255	@ 0xff
+ 800cfd4:	e7ed      	b.n	0x800cfb2	; local
+ 800cfd6:	2300      	movs	r3, #0
+ 800cfd8:	22ff      	movs	r2, #255	@ 0xff
+ 800cfda:	e7e9      	b.n	0x800cfb0	; local
+ 800cfdc:	2380      	movs	r3, #128	@ 0x80
+ 800cfde:	461a      	mov	r2, r3
+ 800cfe0:	e7e6      	b.n	0x800cfb0	; local
+ 800cfe2:	2300      	movs	r3, #0
+ 800cfe4:	461a      	mov	r2, r3
+ 800cfe6:	e7f4      	b.n	0x800cfd2	; local
+ 800cfe8:	4b06      	ldr	r3, [pc, #24]	@ (0x800d004)	; = 0x200015DE RAM USER static (bss): shift_active (u8) - set by handle_oneshots when oneshot mods & 0x22; indicators -> white
+ 800cfea:	4a07      	ldr	r2, [pc, #28]	@ (0x800d008)	; = 0x200015DC RAM USER static (bss): caps-lock-active flag (u8) - set/cleared in process_record_user from host_keyboard_led_state().caps_lock on KC_CAPS press; lights white in indicators (sibling source: caps_active)
+ 800cfec:	781b      	ldrb	r3, [r3, #0]
+ 800cfee:	7812      	ldrb	r2, [r2, #0]
+ 800cff0:	4313      	orrs	r3, r2
+ 800cff2:	d0ea      	beq.n	0x800cfca	; local
+ 800cff4:	23ff      	movs	r3, #255	@ 0xff
+ 800cff6:	461a      	mov	r2, r3
+ 800cff8:	4619      	mov	r1, r3
+ 800cffa:	e7e3      	b.n	0x800cfc4	; local
+ 0800cffc:	2000162e     	.word	0x2000162E	; RAM layer_state (u16; written by layer_state_set 0x0800DC24)
+ 0800d000:	20001630     	.word	0x20001630	; RAM default_layer_state (u16; written by default_layer_state_set 0x0800DBD0)
+ 0800d004:	200015de     	.word	0x200015DE	; RAM USER static (bss): shift_active (u8) - set by handle_oneshots when oneshot mods & 0x22; indicators -> white
+ 0800d008:	200015dc     	.word	0x200015DC	; RAM USER static (bss): caps-lock-active flag (u8) - set/cleared in process_record_user from host_keyboard_led_state().caps_lock on KC_CAPS press; lights white in indicators (sibling source: caps_active)
+ 0800d00c:	200015dd     	.word	0x200015DD	; RAM USER static (bss): gui_active (u8) - set by handle_oneshots/osm_indicator_helper when oneshot mods & 0x88; indicators -> yellow

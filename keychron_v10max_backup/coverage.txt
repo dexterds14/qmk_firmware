@@ -1,0 +1,215 @@
+funcmatch coverage report
+dump: /Users/dexter/code/qmk-keychron/keychron_v10max_backup/dump_a.bin
+refs: /Users/dexter/code/qmk-keychron/keychron_v10max_backup/refs/refsyms_ref1011_feat.json, /Users/dexter/code/qmk-keychron/keychron_v10max_backup/refs/refsyms_ref1011_default.json, /Users/dexter/code/qmk-keychron/keychron_v10max_backup/refs/refsyms_ref1011_via.json, /Users/dexter/code/qmk-keychron/keychron_v10max_backup/refs/refsyms_ref1011_feat_lto.json, /Users/dexter/code/qmk-keychron/keychron_v10max_backup/refs/refsyms_ref1011_default_lto.json, /Users/dexter/code/qmk-keychron/keychron_v10max_backup/refs/refsyms_ref1011_via_lto.json
+code region: flash 0x08008000-0x08017F04 (65284 bytes)
+
+exact function bytes       :  21036 (32.22%)  [609 ranges, 65 ambiguous-unresolved]
+fuzzy function bytes       :   6332 (9.70%)  [49 ranges, threshold 0.85]
+fuzzy-anchored bytes       :  12406 (19.00%)  [115 ranges, threshold 0.50; NOT stock, similar-only]
+data object bytes          :   3851 (5.90%)  [34 ranges]
+function coverage (exact+fuzzy) : 41.92%
+total assigned (incl. data, anchored): 66.82%
+unmatched bytes            :  21659 (33.18%) in 138 regions (73 regions >= 32 bytes, 21155 bytes)
+
+per-reference-ELF participation in exact matches (bytes; "only" = matched by no other ELF):
+  ref1011_feat            20968 bytes  only-this-elf    496
+  ref1011_default         20534 bytes  only-this-elf      0
+  ref1011_via             19738 bytes  only-this-elf      0
+  ref1011_feat_lto         5138 bytes  only-this-elf      0
+  ref1011_default_lto      5132 bytes  only-this-elf      0
+  ref1011_via_lto          5234 bytes  only-this-elf      0
+  functions exact-matched per ELF: ref1011_feat=606, ref1011_default=598, ref1011_via=577, ref1011_feat_lto=217, ref1011_default_lto=216, ref1011_via_lto=220
+
+key objects:
+  keymaps          at 0x080169B8 size 1296 (data)
+
+tap dance / .data mapping:
+  crt0 literal triple at 0x080080F8 (words 0801774C 20000C00 200013B8): __textdata_base__=0x0801774C __data_base__=0x20000C00 __data_end__=0x200013B8 (.data 1976 bytes)
+  cross-check, literal votes from matched code (may alias objects at the same address): __textdata_base__=n/a __data_base__=0x20000C5C (lit in bt_transport_enable@0x0800B990+0x5C) __data_end__=n/a
+  tap_dance_actions RAM address (literal votes): 0x20000E7C via lit in process_tap_dance@0x08012040+0x84
+  tap_dance_actions init image in flash: 0x080179C8 (file 0x179C8)
+    td[0]: on_each_tap=NULL on_dance_finished=0x0800D1ED(UNMATCHED) on_reset=0x0800CDD9(UNMATCHED) on_each_release=NULL user_data=0x00000000
+    callback 0x0800D1ED is in unmatched code, estimated extent (to next function start): 112 bytes
+    callback 0x0800CDD9 is in unmatched code, estimated extent (to next function start): 28 bytes
+
+hooks (see hooks.csv):
+  process_record_user                  0x0800D104   192    UNMATCHED-custom-code-candidate  bl from process_record_kb@0x0800C6E8+0x6
+  process_record_kb                    0x0800C6E8   26     exact  
+  process_record_keychron              0x0800C6A0   38     fuzzy-anchored  process_record_keychron:b.w from process_record_kb@0x0800C6E8+0x14
+  process_record_keychron_common       0x0800C720   188    exact  
+  process_record_quantum               0x0800D3B6   166    fuzzy-anchored  process_record_quantum:bl from process_record@0x0800DAD8+0x8
+  housekeeping_task_user               0x0800E768   2      exact-ambiguous  housekeeping_task_user:bl from housekeeping_task@0x0800E76A+0x6
+  housekeeping_task_kb                 0x0800C714   4      exact-ambiguous  housekeeping_task_kb:bl from housekeeping_task@0x0800E76A+0x2
+  matrix_scan_user                     0x0800ED16   2      exact-ambiguous  matrix_scan_user:bl from matrix_scan_kb@0x0800ED18+0x2
+  matrix_scan_kb                       0x0800ED18   8      exact-ambiguous  matrix_scan_kb:bl(fuzzy-paired) from matrix_scan@0x0800EE8C+0x58
+  keyboard_post_init_user              0x0800CF60   20     UNMATCHED-custom-code-candidate  b.w(fuzzy-paired) from keyboard_post_init_kb@0x0800CD38+0x3E
+  keyboard_post_init_kb                0x0800CD38   80     fuzzy-anchored  keyboard_post_init_kb:bl from keyboard_init@0x0800E788+0x16
+  keyboard_pre_init_user               0x0800E732   2      exact-ambiguous  keyboard_pre_init_user:bl from keyboard_pre_init_kb@0x0800E734+0x2
+  keyboard_pre_init_kb                 0x0800E734   8      exact-ambiguous  keyboard_pre_init_kb:bl from keyboard_setup@0x0800E740+0x10
+  layer_state_set_user                 0x0800DC18   2      exact-ambiguous  layer_state_set_user:bl from layer_state_set_kb@0x0800DC1A+0x2
+  layer_state_set_kb                   0x0800DC1A   8      exact-ambiguous  layer_state_set_kb:b.w from magic@0x0800ECCC+0x30
+  default_layer_state_set_user         0x0800DBC4   2      exact-ambiguous  default_layer_state_set_user:bl from default_layer_state_set_kb@0x0800DBC6+0x2
+  default_layer_state_set_kb           0x0800DBC6   8      exact-ambiguous  default_layer_state_set_kb:bl from default_layer_state_set@0x0800DBD0+0x2
+  rgb_matrix_indicators_kb             0x0800C702   18     UNMATCHED-custom-code-candidate  bl(fuzzy-paired) from rgb_matrix_task@0x08011058+0xC8
+  rgb_matrix_indicators_advanced_user  0x0800CF74   276    UNMATCHED-custom-code-candidate  bl from rgb_matrix_indicators_advanced_kb@0x08010C4C+0x2
+  rgb_matrix_indicators_advanced_kb    0x08010C4C   8      exact-ambiguous  rgb_matrix_indicators_advanced_kb:bl(fuzzy-paired) from rgb_matrix_indicators_advanced@0x08010C54+0x12
+  dip_switch_update_kb                 0x0800CD18   32     UNMATCHED-custom-code-candidate  bl(fuzzy-paired) from dip_switch_read@0x0801189C+0x20
+  dip_switch_update_mask_kb            0x08011894   8      exact-ambiguous  dip_switch_update_mask_kb:bl(fuzzy-paired) from dip_switch_read@0x0801189C+0x26
+  dip_switch_update_mask_user          0x08011890   4      exact-ambiguous  dip_switch_update_mask_user:bl from dip_switch_update_mask_kb@0x08011894+0x2
+  keycode_at_encodermap_location_raw   0x0800D2A8   32     fuzzy-anchored  keycode_at_encodermap_location_raw:b.w from keycode_at_encodermap_location@0x0800D2C8+0x0
+  keycode_at_keymap_location_raw       0x0800D27C   40     UNMATCHED-custom-code-candidate  b.w from keycode_at_keymap_location@0x0800D2A4+0x0
+  leader_start_user                    0x0800CDF4   10     UNMATCHED-custom-code-candidate  bl from leader_start@0x08011940+0x8
+  leader_end_user                      0x0800CDFE   354    UNMATCHED-custom-code-candidate  bl from leader_end@0x0801197C+0x8
+  raw_hid_receive                      0x0800C908   14     exact  raw_hid_receive:bl(fuzzy-paired) from raw_hid_task@0x08012C1C+0x1C
+  eeconfig_init_user                   0x0800E61E   6      exact-ambiguous  eeconfig_init_user:bl from eeconfig_init_kb@0x0800E624+0x8
+  eeconfig_init_kb                     0x0800E624   14     exact  
+  process_tap_dance                    0x08012040   144    exact  
+  tap_dance_task                       0x080120D0   68     fuzzy-anchored  tap_dance_task:bl from quantum_task@0x0800E7A4+0x2
+  preprocess_tap_dance                 0x08012000   64     fuzzy  
+  leader_task                          0x080119DC   28     exact  leader_task:bl from quantum_task@0x0800E7A4+0x6
+  shutdown_user                        0x0800D370   4      exact-ambiguous  shutdown_user:bl from shutdown_kb@0x0800D374+0x2
+  shutdown_kb                          0x0800D374   8      exact-ambiguous  shutdown_kb:bl from shutdown_quantum@0x0800D37C+0xA
+  suspend_power_down_user              0x08012458   2      exact-ambiguous  suspend_power_down_user:bl from suspend_power_down_kb@0x0801245A+0x2
+  suspend_power_down_kb                0x0801245A   8      exact-ambiguous  suspend_power_down_kb:bl from suspend_power_down_quantum@0x0800D45C+0x2
+  suspend_wakeup_init_user             0x08012462   2      exact-ambiguous  suspend_wakeup_init_user:bl from suspend_wakeup_init_kb@0x08012464+0x2
+  suspend_wakeup_init_kb               0x08012464   8      exact-ambiguous  suspend_wakeup_init_kb:b.w from suspend_wakeup_init_quantum@0x0800D474+0x10
+  led_update_user                      0x0800D4B2   4      exact-ambiguous  led_update_user:bl from led_update_kb@0x0800B91C+0x4
+  led_update_kb                        0x0800B91C   84     exact  led_update_kb:bl from led_set@0x0800D4BA+0xA
+  pre_process_record_user              0x0800D2CC   4      exact-ambiguous  pre_process_record_user:bl from pre_process_record_kb@0x0800D2D0+0x2
+  pre_process_record_kb                0x0800D2D0   8      exact-ambiguous  pre_process_record_kb:bl from pre_process_record_quantum@0x0800D34C+0xC
+  post_process_record_user             0x0800D2DC   2      exact-ambiguous  post_process_record_user:bl from post_process_record_kb@0x0800D2DE+0x2
+  post_process_record_kb               0x0800D2DE   8      exact-ambiguous  post_process_record_kb:bl from post_process_record_quantum@0x0800D35E+0xC
+  wireless_pre_task                    0x0800C5EC   176    fuzzy-anchored  wireless_pre_task:bl from wireless_tasks@0x0800B972+0x2
+  wireless_post_task                   0x0800B970   2      exact-ambiguous  wireless_post_task:bl from wireless_tasks@0x0800B972+0xA
+  keyboard_init                        0x0800E788   28     exact  keyboard_init:bl from protocol_init@0x0800F060+0x6
+  keyboard_task                        0x0800E7B8   248    fuzzy-anchored  keyboard_task:bl from protocol_task@0x0800F072+0x6
+  main                                 0x0800F084   28     exact  main:bl from endinitloop@0x080080C8+0x0
+  rgb_matrix_map_row_column_to_led_kb  0x0800FE40   4      exact-ambiguous  rgb_matrix_map_row_column_to_led_kb:bl from rgb_matrix_map_row_column_to_led@0x0800FE44+0x8
+  oneshot_locked_mods_changed_kb       0x0800E38C          vote points inside bootmagic|default_layer_state_set_kb|dip_switch_update_mask_kb|host_keyboard_led_state|keyboard_pre_init_kb|layer_state_set_kb|matrix_init_kb|matrix_output_unselect_delay|matrix_scan_kb|notify_usb_device_state_change_kb|oneshot_layer_changed_kb|oneshot_locked_mods_changed_kb|oneshot_mods_changed_kb|post_process_record_kb|pre_process_record_kb|rgb_matrix_indicators_advanced_kb|should_process_keypress|shutdown_kb|suspend_power_down_kb|suspend_wakeup_init_kb@0x0800E38C+0x0 (exact-ambiguous)  bl from add_oneshot_locked_mods@0x0800E394+0x10 ; other names voted here: oneshot_mods_changed_kb
+  oneshot_mods_changed_kb              0x0800E3E4   8      exact-ambiguous  oneshot_mods_changed_kb:bl from clear_oneshot_mods@0x0800E424+0xC
+  oneshot_mods_changed_kb              0x0800E38C          vote points inside bootmagic|default_layer_state_set_kb|dip_switch_update_mask_kb|host_keyboard_led_state|keyboard_pre_init_kb|layer_state_set_kb|matrix_init_kb|matrix_output_unselect_delay|matrix_scan_kb|notify_usb_device_state_change_kb|oneshot_layer_changed_kb|oneshot_locked_mods_changed_kb|oneshot_mods_changed_kb|post_process_record_kb|pre_process_record_kb|rgb_matrix_indicators_advanced_kb|should_process_keypress|shutdown_kb|suspend_power_down_kb|suspend_wakeup_init_kb@0x0800E38C+0x0 (exact-ambiguous)  bl from clear_oneshot_mods@0x0800E3B0+0xC ; other names voted here: oneshot_locked_mods_changed_kb
+  keychron_task_kb                     0x0800CD88   48     exact  keychron_task_kb:bl from keychron_task@0x0800C6D4+0xE
+  oneshot_layer_changed_kb             0x0800E4FC   8      exact-ambiguous  oneshot_layer_changed_kb:bl from reset_oneshot_layer@0x0800E534+0x8
+  notify_usb_device_state_change_kb    0x08012406   8      exact-ambiguous  notify_usb_device_state_change_kb:bl from usb_device_state_set_configuration@0x08012410+0xA
+  led_set_user                         0x0800D4B0   2      exact-ambiguous  led_set_user:bl from led_set@0x0800D4BA+0x4
+  via_command_kb                       0x0800C874   148    exact  via_command_kb:b.w from raw_hid_receive@0x0800C908+0x8
+  eeconfig_update_kb                   0x0800E60E   8      exact  eeconfig_update_kb:bl from eeconfig_init_kb@0x0800E624+0x4
+  oneshot_mods_changed_user            0x0800D088   8      UNMATCHED-custom-code-candidate  bl from oneshot_mods_changed_kb@0x0800E3E4+0x2
+  oneshot_layer_changed_user           0x0800D25C   32     UNMATCHED-custom-code-candidate  bl from oneshot_layer_changed_kb@0x0800E4FC+0x2
+  notify_usb_device_state_change_user  0x08012404   2      exact-ambiguous  notify_usb_device_state_change_user:bl from notify_usb_device_state_change_kb@0x08012406+0x2
+  eeconfig_update_user                 0x0800E616   8      exact  eeconfig_update_user:b.w from eeconfig_init_user@0x0800E61E+0x2
+  wireless_enter_reset_kb              0x0800C594   4      UNMATCHED-custom-code-candidate  bl(fuzzy-paired) from wireless_event_task@0x0800A570+0x26
+  wireless_enter_connected_kb          0x0800A430   2      exact-ambiguous  wireless_enter_connected_kb:bl(fuzzy-paired) from wireless_event_task@0x0800A570+0x44
+  wireless_enter_discoverable_kb       0x0800A42C   2      exact-ambiguous  wireless_enter_discoverable_kb:bl(fuzzy-paired) from wireless_event_task@0x0800A570+0x78
+  wireless_enter_reconnecting_kb       0x0800A42E   2      exact-ambiguous  wireless_enter_reconnecting_kb:bl(fuzzy-paired) from wireless_event_task@0x0800A570+0x92
+  wireless_enter_disconnected_kb       0x0800C598   44     exact  wireless_enter_disconnected_kb:bl(fuzzy-paired) from wireless_event_task@0x0800A570+0xDE
+  wireless_enter_bluetooth_pin_code_entry_kb 0x0800A432   2      exact-ambiguous  wireless_enter_bluetooth_pin_code_entry_kb:bl(fuzzy-paired) from wireless_event_task@0x0800A570+0x106
+  wireless_exit_bluetooth_pin_code_entry_kb 0x0800A434   2      exact-ambiguous  wireless_exit_bluetooth_pin_code_entry_kb:bl(fuzzy-paired) from wireless_event_task@0x0800A570+0x11C
+  wireless_enter_sleep_kb              0x0800A436   2      exact-ambiguous  wireless_enter_sleep_kb:bl(fuzzy-paired) from wireless_event_task@0x0800A570+0x138
+  matrix_init_kb                       0x0800ED0E   8      exact-ambiguous  matrix_init_kb:b.w(fuzzy-paired) from matrix_init@0x0800EE58+0x26
+  process_record_keychron_kb           0x0800C69C   4      UNMATCHED-custom-code-candidate  bl(fuzzy-paired) from process_record_keychron@0x0800C6A0+0x20
+  matrix_init_user                     0x0800ED0C   2      exact-ambiguous  matrix_init_user:bl from matrix_init_kb@0x0800ED0E+0x2
+  tap_dance_actions[0].fn.on_dance_finished 0x0800D1EC   112    UNMATCHED-custom-code-candidate  pointer 0x0800D1ED in tap_dance_actions init image
+  tap_dance_actions[0].fn.on_reset     0x0800CDD8   28     UNMATCHED-custom-code-candidate  pointer 0x0800CDD9 in tap_dance_actions init image
+  not found (no body, no caller vote): rgb_matrix_indicators_user, dip_switch_update_user, encoder_update_user, encoder_update_kb, raw_hid_receive_kb, get_tapping_term, process_leader, via_custom_value_command_kb, process_record_via, get_hold_on_other_key_press, get_permissive_hold, get_retro_tapping, battery_low_user
+
+unmatched regions >= 32 bytes:
+  0x080080DC size    64 code                         starts[] sugg[] callers[] callees[0x080080DC->0x080134F0]
+  0x08008188 size   700 code                         starts[] sugg[0x08008188=__udivmoddi4] callers[0x08008188<-__aeabi_uldivmod@0x08008158(bl)] callees[]
+  0x08008446 size   418 code                         starts[0x080084AC 0x08008544 0x080085BC] sugg[0x080084AC=rand 0x080085BC=itoa] callers[0x080084AC<-DIGITAL_RAIN@0x0800FEF0(bl~) 0x080085BC<-factory_test_rx@0x0800CB90(bl) 0x080085BC<-factory_test_rx@0x0800CB90(bl) 0x080085BC<-factory_test_rx@0x0800CB90(bl)] callees[0x0800845E->free|malloc|raise 0x0800848E->0x08008544 0x080084DC->free|malloc|raise 0x08008510->0x08008544 0x08008564->0x080089AC 0x08008568->abort 0x0800858A->0x08008544 0x0800859E->0x080085F8 0x08008]
+  0x080085F6 size   888 code                         starts[0x080085F8 0x080086C0 0x08008798 0x0800883C] sugg[0x08008798=memset 0x0800883C=memcpy 0x0800883C=wear_leveling_append_raw] callers[0x08008798<-wireless_low_battery_shutdown@0x0800A4E8(bl) 0x08008798<-lkbt51_dfu_tx@0x0800AF8C(bl) 0x08008798<-lkbt51_dfu_tx@0x0800AF8C(bl) 0x0800883C<-factory_test_rx@0x0800CB90(bl) 0x0800883C<-factor] callees[]
+  0x08008990 size  2484 code                         starts[0x080089AC 0x080089D4 0x08008A30 0x08008A6C 0x08008ABC 0x08008DE4 0x0800920C] sugg[0x080089D4=memcmp 0x0800920C=raise] callers[0x080089D4<-lpm_task@0x0800BDCC(bl) 0x080089D4<-send_6kro_report@0x0800E46C(bl) 0x080089D4<-send_nkro_report@0x0800E4A4(bl) 0x0800920C<-abort@0x080085E8(bl)] callees[0x0800899E->0x08008ABC 0x080089C0->0x08008ABC 0x08008A88->0x08008A30 0x08008AAC->0x08008DE4 0x08008B56->memchr 0x08008B9E->memchr 0x08008BC0->memchr 0x08008C0C->0x08009B00 0x08008C3E->0x08008A30 0x080]
+  0x080093A0 size  1728 code                         starts[0x080093A4 0x08009518 0x0800968C 0x08009710 0x08009758 0x08009858 0x08009914 0x08009A14] sugg[0x0800968C=_fflush_r 0x08009858=_free_r 0x08009A14=_fwalk_sglue] callers[0x0800968C<-stdio_exit_handler@0x08009348(ptr) 0x0800968C<-cleanup_stdio@0x08009360(bl~) 0x0800968C<-cleanup_stdio@0x08009360(bl~) 0x08009858<-free@0x08008980(b) 0x08009A14<-stdio_exit_handler@0x08009] callees[0x080093D8->0x08008798 0x08009404->0x08008798 0x0800943A->0x08008798 0x080094BA->0x08008798 0x080094D8->0x08009758 0x080094F2->0x08008798 0x080094FC->0x080093A4 0x080095E6->0x08009858 0x080096B6->0x08]
+  0x08009B00 size  1656 code                         starts[0x08009BC4 0x08009C28 0x08009D4C 0x08009FD0 0x08009FD4 0x08009FD8 0x0800A0EC 0x0800A114 0x0800A154] sugg[] callers[] callees[0x08009B76->0x08009FD8 0x08009B90->0x08009858 0x08009BAC->0x08009518 0x08009BD2->0x0800A180 0x08009BE6->0x08009758 0x08009BF8->0x0800883C 0x08009C00->0x08009858 0x08009C14->0x08009858 0x08009DE4->0x08]
+  0x0800A180 size    58 code                         starts[0x0800A190] sugg[] callers[] callees[0x0800A1A2->_exit|_kill]
+  0x0800A33C size   100 code                         starts[] sugg[] callers[] callees[0x0800A342->battery_is_critical_low 0x0800A374->0x0800883C 0x0800A37A->report_buffer_enqueue 0x0800A390->wireless_connect]
+  0x0800A98C size   148 code                         starts[] sugg[0x0800A98C=lkbt51_init] callers[0x0800A98C<-keyboard_post_init_kb@0x0800CD38(bl~)] callees[0x0800A99C->_pal_lld_setgroupmode 0x0800A9A4->chThdSleep 0x0800A9B8->_pal_lld_setgroupmode 0x0800A9C6->_pal_lld_setgroupmode 0x0800A9D2->_pal_lld_setgroupmode 0x0800A9DE->_pal_lld_setgroupmode 0x0800A]
+  0x0800AB3C size   224 code                         starts[0x0800AB70 0x0800ABA4 0x0800ABDC] sugg[] callers[] callees[0x0800AB48->0x08008798 0x0800AB58->0x0800883C 0x0800AB7C->0x08008798 0x0800AB8C->0x0800883C 0x0800ABB0->0x08008798 0x0800ABF2->0x08008798 0x0800AB68->lkbt51_send_cmd 0x0800AB9C->lkbt51_send_cmd 0x0800]
+  0x0800AC68 size   440 code                         starts[0x0800ACEC 0x0800AD2C 0x0800AD70 0x0800ADA0 0x0800ADF8] sugg[0x0800ADA0=lkbt51_read 0x0800ADF8=lkbt51_send_conn_evt_ack] callers[0x0800ADA0<-lkbt51_task@0x0800B008(bl~) 0x0800ADF8<-lkbt51_task@0x0800B008(bl~)] callees[0x0800AC76->0x08008798 0x0800ACAC->0x080086C0 0x0800ACB6->0x0800883C 0x0800ACBC->0x080086C0 0x0800ACC4->lkbt51_wake 0x0800ACFA->0x08008798 0x0800AD14->lkbt51_wake 0x0800AD36->0x08008798 0x0800AD44->sp]
+  0x0800AE58 size   160 code                         starts[0x0800AE88 0x0800AEBC] sugg[0x0800AE58=lkbt51_update_bat_state 0x0800AE88=lkbt51_set_param 0x0800AEBC=lkbt51_set_local_name] callers[0x0800AE58<-battery_task@0x0800C1E0(bl~) 0x0800AE88<-lkbt51_param_init@0x0800C54C(bl~) 0x0800AEBC<-lkbt51_param_init@0x0800C54C(bl~)] callees[0x0800AE64->0x08008798 0x0800AE94->0x08008798 0x0800AEA4->0x0800883C 0x0800AEC0->0x080086C0 0x0800AECE->0x08008798 0x0800AEDE->0x0800883C 0x0800AE80->lkbt51_send_cmd 0x0800AEB4->lkbt51_send_cmd 0x0800]
+  0x0800C072 size   210 code                         starts[0x0800C074 0x0800C0EC] sugg[0x0800C074=battery_calculate_voltage 0x0800C0EC=battery_get_percentage] callers[0x0800C074<-lkbt51_task@0x0800B008(bl~) 0x0800C0EC<-wireless_event_task@0x0800A570(bl~) 0x0800C0EC<-process_record_keychron_wireless@0x0800C4B4(bl~)] callees[0x0800C08A->rgb_matrix_is_enabled]
+  0x0800CCF0 size    72 code                         starts[0x0800CD18] sugg[0x0800CD18=dip_switch_update_kb] callers[0x0800CD18<-dip_switch_read@0x0801189C(bl~)] callees[0x0800CD08->factory_test_send 0x0800CD28->default_layer_set 0x0800CD30->0x0800CCF0]
+  0x0800CDD8 size  1228 code                         starts[0x0800CDF4 0x0800CDFE 0x0800CF60 0x0800CF74 0x0800D088 0x0800D090 0x0800D104 0x0800D1C4 0x0800D1EC 0x0800D25C 0x0800D27C] sugg[0x0800CDF4=leader_start_user 0x0800CDFE=leader_end_user 0x0800CF60=keyboard_post_init_user 0x0800CF74=rgb_matrix_indicators_advanced_user 0x0800D088=oneshot_mod] callers[0x0800CDF4<-leader_start@0x08011940(bl) 0x0800CDFE<-leader_end@0x0801197C(bl) 0x0800CF60<-keyboard_post_init_kb@0x0800CD38(b.w~) 0x0800CF74<-rgb_matrix_indicators_advanced_kb@0x08010C4C(bl) 0x0800D088] callees[0x0800CDDE->layer_on 0x0800CDE6->set_oneshot_layer 0x0800CE06->rgb_matrix_set_color_all 0x0800CE0C->0x08011A3C 0x0800CE14->register_code 0x0800CE1A->register_code 0x0800CE20->unregister_code 0x0800CE2]
+  0x0800D2E6 size    78 code                         starts[0x0800D2E8] sugg[0x0800D2E8=get_event_keycode] callers[0x0800D2E8<-get_record_keycode@0x0800D334(b.w~)] callees[0x0800D2FE->layer_switch_get_layer 0x0800D308->update_source_layers_cache 0x0800D31C->read_source_layers_cache 0x0800D326->layer_switch_get_layer 0x0800D316->keymap_key_to_keycode]
+  0x0800D50C size    64 code                         starts[] sugg[0x0800D50C=action_exec] callers[0x0800D50C<-encoder_read@0x080116D0(bl~) 0x0800D50C<-encoder_read@0x080116D0(bl~) 0x0800D50C<-encoder_read@0x080116D0(bl~)] callees[0x0800D51A->clear_weak_mods 0x0800D538->0x0800E21C 0x0800D542->pre_process_record_quantum]
+  0x0800DB52 size   102 code                         starts[0x0800DB94 0x0800DBAC] sugg[] callers[] callees[0x0800DB9E->layer_switch_get_action]
+  0x0800DE98 size    32 code                         starts[] sugg[] callers[] callees[0x0800DEB0->debug_record]
+  0x0800DEFC size   996 code                         starts[0x0800DF00 0x0800DF94 0x0800E21C] sugg[] callers[] callees[0x0800DF4C->get_record_keycode 0x0800DF52->0x0800DEFC 0x0800DF70->process_record 0x0800DFA8->0x0800883C 0x0800DFD4->0x0800DB94 0x0800DFE4->0x0800883C 0x0800DFEA->process_record_tap_hint 0x0800DFEE->0x]
+  0x0800E632 size   146 code                         starts[0x0800E634] sugg[0x0800E634=eeconfig_init_quantum] callers[0x0800E634<-eeconfig_init@0x0800E6C4(b)] callees[0x0800E636->eeprom_driver_erase 0x0800E640->eeprom_update_word 0x0800E648->eeprom_update_byte|eeprom_update_dword|eeprom_update_word 0x0800E654->eeprom_update_byte|eeprom_update_dword|eeprom_update_wo]
+  0x0800E6C8 size    56 code                         starts[] sugg[0x0800E6C8=generate_tick_event] callers[0x0800E6C8<-keyboard_task@0x0800E7B8(bl~)] callees[0x0800E6CC->timer_read 0x0800E6DE->timer_read 0x0800E6F0->0x0800D50C]
+  0x0800EBBC size   196 code                         starts[] sugg[0x0800EBBC=mod_config] callers[0x0800EBBC<-action_for_keycode@0x0800E8B0(bl~) 0x0800EBBC<-action_for_keycode@0x0800E8B0(bl~) 0x0800EBBC<-action_for_keycode@0x0800E8B0(bl~)] callees[]
+  0x0800EDB8 size   160 code                         starts[] sugg[0x0800EDB8=matrix_read_rows_on_col] callers[0x0800EDB8<-matrix_scan@0x0800EE8C(bl~)] callees[0x0800EDE8->_pal_lld_setgroupmode 0x0800EDF6->matrix_output_select_delay 0x0800EE36->setPinInputHigh_atomic 0x0800EE42->bootmagic|default_layer_state_set_kb|dip_switch_update_mask_kb|host_keyboard_led]
+  0x0800EEF8 size    36 code                         starts[] sugg[0x0800EEF8=debounce_init] callers[0x0800EEF8<-matrix_init@0x0800EE58(bl~)] callees[0x0800EF02->free|malloc|raise 0x0800EF12->0x08008798]
+  0x0800EF30 size   304 code                         starts[] sugg[0x0800EF30=debounce] callers[0x0800EF30<-matrix_scan@0x0800EE8C(bl~)] callees[0x0800EF4C->timer_read32 0x0800EF98->timer_read32]
+  0x0800F460 size   252 code                         starts[] sugg[0x0800F460=wear_leveling_init] callers[0x0800F460<-eeprom_driver_init@0x0800F1C4(b)] callees[0x0800F464->wear_leveling_clear_cache 0x0800F468->0x0800F5F4 0x0800F46E->wear_leveling_clear_cache 0x0800F486->backing_store_read_bulk 0x0800F49A->fnv_64a_buf 0x0800F4AA->backing_store_read_bulk 0x080]
+  0x0800F574 size    64 code                         starts[] sugg[0x0800F574=backing_store_erase] callers[0x0800F574<-wear_leveling_erase@0x0800F244(bl) 0x0800F574<-wear_leveling_consolidate_force@0x0800F2E8(bl~)] callees[0x0800F59C->0x08013FF4]
+  0x0800F5F4 size   136 code                         starts[] sugg[] callers[] callees[0x0800F5FE->backing_store_lock 0x0800F626->flashGetSectorSize 0x0800F63A->flashGetSectorOffset 0x0800F658->chSysHalt]
+  0x0800F770 size    48 code                         starts[0x0800F776 0x0800F780 0x0800F78A 0x0800F794] sugg[] callers[] callees[0x0800F774->hsv_to_rgb_impl+0x1E 0x0800F77E->hsv_to_rgb_impl+0x1E 0x0800F788->hsv_to_rgb_impl+0x1E 0x0800F792->hsv_to_rgb_impl+0x1E 0x0800F798->hsv_to_rgb_impl+0x1E]
+  0x0800F7F8 size   104 code                         starts[0x0800F81C] sugg[] callers[] callees[]
+  0x0800F8F8 size    84 code                         starts[] sugg[] callers[] callees[]
+  0x0800F97E size    74 code                         starts[] sugg[] callers[] callees[0x0800F99A->sqrt16]
+  0x0800FC20 size    70 code                         starts[] sugg[0x0800FC20=atan2_8] callers[0x0800FC20<-CYCLE_SPIRAL_math@0x0800FCDC(bl~) 0x0800FC20<-BAND_SPIRAL_VAL_math@0x0800FC66(bl~) 0x0800FC20<-CYCLE_PINWHEEL_math@0x0800FCAC(bl~)] callees[]
+  0x0800FD38 size   220 code                         starts[] sugg[] callers[] callees[0x0800FDE0->sqrt16]
+  0x0800FE78 size   108 code                         starts[0x0800FE8C] sugg[0x0800FE78=rgb_matrix_set_color] callers[0x0800FE78<-bat_level_animiation_indicate@0x0800C314(bl) 0x0800FE78<-bat_level_animiation_indicate@0x0800C314(bl) 0x0800FE78<-os_state_indicate@0x0800B494(b)] callees[0x0800FE9C->0x0800F7F8 0x0800FEA4->0x0800F7F8 0x0800FEBC->rgb_matrix_hsv_to_rgb]
+  0x08010060 size   266 code                         starts[] sugg[0x08010060=process_rgb_matrix] callers[0x08010060<-keyboard_task@0x0800E7B8(bl~)] callees[0x0801006C->is_keyboard_master 0x08010086->rgb_matrix_map_row_column_to_led 0x080100A2->0x0800883C 0x080100B2->0x0800883C 0x080100C6->0x0800883C 0x080100D6->0x0800883C 0x08010116->0x0800FD38]
+  0x0801017E size   262 code                         starts[] sugg[0x0801017E=rgb_matrix_get_limits] callers[0x0801017E<-rgb_matrix_indicators_advanced@0x08010C54(bl~)] callees[0x080101B8->0x0801017E 0x0801021C->sqrt16 0x0801025C->rgb_matrix_hsv_to_rgb 0x0801026C->0x0800FE78]
+  0x080102A8 size   184 code                         starts[] sugg[] callers[] callees[0x080102B6->0x0801017E 0x08010338->rgb_matrix_hsv_to_rgb 0x08010348->0x0800FE78]
+  0x08010378 size   152 code                         starts[] sugg[] callers[] callees[0x08010386->0x0801017E 0x080103EA->rgb_matrix_hsv_to_rgb 0x080103FA->0x0800FE78]
+  0x08010440 size   192 code                         starts[] sugg[] callers[] callees[0x08010452->0x0801017E 0x08010474->0x0800F81C 0x08010480->0x0800F81C 0x080104DC->rgb_matrix_hsv_to_rgb 0x080104EC->0x0800FE78]
+  0x08010518 size   224 code                         starts[] sugg[] callers[] callees[0x0801052C->0x0801017E 0x080105B0->rgb_matrix_hsv_to_rgb 0x080105C0->0x0800FE78]
+  0x08010604 size   300 code                         starts[] sugg[] callers[] callees[0x08010612->0x0801017E 0x0801065C->0x0800883C 0x08010680->rgb_matrix_hsv_to_rgb 0x08010690->0x0800FE78 0x080106C2->sqrt16]
+  0x08010788 size  1220 code                         starts[0x080107FC 0x080108B0 0x08010920 0x08010A4C] sugg[0x08010A4C=rgb_task_render] callers[0x08010A4C<-rgb_matrix_set_suspend_state@0x08011180(bl~) 0x08010A4C<-rgb_matrix_task@0x08011058(bl~)] callees[0x08010790->0x0801017E 0x080107AA->rgb_matrix_hsv_to_rgb 0x080107EA->0x0800FE78 0x08010808->0x0801017E 0x08010832->0x0800F81C 0x08010858->rgb_matrix_hsv_to_rgb 0x0801089A->0x0800FE78 0x080108B6->0x080]
+  0x08010D04 size    60 code                         starts[] sugg[0x08010D04=rgb_matrix_mode_eeprom_helper] callers[0x08010D04<-rgb_matrix_step_reverse_helper@0x08010D6C(b) 0x08010D04<-rgb_matrix_mode@0x08010D40(b)] callees[0x08010D28->eeconfig_flag_rgb_matrix]
+  0x08010E22 size    34 code                         starts[0x08010E24] sugg[0x08010E24=rgb_matrix_decrease_sat_helper] callers[0x08010E24<-rgb_matrix_decrease_sat@0x08010E44(b)] callees[0x08010E3C->rgb_matrix_sethsv_eeprom_helper]
+  0x08011200 size    76 code                         starts[0x08011218] sugg[0x08011200=snled27351_write_register 0x08011218=snled27351_write_pwm_buffer] callers[0x08011200<-snled27351_init@0x0801124C(bl~) 0x08011200<-snled27351_init@0x0801124C(bl~) 0x08011200<-snled27351_init@0x0801124C(bl~) 0x08011218<-snled27351_update_pwm_buffers@0x0801144C(bl~)] callees[0x0801120E->snled27351_write 0x08011234->snled27351_write]
+  0x08011396 size   182 code                         starts[0x08011398] sugg[0x08011398=snled27351_set_led_control_register] callers[0x08011398<-snled27351_init_drivers@0x080114B0(bl~)] callees[]
+  0x08011472 size    62 code                         starts[0x08011480] sugg[0x08011480=snled27351_update_led_control_registers] callers[0x08011480<-snled27351_init_drivers@0x080114B0(bl~) 0x08011480<-snled27351_init_drivers@0x080114B0(b.w~)] callees[0x0801149C->snled27351_write]
+  0x08011844 size    76 code                         starts[] sugg[] callers[] callees[]
+  0x080118F4 size    76 code                         starts[] sugg[] callers[] callees[0x08011902->get_mods|get_oneshot_mods|get_transport|get_tri_layer_adjust_layer|get_tri_layer_lower_layer|get_tri_layer_upper_layer|get_weak_mods|keyboard_leds|leader_sequence_active|rgb_matrix_is_driv]
+  0x08011A62 size   290 code                         starts[0x08011A8C 0x08011B14] sugg[0x08011A62=times_inv_sqrt2 0x08011A8C=move_unit 0x08011B14=wheel_unit] callers[0x08011A62<-mousekey_task@0x08011DF0(bl~) 0x08011A62<-mousekey_task@0x08011DF0(bl~) 0x08011A62<-mousekey_task@0x08011DF0(bl~) 0x08011A8C<-mousekey_task@0x08011DF0(bl~) 0x08011A8C<-mousekey_task@0x0801] callees[0x08011AA6->timer_elapsed 0x08011B38->timer_elapsed]
+  0x08011D48 size    32 code                         starts[] sugg[] callers[] callees[0x08011D50->mousekey_off+0xF2]
+  0x08011DCC size    36 code                         starts[] sugg[0x08011DCC=should_mousekey_report_send] callers[0x08011DCC<-mousekey_task@0x08011DF0(bl~)] callees[]
+  0x080121E8 size   180 code                         starts[0x08012238] sugg[0x080121E8=has_anykey 0x08012238=is_key_pressed] callers[0x080121E8<-get_mods_for_report@0x0800E43C(bl~) 0x08012238<-register_code@0x0800D570(bl)] callees[]
+  0x080127FE size   278 code                         starts[0x08012800] sugg[] callers[] callees[0x0801282A->usb_get_report_cb 0x0801284E->usb_get_idle_cb 0x080128A6->usb_set_idle_cb]
+  0x08012DA6 size    58 code                         starts[] sugg[] callers[] callees[0x08012DD2->obqObjectInit]
+  0x080132A6 size    94 code                         starts[0x080132A8] sugg[] callers[] callees[0x080132D4->stGetCounter 0x080132EE->__aeabi_uldivmod]
+  0x08013F4C size   134 code                         starts[] sugg[0x08013F4C=obqWriteTimeout] callers[0x08013F4C<-usb_endpoint_in_send@0x08012FA2(bl~)] callees[0x08013F6C->obqGetEmptyBufferTimeoutS 0x08013F94->0x0800883C 0x08013FAE->obqPostFullBufferS 0x08013FC4->0x0800883C]
+  0x08013FF2 size    62 code                         starts[0x08013FF4] sugg[] callers[] callees[0x0801401E->__aeabi_uldivmod 0x08014022->chThdSleep]
+  0x08014D3A size   176 code                         starts[] sugg[] callers[] callees[0x08014DC8->stm32_flash_check_errors]
+  0x08014DF6 size    62 code                         starts[] sugg[] callers[] callees[0x08014DFA->_getpid|_isatty_r|dip_switch_update_mask_user|is_keyboard_master|led_update_user|matrix_can_read|pre_process_record_user|process_action_kb|process_record_keychron_kb|rgb_matrix_indicators_]
+  0x080152B0 size   108 code                         starts[] sugg[0x080152B0=extiEnableGroup1] callers[0x080152B0<-rtc_lld_init@0x08015FE0(bl~)] callees[]
+  0x080159C0 size   140 code                         starts[] sugg[0x080159C0=usb_lld_start_in] callers[0x080159C0<-otg_epin_handler.constprop.0@0x08015A4C(bl~) 0x080159C0<-usbStartTransmitI@0x08014334(b.w~)] callees[]
+  0x08015E90 size    42 code                         starts[] sugg[] callers[] callees[]
+  0x08016790 size   156 ascii-strings                starts[0x0801679A 0x08016808 0x08016810 0x08016826] sugg[] callers[] callees[]
+  0x080170C4 size    60 post-text(rodata/.data image) starts[] sugg[] callers[] callees[]
+  0x08017197 size   493 post-text(rodata/.data image) starts[0x080171A8 0x080171CA 0x08017280] sugg[] callers[] callees[0x0801728B->0x080170E1 0x0801734F->efl_lld_size4+0xF]
+  0x08017590 size    36 post-text(rodata/.data image) starts[] sugg[] callers[] callees[]
+  0x0801765C size   404 post-text(rodata/.data image) starts[] sugg[] callers[] callees[]
+  0x08017850 size   436 post-text(rodata/.data image) starts[] sugg[] callers[] callees[]
+  0x08017CA8 size   604 post-text(rodata/.data image) starts[] sugg[] callers[] callees[]
+
+anchored-but-rejected fuzzy candidates:
+  anchored candidate __udivmoddi4 @0x08008188: skeleton ratio 0.379 size_est=702 (below 0.50 or size out of 10%)
+  anchored candidate backing_store_erase @0x0800F574: skeleton ratio 0.657 size_est=None (below 0.50 or size out of 10%)
+  anchored candidate is_key_pressed @0x08012238: skeleton ratio 0.469 size_est=100 (below 0.50 or size out of 10%)
+  unanchored fuzzy for usb_requests_hook_cb ambiguous: 0x08012800 (0.922) vs 0x080127FE (0.918) - not placed
+  unanchored fuzzy for usb_endpoint_in_init ambiguous: 0x08012DA6 (0.857) vs 0x08012DA8 (0.857) - not placed
+  unanchored fuzzy for usb_shared_idle_timer_elapsed ambiguous: 0x080132A6 (0.873) vs 0x080132A8 (0.873) - not placed
+  unanchored fuzzy for obqWriteTimeout ambiguous: 0x08013F4C (1.000) vs 0x08013DF2 (0.981) - not placed
+  anchored candidate _free_r @0x08009858: skeleton ratio 0.329 size_est=170 (below 0.50 or size out of 10%)
+  anchored candidate _fwalk_sglue @0x08009A14: skeleton ratio 0.549 size_est=None (below 0.50 or size out of 10%)
+  anchored candidate _fflush_r @0x0800968C: skeleton ratio 0.316 size_est=46 (below 0.50 or size out of 10%)
+  anchored candidate rgb_matrix_sethsv_eeprom_helper @0x08010D94: skeleton ratio 0.375 size_est=36 (below 0.50 or size out of 10%)
+  anchored candidate usb_event_queue_task @0x08012A98: skeleton ratio 0.468 size_est=184 (below 0.50 or size out of 10%)
+  anchored candidate usb_event_queue_task @0x08012A98: skeleton ratio 0.468 size_est=184 (below 0.50 or size out of 10%)
+  anchored candidate rgb_matrix_task @0x08011058: skeleton ratio 0.545 size_est=None (below 0.50 or size out of 10%)
+  anchored candidate usb_event_queue_task @0x08012A98: skeleton ratio 0.468 size_est=184 (below 0.50 or size out of 10%)
+
+log:
+  dump dump_a.bin: 262144 bytes, code region file 0x8000-0x17F04 (flash 0x08008000-0x08017F04, 65284 bytes)
+  references: ref1011_feat, ref1011_default, ref1011_via, ref1011_feat_lto, ref1011_default_lto, ref1011_via_lto ; 4046 functions, 619 objects
+  exact: 3755 candidate ranges from 4046 reference functions (499 needed masked-scan fallback, 489 tiny <8B bodies gated by votes/adjacency)
+  exact: placed 609 ranges (1833 tiny bodies left unplaced: no vote/adjacency); 92 still ambiguous after caller voting
+  data: placed 34 object ranges
+  fuzzy: 498 leftover reference bodies vs 409 function-start candidates in 193 gaps
+  fuzzy: accepted 164 (208 proposals)

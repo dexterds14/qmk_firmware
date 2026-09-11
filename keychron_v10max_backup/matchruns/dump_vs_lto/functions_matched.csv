@@ -1,0 +1,208 @@
+dump_addr,size,ref_symbol,ref_elf,ref_addr,match_type,score,notes
+0x08008000,116,_crt0_entry,"ref1011_default_lto,ref1011_feat_lto",0x08008000,exact,1.000,size inferred from next symbol (asm routine)
+0x08008074,14,msloop,"ref1011_default_lto,ref1011_feat_lto",0x08008074,exact,1.000,size inferred from next symbol (asm routine)
+0x08008082,16,psloop,"ref1011_default_lto,ref1011_feat_lto",0x08008082,exact,1.000,size inferred from next symbol (asm routine)
+0x08008092,20,dloop,"ref1011_default_lto,ref1011_feat_lto",0x08008092,exact,1.000,size inferred from next symbol (asm routine)
+0x080080A6,22,bloop,"ref1011_default_lto,ref1011_feat_lto",0x080080A6,exact,1.000,size inferred from next symbol (asm routine)
+0x080080BC,12,finiloop|initloop,"ref1011_default_lto,ref1011_feat_lto",0x080080BC,exact-ambiguous,1.000,size inferred from next symbol (asm routine) ; identical body for: finiloop|initloop
+0x080080C8,8,endinitloop,"ref1011_default_lto,ref1011_feat_lto",0x080080C8,exact,1.000,size inferred from next symbol (asm routine)
+0x080080D0,12,finiloop|initloop,"ref1011_default_lto,ref1011_feat_lto",0x080080BC,exact-ambiguous,1.000,size inferred from next symbol (asm routine) ; identical body for: finiloop|initloop
+0x080080DC,64,endfiniloop,ref1011_feat_lto,0x080080DC,fuzzy,0.857,
+0x08008124,24,__port_switch,"ref1011_default_lto,ref1011_feat_lto",0x08008124,exact,1.000,size inferred from next symbol (asm routine) ; xrefs: chSchGoSleepS@0x080138B8(b)
+0x0800813C,16,__port_thread_start,"ref1011_default_lto,ref1011_feat_lto",0x0800813C,exact,1.000,size inferred from next symbol (asm routine)
+0x08008158,48,__aeabi_uldivmod,"ref1011_default_lto,ref1011_feat_lto",0x08008210,exact,1.000,size inferred from next symbol (asm routine)
+0x08008444,2,__aeabi_idiv0,"ref1011_default_lto,ref1011_feat_lto",0x080084EC,exact-ambiguous,1.000,tiny body placed (vote) ; ambiguous body {__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb} resolved by caller: b.w from __aeabi_uldivmod@0x08008158+0x14 ; same body also matches: __aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb ; xrefs: __aeabi_uldivmod@0x08008158(b)
+0x080085E8,14,abort,"ref1011_default_lto,ref1011_feat_lto",0x080133C4,exact,1.000,
+0x0800896E,2,__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb,"ref1011_default_lto,ref1011_feat_lto",0x080084EC,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb
+0x08008970,16,free|malloc|raise,"ref1011_default_lto,ref1011_feat_lto",0x08013240,exact-ambiguous,1.000,identical body for: free|malloc|raise
+0x08008980,16,free|malloc|raise,"ref1011_default_lto,ref1011_feat_lto",0x08013240,exact-ambiguous,1.000,identical body for: free|malloc|raise
+0x08009344,4,_close_r|_lseek_r|null_sendchar_func|sendchar,"ref1011_default_lto,ref1011_feat_lto",0x08008CEA,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: _close_r|_lseek_r|null_sendchar_func|sendchar
+0x08009348,24,stdio_exit_handler,"ref1011_default_lto,ref1011_feat_lto",0x08013A08,exact,1.000,
+0x08009360,64,cleanup_stdio,ref1011_feat_lto,0x08013A20,fuzzy,0.852,
+0x08009A60,160,memchr,"ref1011_default_lto,ref1011_feat_lto",0x08008160,exact,1.000,size inferred from next symbol (asm routine)
+0x0800A178,8,__sclose,"ref1011_default_lto,ref1011_feat_lto",0x08013B76,exact,1.000,
+0x0800A1C0,24,wreless_keyboard_leds,"ref1011_default_lto,ref1011_feat_lto",0x08008574,exact,1.000,
+0x0800A77C,12,keyboard_leds,"ref1011_default_lto,ref1011_feat_lto",0x0800FFF8,exact,1.000,
+0x0800A7CC,60,report_buffer_init,"ref1011_default_lto,ref1011_feat_lto",0x0800A678,exact,1.000,
+0x0800A88C,16,factory_timer_start,"ref1011_default_lto,ref1011_feat_lto",0x0800A450,exact,1.000,
+0x0800AC1C,76,lkbt51_send_mouse,ref1011_feat_lto,0x0800DCF4,fuzzy,0.862,
+0x0800B3EC,52,indicator_battery_low_enable,"ref1011_default_lto,ref1011_feat_lto",0x0800A28C,exact,1.000,
+0x0800BBB4,12,keyboard_leds,"ref1011_default_lto,ref1011_feat_lto",0x0800FFF8,exact,1.000,
+0x0800BC70,28,lpm_timer_reset,"ref1011_default_lto,ref1011_feat_lto",0x0800A328,exact,1.000,
+0x0800C918,16,factory_timer_start,"ref1011_default_lto,ref1011_feat_lto",0x0800A450,exact,1.000,
+0x0800CB44,76,factory_test_send,ref1011_feat_lto,0x0800A766,fuzzy,0.852,
+0x0800D600,114,unregister_code,"ref1011_default_lto,ref1011_feat_lto",0x0800A8F0,exact,1.000,
+0x0800D672,18,unregister_mods,"ref1011_default_lto,ref1011_feat_lto",0x0800A978,exact,1.000,
+0x0800D684,18,unregister_mods,"ref1011_default_lto,ref1011_feat_lto",0x0800A978,exact,1.000,
+0x0800DD0C,38,read_source_layers_cache_impl,"ref1011_default_lto,ref1011_feat_lto",0x080086BC,exact,1.000,
+0x0800DEB8,68,waiting_buffer_typed.isra.0,"ref1011_default_lto,ref1011_feat_lto",0x0800875C,exact,1.000,
+0x0800E310,12,keyboard_leds,"ref1011_default_lto,ref1011_feat_lto",0x0800FFF8,exact,1.000,
+0x0800E32C,16,del_mods,"ref1011_default_lto,ref1011_feat_lto",0x080087F8,exact,1.000,xrefs: unregister_code@0x0800D600(bl) unregister_mods@0x0800D684(bl)
+0x0800E348,12,keyboard_leds,"ref1011_default_lto,ref1011_feat_lto",0x0800FFF8,exact,1.000,
+0x0800E364,16,del_mods,"ref1011_default_lto,ref1011_feat_lto",0x080087F8,exact,1.000,
+0x0800E380,12,keyboard_leds,"ref1011_default_lto,ref1011_feat_lto",0x0800FFF8,exact,1.000,
+0x0800EAB4,264,keycode_config,"ref1011_default_lto,ref1011_feat_lto",0x08008880,exact,1.000,
+0x0800ED58,34,setPinInputHigh_atomic,"ref1011_default_lto,ref1011_feat_lto",0x0800B568,exact,1.000,
+0x0800F354,24,wear_leveling_consolidate_if_needed,"ref1011_default_lto,ref1011_feat_lto",0x0800BE44,exact,1.000,xrefs: wear_leveling_append_raw@0x0800F36C(b)
+0x0800F36C,40,wear_leveling_append_raw,"ref1011_default_lto,ref1011_feat_lto",0x0800BE5C,exact,1.000,
+0x0800F5B4,48,backing_store_write,ref1011_feat_lto,0x08008D80,fuzzy-anchored,0.571,call-anchored: bl from wear_leveling_append_raw@0x0800F36C+0xA ; xrefs: wear_leveling_append_raw@0x0800F36C(bl)
+0x0800F7AA,78,sqrt16,ref1011_feat_lto,0x08008EAC,fuzzy,0.866,
+0x0800F860,38,CYCLE_ALL_math,"ref1011_default_lto,ref1011_feat_lto",0x08008FEA,exact,1.000,
+0x0800F94C,50,CYCLE_OUT_IN_math,"ref1011_default_lto,ref1011_feat_lto",0x080090D0,exact,1.000,
+0x0800F9C8,80,DUAL_BEACON_math,"ref1011_default_lto,ref1011_feat_lto",0x080091B4,exact,1.000,
+0x0800FA18,80,RAINBOW_BEACON_math,"ref1011_default_lto,ref1011_feat_lto",0x08009204,exact,1.000,
+0x0800FA9A,2,__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb,"ref1011_default_lto,ref1011_feat_lto",0x080084EC,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb
+0x0800FA9C,72,SOLID_REACTIVE_WIDE_math,"ref1011_default_lto,ref1011_feat_lto",0x08009254,exact,1.000,
+0x0800FAE4,120,SOLID_REACTIVE_NEXUS_math,"ref1011_default_lto,ref1011_feat_lto",0x0800929C,exact,1.000,
+0x0800FB5C,76,SPLASH_math,ref1011_feat_lto,0x08009314,fuzzy,0.873,
+0x0800FBA8,2,__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb,"ref1011_default_lto,ref1011_feat_lto",0x080084EC,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb
+0x0800FBAA,68,SOLID_SPLASH_math,"ref1011_default_lto,ref1011_feat_lto",0x08009360,exact,1.000,
+0x0800FC66,70,BAND_SPIRAL_VAL_math,ref1011_feat_lto,0x08008FA6,fuzzy,0.868,
+0x0800FCAC,48,CYCLE_PINWHEEL_math,ref1011_feat_lto,0x0800914E,fuzzy,0.865,
+0x0800FCDC,56,CYCLE_SPIRAL_math,ref1011_feat_lto,0x0800917E,fuzzy,0.900,
+0x08010CD4,32,rgb_matrix_disable_noeeprom,"ref1011_default_lto,ref1011_feat_lto",0x080098DC,exact,1.000,
+0x08010E4C,48,rgb_matrix_increase_val_helper,ref1011_feat_lto,0x080099F0,fuzzy-anchored,0.750,call-anchored: bl from rgb_matrix_enable_noeeprom@0x08010EBC+0x24 ; xrefs: rgb_matrix_enable_noeeprom@0x08010EBC(bl)
+0x08010EBC,52,rgb_matrix_enable_noeeprom,"ref1011_default_lto,ref1011_feat_lto",0x08009A64,exact,1.000,
+0x08010FFC,12,keyboard_leds,"ref1011_default_lto,ref1011_feat_lto",0x0800FFF8,exact,1.000,
+0x08011338,64,snled27351_set_color,"ref1011_default_lto,ref1011_feat_lto",0x08009B50,exact,1.000,xrefs: snled27351_set_color_all@0x08011378(bl)
+0x08011378,30,snled27351_set_color_all,"ref1011_default_lto,ref1011_feat_lto",0x08009B90,exact,1.000,
+0x08011510,12,snled27351_shutdown,"ref1011_default_lto,ref1011_feat_lto",0x08009BB0,exact,1.000,
+0x0801151C,12,snled27351_exit_shutdown,"ref1011_default_lto,ref1011_feat_lto",0x08009BBC,exact,1.000,
+0x08011528,6,handleKeycodeRGB,"ref1011_default_lto,ref1011_feat_lto",0x08009BC8,exact,1.000,tiny body placed (adjacent)
+0x080118D8,28,dip_switch_init,"ref1011_default_lto,ref1011_feat_lto",0x0800B9A8,exact,1.000,
+0x08011990,12,keyboard_leds,"ref1011_default_lto,ref1011_feat_lto",0x0800FFF8,exact,1.000,
+0x08011C48,256,mousekey_off,ref1011_feat_lto,0x08009D40,fuzzy-anchored,0.754,call-anchored: bl from unregister_code@0x0800D600+0x64 ; xrefs: unregister_code@0x0800D600(bl)
+0x08012138,16,host_keyboard_leds,"ref1011_default_lto,ref1011_feat_lto",0x08009E60,exact,1.000,
+0x08012188,48,host_system_send,"ref1011_default_lto,ref1011_feat_lto",0x0800A0F8,exact,1.000,xrefs: unregister_code@0x0800D600(b)
+0x080121B8,48,host_consumer_send,"ref1011_default_lto,ref1011_feat_lto",0x0800A128,exact,1.000,xrefs: unregister_code@0x0800D600(b)
+0x08012508,108,timer_read32,ref1011_feat_lto,0x0800A21C,fuzzy-anchored,0.764,call-anchored: bl from report_buffer_init@0x0800A7CC+0x1C ; xrefs: report_buffer_init@0x0800A7CC(bl) indicator_battery_low_enable@0x0800B3EC(bl) indicator_battery_low_enable@0x0800B3EC(bl) lpm_timer_reset@0x0800BC70(bl) ...
+0x08012598,36,__NVIC_SystemReset,"ref1011_default_lto,ref1011_feat_lto",0x0800A5B8,exact,1.000,
+0x08012674,116,spi_init,"ref1011_default_lto,ref1011_feat_lto",0x08012F4C,exact,1.000,
+0x080126E8,220,spi_start,"ref1011_default_lto,ref1011_feat_lto",0x08012FC0,exact,1.000,
+0x080127C4,20,spi_transmit,"ref1011_default_lto,ref1011_feat_lto",0x0801309C,exact,1.000,
+0x080127D8,36,spi_stop,"ref1011_default_lto,ref1011_feat_lto",0x080130B0,exact,1.000,
+0x080127FC,2,__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb,"ref1011_default_lto,ref1011_feat_lto",0x080084EC,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb
+0x08012958,52,set_led_transfer_cb,"ref1011_default_lto,ref1011_feat_lto",0x0800FE14,exact,1.000,
+0x0801298C,40,usb_event_queue_enqueue.isra.0,"ref1011_default_lto,ref1011_feat_lto",0x0800B514,exact,1.000,
+0x08012A74,36,usb_event_queue_init,"ref1011_default_lto,ref1011_feat_lto",0x0800A708,exact,1.000,
+0x08012BB8,12,keyboard_leds,"ref1011_default_lto,ref1011_feat_lto",0x0800FFF8,exact,1.000,
+0x08012BE4,10,send_keyboard,"ref1011_default_lto,ref1011_feat_lto",0x0801188C,exact,1.000,
+0x08012BEE,10,send_nkro,"ref1011_default_lto,ref1011_feat_lto",0x08011896,exact,1.000,
+0x08012BF8,10,send_mouse,"ref1011_default_lto,ref1011_feat_lto",0x080118A0,exact,1.000,
+0x08012C02,10,send_extra,"ref1011_default_lto,ref1011_feat_lto",0x080118AA,exact,1.000,
+0x08013040,56,usb_endpoint_in_is_inactive,"ref1011_default_lto,ref1011_feat_lto",0x08010AA4,exact,1.000,
+0x080130EA,22,usb_get_report,"ref1011_default_lto,ref1011_feat_lto",0x080108F6,exact,1.000,
+0x08013100,28,usb_reset_report,"ref1011_default_lto,ref1011_feat_lto",0x08010896,exact,1.000,
+0x08013158,28,usb_shared_get_report,"ref1011_default_lto,ref1011_feat_lto",0x08010930,exact,1.000,
+0x08013174,38,usb_shared_reset_report,"ref1011_default_lto,ref1011_feat_lto",0x080108B2,exact,1.000,
+0x080131F4,28,usb_set_idle_rate,"ref1011_default_lto,ref1011_feat_lto",0x08010004,exact,1.000,
+0x08013210,12,usb_get_idle_rate,"ref1011_default_lto,ref1011_feat_lto",0x08010020,exact,1.000,
+0x0801326C,36,usb_shared_set_idle_rate,"ref1011_default_lto,ref1011_feat_lto",0x0801007C,exact,1.000,
+0x08013290,22,usb_shared_get_idle_rate,"ref1011_default_lto,ref1011_feat_lto",0x080100A0,exact,1.000,
+0x080134EC,2,__cpu_init,"ref1011_default_lto,ref1011_feat_lto",0x0800B510,exact-ambiguous,1.000,tiny body placed (vote) ; ambiguous body {__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb} resolved by caller: bl from _crt0_entry@0x08008000+0x64 ; same body also matches: __aeabi_idiv0|__aeabi_ldiv0|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb ; xrefs: _crt0_entry@0x08008000(bl)
+0x080134EE,2,__late_init,"ref1011_default_lto,ref1011_feat_lto",0x08010ADC,exact-ambiguous,1.000,tiny body placed (vote) ; ambiguous body {__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb} resolved by caller: bl from bloop@0x080080A6+0xE ; same body also matches: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb ; xrefs: bloop@0x080080A6(bl)
+0x080134F4,82,__init_ram_areas,ref1011_feat_lto,0x08010AE0,fuzzy-anchored,0.676,call-anchored: bl from bloop@0x080080A6+0xA ; xrefs: bloop@0x080080A6(bl)
+0x0801359E,12,chSysGetStatusAndLockX.part.0,"ref1011_default_lto,ref1011_feat_lto",0x08010B60,exact,1.000,
+0x080135AA,30,chSysRestoreStatusX,"ref1011_default_lto,ref1011_feat_lto",0x080115C0,exact,1.000,
+0x080135C8,20,chSysPolledDelayX,"ref1011_default_lto,ref1011_feat_lto",0x08010B38,exact,1.000,xrefs: otg_txfifo_flush.isra.0@0x08015522(b)
+0x08013838,28,__sch_ready_behind.isra.0,"ref1011_default_lto,ref1011_feat_lto",0x08010B6C,exact,1.000,xrefs: __sch_wakeup@0x08013870(bl~)
+0x08013870,68,__sch_wakeup,ref1011_feat_lto,0x08010B88,fuzzy,0.945,
+0x080138B8,28,chSchGoSleepS,"ref1011_default_lto,ref1011_feat_lto",0x08010A08,exact,1.000,
+0x08013950,24,chSchRescheduleS,"ref1011_default_lto,ref1011_feat_lto",0x080115A8,exact,1.000,xrefs: chSysRestoreStatusX@0x080135AA(bl)
+0x08013968,4,__idle_thread.lto_priv.0,"ref1011_default_lto,ref1011_feat_lto",0x08010110,exact,1.000,tiny body placed (adjacent)
+0x08013A7A,24,chThdSleep,"ref1011_default_lto,ref1011_feat_lto",0x080118D8,exact,1.000,xrefs: spi_init@0x08012674(bl)
+0x08013AFA,28,chThdDequeueAllI.constprop.0,ref1011_feat_lto,0x080112F0,fuzzy,0.923,
+0x08013B16,30,ch_sch_prio_insert,"ref1011_default_lto,ref1011_feat_lto",0x08010114,exact,1.000,
+0x08013C14,32,SVC_Handler,"ref1011_default_lto,ref1011_feat_lto",0x080118F0,exact,1.000,xrefs: _vectors@0x0800002C(vec)
+0x08013C7C,84,__port_irq_epilogue,ref1011_feat_lto,0x08010A24,fuzzy-anchored,0.580,call-anchored: b.w from VectorE0@0x080149F0+0x64 ; xrefs: VectorE0@0x080149F0(b) Vector48@0x08015EF4(b) Vector9C@0x0801498C(b) VectorE4@0x08015F94(b) ...
+0x08013EA2,24,obqResetI,ref1011_feat_lto,0x0801130E,fuzzy,0.900,
+0x08013F26,38,obqPostFullBufferS,"ref1011_default_lto,ref1011_feat_lto",0x08010132,exact,1.000,
+0x08014030,26,flashGetSectorOffset,"ref1011_default_lto,ref1011_feat_lto",0x08011910,exact,1.000,xrefs: efl_lld_verify_erase@0x08014E6E(bl)
+0x0801404A,26,flashGetSectorSize,"ref1011_default_lto,ref1011_feat_lto",0x0801192A,exact,1.000,xrefs: efl_lld_verify_erase@0x08014E6E(bl)
+0x0801415E,28,spiSelect,ref1011_feat_lto,0x08011AC0,fuzzy-anchored,0.917,call-anchored: bl from spi_start@0x080126E8+0x6A ; xrefs: spi_start@0x080126E8(bl)
+0x0801417A,28,spiUnselect,ref1011_feat_lto,0x08011ADA,fuzzy-anchored,0.880,call-anchored: bl from spi_stop@0x080127D8+0xA ; xrefs: spi_stop@0x080127D8(bl)
+0x080148C4,40,Vector58,"ref1011_default_lto,ref1011_feat_lto",0x08011DE0,exact,1.000,xrefs: _vectors@0x08000058(vec)
+0x080148EC,40,Vector5C,"ref1011_default_lto,ref1011_feat_lto",0x08011E08,exact,1.000,xrefs: _vectors@0x0800005C(vec)
+0x08014914,40,Vector60,"ref1011_default_lto,ref1011_feat_lto",0x08011E30,exact,1.000,xrefs: _vectors@0x08000060(vec)
+0x0801493C,40,Vector64,"ref1011_default_lto,ref1011_feat_lto",0x08011E58,exact,1.000,xrefs: _vectors@0x08000064(vec)
+0x08014964,40,Vector68,"ref1011_default_lto,ref1011_feat_lto",0x08011E80,exact,1.000,xrefs: _vectors@0x08000068(vec)
+0x0801498C,100,Vector9C,"ref1011_default_lto,ref1011_feat_lto",0x08011EA8,exact,1.000,xrefs: _vectors@0x0800009C(vec)
+0x080149F0,112,VectorE0,"ref1011_default_lto,ref1011_feat_lto",0x08011F0C,exact,1.000,xrefs: _vectors@0x080000E0(vec)
+0x08014B5C,248,stm32_clock_init,"ref1011_default_lto,ref1011_feat_lto",0x08012058,exact,1.000,
+0x08014C54,36,stm32_flash_check_errors,ref1011_feat_lto,0x08010174,fuzzy,0.895,xrefs: efl_lld_query_erase@0x08014E3C(bl~)
+0x08014DEA,12,efl_lld_start_erase_all,"ref1011_default_lto,ref1011_feat_lto",0x0801024C,exact,1.000,
+0x08014DF6,70,efl_lld_start_erase_sector,ref1011_feat_lto,0x08010258,fuzzy,0.918,
+0x08014E3C,50,efl_lld_query_erase,ref1011_feat_lto,0x0801029E,fuzzy,0.889,
+0x08014E6E,70,efl_lld_verify_erase,"ref1011_default_lto,ref1011_feat_lto",0x08011944,exact,1.000,
+0x08014EB4,40,Vector6C,"ref1011_default_lto,ref1011_feat_lto",0x08012244,exact,1.000,xrefs: _vectors@0x0800006C(vec)
+0x08014EDC,44,Vector70,ref1011_feat_lto,0x0801226C,fuzzy-anchored,0.649,call-anchored: vector slot 0x70 ; xrefs: _vectors@0x08000070(vec)
+0x08014F08,44,Vector74,ref1011_feat_lto,0x08012298,fuzzy-anchored,0.649,call-anchored: vector slot 0x74 ; xrefs: _vectors@0x08000074(vec)
+0x08014F34,44,Vector78,ref1011_feat_lto,0x080122C4,fuzzy-anchored,0.727,call-anchored: vector slot 0x78 ; xrefs: _vectors@0x08000078(vec)
+0x08014F60,40,Vector7C,"ref1011_default_lto,ref1011_feat_lto",0x080122F0,exact,1.000,xrefs: _vectors@0x0800007C(vec)
+0x08014F88,44,Vector80,ref1011_feat_lto,0x08012318,fuzzy-anchored,0.649,call-anchored: vector slot 0x80 ; xrefs: _vectors@0x08000080(vec)
+0x08014FB4,44,Vector84,ref1011_feat_lto,0x08012344,fuzzy-anchored,0.649,call-anchored: vector slot 0x84 ; xrefs: _vectors@0x08000084(vec)
+0x08014FE0,44,VectorFC,ref1011_feat_lto,0x08012370,fuzzy-anchored,0.727,call-anchored: vector slot 0xFC ; xrefs: _vectors@0x080000FC(vec)
+0x0801500C,40,Vector120,"ref1011_default_lto,ref1011_feat_lto",0x0801239C,exact,1.000,xrefs: _vectors@0x08000120(vec)
+0x08015034,44,Vector124,ref1011_feat_lto,0x080123C4,fuzzy-anchored,0.649,call-anchored: vector slot 0x124 ; xrefs: _vectors@0x08000124(vec)
+0x08015060,44,Vector128,ref1011_feat_lto,0x080123F0,fuzzy-anchored,0.649,call-anchored: vector slot 0x128 ; xrefs: _vectors@0x08000128(vec)
+0x0801508C,44,Vector12C,ref1011_feat_lto,0x0801241C,fuzzy-anchored,0.727,call-anchored: vector slot 0x12C ; xrefs: _vectors@0x0800012C(vec)
+0x080150B8,40,Vector130,"ref1011_default_lto,ref1011_feat_lto",0x08012448,exact,1.000,xrefs: _vectors@0x08000130(vec)
+0x080150E0,44,Vector150,ref1011_feat_lto,0x08012470,fuzzy-anchored,0.649,call-anchored: vector slot 0x150 ; xrefs: _vectors@0x08000150(vec)
+0x0801510C,44,Vector154,ref1011_feat_lto,0x0801249C,fuzzy-anchored,0.649,call-anchored: vector slot 0x154 ; xrefs: _vectors@0x08000154(vec)
+0x08015138,44,Vector158,ref1011_feat_lto,0x080124C8,fuzzy-anchored,0.579,call-anchored: vector slot 0x158 ; xrefs: _vectors@0x08000158(vec)
+0x08015338,216,_pal_lld_setgroupmode,ref1011_feat_lto,0x080124F8,fuzzy-anchored,0.733,call-anchored: bl from spi_start@0x080126E8+0x5C ; xrefs: spi_start@0x080126E8(bl) spi_init@0x08012674(bl) spi_init@0x08012674(bl) spi_init@0x08012674(bl) ...
+0x08015474,88,_pal_lld_disablepadevent.isra.0,ref1011_feat_lto,0x0801261C,fuzzy,0.930,
+0x080154CC,86,otg_disable_ep,ref1011_feat_lto,0x080103F4,fuzzy,0.966,
+0x08015522,20,otg_txfifo_flush.isra.0,"ref1011_default_lto,ref1011_feat_lto",0x08010B4C,exact,1.000,
+0x08015894,124,usb_lld_start_out,ref1011_feat_lto,0x0801044A,fuzzy,0.857,xrefs: otg_epout_handler.constprop.0@0x08015910(bl~)
+0x08015910,176,otg_epout_handler.constprop.0,ref1011_feat_lto,0x08011090,fuzzy,0.925,
+0x08015E72,2,__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb,"ref1011_default_lto,ref1011_feat_lto",0x080084EC,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb
+0x08015E74,24,rtc_enter_init.lto_priv.0,"ref1011_default_lto,ref1011_feat_lto",0x08012AAC,exact,1.000,
+0x08015E8C,4,_getsize,"ref1011_default_lto,ref1011_feat_lto",0x0801073A,exact,1.000,tiny body placed (adjacent)
+0x08015EBA,58,_write,ref1011_feat_lto,0x08010768,fuzzy,0.955,
+0x08015EF4,104,Vector48,"ref1011_default_lto,ref1011_feat_lto",0x08012AC4,exact,1.000,xrefs: _vectors@0x08000048(vec)
+0x08015F5C,56,Vector4C,"ref1011_default_lto,ref1011_feat_lto",0x08012B2C,exact,1.000,xrefs: _vectors@0x0800004C(vec)
+0x08015F94,76,VectorE4,"ref1011_default_lto,ref1011_feat_lto",0x08012B64,exact,1.000,xrefs: _vectors@0x080000E4(vec)
+0x0801622C,46,spi_lld_configure,"ref1011_default_lto,ref1011_feat_lto",0x080107A4,exact,1.000,
+0x080165E8,30,gpio_init,"ref1011_default_lto,ref1011_feat_lto",0x08010878,exact,1.000,
+0x0801668C,2,__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb,"ref1011_default_lto,ref1011_feat_lto",0x080084EC,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: __aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|td0_reset|wireless_enter_bluetooth_pin_code_entry_kb
+0x0801668E,10,_read_r,"ref1011_default_lto,ref1011_feat_lto",0x08012EBC,exact,1.000,
+0x08016698,4,_close_r|_lseek_r|null_sendchar_func|sendchar,"ref1011_default_lto,ref1011_feat_lto",0x08008CEA,exact-ambiguous,1.000,tiny body placed (adjacent) ; identical body for: _close_r|_lseek_r|null_sendchar_func|sendchar
+0x0801669C,4,_write_r,"ref1011_default_lto,ref1011_feat_lto",0x08012ECA,exact,1.000,tiny body placed (adjacent-both)
+0x080166A0,4,_close_r,"ref1011_default_lto,ref1011_feat_lto",0x08012ECE,exact-ambiguous,1.000,tiny body placed (vote) ; ambiguous body {_close_r|_lseek_r|null_sendchar_func|sendchar} resolved by caller: b.w from __sclose@0x0800A178+0x4 ; same body also matches: _lseek_r|null_sendchar_func|sendchar ; xrefs: __sclose@0x0800A178(b)
+0x080166BE,24,_fstat_r,ref1011_feat_lto,0x08012F10,fuzzy,0.857,
+0x080166DC,16,_exit,ref1011_feat_lto,0x08012F2C,fuzzy-anchored,0.667,call-anchored: bl from abort@0x080085E8+0xA ; xrefs: abort@0x080085E8(bl)
+0x08016714,24,spicfg,"ref1011_default_lto,ref1011_feat_lto",0x08014C30,data,1.000,
+0x08016730,24,disconnected_config,"ref1011_default_lto,ref1011_feat_lto",0x08014C18,data,1.000,
+0x08016748,24,reconnecting_config,"ref1011_default_lto,ref1011_feat_lto",0x08014BD0,data,1.000,
+0x08016760,24,connected_config,"ref1011_default_lto,ref1011_feat_lto",0x08014C00,data,1.000,
+0x08016778,24,pairing_config,"ref1011_default_lto,ref1011_feat_lto",0x08014BE8,data,1.000,
+0x0801682C,16,key_comb_list,"ref1011_default_lto,ref1011_feat_lto",0x08014AA6,data,1.000,
+0x08016840,352,g_snled27351_leds,"ref1011_default_lto,ref1011_feat_lto",0x08014158,data,1.000,
+0x080169B8,1296,keymaps,ref1011_feat_lto,0x08014548,data,1.000,
+0x08016EC8,54,CSWTCH.7,"ref1011_default_lto,ref1011_feat_lto",0x08014A70,data-ambiguous,1.000,object bytes occur at 2 places
+0x08016EFE,54,CSWTCH.7,"ref1011_default_lto,ref1011_feat_lto",0x08014A70,data-ambiguous,1.000,object bytes occur at 2 places
+0x08016F34,72,col_pins|pins_col,"ref1011_default_lto,ref1011_feat_lto",0x08014B6C,data-ambiguous,1.000,object bytes occur at 2 places
+0x08016F7C,24,pins_row|row_pins,"ref1011_default_lto,ref1011_feat_lto",0x08014BB4,data-ambiguous,1.000,object bytes occur at 2 places
+0x08016F94,8,b_m16_interleave,"ref1011_default_lto,ref1011_feat_lto",0x080142C0,data,1.000,
+0x08016FB4,256,CIE1931_CURVE,"ref1011_default_lto,ref1011_feat_lto",0x080142C8,data,1.000,
+0x080170B4,16,encoder_LUT,"ref1011_default_lto,ref1011_feat_lto",0x08014B5A,data,1.000,
+0x08017100,36,ProductString,"ref1011_default_lto,ref1011_feat_lto",0x08014084,data,1.000,
+0x08017124,20,ManufacturerString,"ref1011_default_lto,ref1011_feat_lto",0x080140A8,data,1.000,
+0x0801713C,91,ConfigurationDescriptor,"ref1011_default_lto,ref1011_feat_lto",0x080140C0,data,1.000,
+0x08017384,28,efl_lld_size4,"ref1011_default_lto,ref1011_feat_lto",0x08014D18,data,1.000,
+0x080173A0,28,efl_lld_size3,"ref1011_default_lto,ref1011_feat_lto",0x08014D34,data,1.000,
+0x080173BC,28,efl_lld_size2,"ref1011_default_lto,ref1011_feat_lto",0x08014D50,data,1.000,
+0x080173D8,28,efl_lld_size1,"ref1011_default_lto,ref1011_feat_lto",0x08014D6C,data,1.000,
+0x080173F4,64,efl_lld_sect4,"ref1011_default_lto,ref1011_feat_lto",0x08014C48,data,1.000,
+0x08017434,56,efl_lld_sect3,"ref1011_default_lto,ref1011_feat_lto",0x08014C88,data-ambiguous,1.000,object bytes occur at 2 places
+0x0801746C,48,efl_lld_sect2,"ref1011_default_lto,ref1011_feat_lto",0x08014CC0,data-ambiguous,1.000,object bytes occur at 3 places
+0x0801749C,40,efl_lld_sect1,"ref1011_default_lto,ref1011_feat_lto",0x08014CF0,data-ambiguous,1.000,object bytes occur at 4 places
+0x080174C4,192,_stm32_dma_streams,"ref1011_default_lto,ref1011_feat_lto",0x08014DB4,data,1.000,
+0x08017584,12,fsparams,"ref1011_default_lto,ref1011_feat_lto",0x08014E9C,data,1.000,
+0x080175B4,168,gpio_default_config,"ref1011_default_lto,ref1011_feat_lto",0x08014F28,data,1.000,
+0x080177F0,72,col_pins|pins_col,"ref1011_default_lto,ref1011_feat_lto",0x08014B6C,data-ambiguous,1.000,object bytes occur at 2 places
+0x08017838,24,pins_row|row_pins,"ref1011_default_lto,ref1011_feat_lto",0x08014BB4,data-ambiguous,1.000,object bytes occur at 2 places
+0x08017A04,8,cs_pins,"ref1011_default_lto,ref1011_feat_lto",0x080142B8,data,1.000,
+0x08017A28,136,usb_endpoints_out,"ref1011_default_lto,ref1011_feat_lto",0x20000E5C,data,1.000,
+0x08017AB0,504,usb_endpoints_in,"ref1011_default_lto,ref1011_feat_lto",0x20000EE4,data,1.000,

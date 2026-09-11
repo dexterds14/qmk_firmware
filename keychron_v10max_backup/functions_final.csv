@@ -1,0 +1,972 @@
+dump_addr,size,name,status,confidence,evidence
+0x08008000,284,_crt0_entry,agreed,high,"A splits the same 284 B into crt0_v7m.S local labels (msloop@0x08008074, psloop@0x08008082, dloop@0x08008092, bloop@0x080080A6, initloop@0x080080BC, endinitloop@0x080080C8, finiloop@0x080080D0); B one section; instruction-identical to ref (opsim 1.00). Literal triple @0x080080F8: __textdata_base__ 0x0801774C, __data_base__ 0x20000C00, __data_end__ 0x200013B8."
+0x0800811C,2,Reset_Handler,conflict,high,A Reset_Handler (exact) vs B 'INSERTION'. Dump 0x0800811C = 'e770 b.n 0x08008000 (_crt0_entry)' == ref vectors.S Reset_Handler; vector slot 1 = 0x0800811D. Resolved: A.
+0x0800811E,4,BusFault_Handler (weak default ISR aliases: NMI/HardFault/MemManage/BusFault/UsageFault/DebugMon/PendSV/... -> bl _unhandled_exception),conflict,high,"A BusFault_Handler (4 B) vs B 'Reset_Handler split1'. Dump 'f000 f800 bl 0x08008122' == ref 0x0800811E (W BusFault_Handler, W NMI_Handler ...); vector slots 2..15 except SVC (0x2C) hold 0x0800811F. Resolved: A."
+0x08008122,2,_unhandled_exception,conflict,high,A (part of BusFault body) vs B 'Reset_Handler split2'. Dump 'e7fe b.n self' == ref _unhandled_exception 0x08008122. Resolved: A.
+0x08008124,24,__port_switch,agreed,high,instruction-identical to ref chcoreasm.S __port_switch (stmdb/vpush/str sp/ldr/mov sp/vpop/ldmia); B's 50-B chcoreasm.o section = A's __port_switch + __port_thread_start + .zombies + __port_switch_from_isr + __port_exit_from_isr.
+0x0800813C,16,__port_thread_start,conflict,high,"A __port_thread_start (exact) vs B '__port_switch split2'. Dump 'movs r3,#0; msr BASEPRI,r3; mov r0,r5; blx r4; movs r0,#0; bl 0x08013A70 (chThdExit)' == ref __port_thread_start 0x0800813C. Resolved: A."
+0x0800814C,2,__port_thread_start.zombies,agreed,high,'e7fe b.n self' == ref local label .zombies (chcoreasm.S) inside B's chcoreasm.o section
+0x0800814E,4,__port_switch_from_isr,A-only,high,'bl 0x08013928 (chSchDoPreemption)' == ref __port_switch_from_isr; B 'INSERTION entry=ptr'
+0x08008152,6,__port_exit_from_isr,A-only,high,'svc 0; b.n self' + 2 B pad == ref __port_exit_from_isr; B 'INSERTION'
+0x08008158,48,__aeabi_uldivmod,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 6/6; opsim=1.00
+0x08008188,700,__udivmoddi4,agreed,high,B align match; entry=bl; callgraph 1/1; opsim=0.36; gcc13 ref agrees (__udivmoddi4); A caller-vote agrees (__udivmoddi4)
+0x08008444,4,__aeabi_idiv0 (= __aeabi_ldiv0),agreed,high,"libgcc _dvmd_tls.o 'bx lr' carries both names (ref nm 0x08008434 W __aeabi_idiv0 / W __aeabi_ldiv0); A picked idiv0 (2 B), B ldiv0 (4 B incl. pad). Not a conflict."
+0x08008448,100,srand,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-rand.o placed by tools/lib_match.py windows + direct byte compare (85.7% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x080084AC,152,rand,agreed,high,B(inferred-by-callers (1/1 matched callers call rand in ref); )+lib Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-rand.o placed by tools/lib_match.py windows + direct byte compare (85.7% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08008544,64,__assert_func,agreed,medium,B(inferred-by-callers (1/1 matched callers call __assert_func )+lib Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-assert.o placed by tools/lib_match.py windows + direct byte compare (69.7% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08008584,10,__assert,lib-only,medium,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-assert.o placed by tools/lib_match.py windows + direct byte compare (69.7% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08008590,44,__itoa,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-itoa.o placed by tools/lib_match.py windows + direct byte compare (90.9% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x080085BC,44,itoa,agreed,high,B(inferred-by-call-position (6/6 positional votes = itoa); siz)+lib Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-itoa.o placed by tools/lib_match.py windows + direct byte compare (90.9% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x080085E8,16,abort,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/4; opsim=0.91
+0x080085F8,156,__utoa,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-utoa.o placed by tools/lib_match.py windows + direct byte compare (96.9% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08008694,4,utoa,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-utoa.o placed by tools/lib_match.py windows + direct byte compare (96.9% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x080086C0,216,strlen,agreed,high,B(inferred-by-call-position (2/2 positional votes = strlen); s)+lib Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-strlen.o placed by tools/lib_match.py windows + direct byte compare (100.0% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08008798,162,memset,agreed,high,B(VERIFIED by call position: process_tapping calls it 2x where)+lib Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-memset.o placed by tools/lib_match.py windows + direct byte compare (100.0% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x0800883C,308,memcpy,agreed,high,"B(VERIFIED by call position: process_tapping (dump 0x0800df94,)+lib Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-memcpy.o placed by tools/lib_match.py windows + direct byte compare (100.0% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table."
+0x08008970,16,malloc,conflict,high,"A ambiguous {free|malloc|raise} vs B malloc. Dump 0x08008970: 'ldr r3,=_impure_ptr(0x20000C0C); mov r1,r0; ldr r0,[r3]; b.w 0x08009758' and 0x08009758 = _malloc_r (Ubuntu libc_a-mallocr.o placed at 0x08009710 = sbrk_aligned+_malloc_r, 90.9% bytes equal); newlib malloc.c emits malloc before free. Resolved: B."
+0x08008980,16,free,agreed,high,"'... b.w 0x08009858' and 0x08009858 = _free_r (libc_a-freer.o, 89.9% bytes equal)"
+0x08008990,28,_fiprintf_r/_fprintf_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-fprintf.o placed by tools/lib_match.py windows + direct byte compare (85.3% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x080089AC,40,fiprintf/fprintf,agreed,high,B(inferred-by-callers (1/1 matched callers call fprintf in ref)+lib Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-fprintf.o placed by tools/lib_match.py windows + direct byte compare (85.3% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x080089D4,92,memcmp,agreed,high,B(inferred-by-call-position (6/6 positional votes = memcmp); s)+lib Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-memcmp.o placed by tools/lib_match.py windows + direct byte compare (100.0% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08008A30,58,__sfputc_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-nano-vfprintf.o placed by tools/lib_match.py windows + direct byte compare (93.5% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08008A6C,46,__sfputs_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-nano-vfprintf.o placed by tools/lib_match.py windows + direct byte compare (93.5% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08008A9C,30,__sprint_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-nano-vfprintf.o placed by tools/lib_match.py windows + direct byte compare (93.5% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08008ABC,620,_vfiprintf_r/_vfprintf_r,agreed,high,B(inferred-by-callers (1/1 matched callers call _vfiprintf_r i)+lib Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-nano-vfprintf.o placed by tools/lib_match.py windows + direct byte compare (93.5% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08008D28,28,vfiprintf/vfprintf,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-nano-vfprintf.o placed by tools/lib_match.py windows + direct byte compare (93.5% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08008D44,134,__swbuf_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-wbuf.o placed by tools/lib_match.py windows + direct byte compare (88.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08008DCC,24,__swbuf,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-wbuf.o placed by tools/lib_match.py windows + direct byte compare (88.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08008DE4,768,__sfvwrite_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-fvwrite.o placed by tools/lib_match.py windows + direct byte compare (93.5% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x080090E4,44,_init_signal_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-signal.o placed by tools/lib_match.py windows + direct byte compare (92.6% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009110,74,_signal_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-signal.o placed by tools/lib_match.py windows + direct byte compare (92.6% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x0800915C,80,_raise_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-signal.o placed by tools/lib_match.py windows + direct byte compare (92.6% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x080091AC,96,__sigtramp_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-signal.o placed by tools/lib_match.py windows + direct byte compare (92.6% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x0800920C,84,raise,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-signal.o placed by tools/lib_match.py windows + direct byte compare (92.6% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009260,76,signal,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-signal.o placed by tools/lib_match.py windows + direct byte compare (92.6% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x080092AC,52,_init_signal,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-signal.o placed by tools/lib_match.py windows + direct byte compare (92.6% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x080092E0,100,__sigtramp,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-signal.o placed by tools/lib_match.py windows + direct byte compare (92.6% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009344,4,__fp_lock,conflict,high,A=_close_r|_lseek_r|null_sendchar_func|rgb_matrix_map_row_column_to_led_kb|sendchar B=- lib=__fp_lock: resolved by the archive member placement (position + bytes). Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-findfp.o placed by tools/lib_match.py windows + direct byte compare (82.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009348,24,stdio_exit_handler,agreed,high,A(exact)+lib Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-findfp.o placed by tools/lib_match.py windows + direct byte compare (82.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table. B: unidentified libc
+0x08009360,64,cleanup_stdio,agreed,high,A(fuzzy)+lib Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-findfp.o placed by tools/lib_match.py windows + direct byte compare (82.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table. B: unidentified libc
+0x080093A0,4,__fp_unlock,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-findfp.o placed by tools/lib_match.py windows + direct byte compare (82.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x080093A4,208,global_stdio_init.part.0,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-findfp.o placed by tools/lib_match.py windows + direct byte compare (82.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009474,164,__sfp,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-findfp.o placed by tools/lib_match.py windows + direct byte compare (82.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009518,32,__sinit,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-findfp.o placed by tools/lib_match.py windows + direct byte compare (82.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009538,2,__sfp_lock_acquire,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-findfp.o placed by tools/lib_match.py windows + direct byte compare (82.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x0800953C,2,__sfp_lock_release,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-findfp.o placed by tools/lib_match.py windows + direct byte compare (82.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009540,20,__fp_lock_all,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-findfp.o placed by tools/lib_match.py windows + direct byte compare (82.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009554,20,__fp_unlock_all,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-findfp.o placed by tools/lib_match.py windows + direct byte compare (82.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009568,292,__sflush_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-fflush.o placed by tools/lib_match.py windows + direct byte compare (94.6% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x0800968C,54,_fflush_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-fflush.o placed by tools/lib_match.py windows + direct byte compare (94.6% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x080096C4,76,fflush,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-fflush.o placed by tools/lib_match.py windows + direct byte compare (94.6% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009710,72,sbrk_aligned,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-mallocr.o placed by tools/lib_match.py windows + direct byte compare (90.9% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009758,256,_malloc_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-mallocr.o placed by tools/lib_match.py windows + direct byte compare (90.9% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009858,188,_free_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-freer.o placed by tools/lib_match.py windows + direct byte compare (89.9% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009914,254,memmove,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-memmove.o placed by tools/lib_match.py windows + direct byte compare (100.0% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009A14,68,_fwalk_sglue,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-fwalk.o placed by tools/lib_match.py windows + direct byte compare (100.0% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009A60,160,memchr,agreed,high,A(exact)+lib Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-memchr.o placed by tools/lib_match.py windows + direct byte compare (100.0% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table. B: unidentified libc
+0x08009B00,196,__swsetup_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-wsetup.o placed by tools/lib_match.py windows + direct byte compare (94.9% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009BC4,100,_realloc_r,lib-only,medium,Ubuntu libc_a-reallocr.o (100 B) 85% bytes equal at 0x08009BC4 (relocations differ); B's 2-window hint 'reallocr.o'
+0x08009C28,290,_printf_common,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-nano-vfprintf_i.o placed by tools/lib_match.py windows + direct byte compare (98.8% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009D4C,644,_printf_i,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-nano-vfprintf_i.o placed by tools/lib_match.py windows + direct byte compare (98.8% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x08009FD0,4,__malloc_lock,lib-only,high,'bx lr; nop' == Ubuntu libc_a-mlock.o (two 2-B no-op locks); called from _malloc_r@0x08009778 and _free_r@0x0800986C (bl 0x08009FD0); the other bx-lr pair at 0x08009538/3C belongs to findfp.o (__sfp_lock_acquire/release)
+0x08009FD4,4,__malloc_unlock,lib-only,high,'bx lr; nop' == libc_a-mlock.o; called from _malloc_r@0x080097BE and _free_r@0x08009842 (bl 0x08009FD4)
+0x08009FD8,196,__smakebuf_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-makebuf.o placed by tools/lib_match.py windows + direct byte compare (94.2% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x0800A09C,78,__swhatbuf_r,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-makebuf.o placed by tools/lib_match.py windows + direct byte compare (94.2% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x0800A0EC,34,__sread,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-stdio.o placed by tools/lib_match.py windows + direct byte compare (86.5% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x0800A110,4,__seofread,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-stdio.o placed by tools/lib_match.py windows + direct byte compare (86.5% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x0800A114,62,__swrite,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-stdio.o placed by tools/lib_match.py windows + direct byte compare (86.5% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x0800A154,34,__sseek,lib-only,high,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-stdio.o placed by tools/lib_match.py windows + direct byte compare (86.5% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x0800A178,8,__sclose,agreed,high,A+B+Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-stdio.o placed by tools/lib_match.py windows + direct byte compare (86.5% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x0800A180,16,_malloc_usable_size_r,lib-only,high,Ubuntu libc_a-msizer.o .text 16/16 bytes equal at 0x0800A180; called from _realloc_r@0x08009BD2
+0x0800A190,44,_kill_r,lib-only,medium,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-signalr.o placed by tools/lib_match.py windows + direct byte compare (77.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x0800A1BC,4,_getpid_r,lib-only,medium,Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-signalr.o placed by tools/lib_match.py windows + direct byte compare (77.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table.
+0x0800A1C0,24,wreless_keyboard_leds,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (wreless_keyboard_leds)
+0x0800A1D8,36,wireless_event_queue_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 0/1; opsim=1.00; gcc13 ref agrees (wireless_event_queue_init)
+0x0800A1FC,68,wireless_event_enqueue,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 0/2; opsim=1.00; gcc13 ref agrees (wireless_event_enqueue)
+0x0800A240,40,wireless_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/6; opsim=1.00
+0x0800A268,48,wireless_pairing_ex,agreed,high,A exact 1.00; B align match; callgraph 1/1; opsim=1.00; gcc13 ref agrees (wireless_pairing_ex)
+0x0800A298,68,wireless_connect,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/5; opsim=1.00; gcc13 ref agrees (wireless_connect)
+0x0800A2DC,96,wireless_send_keyboard,agreed,high,A exact 1.00; B align match; entry=ptr; callgraph 2/3; opsim=1.00
+0x0800A33C,100,wireless_send_nkro,B-only,high,B align match; entry=ptr; callgraph 2/3; opsim=0.94
+0x0800A3A0,52,wireless_send_mouse,agreed,high,A exact 1.00; B align match; entry=ptr; callgraph 1/1; opsim=1.00
+0x0800A3D4,72,wireless_connect_ex,agreed,high,A fuzzy-anchored 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (wireless_connect_ex)
+0x0800A41C,16,wireless_disconnect,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00; gcc13 ref agrees (wireless_disconnect)
+0x0800A42C,2,wireless_enter_discoverable_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800A42E,2,wireless_enter_reconnecting_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800A430,2,wireless_enter_connected_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800A432,2,wireless_enter_bluetooth_pin_code_entry_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800A434,2,wireless_exit_bluetooth_pin_code_entry_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800A436,2,wireless_enter_sleep_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800A438,32,wireless_send_system,agreed,high,A exact 1.00; B align match; opsim=1.00; gcc13 ref agrees (wireless_send_system)
+0x0800A458,88,wireless_send_consumer,agreed,high,A exact 1.00; B align match; callgraph 3/3; opsim=1.00; gcc13 ref agrees (wireless_send_consumer)
+0x0800A4B0,56,wireless_send_extra,agreed,high,A exact 1.00; B align match; entry=ptr; callgraph 1/1; opsim=0.98
+0x0800A4E8,136,wireless_low_battery_shutdown,agreed,high,A exact 1.00; B align match; callgraph 6/6; opsim=1.00
+0x0800A570,484,wireless_event_task,agreed,high,A fuzzy-anchored 0.93; B align match; entry=bl; callgraph 21/21; opsim=0.98
+0x0800A754,40,wireless_task,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 6/6; opsim=1.00
+0x0800A77C,12,wireless_get_state,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 5/5; opsim=1.00
+0x0800A788,68,process_record_wireless,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 6/6; opsim=1.00
+0x0800A7CC,60,report_buffer_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 5/5; opsim=1.00
+0x0800A808,56,report_buffer_enqueue,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/4; opsim=1.00; gcc13 ref agrees (report_buffer_enqueue)
+0x0800A840,52,report_buffer_dequeue,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/2; opsim=1.00; gcc13 ref agrees (report_buffer_dequeue)
+0x0800A874,24,report_buffer_is_empty,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (report_buffer_is_empty)
+0x0800A88C,16,report_buffer_update_timer,agreed,high,A exact-ambiguous 1.00; B align match; callgraph 1/1; opsim=1.00
+0x0800A89C,32,report_buffer_next_inverval,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (report_buffer_next_inverval)
+0x0800A8BC,12,report_buffer_set_inverval,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800A8C8,12,report_buffer_set_retry,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800A8D4,184,report_buffer_task,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 7/7; opsim=1.00; gcc13 ref agrees (report_buffer_task)
+0x0800A98C,148,lkbt51_init,agreed,medium,"B align match; entry=bl,ptr; callgraph 4/4; opsim=0.82; A caller-vote agrees (lkbt51_init)"
+0x0800AA20,68,lkbt51_wake,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 7/7; opsim=1.00
+0x0800AA64,216,lkbt51_send_cmd,agreed,high,A fuzzy 0.86; B align match; callgraph 4/5; opsim=0.95
+0x0800AB3C,52,lkbt51_send_keyboard,B-only,high,B align match; entry=ptr; callgraph 0/1; opsim=0.68; gcc13 ref agrees (lkbt51_send_keyboard)
+0x0800AB70,52,lkbt51_send_nkro,B-only,high,B align match; entry=ptr; callgraph 0/1; opsim=0.68; gcc13 ref agrees (lkbt51_send_nkro)
+0x0800ABA4,56,lkbt51_send_consumer,B-only,high,B align match; entry=ptr; opsim=0.84; gcc13 ref agrees (lkbt51_send_consumer)
+0x0800ABDC,64,lkbt51_send_system,B-only,high,B align match; entry=ptr; opsim=0.79; gcc13 ref agrees (lkbt51_send_system)
+0x0800AC1C,76,lkbt51_send_mouse,agreed,high,A fuzzy 0.86; B align match; entry=ptr; opsim=0.93; gcc13 ref agrees (lkbt51_send_mouse)
+0x0800AC68,132,lkbt51_become_discoverable,B-only,high,B align match; entry=ptr; callgraph 1/2; opsim=0.89
+0x0800ACEC,64,lkbt51_connect,B-only,high,B align match; entry=ptr; callgraph 1/1; opsim=0.91
+0x0800AD2C,68,lkbt51_disconnect,B-only,medium,B align match; entry=ptr; callgraph 2/2; opsim=0.71
+0x0800AD70,48,lkbt51_update_bat_lvl,B-only,high,B align match; entry=ptr; opsim=0.82; gcc13 ref agrees (lkbt51_update_bat_lvl)
+0x0800ADA0,88,lkbt51_read,agreed,medium,B align match; entry=bl; callgraph 6/6; opsim=0.80; A caller-vote agrees (lkbt51_read)
+0x0800ADF8,40,lkbt51_send_conn_evt_ack,agreed,high,B align match; entry=bl; callgraph 1/1; opsim=0.79; gcc13 ref agrees (lkbt51_send_conn_evt_ack); A caller-vote agrees (lkbt51_send_conn_evt_ack)
+0x0800AE20,56,lkbt51_read_state_reg,agreed,high,A fuzzy-anchored 0.76; B align match; opsim=0.84; gcc13 ref agrees (lkbt51_read_state_reg)
+0x0800AE58,48,lkbt51_update_bat_state,agreed,high,B align match; entry=bl; callgraph 1/1; opsim=0.82; gcc13 ref agrees (lkbt51_update_bat_state); A caller-vote agrees (lkbt51_update_bat_state)
+0x0800AE88,52,lkbt51_set_param,agreed,high,B align match; entry=bl; callgraph 1/2; opsim=0.53; gcc13 ref agrees (lkbt51_set_param); A caller-vote agrees (lkbt51_set_param)
+0x0800AEBC,60,lkbt51_set_local_name,agreed,high,B align match; entry=bl; callgraph 1/2; opsim=0.73; gcc13 ref agrees (lkbt51_set_local_name); A caller-vote agrees (lkbt51_set_local_name)
+0x0800AEF8,52,lkbt51_factory_reset,agreed,high,A fuzzy-anchored 0.81; B align match; entry=bl; callgraph 2/2; opsim=0.89
+0x0800AF2C,48,lkbt51_int_pin_test,agreed,high,A fuzzy-anchored 0.70; B align match; opsim=0.82; gcc13 ref agrees (lkbt51_int_pin_test)
+0x0800AF5C,48,lkbt51_radio_test,agreed,high,A fuzzy-anchored 0.78; B align match; opsim=0.82; gcc13 ref agrees (lkbt51_radio_test)
+0x0800AF8C,124,lkbt51_dfu_tx,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/3; opsim=1.00; gcc13 ref agrees (lkbt51_dfu_tx)
+0x0800B008,648,lkbt51_task,agreed,high,A fuzzy 0.89; B align match; entry=ptr; callgraph 7/8; opsim=0.93
+0x0800B290,152,lkbt51_dfu_rx,agreed,high,A fuzzy-anchored 0.90; B align match; entry=bl; callgraph 2/2; opsim=0.96
+0x0800B328,44,indicator_init,agreed,high,A fuzzy-anchored 0.75; B align match; entry=bl; callgraph 3/3; opsim=0.79; gcc13 ref agrees (indicator_init)
+0x0800B354,18,indicator_enable,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (indicator_enable)
+0x0800B366,4,indicator_disable,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800B36A,14,indicator_is_enabled,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (indicator_is_enabled)
+0x0800B378,36,indicator_eeconfig_reload,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 5/5; opsim=1.00; gcc13 ref agrees (indicator_eeconfig_reload)
+0x0800B39C,40,indicator_is_running,agreed,high,A fuzzy-anchored 0.67; B align match; entry=bl; callgraph 2/2; opsim=0.73; gcc13 ref agrees (indicator_is_running)
+0x0800B3C4,40,indicator_stop,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00; gcc13 ref agrees (indicator_stop)
+0x0800B3EC,52,indicator_battery_low_enable,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 6/6; opsim=1.00
+0x0800B420,116,indicator_battery_low_backlit_enable,agreed,medium,A fuzzy-anchored 0.60; B align match; entry=bl; callgraph 8/8; opsim=0.73
+0x0800B494,48,os_state_indicate,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 5/5; opsim=1.00; gcc13 ref agrees (os_state_indicate)
+0x0800B4C4,268,rgb_matrix_indicators_bt,agreed,high,A fuzzy-anchored 0.81; B align match; entry=bl; callgraph 11/11; opsim=0.88; gcc13 ref agrees (rgb_matrix_indicators_bt)
+0x0800B5D0,220,indicator_timer_cb,agreed,high,A fuzzy-anchored 0.87; B align match; entry=bl; callgraph 6/6; opsim=0.92
+0x0800B6AC,340,indicator_set,agreed,high,A fuzzy-anchored 1.00; B align match; entry=bl; callgraph 10/10; opsim=1.00; gcc13 ref agrees (indicator_set)
+0x0800B800,28,rgb_matrix_none_indicators_kb,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (rgb_matrix_none_indicators_kb)
+0x0800B81C,16,rgb_matrix_driver_allow_shutdown,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00; gcc13 ref agrees (rgb_matrix_driver_allow_shutdown)
+0x0800B82C,176,indicator_battery_low,agreed,high,A fuzzy-anchored 0.95; B align match; callgraph 3/3; opsim=0.95
+0x0800B8DC,64,indicator_task,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 5/5; opsim=1.00
+0x0800B91C,84,led_update_kb,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 11/11; opsim=1.00; gcc13 ref agrees (led_update_kb)
+0x0800B970,2,wireless_post_task,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800B972,30,wireless_tasks,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 6/6; opsim=1.00
+0x0800B990,104,bt_transport_enable,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 7/7; opsim=1.00; gcc13 ref agrees (bt_transport_enable)
+0x0800B9F8,104,p24g_transport_enable,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 7/7; opsim=1.00
+0x0800BA60,60,usb_transport_enable,agreed,high,A fuzzy 0.86; B align match; entry=bl; callgraph 2/2; opsim=0.93; gcc13 ref agrees (usb_transport_enable)
+0x0800BA9C,280,set_transport,agreed,high,A fuzzy 0.85; B align match; callgraph 14/14; opsim=0.92
+0x0800BBB4,12,get_transport,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 13/13; opsim=1.00
+0x0800BBC0,112,usb_remote_wakeup,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 9/9; opsim=1.00
+0x0800BC30,64,select_all_cols,agreed,high,A fuzzy 0.86; B align match; entry=bl; callgraph 2/2; opsim=0.90; gcc13 ref agrees (select_all_cols)
+0x0800BC70,28,lpm_timer_reset,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 7/7; opsim=1.00; gcc13 ref agrees (lpm_timer_reset)
+0x0800BC8C,24,lpm_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800BCA4,20,lpm_timer_stop,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (lpm_timer_stop)
+0x0800BCB8,16,usb_power_connected,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00; gcc13 ref agrees (usb_power_connected)
+0x0800BCC8,260,pre_enter_low_power_mode,agreed,high,A fuzzy-anchored 1.00; B align match; entry=bl; callgraph 8/8; opsim=1.00; gcc13 ref agrees (pre_enter_low_power_mode)
+0x0800BDCC,456,lpm_task,agreed,high,A exact 1.00; B align match; callgraph 23/23; opsim=1.00
+0x0800BF94,96,lpm_set,agreed,high,A fuzzy-anchored 0.93; B align match; entry=bl; callgraph 2/2; opsim=0.97; gcc13 ref agrees (lpm_set)
+0x0800BFF4,100,enter_power_mode,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (enter_power_mode)
+0x0800C058,16,battery_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800C068,2,battery_stop,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800C06A,10,battery_measure,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=0.86
+0x0800C074,120,battery_calculate_voltage,agreed,high,B align match; entry=bl; callgraph 2/2; opsim=0.93; gcc13 ref agrees (battery_calculate_voltage); A caller-vote agrees (battery_calculate_voltage)
+0x0800C0EC,88,battery_get_percentage,agreed,high,B align match; entry=bl; callgraph 2/2; opsim=0.85; gcc13 ref agrees (battery_get_percentage); A caller-vote agrees (battery_get_percentage)
+0x0800C144,20,battery_is_empty,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (battery_is_empty)
+0x0800C158,20,battery_is_critical_low,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 9/9; opsim=1.00; gcc13 ref agrees (battery_is_critical_low)
+0x0800C16C,64,battery_check_empty,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800C1AC,52,battery_check_critical_low,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (battery_check_critical_low)
+0x0800C1E0,204,battery_task,agreed,high,A fuzzy-anchored 0.97; B align match; entry=bl; callgraph 13/13; opsim=0.97
+0x0800C2AC,88,bat_level_animiation_start,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800C304,16,bat_level_animiation_actived,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (bat_level_animiation_actived)
+0x0800C314,124,bat_level_animiation_indicate,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/3; opsim=1.00; gcc13 ref agrees (bat_level_animiation_indicate)
+0x0800C390,172,bat_level_animiation_update,agreed,high,A exact 1.00; B align match; callgraph 5/5; opsim=1.00; gcc13 ref agrees (bat_level_animiation_update)
+0x0800C43C,48,bat_level_animiation_task,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (bat_level_animiation_task)
+0x0800C46C,28,rtc_timer_clear,agreed,high,A fuzzy-anchored 0.74; B align match; entry=bl; callgraph 2/2; opsim=0.82; gcc13 ref agrees (rtc_timer_clear)
+0x0800C488,4,rtc_timer_init,agreed,high,A exact-ambiguous 1.00; B align match; opsim=1.00
+0x0800C48C,28,rtc_timer_read_ms,B-only,high,B align match; entry=bl; callgraph 4/4; opsim=0.82; gcc13 ref agrees (rtc_timer_read_ms)
+0x0800C4A8,12,rtc_timer_elapsed_ms,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800C4B4,152,process_record_keychron_wireless,agreed,high,A fuzzy-anchored 0.91; B align match; callgraph 6/6; opsim=0.98
+0x0800C54C,72,lkbt51_param_init,agreed,high,A fuzzy-anchored 0.78; B align match; entry=bl; callgraph 4/4; opsim=0.92; gcc13 ref agrees (lkbt51_param_init)
+0x0800C594,4,wireless_enter_reset_kb,B-only,high,B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800C598,44,wireless_enter_disconnected_kb,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/5; opsim=1.00
+0x0800C5C4,40,keychron_wireless_common_task,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (keychron_wireless_common_task)
+0x0800C5EC,176,wireless_pre_task,agreed,high,A fuzzy-anchored 0.91; B align match; entry=bl; callgraph 4/4; opsim=0.99
+0x0800C69C,4,process_record_keychron_kb,B-only,high,B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800C6A0,38,process_record_keychron,agreed,high,A fuzzy-anchored 0.69; B align match; callgraph 3/3; opsim=0.69; gcc13 ref agrees (process_record_keychron)
+0x0800C6C6,14,rgb_matrix_indicators_keychron,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/3; opsim=1.00
+0x0800C6D4,20,keychron_task,agreed,high,A exact 1.00; B align match; callgraph 4/4; opsim=1.00
+0x0800C6E8,26,process_record_kb,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (process_record_kb)
+0x0800C702,18,rgb_matrix_indicators_kb,B-only,high,B align match; entry=bl; callgraph 2/3; opsim=0.62; gcc13 ref agrees (rgb_matrix_indicators_kb)
+0x0800C714,4,housekeeping_task_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800C718,8,encoder0_pad_cb,agreed,medium,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=ptr; opsim=0.80
+0x0800C720,188,process_record_keychron_common,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800C7DC,52,keychron_common_task,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800C810,100,encoder_cb_init,agreed,high,A fuzzy-anchored 0.85; B align match; entry=bl; callgraph 4/4; opsim=0.76; gcc13 ref agrees (encoder_cb_init)
+0x0800C874,148,via_command_kb,agreed,high,A exact 1.00; B align match; callgraph 4/5; opsim=1.00
+0x0800C908,16,raw_hid_receive,agreed,high,"A exact 1.00; B align HOOK-DEFAULT: raw_hid_receive (keychron_common.c non-VIA stub, opsim 0.92 -> VIA; gcc13 ref agrees (raw_hid_receive)"
+0x0800C918,16,factory_timer_start,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800C928,240,process_record_factory_test,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (process_record_factory_test)
+0x0800CA18,92,factory_test_indicator,agreed,high,A fuzzy-anchored 0.95; B align match; entry=bl; callgraph 2/2; opsim=0.95; gcc13 ref agrees (factory_test_indicator)
+0x0800CA74,16,factory_reset_indicating,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (factory_reset_indicating)
+0x0800CA84,192,factory_test_task,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 11/11; opsim=1.00
+0x0800CB44,76,factory_test_send,agreed,high,A fuzzy-anchored 0.90; B align match; entry=bl; callgraph 4/5; opsim=0.90
+0x0800CB90,352,factory_test_rx,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/4; opsim=1.00
+0x0800CCF0,40,dip_switch_update_user,B-only,high,"B align HOOK-DEFAULT: dip_switch_update_user (Keychron factory_test.c version, opsim 0.89); match; entry=bl;"
+0x0800CD18,32,dip_switch_update_kb,agreed,high,B align match; entry=bl; callgraph 3/3; opsim=1.00; A caller-vote agrees (dip_switch_update_kb)
+0x0800CD38,80,keyboard_post_init_kb,agreed,high,A fuzzy-anchored 0.84; B align match; entry=bl; callgraph 5/6; opsim=0.91
+0x0800CD88,48,keychron_task_kb,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (keychron_task_kb)
+0x0800CDB8,32,lpm_is_kb_idle,agreed,high,A fuzzy-anchored 0.83; B align match; entry=bl; callgraph 2/2; opsim=0.95; gcc13 ref agrees (lpm_is_kb_idle)
+0x0800CDD8,2,td0_on_reset [user],agreed,high,"tap_dance_actions[0].fn.on_reset pointer 0x0800CDD9 at flash 0x080179D8 (.data init image, RAM 0x20000E7C+0x10); body 'bx lr'. A+B."
+0x0800CDDA,26,td_oneshot_layer1_helper [user static],agreed,high,"tail-called (b.w) from td0_on_dance_finished@0x0800D216 and @0x0800D24C/0x0800D258 paths; layer_on(1) 0x0800DC64; set_oneshot_layer(1,ONESHOT_START=3) 0x0800E504; b.w clear_oneshot_layer_state(ONESHOT_PRESSED=1) 0x0800E548. A+B."
+0x0800CDF4,10,leader_start_user [user],agreed,high,"bl from leader_start@0x08011948 (exact leader_start 0x08011940); body movs r2,#255; movs r1,#0; mov r0,r2; b.w rgb_matrix_set_color_all 0x0800FEE4 = (255,0,255). A+B."
+0x0800CDFE,354,leader_end_user [user],agreed,high,bl from leader_end@0x08011984 (exact leader_end 0x0801197C); 7 leader_sequence_one_key/two_keys checks + register_code/unregister_code chains. A+B; see disasm/leader_end_user_0800CDFE.txt.
+0x0800CF60,20,keyboard_post_init_user [user],agreed,high,b.w tail-call from keyboard_post_init_kb@0x0800CD76 (last insn of the 80-B v10_max.c hook); body default_layer_set(0) 0x0800DBE2 then b.w rgb_matrix_mode(16) 0x08010D40 (mode 16 = TYPING_HEATMAP per rgb_task_render tbb table). A+B.
+0x0800CF74,156,rgb_matrix_indicators_advanced_user [user],agreed,high,"bl from rgb_matrix_indicators_advanced_kb@0x08010C4E (8-B kb hook); per-LED loop, biton16(layer_state|default_layer_state) tbb switch on layers 1..5, flags 0x200015DC/DD/DE. Literal pool 0x0800CFFC-0x0800D010. A+B."
+0x0800D010,120,osm_indicator_helper [user static],agreed,high,b.w target of both oneshot_mods_changed_user 0x0800D088 and oneshot_locked_mods_changed_user 0x0800D08C; mods&0x22 (shift) / mods&~0x77 (GUI) -> rgb_matrix_set_color_all + flags 0x200015DE/0x200015DD. A+B.
+0x0800D088,4,oneshot_mods_changed_user [user],agreed,high,bl from oneshot_mods_changed_kb@0x0800E3E6; body 'b.w 0x0800D010'. A+B.
+0x0800D08C,4,oneshot_locked_mods_changed_user [user],agreed,high,bl from oneshot_locked_mods_changed_kb@0x0800E38E; body 'b.w 0x0800D010'. A+B.
+0x0800D090,36,osm_lookup_helper [user static],agreed,high,called only from osm_press_handler 0x0800D0B4; walks a 2-entry table through pointer 0x200015E0 (see disasm). A+B.
+0x0800D0B4,80,osm_press_handler [user static],agreed,high,"tail-called from process_record_user@0x0800D15A for pressed OSM(MOD_LSFT/LGUI/RSFT/RGUI) = 0x52A2/0x52A8/0x52B2/0x52B8; calls osm_lookup_helper, get_mods 0x0800E310, clear_oneshot_mods 0x0800E424, clear_oneshot_locked_mods 0x0800E3B0, get_oneshot_mods 0x0800E380, unregister_mods 0x0800D684. A+B."
+0x0800D104,192,process_record_user [user],agreed,high,"bl from process_record_kb@0x0800C6EE (keychron_task.c, exact 26 B); literal pool to 0x0800D1C4. A+B; see disasm."
+0x0800D1C4,40,td_cur_dance [user static],agreed,high,"bl from td0_on_dance_finished@0x0800D1F0; reads state->count [r0,#2], pressed/interrupted bits [r0,#4]/[r0,#5]; returns 1..4. A+B."
+0x0800D1EC,112,td0_on_dance_finished [user],agreed,high,tap_dance_actions[0].fn.on_dance_finished pointer 0x0800D1ED at flash 0x080179D4; layer 1/4 logic with flags 0x200015E8/0x200015E9; literal pool to 0x0800D25C. A+B.
+0x0800D25C,32,oneshot_layer_changed_user [user],agreed,high,"bl from oneshot_layer_changed_kb@0x0800E4FE; if layer==0 && flag 0x200015E9: layer_clear 0x0800DC34, layer_move(4) 0x0800DC58, flag=0. A+B."
+0x0800D27C,40,keycode_at_keymap_location_raw,agreed,high,"keymap_introspection.c (compiled from the user's keymap TU): cmp r0,#5/r1,#5/r2,#17, 108 u16 per layer, literal 0x080169B8 = keymaps[]. A+B."
+0x0800D2A4,4,keycode_at_keymap_location,agreed,high,b.w 0x0800D27C thunk. A+B.
+0x0800D2A8,32,keycode_at_encodermap_location_raw,agreed,high,literal 0x080169A0 = encoder_map[6][1][2]; cmp #5 layers. A+B.
+0x0800D2C8,4,keycode_at_encodermap_location,agreed,high,b.w 0x0800D2A8 thunk. A+B.
+0x0800D2CC,4,pre_process_record_user,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800D2D0,8,pre_process_record_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800D2D8,4,process_action_kb,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800D2DC,2,post_process_record_user,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800D2DE,10,post_process_record_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=0.86
+0x0800D2E8,76,get_event_keycode,agreed,high,B align match; callgraph 3/3; opsim=0.93; A caller-vote agrees (get_event_keycode)
+0x0800D334,24,get_record_keycode,agreed,high,A fuzzy-anchored 0.78; B align match; entry=bl; callgraph 3/5; opsim=0.78; gcc13 ref agrees (get_record_keycode)
+0x0800D34C,18,pre_process_record_quantum,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800D35E,18,post_process_record_quantum,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800D370,4,shutdown_user,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800D374,8,shutdown_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800D37C,26,shutdown_quantum,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00; gcc13 ref agrees (shutdown_quantum)
+0x0800D396,16,reset_keyboard,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800D3A6,16,soft_reset_keyboard,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800D3B6,166,process_record_quantum,agreed,high,A fuzzy-anchored 0.97; B align match; entry=bl; callgraph 14/14; opsim=0.91
+0x0800D45C,24,suspend_power_down_quantum,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00
+0x0800D474,20,suspend_wakeup_init_quantum,agreed,high,A exact 1.00; B align match; callgraph 2/2; opsim=1.00
+0x0800D488,40,biton16,agreed,high,A fuzzy-anchored 0.57; B align match; entry=bl; callgraph 1/1; opsim=0.67; gcc13 ref agrees (biton16)
+0x0800D4B0,2,led_set_user,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800D4B2,4,led_update_user,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800D4B6,2,led_update_ports,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800D4B8,2,led_init_ports,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800D4BA,16,led_set,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 6/6; opsim=1.00
+0x0800D4CA,10,led_suspend,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800D4D4,12,led_wakeup,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800D4E0,44,led_task,agreed,high,A exact 1.00; B align match; callgraph 3/3; opsim=1.00; gcc13 ref agrees (led_task)
+0x0800D50C,64,action_exec,agreed,medium,B align match; entry=bl; callgraph 6/6; opsim=0.55; A caller-vote agrees (action_exec)
+0x0800D54C,14,process_record_tap_hint,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (process_record_tap_hint)
+0x0800D55A,22,register_mouse,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (register_mouse)
+0x0800D570,144,register_code,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 8/9; opsim=1.00
+0x0800D600,114,unregister_code,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 6/7; opsim=1.00; gcc13 ref agrees (unregister_code)
+0x0800D672,18,register_mods,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800D684,20,unregister_mods,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 2/2; opsim=0.92
+0x0800D698,1052,process_action,agreed,high,A fuzzy-anchored 0.77; B align match; callgraph 40/40; opsim=0.92
+0x0800DAB4,36,process_record_handler,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=0.96
+0x0800DAD8,60,process_record,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 7/7; opsim=1.00
+0x0800DB14,34,clear_keyboard_but_mods_and_keys,agreed,high,A exact 1.00; B align match; callgraph 5/5; opsim=1.00
+0x0800DB36,14,clear_keyboard_but_mods,agreed,high,A exact-ambiguous 1.00; B align match; callgraph 1/1; opsim=1.00
+0x0800DB44,14,clear_keyboard,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 7/7; opsim=1.00
+0x0800DB52,66,is_tap_action,B-only,high,B align match; opsim=0.75; gcc13 ref agrees (is_tap_action)
+0x0800DB94,24,is_tap_record,B-only,high,B align match; entry=bl; callgraph 2/2; opsim=0.89
+0x0800DBAC,12,debug_event,B-only,medium,B align match; entry=bl; callgraph 1/1; opsim=0.67
+0x0800DBB8,12,debug_record,agreed,medium,A fuzzy-anchored 0.50; B align match; entry=bl; callgraph 2/2; opsim=0.67
+0x0800DBC4,2,default_layer_state_set_user,agreed,high,A exact-ambiguous 1.00; B align HOOK-DEFAULT: default_layer_state_set_user (2 B default); match; entry=bl; callg
+0x0800DBC6,10,default_layer_state_set_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=0.86
+0x0800DBD0,16,default_layer_state_set,agreed,high,A exact-ambiguous 1.00; B align match; callgraph 1/1; opsim=1.00
+0x0800DBE0,2,default_layer_debug,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800DBE2,6,default_layer_set,agreed,medium,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 4/4; opsim=0.67
+0x0800DBE8,16,default_layer_or,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800DBF8,16,default_layer_and,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800DC08,16,default_layer_xor,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800DC18,2,layer_state_set_user,agreed,high,A exact-ambiguous 1.00; B align HOOK-DEFAULT: layer_state_set_user (2 B default; BL from layer_state_set_kb @0x0
+0x0800DC1A,10,layer_state_set_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=0.86
+0x0800DC24,16,layer_state_set,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800DC34,8,layer_clear,agreed,medium,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/3; opsim=0.80
+0x0800DC3C,28,layer_state_is,B-only,high,no ref function (unused in ref builds); body: ldrh layer_state(0x2000162E); if 0 -> return layer==0 (clz/lsr #5) else return (layer_state >> layer) & 1 == action_layer.c layer_state_cmp() inlined into layer_state_is(); called from process_record_user and td0_on_dance_finished with layer 1/4
+0x0800DC58,12,layer_move,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/3; opsim=1.00
+0x0800DC64,24,layer_on,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/3; opsim=1.00; gcc13 ref agrees (layer_on)
+0x0800DC7C,20,layer_off,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (layer_off)
+0x0800DC90,24,layer_invert,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (layer_invert)
+0x0800DCA8,16,layer_or,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800DCB8,16,layer_and,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800DCC8,16,layer_xor,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800DCD8,2,layer_debug,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800DCDA,50,update_source_layers_cache_impl,agreed,high,A fuzzy 0.87; B align match; opsim=0.87; gcc13 ref agrees (update_source_layers_cache_impl)
+0x0800DD0C,40,read_source_layers_cache_impl,agreed,high,A exact 1.00; B align match; opsim=0.97; gcc13 ref agrees (read_source_layers_cache_impl)
+0x0800DD34,68,update_source_layers_cache,agreed,high,A fuzzy-anchored 0.59; B align match; entry=bl; callgraph 2/2; opsim=0.78; gcc13 ref agrees (update_source_layers_cache)
+0x0800DD78,60,read_source_layers_cache,agreed,high,A fuzzy-anchored 0.92; B align match; entry=bl; callgraph 2/2; opsim=0.91; gcc13 ref agrees (read_source_layers_cache)
+0x0800DDB4,68,layer_switch_get_layer,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00
+0x0800DDF8,24,layer_switch_get_action,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800DE10,72,store_or_get_action,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00
+0x0800DE58,64,debug_waiting_buffer,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (debug_waiting_buffer)
+0x0800DE98,32,debug_tapping_key,B-only,high,B align match; entry=bl; callgraph 1/1; opsim=0.76; gcc13 ref agrees (debug_tapping_key)
+0x0800DEB8,68,waiting_buffer_typed.isra.0,agreed,high,A exact 1.00; B align inferred-by-callers (2/2 matched callers call waiting_buffer_typed.isra.0 in ref; gcc13 ref agrees (waiting_buffer_typed.isra.0)
+0x0800DEFC,4,get_tapping_term,conflict,high,"A get_tapping_term ('movs r0,#175; bx lr', caller vote) vs B 'waiting_buffer_scan_tap split1'. Callers: tap_dance_task@0x080120EC after building a keyrecord_t on the stack (strd r3,r3,[sp]; mov r1,sp; ldrh r0,[active_td]; bl 0x0800DEFC; cmp r5,r0) where ref tap_dance_task@0x080105EC has 'cmp r0,#140' inline; waiting_buffer_scan_tap@0x0800DF52 (right after bl get_record_keycode 0x0800D334) where ref has 'cmp r2,#139'; process_tapping@0x0800E016 and @0x0800E192. That call shape is GET_TAPPING_TERM() with TAPPING_TERM_PER_KEY defined. Body is the weak default returning TAPPING_TERM = 175, at the action_tapping.o link position (after waiting_buffer_typed.isra.0, before waiting_buffer_scan_tap), not in the keymap object. Resolved: A; B's 'TAPPING_TERM_PER_KEY off' inference is wrong."
+0x0800DF00,148,waiting_buffer_scan_tap,B-only,high,"same control flow as ref 0x0800BF3C (ldrb [..#6]; cmp #15; ring index and #7; bfi #4,#4 on tap.count; bl process_record 0x0800DAD8; tail b.w debug_waiting_buffer 0x0800DE58); 16 B larger than ref because the inline 'cmp #139' became bl get_record_keycode + bl get_tapping_term. B (split2) + inspection."
+0x0800DF94,648,process_tapping,B-only,medium,B align match; entry=bl; callgraph 8/10; opsim=0.80
+0x0800E21C,196,action_tapping_process,B-only,high,B align match; entry=bl; callgraph 5/6; opsim=0.85; gcc13 ref agrees (action_tapping_process)
+0x0800E2E0,12,get_oneshot_layer,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800E2EC,16,get_oneshot_layer_state,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (get_oneshot_layer_state)
+0x0800E2FC,20,is_oneshot_layer_active,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (is_oneshot_layer_active)
+0x0800E310,12,get_mods,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800E31C,16,add_mods,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00
+0x0800E32C,16,del_mods,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00
+0x0800E33C,12,clear_mods,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800E348,12,get_weak_mods,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800E354,16,add_weak_mods,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800E364,16,del_weak_mods,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800E374,12,clear_weak_mods,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00
+0x0800E380,12,get_oneshot_mods,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800E38C,8,oneshot_locked_mods_changed_kb,agreed,high,"A ambiguous 8-B kb-hook set resolved by callers add/clear/del_oneshot_locked_mods (0x200016A5 group); body 'push {r3,lr}; bl 0x0800D08C; pop' -> oneshot_locked_mods_changed_user [user]"
+0x0800E394,28,add_oneshot_locked_mods,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (add_oneshot_locked_mods)
+0x0800E3B0,24,clear_oneshot_locked_mods,conflict,high,"A clear_oneshot_mods (exact; the only candidate because ref_feat has no clear_oneshot_locked_mods) vs B clear_oneshot_locked_mods. Body clears byte 0x200016A5 then bl 0x0800E38C. 0x200016A5 is the byte written by add_oneshot_locked_mods@0x0800E394 (A exact) and del_oneshot_locked_mods@0x0800E3C8; the oneshot_mods group (get 0x0800E380, add 0x0800E3EC, del 0x0800E408, clear 0x0800E424) uses 0x200016A6 and calls oneshot_mods_changed_kb 0x0800E3E4. Orientation pinned by process_action@0x0800D83A-0x0800D846: bl register_mods(0x0800D672); bl del_oneshot_mods(0x0800E408); bl add_oneshot_locked_mods(0x0800E394) == quantum/action.c:464-466 (tap_count == ONESHOT_TAP_TOGGLE branch). Resolved: B."
+0x0800E3C8,28,del_oneshot_locked_mods,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800E3E4,8,oneshot_mods_changed_kb,agreed,high,"B merge label 'oneshot_mods_changed_user+oneshot_mods_changed_kb': only the kb hook lives here ('push {r3,lr}; bl 0x0800D088; pop'); the ref's 2-B user stub is replaced by the user's oneshot_mods_changed_user at 0x0800D088. Callers add/del/clear_oneshot_mods (0x200016A6 group)."
+0x0800E3EC,28,add_oneshot_mods,agreed,medium,A fuzzy 1.00; B align match; entry=bl; callgraph 1/2; opsim=0.72
+0x0800E408,28,del_oneshot_mods,agreed,medium,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/2; opsim=0.80
+0x0800E424,24,clear_oneshot_mods,agreed,high,"clears byte 0x200016A6 (oneshot_mods, see 0x0800E3B0) then bl oneshot_mods_changed_kb 0x0800E3E4; A exact + B"
+0x0800E43C,48,get_mods_for_report,agreed,medium,A fuzzy-anchored 0.95; B align match; entry=bl; callgraph 4/4; opsim=0.78
+0x0800E46C,56,send_6kro_report,agreed,high,A exact 1.00; B align match; callgraph 1/2; opsim=1.00; gcc13 ref agrees (send_6kro_report)
+0x0800E4A4,56,send_nkro_report,agreed,high,A exact 1.00; B align match; callgraph 1/2; opsim=1.00; gcc13 ref agrees (send_nkro_report)
+0x0800E4DC,32,send_keyboard_report,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 6/6; opsim=1.00; gcc13 ref agrees (send_keyboard_report)
+0x0800E4FC,8,oneshot_layer_changed_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/3; opsim=1.00
+0x0800E504,48,set_oneshot_layer,agreed,high,A fuzzy 1.00; B align match; entry=bl; callgraph 4/4; opsim=0.91
+0x0800E534,20,reset_oneshot_layer,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=0.88
+0x0800E548,52,clear_oneshot_layer_state,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (clear_oneshot_layer_state)
+0x0800E57C,44,oneshot_set,agreed,high,A exact 1.00; B align match; callgraph 1/1; opsim=1.00; gcc13 ref agrees (oneshot_set)
+0x0800E5A8,24,oneshot_toggle,B-only,high,B align match; entry=bl; callgraph 1/1; opsim=0.73; gcc13 ref agrees (oneshot_toggle)
+0x0800E5C0,6,oneshot_enable,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800E5C6,6,oneshot_disable,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800E5CC,20,eeconfig_disable,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800E5E0,20,eeconfig_is_enabled,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800E5F4,6,eeconfig_read_debug,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800E5FA,6,eeconfig_read_default_layer,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800E600,6,eeconfig_read_keymap,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800E606,8,eeconfig_update_keymap,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800E60E,8,eeconfig_update_kb,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800E616,8,eeconfig_update_user,agreed,high,A exact 1.00; B align match; opsim=1.00
+0x0800E61E,6,eeconfig_init_user,agreed,high,A exact-ambiguous 1.00; B align HOOK-DEFAULT: eeconfig_init_user (default; BL from eeconfig_init_kb @0x0800e624)
+0x0800E624,16,eeconfig_init_kb,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=0.91
+0x0800E634,144,eeconfig_init_quantum,agreed,high,B align match; callgraph 6/6; opsim=0.97; gcc13 ref agrees (eeconfig_init_quantum); A caller-vote agrees (eeconfig_init_quantum)
+0x0800E6C4,4,eeconfig_init,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800E6C8,56,generate_tick_event,agreed,high,B align match; entry=bl; callgraph 3/3; opsim=0.89; gcc13 ref agrees (generate_tick_event); A caller-vote agrees (generate_tick_event)
+0x0800E700,24,last_matrix_activity_trigger,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800E718,24,last_encoder_activity_trigger,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800E730,2,matrix_setup,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800E732,2,keyboard_pre_init_user,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800E734,8,keyboard_pre_init_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800E73C,4,matrix_can_read,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800E740,28,keyboard_setup,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 5/5; opsim=1.00
+0x0800E75C,4,is_keyboard_master,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800E760,8,should_process_keypress,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800E768,2,housekeeping_task_user,agreed,high,A exact-ambiguous 1.00; B align HOOK-DEFAULT: housekeeping_task_user (2 B default stub; BL from housekeeping_tas
+0x0800E76A,12,housekeeping_task,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800E776,18,quantum_init,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800E788,28,keyboard_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 7/7; opsim=1.00
+0x0800E7A4,20,quantum_task,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800E7B8,248,keyboard_task,agreed,high,A fuzzy-anchored 0.84; B align match; entry=bl; callgraph 15/16; opsim=0.95
+0x0800E8B0,436,action_for_keycode,agreed,high,A fuzzy-anchored 0.90; B align match; callgraph 2/2; opsim=0.91; gcc13 ref agrees (action_for_keycode)
+0x0800EA64,58,keymap_key_to_keycode,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (keymap_key_to_keycode)
+0x0800EA9E,22,action_for_key,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (action_for_key)
+0x0800EAB4,264,keycode_config,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (keycode_config)
+0x0800EBBC,196,mod_config,agreed,high,B align match; entry=bl; callgraph 1/1; opsim=0.66; gcc13 ref agrees (mod_config); A caller-vote agrees (mod_config)
+0x0800EC80,4,sendchar,agreed,high,A exact-ambiguous 1.00; B align match; entry=ptr; opsim=1.00
+0x0800EC84,4,null_sendchar_func,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=ptr; opsim=1.00
+0x0800EC88,12,print_set_sendchar,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800EC94,4,bootmagic_lite_reset_eeprom,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800EC98,42,bootmagic_lite,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 5/5; opsim=1.00
+0x0800ECC2,10,bootmagic,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=0.86
+0x0800ECCC,64,magic,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 8/8; opsim=1.00
+0x0800ED0C,2,matrix_init_user,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800ED0E,8,matrix_init_kb,agreed,high,A exact-ambiguous 1.00; B align match; callgraph 1/1; opsim=1.00
+0x0800ED16,2,matrix_scan_user,agreed,high,A exact-ambiguous 1.00; B align HOOK-DEFAULT: matrix_scan_user (2 B default); match; entry=bl; callgraph 1/1; op
+0x0800ED18,8,matrix_scan_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800ED20,12,matrix_get_row,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800ED2C,2,matrix_print,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800ED2E,8,matrix_io_delay,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800ED36,26,matrix_output_select_delay,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (matrix_output_select_delay)
+0x0800ED50,8,matrix_output_unselect_delay,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; callgraph 1/1; opsim=1.00
+0x0800ED58,36,setPinInputHigh_atomic,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=0.96
+0x0800ED7C,60,matrix_init_pins,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800EDB8,160,matrix_read_rows_on_col,agreed,high,B align match; entry=bl; callgraph 4/4; opsim=0.88; A caller-vote agrees (matrix_read_rows_on_col)
+0x0800EE58,52,matrix_init,agreed,high,A fuzzy-anchored 0.72; B align match; entry=bl; callgraph 4/4; opsim=0.80; gcc13 ref agrees (matrix_init)
+0x0800EE8C,108,matrix_scan,agreed,high,A fuzzy-anchored 0.80; B align match; entry=bl; callgraph 6/6; opsim=0.90
+0x0800EEF8,36,debounce_init,agreed,high,B align match; entry=bl; callgraph 1/2; opsim=0.42; gcc13 ref agrees (debounce_init); A caller-vote agrees (debounce_init)
+0x0800EF1C,20,debounce_free,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/2; opsim=1.00; gcc13 ref agrees (debounce_free)
+0x0800EF30,304,debounce,agreed,high,B align match; entry=bl; callgraph 2/2; opsim=0.85; A caller-vote agrees (debounce)
+0x0800F060,18,protocol_init,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800F072,18,protocol_task,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800F084,28,main,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 7/7; opsim=1.00
+0x0800F0A0,30,eeprom_read_byte,agreed,high,A fuzzy-anchored 0.82; B align match; entry=bl; callgraph 2/2; opsim=0.90; gcc13 ref agrees (eeprom_read_byte)
+0x0800F0BE,30,eeprom_read_word,agreed,high,A fuzzy-anchored 0.82; B align match; entry=bl; callgraph 3/3; opsim=0.90; gcc13 ref agrees (eeprom_read_word)
+0x0800F0DC,26,eeprom_read_dword,agreed,high,A fuzzy-anchored 0.82; B align match; entry=bl; callgraph 2/2; opsim=0.90; gcc13 ref agrees (eeprom_read_dword)
+0x0800F0F6,24,eeprom_write_byte,B-only,high,B align match; callgraph 1/1; opsim=0.88; gcc13 ref agrees (eeprom_write_byte)
+0x0800F10E,24,eeprom_write_word,agreed,high,A fuzzy-anchored 0.78; B align match; callgraph 1/1; opsim=0.88; gcc13 ref agrees (eeprom_write_word)
+0x0800F126,22,eeprom_write_dword,agreed,high,A fuzzy-anchored 0.88; B align match; callgraph 1/1; opsim=0.88; gcc13 ref agrees (eeprom_write_dword)
+0x0800F13C,52,eeprom_update_block,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00; gcc13 ref agrees (eeprom_update_block)
+0x0800F170,28,eeprom_update_byte,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800F18C,28,eeprom_update_word,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800F1A8,28,eeprom_update_dword,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800F1C4,4,eeprom_driver_init,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800F1C8,4,eeprom_driver_erase,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800F1CC,10,eeprom_read_block,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 6/6; opsim=1.00
+0x0800F1D6,10,eeprom_write_block,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00
+0x0800F1E0,32,wear_leveling_clear_cache,agreed,high,A fuzzy-anchored 0.82; B align match; entry=bl; callgraph 2/2; opsim=0.80; gcc13 ref agrees (wear_leveling_clear_cache)
+0x0800F200,32,wear_leveling_unlock,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00
+0x0800F220,36,wear_leveling_lock,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00; gcc13 ref agrees (wear_leveling_lock)
+0x0800F244,52,wear_leveling_erase,agreed,high,A exact 1.00; B align match; callgraph 4/4; opsim=0.97; gcc13 ref agrees (wear_leveling_erase)
+0x0800F278,36,wear_leveling_read,agreed,high,A fuzzy-anchored 0.80; B align match; callgraph 0/1; opsim=0.79; gcc13 ref agrees (wear_leveling_read)
+0x0800F29C,38,backing_store_read_bulk,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800F2C2,38,backing_store_write_bulk,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (backing_store_write_bulk)
+0x0800F2E8,92,wear_leveling_consolidate_force,agreed,medium,A fuzzy-anchored 0.79; B align match; entry=bl; callgraph 6/6; opsim=0.81
+0x0800F344,16,literal pool (wear_leveling FNV-1a 64-bit basis 0xCBF29CE484222325 + RAM ptr 0x20001704),B-only,high,not code: NOT CODE: nop.w pad + 64-bit FNV-1a offset basis 0xcbf29ce484222325 (wear_leveling.c) + RAM ptr 0x20001704; detector false split
+0x0800F354,24,wear_leveling_consolidate_if_needed,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (wear_leveling_consolidate_if_needed)
+0x0800F36C,40,wear_leveling_append_raw,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800F394,204,wear_leveling_write,agreed,high,A fuzzy-anchored 0.86; B align match; callgraph 4/5; opsim=0.90; gcc13 ref agrees (wear_leveling_write)
+0x0800F460,240,wear_leveling_init,agreed,high,B align match; callgraph 7/8; opsim=0.78; gcc13 ref agrees (wear_leveling_init); A caller-vote agrees (wear_leveling_init)
+0x0800F550,12,literal pool (wear_leveling FNV-1a 64-bit basis 0xCBF29CE484222325 + RAM ptr 0x20001704),B-only,high,not code: NOT CODE: 64-bit FNV-1a offset basis 0xcbf29ce484222325 + RAM ptr 0x20001704; detector false split
+0x0800F55C,24,backing_store_unlock,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (backing_store_unlock)
+0x0800F574,64,backing_store_erase,agreed,medium,B align match; entry=bl; callgraph 3/3; opsim=0.69; A caller-vote agrees (backing_store_erase)
+0x0800F5B4,48,backing_store_write,agreed,high,A fuzzy-anchored 0.60; B align match; entry=bl; callgraph 2/2; opsim=0.67; gcc13 ref agrees (backing_store_write)
+0x0800F5E4,16,backing_store_lock,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0800F5F4,136,backing_store_init,B-only,high,B align match; entry=bl; callgraph 5/5; opsim=0.92
+0x0800F67C,68,backing_store_read,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (backing_store_read)
+0x0800F6C0,224,hsv_to_rgb_impl,agreed,high,A fuzzy-anchored 0.62; B align match; opsim=0.73; gcc13 ref agrees (hsv_to_rgb_impl)
+0x0800F7A0,10,hsv_to_rgb,agreed,high,A exact 1.00; B align match; opsim=1.00
+0x0800F7AA,78,sqrt16,agreed,high,A fuzzy 0.87; B align match; entry=bl; callgraph 4/4; opsim=0.93; gcc13 ref agrees (sqrt16)
+0x0800F7F8,36,random8,B-only,high,B align match; entry=bl; callgraph 3/3; opsim=0.91; gcc13 ref agrees (random8)
+0x0800F81C,68,sin8_C,B-only,high,B align match; entry=bl; callgraph 2/2; opsim=0.40; gcc13 ref agrees (sin8_C)
+0x0800F860,40,CYCLE_ALL_math,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=0.96; gcc13 ref agrees (CYCLE_ALL_math)
+0x0800F888,56,CYCLE_LEFT_RIGHT_math,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (CYCLE_LEFT_RIGHT_math)
+0x0800F8C0,56,CYCLE_UP_DOWN_math,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (CYCLE_UP_DOWN_math)
+0x0800F8F8,84,RAINBOW_MOVING_CHEVRON_math,B-only,high,B align match; entry=ptr; opsim=0.76; gcc13 ref agrees (RAINBOW_MOVING_CHEVRON_math)
+0x0800F94C,50,CYCLE_OUT_IN_math,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (CYCLE_OUT_IN_math)
+0x0800F97E,74,CYCLE_OUT_IN_DUAL_math,B-only,high,B align match; entry=ptr; callgraph 1/1; opsim=0.81; gcc13 ref agrees (CYCLE_OUT_IN_DUAL_math)
+0x0800F9C8,80,DUAL_BEACON_math,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (DUAL_BEACON_math)
+0x0800FA18,80,RAINBOW_BEACON_math,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (RAINBOW_BEACON_math)
+0x0800FA68,52,SOLID_REACTIVE_SIMPLE_math,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (SOLID_REACTIVE_SIMPLE_math)
+0x0800FA9C,72,SOLID_REACTIVE_WIDE_math,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (SOLID_REACTIVE_WIDE_math)
+0x0800FAE4,120,SOLID_REACTIVE_NEXUS_math,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (SOLID_REACTIVE_NEXUS_math)
+0x0800FB5C,78,SPLASH_math,agreed,high,A fuzzy 0.87; B align match; entry=ptr; opsim=0.89; gcc13 ref agrees (SPLASH_math)
+0x0800FBAA,70,SOLID_SPLASH_math,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=0.98; gcc13 ref agrees (SOLID_SPLASH_math)
+0x0800FBF0,16,eeconfig_flag_rgb_matrix,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/2; opsim=1.00
+0x0800FC00,32,eeconfig_init_rgb_matrix,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (eeconfig_init_rgb_matrix)
+0x0800FC20,70,atan2_8,agreed,high,B align match; entry=bl; callgraph 3/3; opsim=0.70; gcc13 ref agrees (atan2_8); A caller-vote agrees (atan2_8)
+0x0800FC66,70,BAND_SPIRAL_VAL_math,agreed,high,A fuzzy 0.87; B align match; entry=ptr; callgraph 1/1; opsim=0.94; gcc13 ref agrees (BAND_SPIRAL_VAL_math)
+0x0800FCAC,48,CYCLE_PINWHEEL_math,agreed,high,A fuzzy 0.86; B align match; entry=ptr; callgraph 1/1; opsim=0.94; gcc13 ref agrees (CYCLE_PINWHEEL_math)
+0x0800FCDC,56,CYCLE_SPIRAL_math,agreed,high,A fuzzy 0.95; B align match; entry=ptr; callgraph 1/1; opsim=0.95; gcc13 ref agrees (CYCLE_SPIRAL_math)
+0x0800FD14,28,eeconfig_flush_rgb_matrix.part.0,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0800FD30,8,rgb_matrix_hsv_to_rgb,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 11/11; opsim=1.00
+0x0800FD38,220,process_rgb_matrix_typing_heatmap,B-only,high,B align match; entry=bl; callgraph 2/2; opsim=0.84; gcc13 ref agrees (process_rgb_matrix_typing_heatmap)
+0x0800FE14,44,eeconfig_update_rgb_matrix_default,agreed,high,A fuzzy-anchored 0.93; B align match; entry=bl; callgraph 1/2; opsim=1.00
+0x0800FE40,4,rgb_matrix_map_row_column_to_led_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800FE44,40,rgb_matrix_map_row_column_to_led,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (rgb_matrix_map_row_column_to_led)
+0x0800FE6C,12,rgb_matrix_update_pwm_buffers,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0800FE78,20,rgb_matrix_set_color,agreed,high,B align match; entry=bl; callgraph 13/13; opsim=0.50; gcc13 ref agrees (rgb_matrix_set_color); A caller-vote agrees (rgb_matrix_set_color)
+0x0800FE8C,88,jellybean_raindrops_set_color.isra.0,B-only,high,B align match; entry=bl; callgraph 3/3; opsim=0.89; gcc13 ref agrees (jellybean_raindrops_set_color.isra.0)
+0x0800FEE4,12,rgb_matrix_set_color_all,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 6/8; opsim=1.00
+0x0800FEF0,368,DIGITAL_RAIN,agreed,high,A fuzzy 0.91; B align match; entry=bl; callgraph 4/4; opsim=0.97; gcc13 ref agrees (DIGITAL_RAIN)
+0x08010060,268,process_rgb_matrix,agreed,high,B align match; entry=bl; callgraph 4/5; opsim=0.77; gcc13 ref agrees (process_rgb_matrix); A caller-vote agrees (process_rgb_matrix)
+0x0801016C,2,rgb_matrix_none_indicators_user,B-only,high,B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0801016E,12,rgb_matrix_none_indicators,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0801017A,4,rgb_matrix_indicators_user,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align HOOK-DEFAULT: rgb_matrix_indicators_user (4 B default); match; entry=bl; callgra
+0x0801017E,42,rgb_matrix_get_limits,agreed,high,B align match; entry=bl; callgraph 12/12; opsim=0.80; gcc13 ref agrees (rgb_matrix_get_limits); A caller-vote agrees (rgb_matrix_get_limits)
+0x080101A8,220,effect_runner_dx_dy_dist,B-only,high,B align match; callgraph 4/4; opsim=0.86; gcc13 ref agrees (effect_runner_dx_dy_dist)
+0x08010284,12,BAND_SPIRAL_VAL,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08010290,12,CYCLE_OUT_IN,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0801029C,12,CYCLE_SPIRAL,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x080102A8,184,effect_runner_dx_dy,B-only,high,B align match; callgraph 3/3; opsim=0.83; gcc13 ref agrees (effect_runner_dx_dy)
+0x08010360,12,CYCLE_OUT_IN_DUAL,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0801036C,12,CYCLE_PINWHEEL,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08010378,152,effect_runner_i,B-only,high,B align match; callgraph 3/3; opsim=0.89; gcc13 ref agrees (effect_runner_i)
+0x08010410,12,CYCLE_ALL,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0801041C,12,CYCLE_LEFT_RIGHT,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08010428,12,CYCLE_UP_DOWN,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08010434,12,RAINBOW_MOVING_CHEVRON,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08010440,192,effect_runner_sin_cos_i,B-only,high,B align match; callgraph 4/4; opsim=0.74; gcc13 ref agrees (effect_runner_sin_cos_i)
+0x08010500,12,DUAL_BEACON,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0801050C,12,RAINBOW_BEACON,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08010518,224,effect_runner_reactive,B-only,high,B align match; callgraph 3/3; opsim=0.93; gcc13 ref agrees (effect_runner_reactive)
+0x080105F8,12,SOLID_REACTIVE_SIMPLE,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08010604,300,effect_runner_reactive_splash,B-only,high,B align match; callgraph 4/5; opsim=0.84; gcc13 ref agrees (effect_runner_reactive_splash)
+0x08010730,16,SOLID_REACTIVE_MULTIWIDE,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08010740,16,SOLID_REACTIVE_MULTINEXUS,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08010750,28,SPLASH,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0801076C,28,SOLID_SPLASH,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08010788,116,SOLID_COLOR,B-only,high,B align match; entry=bl; callgraph 4/4; opsim=0.91
+0x080107FC,180,BREATHING,B-only,high,B align match; entry=bl; callgraph 5/6; opsim=0.89
+0x080108B0,112,JELLYBEAN_RAINDROPS,B-only,high,B align match; entry=bl; callgraph 4/4; opsim=0.90; gcc13 ref agrees (JELLYBEAN_RAINDROPS)
+0x08010920,300,TYPING_HEATMAP,B-only,high,B align match; entry=bl; callgraph 7/7; opsim=0.54; gcc13 ref agrees (TYPING_HEATMAP)
+0x08010A4C,512,rgb_task_render,agreed,high,B align match; entry=bl; callgraph 29/29; opsim=0.98; A caller-vote agrees (rgb_task_render)
+0x08010C4C,8,rgb_matrix_indicators_advanced_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08010C54,28,rgb_matrix_indicators_advanced,agreed,high,A fuzzy 0.90; B align match; callgraph 2/2; opsim=0.90; gcc13 ref agrees (rgb_matrix_indicators_advanced)
+0x08010C70,100,rgb_matrix_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 6/6; opsim=1.00; gcc13 ref agrees (rgb_matrix_init)
+0x08010CD4,32,rgb_matrix_disable_noeeprom,agreed,high,A exact 1.00; B align match; opsim=1.00; gcc13 ref agrees (rgb_matrix_disable_noeeprom)
+0x08010CF4,16,rgb_matrix_is_enabled,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 9/9; opsim=1.00; gcc13 ref agrees (rgb_matrix_is_enabled)
+0x08010D04,60,rgb_matrix_mode_eeprom_helper,agreed,high,B align match; opsim=0.88; gcc13 ref agrees (rgb_matrix_mode_eeprom_helper); A caller-vote agrees (rgb_matrix_mode_eeprom_helper)
+0x08010D40,8,rgb_matrix_mode,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=0.80
+0x08010D48,28,rgb_matrix_step_helper,B-only,high,B align match; opsim=0.87; gcc13 ref agrees (rgb_matrix_step_helper)
+0x08010D64,8,rgb_matrix_step,agreed,medium,A exact-ambiguous 1.00; B align match; entry=ptr; opsim=0.80
+0x08010D6C,32,rgb_matrix_step_reverse_helper,agreed,high,A exact 1.00; B align match; opsim=1.00; gcc13 ref agrees (rgb_matrix_step_reverse_helper)
+0x08010D8C,8,rgb_matrix_step_reverse,agreed,medium,A exact-ambiguous 1.00; B align match; entry=ptr; opsim=0.80
+0x08010D94,36,rgb_matrix_sethsv_eeprom_helper,agreed,high,A fuzzy-anchored 0.80; B align match; entry=bl; callgraph 1/1; opsim=0.86; gcc13 ref agrees (rgb_matrix_sethsv_eeprom_helper)
+0x08010DB8,20,rgb_matrix_increase_hue_helper,agreed,high,A exact 1.00; B align match; opsim=1.00; gcc13 ref agrees (rgb_matrix_increase_hue_helper)
+0x08010DCC,8,rgb_matrix_increase_hue,agreed,medium,A exact-ambiguous 1.00; B align match; entry=ptr; opsim=0.80
+0x08010DD4,28,rgb_matrix_decrease_hue_helper,B-only,high,B align match; opsim=0.86; gcc13 ref agrees (rgb_matrix_decrease_hue_helper)
+0x08010DF0,8,rgb_matrix_decrease_hue,agreed,medium,A exact-ambiguous 1.00; B align match; entry=ptr; opsim=0.80
+0x08010DF8,36,rgb_matrix_increase_sat_helper,agreed,high,A fuzzy-anchored 0.83; B align match; opsim=0.89; gcc13 ref agrees (rgb_matrix_increase_sat_helper)
+0x08010E1C,8,rgb_matrix_increase_sat,agreed,medium,A exact-ambiguous 1.00; B align match; entry=ptr; opsim=0.80
+0x08010E24,32,rgb_matrix_decrease_sat_helper,agreed,high,B align match; opsim=0.87; gcc13 ref agrees (rgb_matrix_decrease_sat_helper); A caller-vote agrees (rgb_matrix_decrease_sat_helper)
+0x08010E44,8,rgb_matrix_decrease_sat,agreed,medium,A exact-ambiguous 1.00; B align match; entry=ptr; opsim=0.80
+0x08010E4C,48,rgb_matrix_increase_val_helper,agreed,high,B merged row 104 B 'rgb_matrix_increase_val_helper+rgb_matrix_toggle_eeprom_helper'; A exact rgb_matrix_toggle_eeprom_helper at 0x08010E7C (56 B) splits it (ref sizes 44/56).
+0x08010E7C,56,rgb_matrix_toggle_eeprom_helper,agreed,high,A exact 56 B; second half of B's merged row
+0x08010EB4,8,rgb_matrix_toggle,agreed,medium,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=0.80
+0x08010EBC,52,rgb_matrix_enable_noeeprom,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x08010EF0,36,rgb_matrix_enable,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00
+0x08010F14,8,rgb_matrix_increase_val,agreed,medium,A exact-ambiguous 1.00; B align match; entry=ptr; opsim=0.80
+0x08010F1C,56,rgb_matrix_decrease_val_helper,agreed,high,A exact 1.00; B align match; callgraph 1/1; opsim=1.00
+0x08010F54,8,rgb_matrix_decrease_val,agreed,medium,A exact-ambiguous 1.00; B align match; entry=ptr; opsim=0.80
+0x08010F5C,24,rgb_matrix_increase_speed_helper,agreed,high,A exact 1.00; B align match; opsim=1.00; gcc13 ref agrees (rgb_matrix_increase_speed_helper)
+0x08010F74,8,rgb_matrix_increase_speed,agreed,medium,A exact-ambiguous 1.00; B align match; entry=ptr; opsim=0.80
+0x08010F7C,20,rgb_matrix_decrease_speed_helper,agreed,high,A exact 1.00; B align match; opsim=1.00; gcc13 ref agrees (rgb_matrix_decrease_speed_helper)
+0x08010F90,8,rgb_matrix_decrease_speed,agreed,medium,A exact-ambiguous 1.00; B align match; entry=ptr; opsim=0.80
+0x08010F98,12,rgb_matrix_disable_timeout_set,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x08010FA4,12,rgb_matrix_disable_time_reset,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08010FB0,28,rgb_matrix_timeouted,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (rgb_matrix_timeouted)
+0x08010FCC,24,rgb_matrix_driver_shutdown,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (rgb_matrix_driver_shutdown)
+0x08010FE4,24,rgb_matrix_driver_exit_shutdown,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (rgb_matrix_driver_exit_shutdown)
+0x08010FFC,12,rgb_matrix_is_driver_shutdown,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08011008,80,rgb_task_flush,agreed,high,A fuzzy 0.94; B align match; entry=bl; callgraph 5/5; opsim=1.00
+0x08011058,296,rgb_matrix_task,agreed,high,A fuzzy-anchored 0.82; B align match; entry=bl; callgraph 7/8; opsim=0.86; gcc13 ref agrees (rgb_matrix_task)
+0x08011180,32,rgb_matrix_set_suspend_state,agreed,high,A fuzzy-anchored 0.90; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x080111A0,96,snled27351_write,agreed,high,A fuzzy 0.95; B align match; entry=bl; callgraph 7/7; opsim=1.00
+0x08011200,24,snled27351_write_register,agreed,high,B align match; entry=bl; callgraph 2/2; opsim=0.88; A caller-vote agrees (snled27351_write_register)
+0x08011218,52,snled27351_write_pwm_buffer,agreed,high,B align match; entry=bl; callgraph 2/2; opsim=0.86; A caller-vote agrees (snled27351_write_pwm_buffer)
+0x0801124C,236,snled27351_init,agreed,high,A fuzzy 0.98; B align match; entry=bl; callgraph 4/5; opsim=0.99
+0x08011338,64,snled27351_set_color,agreed,high,"A exact 1.00; B align match; entry=bl,ptr; callgraph 1/1; opsim=1.00; gcc13 ref agrees (snled27351_set_color)"
+0x08011378,32,snled27351_set_color_all,agreed,high,A exact 1.00; B align match; entry=ptr; callgraph 1/1; opsim=0.97; gcc13 ref agrees (snled27351_set_color_all)
+0x08011398,180,snled27351_set_led_control_register,agreed,high,B align match; entry=bl; callgraph 1/1; opsim=0.70; gcc13 ref agrees (snled27351_set_led_control_register); A caller-vote agrees (snled27351_set_led_control_register)
+0x0801144C,52,snled27351_update_pwm_buffers,agreed,medium,A fuzzy-anchored 0.52; B align match; entry=bl; callgraph 2/2; opsim=0.69
+0x08011480,48,snled27351_update_led_control_registers,agreed,medium,B align match; entry=bl; callgraph 2/2; opsim=0.85; A caller-vote agrees (snled27351_update_led_control_registers)
+0x080114B0,76,snled27351_init_drivers,agreed,high,A fuzzy 0.90; B align match; entry=ptr; callgraph 5/5; opsim=0.93
+0x080114FC,20,snled27351_flush,agreed,high,A exact 1.00; B align match; entry=ptr; callgraph 1/1; opsim=0.92
+0x08011510,12,snled27351_shutdown,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00
+0x0801151C,12,snled27351_exit_shutdown,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00
+0x08011528,8,handleKeycodeRGB,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=0.86
+0x08011530,192,process_rgb,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 5/5; opsim=1.00; gcc13 ref agrees (process_rgb)
+0x080115F0,112,fnv_64a_buf,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (fnv_64a_buf)
+0x08011660,8,encoder_wait_pullup_charge,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08011668,104,encoder_init,agreed,high,A fuzzy-anchored 0.83; B align match; entry=bl; callgraph 3/3; opsim=0.92; gcc13 ref agrees (encoder_init)
+0x080116D0,372,encoder_read,agreed,high,A fuzzy 0.91; B align match; entry=bl; callgraph 4/4; opsim=0.97
+0x08011844,76,encoder_inerrupt_read,B-only,high,B align match; opsim=0.96; gcc13 ref agrees (encoder_inerrupt_read)
+0x08011890,4,dip_switch_update_mask_user,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08011894,8,dip_switch_update_mask_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0801189C,60,dip_switch_read,agreed,high,A fuzzy-anchored 0.75; B align match; entry=bl; callgraph 3/3; opsim=0.86
+0x080118D8,28,dip_switch_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x080118F4,76,process_leader,B-only,high,"B merge label 'process_leader+leader_start_user': the ref's 2-B leader_start_user stub follows process_leader in process_leader.o; in the dump leader_start_user is the user's 10-B function at 0x0800CDF4, so this row is process_leader alone (calls leader_sequence_add, leader_reset_timer 0x080119F8 -> LEADER_PER_KEY_TIMING)."
+0x08011940,60,leader_start,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (leader_start)
+0x0801197C,20,leader_end,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (leader_end)
+0x08011990,12,leader_sequence_active,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0801199C,36,leader_sequence_add,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (leader_sequence_add)
+0x080119C0,28,leader_sequence_timed_out,agreed,medium,A fuzzy-anchored 0.82; B align match; entry=bl; callgraph 3/3; opsim=0.80
+0x080119DC,28,leader_task,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (leader_task)
+0x080119F8,16,leader_reset_timer,conflict,high,"A ambiguous {default_layer_state_set|layer_state_set} vs B leader_reset_timer. Body 'push {r3,lr}; bl 0x08012574 (timer_read); ldr r3,=0x20002006; strh r0,[r3]; pop' and 0x20002006 is the halfword leader_start@0x08011950-0x08011956 writes (leader_time). A itself places default_layer_state_set at 0x0800DBD0 and layer_state_set at 0x0800DC24. Resolved: B (function exists because LEADER_PER_KEY_TIMING is defined)."
+0x08011A08,52,leader_sequence_is,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (leader_sequence_is)
+0x08011A3C,20,leader_sequence_one_key,B-only,high,B align match; entry=bl; callgraph 2/2; opsim=0.88; gcc13 ref agrees (leader_sequence_one_key)
+0x08011A50,18,leader_sequence_two_keys,agreed,high,A fuzzy 0.86; B align match; entry=bl; callgraph 2/2; opsim=0.86
+0x08011A62,42,times_inv_sqrt2,agreed,high,B align match; entry=bl; callgraph 0/1; opsim=0.81; gcc13 ref agrees (times_inv_sqrt2); A caller-vote agrees (times_inv_sqrt2)
+0x08011A8C,136,move_unit,agreed,medium,B align match; entry=bl; callgraph 1/3; opsim=0.30; A caller-vote agrees (move_unit)
+0x08011B14,112,wheel_unit,agreed,medium,B align match; entry=bl; callgraph 1/3; opsim=0.30; A caller-vote agrees (wheel_unit)
+0x08011B84,196,mousekey_on,agreed,medium,A fuzzy-anchored 0.71; B align match; entry=bl; callgraph 5/6; opsim=0.83
+0x08011C48,288,mousekey_off,agreed,high,A fuzzy-anchored 0.75; B align match; entry=bl; callgraph 3/3; opsim=0.94
+0x08011D68,56,mousekey_send,agreed,high,A fuzzy-anchored 0.65; B align match; entry=bl; callgraph 2/3; opsim=0.65; gcc13 ref agrees (mousekey_send)
+0x08011DA0,44,mousekey_clear,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (mousekey_clear)
+0x08011DCC,36,should_mousekey_report_send,agreed,high,B align match; entry=bl; callgraph 0/1; opsim=0.96; gcc13 ref agrees (should_mousekey_report_send); A caller-vote agrees (should_mousekey_report_send)
+0x08011DF0,412,mousekey_task,agreed,medium,"A fuzzy 0.86; B align VERIFIED by call position: 7th BL of keyboard_task (dump 0x0800e7b8, opsim 0.95,"
+0x08011F8C,6,_process_tap_dance_action_fn,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x08011F92,38,process_tap_dance_action_on_reset,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 5/5; opsim=0.97
+0x08011FB8,72,process_tap_dance_action_on_dance_finished,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 5/5; opsim=1.00
+0x08012000,64,preprocess_tap_dance,agreed,high,A fuzzy 0.93; B align match; entry=bl; callgraph 3/3; opsim=0.96
+0x08012040,144,process_tap_dance,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 7/7; opsim=1.00
+0x080120D0,80,tap_dance_task,agreed,medium,A fuzzy-anchored 0.51; B align match; entry=bl; callgraph 2/3; opsim=0.83
+0x08012120,12,host_set_driver,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0801212C,12,host_get_driver,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08012138,16,host_keyboard_leds,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00; gcc13 ref agrees (host_keyboard_leds)
+0x08012148,8,host_keyboard_led_state,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x08012150,16,host_keyboard_send,agreed,high,A exact 1.00; B align match; opsim=1.00; gcc13 ref agrees (host_keyboard_send)
+0x08012160,20,host_nkro_send,agreed,high,A fuzzy-anchored 0.86; B align match; opsim=1.00; gcc13 ref agrees (host_nkro_send)
+0x08012174,20,host_mouse_send,agreed,high,A fuzzy 1.00; B align match; opsim=1.00; gcc13 ref agrees (host_mouse_send)
+0x08012188,48,host_system_send,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (host_system_send)
+0x080121B8,48,host_consumer_send,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (host_consumer_send)
+0x080121E8,80,has_anykey,agreed,high,B align match; entry=bl; callgraph 1/1; opsim=0.58; gcc13 ref agrees (has_anykey); A caller-vote agrees (has_anykey)
+0x08012238,100,is_key_pressed,agreed,high,B align match; entry=bl; callgraph 1/1; opsim=0.47; gcc13 ref agrees (is_key_pressed); A caller-vote agrees (is_key_pressed)
+0x0801229C,44,add_key_byte,agreed,high,A exact 1.00; B align match; opsim=1.00; gcc13 ref agrees (add_key_byte)
+0x080122C8,24,del_key_byte,agreed,high,A exact 1.00; B align match; opsim=1.00; gcc13 ref agrees (del_key_byte)
+0x080122E0,26,add_key_bit,agreed,high,A fuzzy-anchored 0.64; B align match; opsim=0.67; gcc13 ref agrees (add_key_bit)
+0x080122FA,34,del_key_bit,agreed,high,A fuzzy-anchored 0.92; B align match; opsim=0.85; gcc13 ref agrees (del_key_bit)
+0x0801231C,52,add_key_to_report,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08012350,52,del_key_from_report,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x08012384,56,clear_keys_from_report,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (clear_keys_from_report)
+0x080123BC,72,has_mouse_report_changed,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 0/1; opsim=1.00; gcc13 ref agrees (has_mouse_report_changed)
+0x08012404,2,notify_usb_device_state_change_user,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08012406,10,notify_usb_device_state_change_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 4/4; opsim=0.86
+0x08012410,20,usb_device_state_set_configuration,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (usb_device_state_set_configuration)
+0x08012424,20,usb_device_state_set_suspend,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (usb_device_state_set_suspend)
+0x08012438,4,usb_device_state_set_resume,B-only,high,B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0801243C,20,usb_device_state_set_reset,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (usb_device_state_set_reset)
+0x08012450,4,usb_device_state_init,agreed,high,A exact-ambiguous 1.00; B align match; opsim=1.00
+0x08012454,2,matrix_power_up,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08012456,2,matrix_power_down,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08012458,2,suspend_power_down_user,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0801245A,8,suspend_power_down_kb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x08012462,2,suspend_wakeup_init_user,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08012464,8,suspend_wakeup_init_kb,agreed,high,A exact-ambiguous 1.00; B align match; callgraph 1/1; opsim=1.00
+0x0801246C,36,suspend_wakeup_condition,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 5/5; opsim=1.00
+0x08012490,14,platform_setup,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0801249E,18,suspend_power_down,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (suspend_power_down)
+0x080124B0,40,suspend_wakeup_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 7/7; opsim=0.96
+0x080124D8,44,timer_clear,agreed,high,A exact 1.00; B align match; callgraph 1/1; opsim=1.00; gcc13 ref agrees (timer_clear)
+0x08012504,4,timer_init,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08012508,108,timer_read32,agreed,high,A fuzzy-anchored 0.93; B align match; entry=bl; callgraph 32/32; opsim=0.91; gcc13 ref agrees (timer_read32)
+0x08012574,10,timer_read,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 8/9; opsim=1.00
+0x0801257E,14,timer_elapsed,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 5/7; opsim=1.00
+0x0801258C,12,timer_elapsed32,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 16/16; opsim=1.00
+0x08012598,36,__NVIC_SystemReset,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (__NVIC_SystemReset)
+0x080125BC,16,bootloader_marker_enable,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x080125CC,24,bootloader_marker_active,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (bootloader_marker_active)
+0x080125E4,12,bootloader_marker_disable,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x080125F0,10,bootloader_jump,agreed,high,A exact 1.00; B align match; callgraph 2/2; opsim=1.00
+0x080125FA,6,mcu_reset,agreed,high,A exact 1.00; B align match; callgraph 1/1; opsim=1.00
+0x08012600,116,enter_bootloader_mode_if_requested,agreed,high,A exact 1.00; B align match; callgraph 2/2; opsim=1.00; gcc13 ref agrees (enter_bootloader_mode_if_requested)
+0x08012674,116,spi_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00
+0x080126E8,220,spi_start,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00
+0x080127C4,20,spi_transmit,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (spi_transmit)
+0x080127D8,36,spi_stop,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (spi_stop)
+0x080127FC,4,dummy_cb,agreed,medium,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=ptr; opsim=0.67
+0x08012800,276,usb_requests_hook_cb,B-only,high,B align match; entry=ptr; opsim=0.97; gcc13 ref agrees (usb_requests_hook_cb)
+0x08012914,68,usb_get_descriptor_cb,agreed,high,A exact 1.00; B align match; entry=ptr; callgraph 1/1; opsim=1.00
+0x08012958,52,set_led_transfer_cb,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (set_led_transfer_cb)
+0x0801298C,40,usb_event_queue_enqueue.isra.0,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (usb_event_queue_enqueue.isra.0)
+0x080129B4,192,usb_event_cb,agreed,high,A exact 1.00; B align match; entry=ptr; callgraph 7/7; opsim=1.00
+0x08012A74,36,usb_event_queue_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (usb_event_queue_init)
+0x08012A98,184,usb_event_queue_task,agreed,high,A fuzzy-anchored 0.73; B align match; callgraph 5/5; opsim=0.95
+0x08012B50,104,init_usb_driver,agreed,medium,A fuzzy-anchored 0.55; B align match; entry=bl; callgraph 8/8; opsim=0.69
+0x08012BB8,12,keyboard_leds,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=ptr; opsim=1.00
+0x08012BC4,32,send_report,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x08012BE4,10,send_keyboard,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00
+0x08012BEE,10,send_nkro,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00
+0x08012BF8,10,send_mouse,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00
+0x08012C02,10,send_extra,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00
+0x08012C0C,16,raw_hid_send,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (raw_hid_send)
+0x08012C1C,40,raw_hid_task,agreed,high,A fuzzy-anchored 0.62; B align match; entry=bl; callgraph 3/3; opsim=0.87
+0x08012C44,4,early_hardware_init_pre,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08012C48,2,early_hardware_init_post,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08012C4A,2,board_init,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08012C4C,16,__early_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00
+0x08012C5C,12,boardInit,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x08012C68,4,protocol_setup,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08012C6C,44,protocol_pre_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x08012C98,12,protocol_post_init,agreed,high,A exact 1.00; B align match; opsim=1.00
+0x08012CA4,4,protocol_pre_task,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08012CA8,16,protocol_post_task,agreed,high,A exact-ambiguous 1.00; B align match; callgraph 1/1; opsim=0.89
+0x08012CB8,120,get_usb_descriptor,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (get_usb_descriptor)
+0x08012D30,58,obnotify,agreed,high,A exact 1.00; B align match; entry=ptr; callgraph 2/2; opsim=1.00
+0x08012D6A,54,usb_start_receive,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x08012DA0,8,ibnotify,agreed,medium,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=ptr; opsim=0.80
+0x08012DA8,56,usb_endpoint_in_init,B-only,high,B align match; entry=bl; callgraph 2/2; opsim=0.92; gcc13 ref agrees (usb_endpoint_in_init)
+0x08012DE0,40,usb_endpoint_out_init,agreed,high,A fuzzy 0.90; B align match; entry=bl; callgraph 2/2; opsim=0.90
+0x08012E08,32,usb_endpoint_in_start,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (usb_endpoint_in_start)
+0x08012E28,30,usb_endpoint_out_start,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (usb_endpoint_out_start)
+0x08012E46,40,usb_endpoint_in_suspend_cb,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x08012E6E,26,usb_endpoint_out_suspend_cb,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (usb_endpoint_out_suspend_cb)
+0x08012E88,6,usb_endpoint_in_wakeup_cb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08012E8E,6,usb_endpoint_out_wakeup_cb,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08012E94,32,usb_endpoint_in_configure_cb,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x08012EB4,22,usb_endpoint_out_configure_cb,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x08012ECA,150,usb_endpoint_in_tx_complete_cb,agreed,high,A exact 1.00; B align match; entry=ptr; callgraph 3/3; opsim=1.00; gcc13 ref agrees (usb_endpoint_in_tx_complete_cb)
+0x08012F60,66,usb_endpoint_out_rx_complete_cb,agreed,high,A fuzzy 0.94; B align match; entry=ptr; callgraph 2/2; opsim=1.00; gcc13 ref agrees (usb_endpoint_out_rx_complete_cb)
+0x08012FA2,158,usb_endpoint_in_send,agreed,high,A fuzzy-anchored 0.97; B align match; entry=bl; callgraph 6/6; opsim=0.97; gcc13 ref agrees (usb_endpoint_in_send)
+0x08013040,56,usb_endpoint_in_is_inactive,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (usb_endpoint_in_is_inactive)
+0x08013078,76,usb_endpoint_out_receive,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x080130C4,38,usb_set_report,agreed,high,A fuzzy 1.00; B align match; entry=ptr; callgraph 1/1; opsim=1.00; gcc13 ref agrees (usb_set_report)
+0x080130EA,22,usb_get_report,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (usb_get_report)
+0x08013100,28,usb_reset_report,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (usb_reset_report)
+0x0801311C,60,usb_shared_set_report,agreed,high,A fuzzy 0.98; B align match; entry=ptr; callgraph 1/1; opsim=0.98; gcc13 ref agrees (usb_shared_set_report)
+0x08013158,28,usb_shared_get_report,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (usb_shared_get_report)
+0x08013174,40,usb_shared_reset_report,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=0.97; gcc13 ref agrees (usb_shared_reset_report)
+0x0801319C,88,usb_get_report_cb,agreed,high,A exact 1.00; B align match; opsim=1.00; gcc13 ref agrees (usb_get_report_cb)
+0x080131F4,28,usb_set_idle_rate,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (usb_set_idle_rate)
+0x08013210,12,usb_get_idle_rate,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (usb_get_idle_rate)
+0x0801321C,80,usb_idle_timer_elapsed,agreed,high,A fuzzy 0.90; B align match; entry=ptr; callgraph 2/2; opsim=0.93; gcc13 ref agrees (usb_idle_timer_elapsed)
+0x0801326C,36,usb_shared_set_idle_rate,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (usb_shared_set_idle_rate)
+0x08013290,24,usb_shared_get_idle_rate,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=0.95; gcc13 ref agrees (usb_shared_get_idle_rate)
+0x080132A8,92,usb_shared_idle_timer_elapsed,B-only,high,B align match; entry=ptr; callgraph 2/2; opsim=0.94; gcc13 ref agrees (usb_shared_idle_timer_elapsed)
+0x08013304,244,usb_idle_task,agreed,high,A fuzzy-anchored 0.87; B align match; callgraph 2/2; opsim=0.88
+0x080133F8,80,usb_get_idle_cb,agreed,high,A exact 1.00; B align match; opsim=1.00; gcc13 ref agrees (usb_get_idle_cb)
+0x08013448,76,usb_set_idle_cb,agreed,high,A exact 1.00; B align match; opsim=1.00; gcc13 ref agrees (usb_set_idle_cb)
+0x08013494,24,__core_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (__core_init)
+0x080134AC,44,chCoreAllocFromBaseI,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (chCoreAllocFromBaseI)
+0x080134D8,20,chCoreAllocFromBase,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x080134EC,2,__cpu_init,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x080134EE,2,__late_init,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x080134F0,4,__default_exit,B-only,medium,B align match; opsim=0.67
+0x080134F4,88,__init_ram_areas,agreed,high,A fuzzy-anchored 0.68; B align match; entry=bl; callgraph 1/1; opsim=0.75; gcc13 ref agrees (__init_ram_areas)
+0x0801354C,48,chSysInit,agreed,high,A exact 1.00; B align match; callgraph 2/2; opsim=1.00; gcc13 ref agrees (chSysInit)
+0x0801357C,24,chSysHalt,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 5/5; opsim=1.00; gcc13 ref agrees (chSysHalt)
+0x08013594,4,chSysTimerHandlerI,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08013598,18,chSysGetStatusAndLockX,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (chSysGetStatusAndLockX)
+0x080135AA,30,chSysRestoreStatusX,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (chSysRestoreStatusX)
+0x080135C8,20,chSysPolledDelayX,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (chSysPolledDelayX)
+0x080135DC,16,chRFCUCollectFaultsI,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (chRFCUCollectFaultsI)
+0x080135EC,42,ch_dlist_insert,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (ch_dlist_insert)
+0x08013616,54,vt_set_alarm,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (vt_set_alarm)
+0x0801364C,88,vt_insert_first.constprop.0,agreed,high,A fuzzy-anchored 0.95; B align match; callgraph 3/3; opsim=0.97
+0x080136A4,80,vt_enqueue.constprop.0,agreed,high,A exact 1.00; B align match; callgraph 2/2; opsim=1.00; gcc13 ref agrees (vt_enqueue.constprop.0)
+0x080136F4,20,chVTDoSetI,B-only,high,B align match; entry=bl; callgraph 1/1; opsim=0.77; gcc13 ref agrees (chVTDoSetI)
+0x08013708,108,chVTDoResetI,agreed,high,A fuzzy 0.96; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (chVTDoResetI)
+0x08013774,196,chVTDoTickI,agreed,high,A fuzzy-anchored 0.92; B align match; callgraph 4/4; opsim=0.82; gcc13 ref agrees (chVTDoTickI)
+0x08013838,28,__sch_ready_behind,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (__sch_ready_behind)
+0x08013854,28,__sch_ready_ahead,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (__sch_ready_ahead)
+0x08013870,68,__sch_wakeup,agreed,high,A fuzzy 0.96; B align match; entry=ptr; callgraph 1/1; opsim=0.96; gcc13 ref agrees (__sch_wakeup)
+0x080138B4,4,chSchReadyI,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x080138B8,28,chSchGoSleepS,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (chSchGoSleepS)
+0x080138D4,60,chSchGoSleepTimeoutS,agreed,high,A fuzzy-anchored 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00
+0x08013910,24,chSchIsPreemptionRequired,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (chSchIsPreemptionRequired)
+0x08013928,40,chSchDoPreemption,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (__sch_reschedule_ahead)
+0x08013950,24,chSchRescheduleS,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00; gcc13 ref agrees (chSchRescheduleS)
+0x08013968,4,__idle_thread,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=ptr; opsim=1.00
+0x0801396C,128,chInstanceObjectInit,agreed,high,A fuzzy-anchored 0.98; B align match; entry=bl; callgraph 5/5; opsim=0.98; gcc13 ref agrees (chInstanceObjectInit)
+0x080139EC,20,__thd_object_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (__thd_object_init)
+0x08013A00,80,chThdCreateSuspendedI,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (chThdCreateSuspendedI)
+0x08013A50,16,chThdCreateI,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=0.89
+0x08013A60,16,chThdExitS,agreed,high,A exact 1.00; B align match; opsim=1.00
+0x08013A70,10,chThdExit,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08013A7A,26,chThdSleep,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 15/15; opsim=0.95
+0x08013A94,28,chThdSuspendTimeoutS,agreed,high,A fuzzy-anchored 0.80; B align match; opsim=0.90; gcc13 ref agrees (chThdSuspendTimeoutS)
+0x08013AB0,20,chThdResumeI,agreed,high,A fuzzy-anchored 0.78; B align match; entry=bl; callgraph 9/9; opsim=0.82; gcc13 ref agrees (chThdResumeI)
+0x08013AC4,32,chThdEnqueueTimeoutS,agreed,high,A fuzzy-anchored 0.76; B align match; entry=bl; callgraph 2/2; opsim=0.92; gcc13 ref agrees (chThdEnqueueTimeoutS)
+0x08013AE4,22,chThdDequeueNextI,agreed,high,A fuzzy-anchored 0.74; B align match; opsim=0.90; gcc13 ref agrees (chThdDequeueNextI)
+0x08013AFA,28,chThdDequeueAllI,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00; gcc13 ref agrees (chThdDequeueAllI)
+0x08013B16,30,ch_sch_prio_insert,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (ch_sch_prio_insert)
+0x08013B34,12,chMtxObjectInit,B-only,high,B 12 B opsim 1.0; A's fuzzy chMtxLockS start 0x08013B3E is 2 B early
+0x08013B40,100,chMtxLockS,conflict,high,"A chMtxLockS fuzzy from 0x08013B3E (102 B) vs B 0x08013B40 (100 B, opsim 1.00, gcc13 agrees). Boundary resolved: B."
+0x08013BA4,20,chMtxLock,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x08013BB8,92,chMtxUnlock,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (chMtxUnlock)
+0x08013C14,32,SVC_Handler,agreed,high,A exact 1.00; B align match; entry=vector; anchor=vector; opsim=1.00; gcc13 ref agrees (SVC_Handler)
+0x08013C34,72,port_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (port_init)
+0x08013C7C,84,__port_irq_epilogue,agreed,high,A exact 1.00; B align match; callgraph 1/1; opsim=1.00
+0x08013CD0,38,halInit,agreed,high,"B halInit 42 B includes stInit; dump halInit ends 'ldmia.w sp!,{r3,lr}; b.w 0x08013CF6' (tail-call stInit); ref halInit 38 B"
+0x08013CF6,4,stInit,A-only,high,'b.w 0x08016578 (st_lld_init)' == ref stInit 4 B; B reported stInit absent (merged into halInit)
+0x08013CFA,8,stGetCounter,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 13/13; opsim=1.00
+0x08013D02,16,stStartAlarm,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (stStartAlarm)
+0x08013D12,10,stStopAlarm,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (stStopAlarm)
+0x08013D1C,8,stSetAlarm,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x08013D24,46,ibqObjectInit,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (ibqObjectInit)
+0x08013D52,22,ibqResetI,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (ibqResetI)
+0x08013D68,20,ibqGetEmptyBufferI,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (ibqGetEmptyBufferI)
+0x08013D7C,32,ibqPostFullBufferI,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (ibqPostFullBufferI)
+0x08013D9C,50,ibqGetFullBufferTimeoutS,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (ibqGetFullBufferTimeoutS)
+0x08013DCE,36,ibqReleaseEmptyBufferS,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (ibqReleaseEmptyBufferS)
+0x08013DF2,130,ibqReadTimeout,agreed,high,A fuzzy-anchored 1.00; B align match; entry=bl; callgraph 3/4; opsim=1.00
+0x08013E74,46,obqObjectInit,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (obqObjectInit)
+0x08013EA2,24,obqResetI,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (obqResetI)
+0x08013EBA,28,obqGetFullBufferI,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (obqGetFullBufferI)
+0x08013ED6,30,obqReleaseEmptyBufferI,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (obqReleaseEmptyBufferI)
+0x08013EF4,50,obqGetEmptyBufferTimeoutS,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (obqGetEmptyBufferTimeoutS)
+0x08013F26,38,obqPostFullBufferS,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (obqPostFullBufferS)
+0x08013F4C,134,obqWriteTimeout,agreed,high,B align match; entry=bl; callgraph 3/4; opsim=1.00; gcc13 ref agrees (obqWriteTimeout); A caller-vote agrees (obqWriteTimeout)
+0x08013FD2,34,obqFlush,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=0.96; gcc13 ref agrees (obqFlush)
+0x08013FF4,60,flashWaitErase,B-only,medium,B align match; entry=bl; callgraph 3/3; opsim=0.81
+0x08014030,26,flashGetSectorOffset,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (flashGetSectorOffset)
+0x0801404A,26,flashGetSectorSize,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (flashGetSectorSize)
+0x08014064,16,flashGetOffsetAddress,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (flashGetOffsetAddress)
+0x08014074,12,efl_release_exclusive,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=ptr; callgraph 1/1; opsim=1.00
+0x08014080,12,efl_acquire_exclusive,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=ptr; callgraph 1/1; opsim=1.00
+0x0801408C,4,eflInit,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08014090,20,eflObjectInit,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (eflObjectInit)
+0x080140A4,28,eflStart,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (eflStart)
+0x080140C0,28,eflStop,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=0.95; gcc13 ref agrees (eflStop)
+0x080140DC,24,palSetLineCallbackI,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (palSetLineCallbackI)
+0x080140F4,4,rtcInit,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x080140F8,12,rtcObjectInit,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08014104,4,rtcSetTime,B-only,high,B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08014108,4,rtcGetTime,B-only,high,B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0801410C,4,spiInit,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x08014110,16,spiObjectInit,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (spiObjectInit)
+0x08014120,34,spiStart,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00
+0x08014142,28,spiStop,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 5/5; opsim=1.00
+0x0801415E,28,spiSelect,agreed,high,A fuzzy-anchored 0.92; B align match; entry=bl; callgraph 4/4; opsim=0.96; gcc13 ref agrees (spiSelect)
+0x0801417A,28,spiUnselect,agreed,high,A fuzzy-anchored 0.88; B align match; entry=bl; callgraph 2/2; opsim=0.96; gcc13 ref agrees (spiUnselect)
+0x08014196,14,spiStartExchangeI,agreed,high,A fuzzy-anchored 0.80; B align match; entry=bl; callgraph 1/1; opsim=0.80; gcc13 ref agrees (spiStartExchangeI)
+0x080141A4,8,spiStartSendI,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x080141AC,16,spiSynchronizeS,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (spiSynchronizeS)
+0x080141BC,34,spiExchange,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (spiExchange)
+0x080141DE,34,spiSend,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00; gcc13 ref agrees (spiSend)
+0x08014200,4,usbInit,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x08014204,24,usbObjectInit,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (usbObjectInit)
+0x0801421C,38,usbStart,agreed,high,A fuzzy 0.91; B align match; callgraph 1/1; opsim=1.00
+0x08014242,82,usbStop,agreed,high,A fuzzy 0.89; B align match; entry=bl; callgraph 5/5; opsim=0.95; gcc13 ref agrees (usbStop)
+0x08014294,50,usbInitEndpointI,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (usbInitEndpointI)
+0x080142C6,74,usbDisableEndpointsI,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x08014310,36,usbStartReceiveI,agreed,high,A fuzzy-anchored 0.65; B align match; entry=bl; callgraph 2/2; opsim=0.81; gcc13 ref agrees (usbStartReceiveI)
+0x08014334,36,usbStartTransmitI,agreed,high,A fuzzy-anchored 0.69; B align match; entry=bl; callgraph 5/5; opsim=0.81; gcc13 ref agrees (usbStartTransmitI)
+0x08014358,62,usbWakeupHost,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x08014396,112,_usb_reset,agreed,high,A fuzzy 0.86; B align match; entry=bl; callgraph 3/3; opsim=0.99
+0x08014406,92,_usb_suspend,agreed,high,A fuzzy 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x08014462,22,_usb_wakeup,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (_usb_wakeup)
+0x08014478,712,_usb_ep0setup,agreed,high,A fuzzy 0.98; B align match; entry=ptr; callgraph 11/11; opsim=0.99
+0x08014740,178,_usb_ep0in,agreed,high,A exact 1.00; B align match; entry=ptr; callgraph 4/4; opsim=1.00
+0x080147F2,120,_usb_ep0out,agreed,high,A exact 1.00; B align match; entry=ptr; callgraph 3/3; opsim=1.00; gcc13 ref agrees (_usb_ep0out)
+0x0801486A,44,nvicEnableVector,agreed,high,A fuzzy-anchored 0.50; B align match; entry=bl; callgraph 4/4; opsim=0.62; gcc13 ref agrees (nvicEnableVector)
+0x08014896,46,nvicDisableVector,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=0.97; gcc13 ref agrees (nvicDisableVector)
+0x080148C4,40,Vector58,agreed,high,A exact 1.00; B align match; entry=vector; anchor=vector; opsim=1.00; gcc13 ref agrees (Vector58)
+0x080148EC,40,Vector5C,agreed,high,A exact 1.00; B align match; entry=vector; anchor=vector; opsim=1.00; gcc13 ref agrees (Vector5C)
+0x08014914,40,Vector60,agreed,high,A exact 1.00; B align match; entry=vector; anchor=vector; opsim=1.00; gcc13 ref agrees (Vector60)
+0x0801493C,40,Vector64,agreed,high,A exact 1.00; B align match; entry=vector; anchor=vector; opsim=1.00; gcc13 ref agrees (Vector64)
+0x08014964,40,Vector68,agreed,high,A exact 1.00; B align match; entry=vector; anchor=vector; opsim=1.00; gcc13 ref agrees (Vector68)
+0x0801498C,100,Vector9C,agreed,high,A exact 1.00; B align match; entry=vector; anchor=vector; opsim=1.00; gcc13 ref agrees (Vector9C)
+0x080149F0,112,VectorE0,agreed,high,A exact 1.00; B align match; entry=vector; anchor=vector; opsim=1.00; gcc13 ref agrees (VectorE0)
+0x08014A60,14,VectorB0,agreed,high,A exact-ambiguous 1.00; B align match; entry=vector; anchor=vector; callgraph 1/1; opsim=1.00
+0x08014A6E,70,irqInit,agreed,high,A exact 1.00; B align match; callgraph 1/1; opsim=1.00; gcc13 ref agrees (irqInit)
+0x08014AB4,168,hal_lld_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (hal_lld_init)
+0x08014B5C,248,stm32_clock_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (stm32_clock_init)
+0x08014C54,36,stm32_flash_check_errors,agreed,high,A fuzzy-anchored 0.82; B align match; entry=bl; callgraph 2/2; opsim=0.91; gcc13 ref agrees (stm32_flash_check_errors)
+0x08014C78,92,efl_lld_init,agreed,high,A exact 1.00; B align match; callgraph 1/1; opsim=1.00; gcc13 ref agrees (efl_lld_init)
+0x08014CD4,40,efl_lld_start,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (efl_lld_start)
+0x08014CFC,12,efl_lld_stop,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (efl_lld_stop)
+0x08014D08,4,efl_lld_get_descriptor,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00
+0x08014D0C,46,efl_lld_read,agreed,high,A fuzzy 0.89; B align match; entry=ptr; callgraph 0/1; opsim=0.95; gcc13 ref agrees (efl_lld_read)
+0x08014D3A,176,efl_lld_program,B-only,high,B align match; entry=ptr; callgraph 1/1; opsim=0.99; gcc13 ref agrees (efl_lld_program)
+0x08014DEA,12,efl_lld_start_erase_all,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (efl_lld_start_erase_all)
+0x08014DF6,70,efl_lld_start_erase_sector,B-only,high,B align match; entry=ptr; opsim=1.00; gcc13 ref agrees (efl_lld_start_erase_sector)
+0x08014E3C,50,efl_lld_query_erase,agreed,high,A exact 1.00; B align match; entry=ptr; callgraph 1/1; opsim=1.00; gcc13 ref agrees (efl_lld_query_erase)
+0x08014E6E,70,efl_lld_verify_erase,agreed,high,A exact 1.00; B align match; entry=ptr; callgraph 2/2; opsim=1.00; gcc13 ref agrees (efl_lld_verify_erase)
+0x08014EB4,40,Vector6C,agreed,high,A exact 1.00; B align match; entry=vector; anchor=vector; opsim=1.00; gcc13 ref agrees (Vector6C)
+0x08014EDC,44,Vector70,agreed,high,A fuzzy-anchored 0.65; B align match; entry=vector; anchor=vector; opsim=0.83; gcc13 ref agrees (Vector70)
+0x08014F08,44,Vector74,agreed,high,A fuzzy-anchored 0.65; B align match; entry=vector; anchor=vector; opsim=0.83; gcc13 ref agrees (Vector74)
+0x08014F34,44,Vector78,agreed,high,A fuzzy-anchored 0.73; B align match; entry=vector; anchor=vector; opsim=0.83; gcc13 ref agrees (Vector78)
+0x08014F60,40,Vector7C,agreed,high,A exact 1.00; B align match; entry=vector; anchor=vector; opsim=1.00; gcc13 ref agrees (Vector7C)
+0x08014F88,44,Vector80,agreed,high,A fuzzy-anchored 0.65; B align match; entry=vector; anchor=vector; opsim=0.83; gcc13 ref agrees (Vector80)
+0x08014FB4,44,Vector84,agreed,high,A fuzzy-anchored 0.65; B align match; entry=vector; anchor=vector; opsim=0.83; gcc13 ref agrees (Vector84)
+0x08014FE0,44,VectorFC,agreed,high,A fuzzy-anchored 0.73; B align match; entry=vector; anchor=vector; opsim=0.83; gcc13 ref agrees (VectorFC)
+0x0801500C,40,Vector120,agreed,high,A exact 1.00; B align match; entry=vector; anchor=vector; opsim=1.00; gcc13 ref agrees (Vector120)
+0x08015034,44,Vector124,agreed,high,A fuzzy-anchored 0.65; B align match; entry=vector; anchor=vector; opsim=0.83; gcc13 ref agrees (Vector124)
+0x08015060,44,Vector128,agreed,high,A fuzzy-anchored 0.65; B align match; entry=vector; anchor=vector; opsim=0.83; gcc13 ref agrees (Vector128)
+0x0801508C,44,Vector12C,agreed,high,A fuzzy-anchored 0.73; B align match; entry=vector; anchor=vector; opsim=0.83; gcc13 ref agrees (Vector12C)
+0x080150B8,40,Vector130,agreed,high,A exact 1.00; B align match; entry=vector; anchor=vector; opsim=1.00; gcc13 ref agrees (Vector130)
+0x080150E0,44,Vector150,agreed,high,A fuzzy-anchored 0.65; B align match; entry=vector; anchor=vector; opsim=0.83; gcc13 ref agrees (Vector150)
+0x0801510C,44,Vector154,agreed,high,A fuzzy-anchored 0.65; B align match; entry=vector; anchor=vector; opsim=0.83; gcc13 ref agrees (Vector154)
+0x08015138,44,Vector158,agreed,high,A fuzzy-anchored 0.67; B align match; entry=vector; anchor=vector; opsim=0.83; gcc13 ref agrees (Vector158)
+0x08015164,68,dmaInit,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (dmaInit)
+0x080151A8,176,dmaStreamAllocI,agreed,high,A fuzzy-anchored 0.62; B align match; entry=bl; callgraph 2/2; opsim=0.60; gcc13 ref agrees (dmaStreamAllocI)
+0x08015258,88,dmaStreamFreeI,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x080152B0,108,extiEnableGroup1,agreed,high,B align match; entry=bl; callgraph 1/1; opsim=0.72; gcc13 ref agrees (extiEnableGroup1); A caller-vote agrees (extiEnableGroup1)
+0x0801531C,28,_pal_lld_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (_pal_lld_init)
+0x08015338,216,_pal_lld_setgroupmode,agreed,high,A fuzzy-anchored 0.73; B align match; entry=bl; callgraph 16/16; opsim=0.82; gcc13 ref agrees (_pal_lld_setgroupmode)
+0x08015410,100,_pal_lld_enablepadevent,agreed,high,A fuzzy 0.91; B align match; entry=bl; callgraph 2/2; opsim=0.91; gcc13 ref agrees (_pal_lld_enablepadevent)
+0x08015474,88,_pal_lld_disablepadevent,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (_pal_lld_disablepadevent)
+0x080154CC,86,otg_disable_ep,agreed,high,A fuzzy-anchored 0.97; B align match; entry=bl; callgraph 3/3; opsim=0.97; gcc13 ref agrees (otg_disable_ep)
+0x08015522,22,otg_txfifo_flush.isra.0,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=0.94; gcc13 ref agrees (otg_txfifo_flush.isra.0)
+0x08015538,32,usb_lld_init,agreed,high,A fuzzy-anchored 0.92; B align match; callgraph 1/1; opsim=0.90; gcc13 ref agrees (usb_lld_init)
+0x08015558,204,usb_lld_start,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00; gcc13 ref agrees (usb_lld_start)
+0x08015624,68,usb_lld_stop,agreed,high,A fuzzy 0.96; B align match; entry=bl; callgraph 3/3; opsim=0.96; gcc13 ref agrees (usb_lld_stop)
+0x08015668,176,usb_lld_reset,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (usb_lld_reset)
+0x08015718,24,usb_lld_set_address,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (usb_lld_set_address)
+0x08015730,276,usb_lld_init_endpoint,agreed,high,A fuzzy-anchored 0.82; B align match; callgraph 1/1; opsim=0.87; gcc13 ref agrees (usb_lld_init_endpoint)
+0x08015844,10,usb_lld_disable_endpoints,agreed,high,A fuzzy-anchored 1.00; B align match; opsim=1.00
+0x0801584E,26,usb_lld_get_status_out,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (usb_lld_get_status_out)
+0x08015868,26,usb_lld_get_status_in,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (usb_lld_get_status_in)
+0x08015882,18,usb_lld_read_setup,agreed,high,A fuzzy 0.92; B align match; entry=bl; callgraph 1/1; opsim=0.92; gcc13 ref agrees (usb_lld_read_setup)
+0x08015894,124,usb_lld_start_out,agreed,high,A fuzzy 0.86; B align match; entry=bl; callgraph 1/1; opsim=0.88; gcc13 ref agrees (usb_lld_start_out)
+0x08015910,176,otg_epout_handler.constprop.0,agreed,high,A fuzzy 0.93; B align match; entry=bl; callgraph 3/3; opsim=0.99
+0x080159C0,140,usb_lld_start_in,agreed,high,B align match; entry=bl; callgraph 1/1; opsim=0.89; gcc13 ref agrees (usb_lld_start_in); A caller-vote agrees (usb_lld_start_in)
+0x08015A4C,272,otg_epin_handler.constprop.0,agreed,high,A fuzzy 0.89; B align match; entry=bl; callgraph 3/3; opsim=0.97
+0x08015B5C,712,Vector14C,agreed,medium,A fuzzy-anchored 0.66; B align match; entry=vector; anchor=vector; callgraph 8/8; opsim=0.65
+0x08015E24,20,usb_lld_stall_out,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (usb_lld_stall_out)
+0x08015E38,20,usb_lld_stall_in,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00; gcc13 ref agrees (usb_lld_stall_in)
+0x08015E4C,20,usb_lld_clear_out,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (usb_lld_clear_out)
+0x08015E60,20,usb_lld_clear_in,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (usb_lld_clear_in)
+0x08015E74,24,rtc_enter_init,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (rtc_enter_init)
+0x08015E8C,4,_getsize,agreed,high,A exact 1.00; B align match; entry=ptr; opsim=1.00
+0x08015E90,42,_read,B-only,high,B align match; entry=ptr; opsim=0.88; gcc13 ref agrees (_read)
+0x08015EBA,58,_write,agreed,high,A fuzzy 0.95; B align match; entry=ptr; opsim=0.86; gcc13 ref agrees (_write)
+0x08015EF4,104,Vector48,agreed,high,A exact 1.00; B align match; entry=vector; anchor=vector; opsim=1.00; gcc13 ref agrees (Vector48)
+0x08015F5C,56,Vector4C,agreed,high,A exact 1.00; B align match; entry=vector; anchor=vector; opsim=1.00; gcc13 ref agrees (Vector4C)
+0x08015F94,76,VectorE4,agreed,high,A exact 1.00; B align match; entry=vector; anchor=vector; opsim=1.00; gcc13 ref agrees (VectorE4)
+0x08015FE0,120,rtc_lld_init,agreed,high,A fuzzy-anchored 0.87; B align match; callgraph 4/4; opsim=0.95; gcc13 ref agrees (rtc_lld_init)
+0x08016058,216,rtc_lld_set_time,agreed,high,A fuzzy 1.00; B align match; callgraph 2/2; opsim=1.00; gcc13 ref agrees (rtc_lld_set_time)
+0x08016130,252,rtc_lld_get_time,agreed,high,A exact 1.00; B align match; callgraph 2/2; opsim=1.00; gcc13 ref agrees (rtc_lld_get_time)
+0x0801622C,48,spi_lld_configure,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/2; opsim=0.97; gcc13 ref agrees (spi_lld_configure)
+0x0801625C,168,spi_lld_stop_abort.isra.0,agreed,high,A fuzzy-anchored 0.95; B align match; entry=bl; callgraph 3/4; opsim=0.94; gcc13 ref agrees (spi_lld_stop_abort)
+0x08016304,60,spi_lld_serve_tx_interrupt,conflict,high,"A tx (exact) + C(gcc13) rx@0x08016340 vs B rx/tx swapped (opsim 0.53 both). Dump 0x08016304 is instruction-identical to ref spi_lld_serve_tx_interrupt 0x08014824 (tst.w r1,#12; bl chSysHalt; bl spi_lld_stop_abort.isra.0; blx cb; msr BASEPRI; bl chThdResumeI); sizes 60/136 match ref 60/136. Resolved: A."
+0x08016340,136,spi_lld_serve_rx_interrupt,conflict,high,see 0x08016304; A fuzzy-anchored 0.94 + gcc13 exact; B swapped. Resolved: A.
+0x080163C8,44,spi_lld_init,agreed,high,A fuzzy-anchored 0.94; B align match; callgraph 1/1; opsim=0.93
+0x080163F4,204,spi_lld_start,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 4/4; opsim=1.00
+0x080164C0,76,spi_lld_stop,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 3/3; opsim=1.00
+0x0801650C,54,spi_lld_exchange,agreed,high,A exact 1.00; B align match; opsim=1.00; gcc13 ref agrees (spi_lld_exchange)
+0x08016542,54,spi_lld_send,agreed,high,A exact 1.00; B align match; opsim=1.00; gcc13 ref agrees (spi_lld_send)
+0x08016578,72,st_lld_init,agreed,high,A exact 1.00; B align match; opsim=1.00; gcc13 ref agrees (st_lld_init)
+0x080165C0,40,st_lld_serve_interrupt,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 2/2; opsim=1.00; gcc13 ref agrees (st_lld_serve_interrupt)
+0x080165E8,32,gpio_init,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=0.97; gcc13 ref agrees (gpio_init)
+0x08016608,132,__chibios_override___early_init,agreed,high,A fuzzy-anchored 0.86; B align match; entry=bl; callgraph 2/2; opsim=0.93; gcc13 ref agrees (__chibios_override___early_init)
+0x0801668C,2,__chibios_override_boardInit,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00
+0x0801668E,10,_read_r,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (_read_r)
+0x08016698,4,_lseek_r,agreed,high,A exact-ambiguous 1.00 (ambiguous set resolved by B link-order/callgraph); B align match; entry=bl; callgraph 2/2; opsim=1.00
+0x0801669C,4,_write_r,agreed,high,A exact 1.00; B align match; opsim=1.00
+0x080166A0,4,_close_r,agreed,high,A exact-ambiguous 1.00; B align match; opsim=1.00
+0x080166A4,26,_sbrk_r,agreed,high,A exact 1.00; B align match; entry=bl; callgraph 1/1; opsim=1.00; gcc13 ref agrees (_sbrk_r)
+0x080166BE,24,_fstat_r,agreed,high,A fuzzy 0.86; B align match; entry=bl; callgraph 0/2; opsim=0.95; gcc13 ref agrees (_fstat_r)
+0x080166D6,6,_isatty_r,B-only,medium,B align match; entry=bl; callgraph 0/1; opsim=0.80
+0x080166DC,16,_exit,agreed,high,A exact-ambiguous 1.00; B align match; entry=bl; callgraph 2/3; opsim=1.00
+0x080166EC,16,_kill,agreed,high,"A {_exit|_kill} 16 B, B _kill 20 B (B absorbed _getpid because _kill ends in the noreturn 'bl abort'); body 'push; ldr r0,=str; bl chSysHalt 0x0801357C; bl abort 0x080085E8' == ref _kill (16 B)."
+0x080166FC,4,_getpid,conflict,high,"'movs r0,#1; bx lr' == ref _getpid (4 B); A placed its 4-B ambiguous set here, B put _getpid at 0x08016700. Resolved: A."
+0x08016700,2,_fini,conflict,high,"lone 'bx lr' after _getpid at the end of .text (ref syscalls.o/syscall-fallbacks.o order: _exit,_kill,_getpid,_fini); A's 2-B ambiguous set contains _fini, B labelled it _getpid. Resolved: _fini (B reported _fini absent)."
+0x08016714,24,spicfg,data,high,A rodata/.data object match (data 1.00); B content-matched too
+0x08016730,24,disconnected_config,data,high,A rodata/.data object match (data 1.00); B content-matched too
+0x08016748,24,reconnecting_config,data,high,A rodata/.data object match (data 1.00)
+0x08016760,24,connected_config,data,high,A rodata/.data object match (data 1.00)
+0x08016778,24,pairing_config,data,high,A rodata/.data object match (data 1.00)
+0x0801682C,16,key_comb_list,data,high,A rodata/.data object match (data 1.00); B content-matched too
+0x08016840,352,g_snled27351_leds,data,high,A rodata/.data object match (data 1.00)
+0x080169B8,1296,keymaps,data,high,A rodata/.data object match (data 1.00); B content-matched too
+0x08016EC8,54,CSWTCH.5|CSWTCH.7,data,medium,A rodata/.data object match (data-ambiguous 1.00)
+0x08016EFE,54,CSWTCH.5|CSWTCH.7,data,medium,A rodata/.data object match (data-ambiguous 1.00)
+0x08016F34,72,col_pins|pins_col,data,medium,A rodata/.data object match (data-ambiguous 1.00)
+0x08016F7C,24,pins_row|row_pins,data,medium,A rodata/.data object match (data-ambiguous 1.00)
+0x08016F94,8,b_m16_interleave,data,high,A rodata/.data object match (data 1.00)
+0x08016FB4,256,CIE1931_CURVE,data,high,A rodata/.data object match (data 1.00)
+0x080170B4,16,encoder_LUT,data,high,A rodata/.data object match (data 1.00)
+0x08017100,36,ProductString,data,high,A rodata/.data object match (data 1.00)
+0x08017124,20,ManufacturerString,data,high,A rodata/.data object match (data 1.00)
+0x0801713C,91,ConfigurationDescriptor,data,high,A rodata/.data object match (data 1.00); B content-matched too
+0x08017384,28,efl_lld_size4,data,high,A rodata/.data object match (data 1.00)
+0x080173A0,28,efl_lld_size3,data,high,A rodata/.data object match (data 1.00)
+0x080173BC,28,efl_lld_size2,data,high,A rodata/.data object match (data 1.00)
+0x080173D8,28,efl_lld_size1,data,high,A rodata/.data object match (data 1.00)
+0x080173F4,64,efl_lld_sect4,data,high,A rodata/.data object match (data 1.00)
+0x08017434,56,efl_lld_sect3,data,medium,A rodata/.data object match (data-ambiguous 1.00)
+0x0801746C,48,efl_lld_sect2,data,medium,A rodata/.data object match (data-ambiguous 1.00)
+0x0801749C,40,efl_lld_sect1,data,medium,A rodata/.data object match (data-ambiguous 1.00)
+0x080174C4,192,_stm32_dma_streams,data,high,A rodata/.data object match (data 1.00); B content-matched too
+0x08017584,12,fsparams,data,high,A rodata/.data object match (data 1.00)
+0x080175B4,168,gpio_default_config,data,high,A rodata/.data object match (data 1.00)
+0x080177F0,72,col_pins|pins_col,data,medium,A rodata/.data object match (data-ambiguous 1.00)
+0x08017838,24,pins_row|row_pins,data,medium,A rodata/.data object match (data-ambiguous 1.00)
+0x08017A04,8,cs_pins,data,high,A rodata/.data object match (data 1.00)
+0x08017A28,136,usb_endpoints_out,data,high,A rodata/.data object match (data 1.00)
+0x08017AB0,504,usb_endpoints_in,data,high,A rodata/.data object match (data 1.00)

@@ -1,0 +1,7 @@
+; leader_start_user  dump 0x0800CDF4..0x0800CDFE (10 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800cdf4:	22ff      	movs	r2, #255	@ 0xff
+ 800cdf6:	2100      	movs	r1, #0
+ 800cdf8:	4610      	mov	r0, r2
+ 800cdfa:	f003 b873 	b.w	0x800fee4	; -> rgb_matrix_set_color_all

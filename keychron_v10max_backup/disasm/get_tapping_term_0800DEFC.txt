@@ -1,0 +1,5 @@
+; get_tapping_term  dump 0x0800DEFC..0x0800DF00 (4 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800defc:	20af      	movs	r0, #175	@ 0xaf
+ 800defe:	4770      	bx	lr

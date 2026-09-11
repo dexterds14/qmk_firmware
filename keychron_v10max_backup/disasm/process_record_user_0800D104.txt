@@ -1,0 +1,78 @@
+; process_record_user  dump 0x0800D104..0x0800D1C4 (192 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800d104:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 800d106:	4604      	mov	r4, r0
+ 800d108:	460e      	mov	r6, r1
+ 800d10a:	f7ff fb09 	bl	0x800c720	; -> process_record_keychron_common
+ 800d10e:	4605      	mov	r5, r0
+ 800d110:	2800      	cmp	r0, #0
+ 800d112:	d044      	beq.n	0x800d19e	; local
+ 800d114:	4b28      	ldr	r3, [pc, #160]	@ (0x800d1b8)	; = 0x200015E8 RAM USER static (bss): move_to_lower (u8) - TD(0) single tap from base arms oneshot layer 1 (_LOWER)
+ 800d116:	781a      	ldrb	r2, [r3, #0]
+ 800d118:	b122      	cbz	r2, 0x800d124	; local
+ 800d11a:	f5b4 4fae 	cmp.w	r4, #22272	@ 0x5700	; TD(0)
+ 800d11e:	bf1c      	itt	ne
+ 800d120:	2200      	movne	r2, #0
+ 800d122:	701a      	strbne	r2, [r3, #0]
+ 800d124:	4f25      	ldr	r7, [pc, #148]	@ (0x800d1bc)	; = 0x200015E9 RAM USER static (bss): return_to_mouse (u8) - TD(0) single tap on layer 4 (_MOUSE): after the oneshot layer finishes, oneshot_layer_changed_user moves back to layer 4
+ 800d126:	783b      	ldrb	r3, [r7, #0]
+ 800d128:	b123      	cbz	r3, 0x800d134	; local
+ 800d12a:	2001      	movs	r0, #1
+ 800d12c:	f000 fd86 	bl	0x800dc3c	; -> layer_state_is
+ 800d130:	b900      	cbnz	r0, 0x800d134	; local
+ 800d132:	7038      	strb	r0, [r7, #0]
+ 800d134:	7973      	ldrb	r3, [r6, #5]
+ 800d136:	b1cb      	cbz	r3, 0x800d16c	; local
+ 800d138:	2c39      	cmp	r4, #57	@ 0x39	; KC_CAPS
+ 800d13a:	d010      	beq.n	0x800d15e	; local
+ 800d13c:	f5a4 43a5 	sub.w	r3, r4, #21120	@ 0x5280	; QK_ONE_SHOT_MOD base
+ 800d140:	3b22      	subs	r3, #34	@ 0x22	; KC_5
+ 800d142:	b29b      	uxth	r3, r3
+ 800d144:	2b16      	cmp	r3, #22	; KC_S
+ 800d146:	d81a      	bhi.n	0x800d17e	; local
+ 800d148:	f04f 1241 	mov.w	r2, #4259905	@ 0x410041
+ 800d14c:	fa22 f303 	lsr.w	r3, r2, r3
+ 800d150:	07d9      	lsls	r1, r3, #31
+ 800d152:	d50b      	bpl.n	0x800d16c	; local
+ 800d154:	4620      	mov	r0, r4
+ 800d156:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
+ 800d15a:	f7ff bfab 	b.w	0x800d0b4	; -> osm_press_handler [user static]
+ 800d15e:	f004 fff3 	bl	0x8012148	; -> host_keyboard_led_state
+ 800d162:	0782      	lsls	r2, r0, #30
+ 800d164:	d404      	bmi.n	0x800d170	; local
+ 800d166:	4b16      	ldr	r3, [pc, #88]	@ (0x800d1c0)	; = 0x200015DC RAM USER static (bss): caps-lock-active flag (u8) - set/cleared in process_record_user from host_keyboard_led_state().caps_lock on KC_CAPS press; lights white in indicators (sibling source: caps_active)
+ 800d168:	2201      	movs	r2, #1
+ 800d16a:	701a      	strb	r2, [r3, #0]
+ 800d16c:	4628      	mov	r0, r5
+ 800d16e:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 800d170:	f004 ffea 	bl	0x8012148	; -> host_keyboard_led_state
+ 800d174:	0783      	lsls	r3, r0, #30
+ 800d176:	d5f9      	bpl.n	0x800d16c	; local
+ 800d178:	4b11      	ldr	r3, [pc, #68]	@ (0x800d1c0)	; = 0x200015DC RAM USER static (bss): caps-lock-active flag (u8) - set/cleared in process_record_user from host_keyboard_led_state().caps_lock on KC_CAPS press; lights white in indicators (sibling source: caps_active)
+ 800d17a:	2200      	movs	r2, #0
+ 800d17c:	e7f5      	b.n	0x800d16a	; local
+ 800d17e:	f647 6340 	movw	r3, #32320	@ 0x7e40	; QK_USER_0 (SAFE_RANGE+0)
+ 800d182:	429c      	cmp	r4, r3
+ 800d184:	d10d      	bne.n	0x800d1a2	; local
+ 800d186:	2037      	movs	r0, #55	@ 0x37	; KC_DOT
+ 800d188:	f000 f9f2 	bl	0x800d570	; -> register_code
+ 800d18c:	2037      	movs	r0, #55	@ 0x37	; KC_DOT
+ 800d18e:	f000 fa37 	bl	0x800d600	; -> unregister_code
+ 800d192:	2038      	movs	r0, #56	@ 0x38	; KC_SLSH
+ 800d194:	f000 f9ec 	bl	0x800d570	; -> register_code
+ 800d198:	2038      	movs	r0, #56	@ 0x38	; KC_SLSH
+ 800d19a:	f000 fa31 	bl	0x800d600	; -> unregister_code
+ 800d19e:	2500      	movs	r5, #0
+ 800d1a0:	e7e4      	b.n	0x800d16c	; local
+ 800d1a2:	f647 6341 	movw	r3, #32321	@ 0x7e41	; QK_USER_1 (SAFE_RANGE+1)
+ 800d1a6:	429c      	cmp	r4, r3
+ 800d1a8:	d1e0      	bne.n	0x800d16c	; local
+ 800d1aa:	2037      	movs	r0, #55	@ 0x37	; KC_DOT
+ 800d1ac:	f000 f9e0 	bl	0x800d570	; -> register_code
+ 800d1b0:	2037      	movs	r0, #55	@ 0x37	; KC_DOT
+ 800d1b2:	f000 fa25 	bl	0x800d600	; -> unregister_code
+ 800d1b6:	e7e6      	b.n	0x800d186	; local
+ 0800d1b8:	200015e8     	.word	0x200015E8	; RAM USER static (bss): move_to_lower (u8) - TD(0) single tap from base arms oneshot layer 1 (_LOWER)
+ 0800d1bc:	200015e9     	.word	0x200015E9	; RAM USER static (bss): return_to_mouse (u8) - TD(0) single tap on layer 4 (_MOUSE): after the oneshot layer finishes, oneshot_layer_changed_user moves back to layer 4
+ 0800d1c0:	200015dc     	.word	0x200015DC	; RAM USER static (bss): caps-lock-active flag (u8) - set/cleared in process_record_user from host_keyboard_led_state().caps_lock on KC_CAPS press; lights white in indicators (sibling source: caps_active)

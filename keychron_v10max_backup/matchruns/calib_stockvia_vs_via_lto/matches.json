@@ -1,0 +1,6086 @@
+{
+ "dump": "/Users/dexter/code/qmk-keychron/keyboards/keychron/v10_max/firmware/keychron_v10_max_ansi_encoder_via.bin",
+ "base": 134217728,
+ "code_start": 32768,
+ "code_end": 96448,
+ "matches": [
+  {
+   "dump_addr": 134296456,
+   "size": 248,
+   "kind": "exact",
+   "primary": "stm32_clock_init",
+   "names": {
+    "stm32_clock_init": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134251632,
+   "size": 160,
+   "kind": "exact",
+   "primary": "memchr",
+   "names": {
+    "memchr": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "size inferred from next symbol (asm routine)"
+   ]
+  },
+  {
+   "dump_addr": 134273488,
+   "size": 120,
+   "kind": "exact",
+   "primary": "SOLID_REACTIVE_NEXUS_math",
+   "names": {
+    "SOLID_REACTIVE_NEXUS_math": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134250496,
+   "size": 116,
+   "kind": "exact",
+   "primary": "_crt0_entry",
+   "names": {
+    "_crt0_entry": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "size inferred from next symbol (asm routine)"
+   ]
+  },
+  {
+   "dump_addr": 134286936,
+   "size": 116,
+   "kind": "exact",
+   "primary": "spi_init",
+   "names": {
+    "spi_init": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134264120,
+   "size": 114,
+   "kind": "exact",
+   "primary": "unregister_code",
+   "names": {
+    "unregister_code": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134296092,
+   "size": 112,
+   "kind": "exact",
+   "primary": "VectorE0",
+   "names": {
+    "VectorE0": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134301532,
+   "size": 104,
+   "kind": "exact",
+   "primary": "Vector48",
+   "names": {
+    "Vector48": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134295992,
+   "size": 100,
+   "kind": "exact",
+   "primary": "Vector9C",
+   "names": {
+    "Vector9C": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134298888,
+   "size": 86,
+   "kind": "exact",
+   "primary": "otg_disable_ep",
+   "names": {
+    "otg_disable_ep": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134301692,
+   "size": 76,
+   "kind": "exact",
+   "primary": "VectorE4",
+   "names": {
+    "VectorE4": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134273416,
+   "size": 72,
+   "kind": "exact",
+   "primary": "SOLID_REACTIVE_WIDE_math",
+   "names": {
+    "SOLID_REACTIVE_WIDE_math": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134307020,
+   "size": 72,
+   "kind": "exact",
+   "primary": "std",
+   "names": {
+    "std": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134266476,
+   "size": 68,
+   "kind": "exact",
+   "primary": "waiting_buffer_typed.isra.0",
+   "names": {
+    "waiting_buffer_typed.isra.0": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134273686,
+   "size": 68,
+   "kind": "exact",
+   "primary": "SOLID_SPLASH_math",
+   "names": {
+    "SOLID_SPLASH_math": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134279864,
+   "size": 64,
+   "kind": "exact",
+   "primary": "snled27351_set_color",
+   "names": {
+    "snled27351_set_color": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134253404,
+   "size": 60,
+   "kind": "exact",
+   "primary": "report_buffer_init",
+   "names": {
+    "report_buffer_init": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134278616,
+   "size": 56,
+   "kind": "exact",
+   "primary": "rgb_matrix_toggle_eeprom_helper",
+   "names": {
+    "rgb_matrix_toggle_eeprom_helper": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134289464,
+   "size": 56,
+   "kind": "exact",
+   "primary": "usb_endpoint_in_is_inactive",
+   "names": {
+    "usb_endpoint_in_is_inactive": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134301636,
+   "size": 56,
+   "kind": "exact",
+   "primary": "Vector4C",
+   "names": {
+    "Vector4C": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134307754,
+   "size": 56,
+   "kind": "exact",
+   "primary": "__swrite",
+   "names": {
+    "__swrite": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134256508,
+   "size": 52,
+   "kind": "exact",
+   "primary": "indicator_battery_low_enable",
+   "names": {
+    "indicator_battery_low_enable": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134278684,
+   "size": 52,
+   "kind": "exact",
+   "primary": "rgb_matrix_enable_noeeprom",
+   "names": {
+    "rgb_matrix_enable_noeeprom": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134287696,
+   "size": 52,
+   "kind": "exact",
+   "primary": "set_led_transfer_cb",
+   "names": {
+    "set_led_transfer_cb": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134273080,
+   "size": 50,
+   "kind": "exact",
+   "primary": "CYCLE_OUT_IN_math",
+   "names": {
+    "CYCLE_OUT_IN_math": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134250840,
+   "size": 48,
+   "kind": "exact",
+   "primary": "__aeabi_uldivmod",
+   "names": {
+    "__aeabi_uldivmod": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "size inferred from next symbol (asm routine)"
+   ]
+  },
+  {
+   "dump_addr": 134273950,
+   "size": 48,
+   "kind": "exact",
+   "primary": "CYCLE_PINWHEEL_math",
+   "names": {
+    "CYCLE_PINWHEEL_math": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134297208,
+   "size": 48,
+   "kind": "exact",
+   "primary": "efl_lld_query_erase",
+   "names": {
+    "efl_lld_query_erase": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134303628,
+   "size": 48,
+   "kind": "exact",
+   "primary": "__itoa",
+   "names": {
+    "__itoa": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134302364,
+   "size": 46,
+   "kind": "exact",
+   "primary": "spi_lld_configure",
+   "names": {
+    "spi_lld_configure": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134274316,
+   "size": 44,
+   "kind": "exact",
+   "primary": "eeconfig_update_rgb_matrix_default",
+   "names": {
+    "eeconfig_update_rgb_matrix_default": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134265850,
+   "size": 40,
+   "kind": "exact",
+   "primary": "read_source_layers_cache_impl",
+   "names": {
+    "read_source_layers_cache_impl": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134271572,
+   "size": 40,
+   "kind": "exact",
+   "primary": "wear_leveling_append_raw",
+   "names": {
+    "wear_leveling_append_raw": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134287748,
+   "size": 40,
+   "kind": "exact",
+   "primary": "usb_event_queue_enqueue.isra.0",
+   "names": {
+    "usb_event_queue_enqueue.isra.0": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134295792,
+   "size": 40,
+   "kind": "exact",
+   "primary": "Vector58",
+   "names": {
+    "Vector58": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134295832,
+   "size": 40,
+   "kind": "exact",
+   "primary": "Vector5C",
+   "names": {
+    "Vector5C": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134295872,
+   "size": 40,
+   "kind": "exact",
+   "primary": "Vector60",
+   "names": {
+    "Vector60": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134295912,
+   "size": 40,
+   "kind": "exact",
+   "primary": "Vector64",
+   "names": {
+    "Vector64": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134295952,
+   "size": 40,
+   "kind": "exact",
+   "primary": "Vector68",
+   "names": {
+    "Vector68": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134297328,
+   "size": 40,
+   "kind": "exact",
+   "primary": "Vector6C",
+   "names": {
+    "Vector6C": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134297500,
+   "size": 40,
+   "kind": "exact",
+   "primary": "Vector7C",
+   "names": {
+    "Vector7C": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134297672,
+   "size": 40,
+   "kind": "exact",
+   "primary": "Vector120",
+   "names": {
+    "Vector120": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134297844,
+   "size": 40,
+   "kind": "exact",
+   "primary": "Vector130",
+   "names": {
+    "Vector130": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134272844,
+   "size": 38,
+   "kind": "exact",
+   "primary": "CYCLE_ALL_math",
+   "names": {
+    "CYCLE_ALL_math": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134289776,
+   "size": 38,
+   "kind": "exact",
+   "primary": "usb_shared_reset_report",
+   "names": {
+    "usb_shared_reset_report": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134293310,
+   "size": 38,
+   "kind": "exact",
+   "primary": "obqPostFullBufferS",
+   "names": {
+    "obqPostFullBufferS": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134278736,
+   "size": 36,
+   "kind": "exact",
+   "primary": "rgb_matrix_enable",
+   "names": {
+    "rgb_matrix_enable": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134286716,
+   "size": 36,
+   "kind": "exact",
+   "primary": "__NVIC_SystemReset",
+   "names": {
+    "__NVIC_SystemReset": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134287304,
+   "size": 36,
+   "kind": "exact",
+   "primary": "spi_stop",
+   "names": {
+    "spi_stop": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134287980,
+   "size": 36,
+   "kind": "exact",
+   "primary": "usb_event_queue_init",
+   "names": {
+    "usb_event_queue_init": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134290020,
+   "size": 36,
+   "kind": "exact",
+   "primary": "usb_shared_set_idle_rate",
+   "names": {
+    "usb_shared_set_idle_rate": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134304688,
+   "size": 36,
+   "kind": "exact-ambiguous",
+   "primary": "fiprintf",
+   "names": {
+    "fiprintf": [
+     "ref1011_via_lto"
+    ],
+    "fprintf": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "ambiguous body {fiprintf|fprintf} resolved by caller: bl(fuzzy-paired) from __assert_func@0x08015374+0x1C"
+   ]
+  },
+  {
+   "dump_addr": 134304794,
+   "size": 36,
+   "kind": "exact",
+   "primary": "__sfputs_r",
+   "names": {
+    "__sfputs_r": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134269980,
+   "size": 34,
+   "kind": "exact",
+   "primary": "setPinInputHigh_atomic",
+   "names": {
+    "setPinInputHigh_atomic": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134307720,
+   "size": 34,
+   "kind": "exact",
+   "primary": "__sread",
+   "names": {
+    "__sread": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134292520,
+   "size": 32,
+   "kind": "exact",
+   "primary": "SVC_Handler",
+   "names": {
+    "SVC_Handler": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134303712,
+   "size": 32,
+   "kind": "exact",
+   "primary": "memcmp",
+   "names": {
+    "memcmp": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134279928,
+   "size": 30,
+   "kind": "exact",
+   "primary": "snled27351_set_color_all",
+   "names": {
+    "snled27351_set_color_all": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134290874,
+   "size": 30,
+   "kind": "exact",
+   "primary": "chSysRestoreStatusX",
+   "names": {
+    "chSysRestoreStatusX": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134292266,
+   "size": 30,
+   "kind": "exact",
+   "primary": "ch_sch_prio_insert",
+   "names": {
+    "ch_sch_prio_insert": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134303332,
+   "size": 30,
+   "kind": "exact",
+   "primary": "gpio_init",
+   "names": {
+    "gpio_init": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134258720,
+   "size": 28,
+   "kind": "exact",
+   "primary": "lpm_timer_reset",
+   "names": {
+    "lpm_timer_reset": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134281304,
+   "size": 28,
+   "kind": "exact",
+   "primary": "dip_switch_init",
+   "names": {
+    "dip_switch_init": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134289660,
+   "size": 28,
+   "kind": "exact",
+   "primary": "usb_reset_report",
+   "names": {
+    "usb_reset_report": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134289748,
+   "size": 28,
+   "kind": "exact",
+   "primary": "usb_shared_get_report",
+   "names": {
+    "usb_shared_get_report": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134289904,
+   "size": 28,
+   "kind": "exact",
+   "primary": "usb_set_idle_rate",
+   "names": {
+    "usb_set_idle_rate": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134291532,
+   "size": 28,
+   "kind": "exact",
+   "primary": "__sch_ready_behind.isra.0",
+   "names": {
+    "__sch_ready_behind.isra.0": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134291660,
+   "size": 28,
+   "kind": "exact",
+   "primary": "chSchGoSleepS",
+   "names": {
+    "chSchGoSleepS": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134303744,
+   "size": 28,
+   "kind": "exact",
+   "primary": "memcpy",
+   "names": {
+    "memcpy": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134293580,
+   "size": 26,
+   "kind": "exact",
+   "primary": "flashGetSectorOffset",
+   "names": {
+    "flashGetSectorOffset": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134293606,
+   "size": 26,
+   "kind": "exact",
+   "primary": "flashGetSectorSize",
+   "names": {
+    "flashGetSectorSize": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134250788,
+   "size": 24,
+   "kind": "exact",
+   "primary": "__port_switch",
+   "names": {
+    "__port_switch": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "size inferred from next symbol (asm routine)"
+   ]
+  },
+  {
+   "dump_addr": 134251792,
+   "size": 24,
+   "kind": "exact",
+   "primary": "wreless_keyboard_leds",
+   "names": {
+    "wreless_keyboard_leds": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134271548,
+   "size": 24,
+   "kind": "exact",
+   "primary": "wear_leveling_consolidate_if_needed",
+   "names": {
+    "wear_leveling_consolidate_if_needed": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134281900,
+   "size": 24,
+   "kind": "exact",
+   "primary": "dynamic_keymap_macro_reset",
+   "names": {
+    "dynamic_keymap_macro_reset": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134291812,
+   "size": 24,
+   "kind": "exact",
+   "primary": "chSchRescheduleS",
+   "names": {
+    "chSchRescheduleS": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134292110,
+   "size": 24,
+   "kind": "exact",
+   "primary": "chThdSleep",
+   "names": {
+    "chThdSleep": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134301404,
+   "size": 24,
+   "kind": "exact",
+   "primary": "rtc_enter_init.lto_priv.0",
+   "names": {
+    "rtc_enter_init.lto_priv.0": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134250662,
+   "size": 22,
+   "kind": "exact",
+   "primary": "bloop",
+   "names": {
+    "bloop": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "size inferred from next symbol (asm routine)"
+   ]
+  },
+  {
+   "dump_addr": 134289638,
+   "size": 22,
+   "kind": "exact",
+   "primary": "usb_get_report",
+   "names": {
+    "usb_get_report": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134290056,
+   "size": 22,
+   "kind": "exact",
+   "primary": "usb_shared_get_idle_rate",
+   "names": {
+    "usb_shared_get_idle_rate": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134250642,
+   "size": 20,
+   "kind": "exact",
+   "primary": "dloop",
+   "names": {
+    "dloop": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "size inferred from next symbol (asm routine)"
+   ]
+  },
+  {
+   "dump_addr": 134287284,
+   "size": 20,
+   "kind": "exact",
+   "primary": "spi_transmit",
+   "names": {
+    "spi_transmit": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134290904,
+   "size": 20,
+   "kind": "exact",
+   "primary": "chSysPolledDelayX",
+   "names": {
+    "chSysPolledDelayX": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134298974,
+   "size": 20,
+   "kind": "exact",
+   "primary": "otg_txfifo_flush.isra.0",
+   "names": {
+    "otg_txfifo_flush.isra.0": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134264282,
+   "size": 18,
+   "kind": "exact",
+   "primary": "unregister_mods",
+   "names": {
+    "unregister_mods": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134264300,
+   "size": 18,
+   "kind": "exact",
+   "primary": "unregister_mods",
+   "names": {
+    "unregister_mods": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134292164,
+   "size": 18,
+   "kind": "exact",
+   "primary": "chThdResumeI",
+   "names": {
+    "chThdResumeI": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134250626,
+   "size": 16,
+   "kind": "exact",
+   "primary": "psloop",
+   "names": {
+    "psloop": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "size inferred from next symbol (asm routine)"
+   ]
+  },
+  {
+   "dump_addr": 134250812,
+   "size": 16,
+   "kind": "exact",
+   "primary": "__port_thread_start",
+   "names": {
+    "__port_thread_start": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "size inferred from next symbol (asm routine)"
+   ]
+  },
+  {
+   "dump_addr": 134251612,
+   "size": 16,
+   "kind": "exact",
+   "primary": "strlen",
+   "names": {
+    "strlen": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134253596,
+   "size": 16,
+   "kind": "exact",
+   "primary": "factory_timer_start",
+   "names": {
+    "factory_timer_start": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134261972,
+   "size": 16,
+   "kind": "exact",
+   "primary": "factory_timer_start",
+   "names": {
+    "factory_timer_start": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134267400,
+   "size": 16,
+   "kind": "exact",
+   "primary": "eeconfig_flag_rgb_matrix",
+   "names": {
+    "eeconfig_flag_rgb_matrix": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134267444,
+   "size": 16,
+   "kind": "exact",
+   "primary": "eeconfig_flag_rgb_matrix",
+   "names": {
+    "eeconfig_flag_rgb_matrix": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134273756,
+   "size": 16,
+   "kind": "exact",
+   "primary": "eeconfig_flag_rgb_matrix",
+   "names": {
+    "eeconfig_flag_rgb_matrix": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134285584,
+   "size": 16,
+   "kind": "exact",
+   "primary": "host_keyboard_leds",
+   "names": {
+    "host_keyboard_leds": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134303680,
+   "size": 16,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "malloc": [
+     "ref1011_via_lto"
+    ],
+    "free": [
+     "ref1011_via_lto"
+    ],
+    "raise": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134303696,
+   "size": 16,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "malloc": [
+     "ref1011_via_lto"
+    ],
+    "free": [
+     "ref1011_via_lto"
+    ],
+    "raise": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134303772,
+   "size": 16,
+   "kind": "exact",
+   "primary": "memset",
+   "names": {
+    "memset": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134304440,
+   "size": 16,
+   "kind": "exact-ambiguous",
+   "primary": "raise",
+   "names": {
+    "malloc": [
+     "ref1011_via_lto"
+    ],
+    "free": [
+     "ref1011_via_lto"
+    ],
+    "raise": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "ambiguous body {free|malloc|raise} resolved by caller: bl from abort@0x08014F7E+0x4"
+   ]
+  },
+  {
+   "dump_addr": 134250612,
+   "size": 14,
+   "kind": "exact",
+   "primary": "msloop",
+   "names": {
+    "msloop": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "size inferred from next symbol (asm routine)"
+   ]
+  },
+  {
+   "dump_addr": 134303614,
+   "size": 14,
+   "kind": "exact",
+   "primary": "abort",
+   "names": {
+    "abort": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134250684,
+   "size": 12,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "initloop": [
+     "ref1011_via_lto"
+    ],
+    "finiloop": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "size inferred from next symbol (asm routine)"
+   ]
+  },
+  {
+   "dump_addr": 134250704,
+   "size": 12,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "initloop": [
+     "ref1011_via_lto"
+    ],
+    "finiloop": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "size inferred from next symbol (asm routine)"
+   ]
+  },
+  {
+   "dump_addr": 134253324,
+   "size": 12,
+   "kind": "exact",
+   "primary": "keyboard_leds",
+   "names": {
+    "keyboard_leds": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134258504,
+   "size": 12,
+   "kind": "exact",
+   "primary": "keyboard_leds",
+   "names": {
+    "keyboard_leds": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134267388,
+   "size": 12,
+   "kind": "exact",
+   "primary": "keyboard_leds",
+   "names": {
+    "keyboard_leds": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134279032,
+   "size": 12,
+   "kind": "exact",
+   "primary": "keyboard_leds",
+   "names": {
+    "keyboard_leds": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134280336,
+   "size": 12,
+   "kind": "exact",
+   "primary": "snled27351_shutdown",
+   "names": {
+    "snled27351_shutdown": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134280348,
+   "size": 12,
+   "kind": "exact",
+   "primary": "snled27351_exit_shutdown",
+   "names": {
+    "snled27351_exit_shutdown": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134284616,
+   "size": 12,
+   "kind": "exact",
+   "primary": "keyboard_leds",
+   "names": {
+    "keyboard_leds": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134284628,
+   "size": 12,
+   "kind": "exact",
+   "primary": "keyboard_leds",
+   "names": {
+    "keyboard_leds": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134284640,
+   "size": 12,
+   "kind": "exact",
+   "primary": "keyboard_leds",
+   "names": {
+    "keyboard_leds": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134288300,
+   "size": 12,
+   "kind": "exact",
+   "primary": "keyboard_leds",
+   "names": {
+    "keyboard_leds": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134289932,
+   "size": 12,
+   "kind": "exact",
+   "primary": "usb_get_idle_rate",
+   "names": {
+    "usb_get_idle_rate": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134290862,
+   "size": 12,
+   "kind": "exact",
+   "primary": "chSysGetStatusAndLockX.part.0",
+   "names": {
+    "chSysGetStatusAndLockX.part.0": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134284746,
+   "size": 10,
+   "kind": "exact",
+   "primary": "via_get_layout_options",
+   "names": {
+    "via_get_layout_options": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134288344,
+   "size": 10,
+   "kind": "exact",
+   "primary": "send_keyboard",
+   "names": {
+    "send_keyboard": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134288354,
+   "size": 10,
+   "kind": "exact",
+   "primary": "send_nkro",
+   "names": {
+    "send_nkro": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134288364,
+   "size": 10,
+   "kind": "exact",
+   "primary": "send_mouse",
+   "names": {
+    "send_mouse": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134288374,
+   "size": 10,
+   "kind": "exact",
+   "primary": "send_extra",
+   "names": {
+    "send_extra": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134303498,
+   "size": 10,
+   "kind": "exact",
+   "primary": "_read_r",
+   "names": {
+    "_read_r": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134250696,
+   "size": 8,
+   "kind": "exact",
+   "primary": "endinitloop",
+   "names": {
+    "endinitloop": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "size inferred from next symbol (asm routine)"
+   ]
+  },
+  {
+   "dump_addr": 134307846,
+   "size": 8,
+   "kind": "exact",
+   "primary": "__sclose",
+   "names": {
+    "__sclose": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134278678,
+   "size": 6,
+   "kind": "exact",
+   "primary": "rgb_matrix_increase_val",
+   "names": {
+    "rgb_matrix_increase_val": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134278772,
+   "size": 6,
+   "kind": "exact",
+   "primary": "rgb_matrix_increase_val",
+   "names": {
+    "rgb_matrix_increase_val": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134280360,
+   "size": 6,
+   "kind": "exact",
+   "primary": "handleKeycodeRGB",
+   "names": {
+    "handleKeycodeRGB": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134274360,
+   "size": 4,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "sendchar": [
+     "ref1011_via_lto"
+    ],
+    "null_sendchar_func": [
+     "ref1011_via_lto"
+    ],
+    "_lseek_r": [
+     "ref1011_via_lto"
+    ],
+    "_close_r": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134291836,
+   "size": 4,
+   "kind": "exact",
+   "primary": "__idle_thread.lto_priv.0",
+   "names": {
+    "__idle_thread.lto_priv.0": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134297204,
+   "size": 4,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "_isatty_r": [
+     "ref1011_via_lto"
+    ],
+    "_getpid": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134301428,
+   "size": 4,
+   "kind": "exact",
+   "primary": "_getsize",
+   "names": {
+    "_getsize": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134303508,
+   "size": 4,
+   "kind": "exact-ambiguous",
+   "primary": "_lseek_r",
+   "names": {
+    "sendchar": [
+     "ref1011_via_lto"
+    ],
+    "null_sendchar_func": [
+     "ref1011_via_lto"
+    ],
+    "_lseek_r": [
+     "ref1011_via_lto"
+    ],
+    "_close_r": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (vote)",
+    "ambiguous body {_close_r|_lseek_r|null_sendchar_func|sendchar} resolved by caller: bl from __swrite@0x08015FAA+0x1A"
+   ]
+  },
+  {
+   "dump_addr": 134303512,
+   "size": 4,
+   "kind": "exact",
+   "primary": "_write_r",
+   "names": {
+    "_write_r": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (vote)"
+   ]
+  },
+  {
+   "dump_addr": 134303516,
+   "size": 4,
+   "kind": "exact-ambiguous",
+   "primary": "_close_r",
+   "names": {
+    "sendchar": [
+     "ref1011_via_lto"
+    ],
+    "null_sendchar_func": [
+     "ref1011_via_lto"
+    ],
+    "_lseek_r": [
+     "ref1011_via_lto"
+    ],
+    "_close_r": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (vote)",
+    "ambiguous body {_close_r|_lseek_r|null_sendchar_func|sendchar} resolved by caller: b.w from __sclose@0x08016006+0x4"
+   ]
+  },
+  {
+   "dump_addr": 134251608,
+   "size": 2,
+   "kind": "exact-ambiguous",
+   "primary": "__aeabi_idiv0",
+   "names": {
+    "__aeabi_idiv0": [
+     "ref1011_via_lto"
+    ],
+    "__aeabi_ldiv0": [
+     "ref1011_via_lto"
+    ],
+    "__cpu_init": [
+     "ref1011_via_lto"
+    ],
+    "wireless_enter_bluetooth_pin_code_entry_kb": [
+     "ref1011_via_lto"
+    ],
+    "dummy_cb": [
+     "ref1011_via_lto"
+    ],
+    "__late_init": [
+     "ref1011_via_lto"
+    ],
+    "_fini": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_lock": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_unlock": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (vote)",
+    "ambiguous body {__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb} resolved by caller: b.w from __aeabi_uldivmod@0x08008158+0x14"
+   ]
+  },
+  {
+   "dump_addr": 134273414,
+   "size": 2,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "__aeabi_idiv0": [
+     "ref1011_via_lto"
+    ],
+    "__aeabi_ldiv0": [
+     "ref1011_via_lto"
+    ],
+    "__cpu_init": [
+     "ref1011_via_lto"
+    ],
+    "wireless_enter_bluetooth_pin_code_entry_kb": [
+     "ref1011_via_lto"
+    ],
+    "dummy_cb": [
+     "ref1011_via_lto"
+    ],
+    "__late_init": [
+     "ref1011_via_lto"
+    ],
+    "_fini": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_lock": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_unlock": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134273684,
+   "size": 2,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "__aeabi_idiv0": [
+     "ref1011_via_lto"
+    ],
+    "__aeabi_ldiv0": [
+     "ref1011_via_lto"
+    ],
+    "__cpu_init": [
+     "ref1011_via_lto"
+    ],
+    "wireless_enter_bluetooth_pin_code_entry_kb": [
+     "ref1011_via_lto"
+    ],
+    "dummy_cb": [
+     "ref1011_via_lto"
+    ],
+    "__late_init": [
+     "ref1011_via_lto"
+    ],
+    "_fini": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_lock": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_unlock": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134284744,
+   "size": 2,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "__aeabi_idiv0": [
+     "ref1011_via_lto"
+    ],
+    "__aeabi_ldiv0": [
+     "ref1011_via_lto"
+    ],
+    "__cpu_init": [
+     "ref1011_via_lto"
+    ],
+    "wireless_enter_bluetooth_pin_code_entry_kb": [
+     "ref1011_via_lto"
+    ],
+    "dummy_cb": [
+     "ref1011_via_lto"
+    ],
+    "__late_init": [
+     "ref1011_via_lto"
+    ],
+    "_fini": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_lock": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_unlock": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134284756,
+   "size": 2,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "__aeabi_idiv0": [
+     "ref1011_via_lto"
+    ],
+    "__aeabi_ldiv0": [
+     "ref1011_via_lto"
+    ],
+    "__cpu_init": [
+     "ref1011_via_lto"
+    ],
+    "wireless_enter_bluetooth_pin_code_entry_kb": [
+     "ref1011_via_lto"
+    ],
+    "dummy_cb": [
+     "ref1011_via_lto"
+    ],
+    "__late_init": [
+     "ref1011_via_lto"
+    ],
+    "_fini": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_lock": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_unlock": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134287340,
+   "size": 2,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "__aeabi_idiv0": [
+     "ref1011_via_lto"
+    ],
+    "__aeabi_ldiv0": [
+     "ref1011_via_lto"
+    ],
+    "__cpu_init": [
+     "ref1011_via_lto"
+    ],
+    "wireless_enter_bluetooth_pin_code_entry_kb": [
+     "ref1011_via_lto"
+    ],
+    "dummy_cb": [
+     "ref1011_via_lto"
+    ],
+    "__late_init": [
+     "ref1011_via_lto"
+    ],
+    "_fini": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_lock": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_unlock": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134290684,
+   "size": 2,
+   "kind": "exact-ambiguous",
+   "primary": "__cpu_init",
+   "names": {
+    "__aeabi_idiv0": [
+     "ref1011_via_lto"
+    ],
+    "__aeabi_ldiv0": [
+     "ref1011_via_lto"
+    ],
+    "__cpu_init": [
+     "ref1011_via_lto"
+    ],
+    "wireless_enter_bluetooth_pin_code_entry_kb": [
+     "ref1011_via_lto"
+    ],
+    "dummy_cb": [
+     "ref1011_via_lto"
+    ],
+    "__late_init": [
+     "ref1011_via_lto"
+    ],
+    "_fini": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_lock": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_unlock": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (vote)",
+    "ambiguous body {__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb} resolved by caller: bl from _crt0_entry@0x08008000+0x64"
+   ]
+  },
+  {
+   "dump_addr": 134290686,
+   "size": 2,
+   "kind": "exact-ambiguous",
+   "primary": "__late_init",
+   "names": {
+    "__aeabi_idiv0": [
+     "ref1011_via_lto"
+    ],
+    "__aeabi_ldiv0": [
+     "ref1011_via_lto"
+    ],
+    "__cpu_init": [
+     "ref1011_via_lto"
+    ],
+    "wireless_enter_bluetooth_pin_code_entry_kb": [
+     "ref1011_via_lto"
+    ],
+    "dummy_cb": [
+     "ref1011_via_lto"
+    ],
+    "__late_init": [
+     "ref1011_via_lto"
+    ],
+    "_fini": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_lock": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_unlock": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (vote)",
+    "ambiguous body {__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb} resolved by caller: bl from bloop@0x080080A6+0xE"
+   ]
+  },
+  {
+   "dump_addr": 134301402,
+   "size": 2,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "__aeabi_idiv0": [
+     "ref1011_via_lto"
+    ],
+    "__aeabi_ldiv0": [
+     "ref1011_via_lto"
+    ],
+    "__cpu_init": [
+     "ref1011_via_lto"
+    ],
+    "wireless_enter_bluetooth_pin_code_entry_kb": [
+     "ref1011_via_lto"
+    ],
+    "dummy_cb": [
+     "ref1011_via_lto"
+    ],
+    "__late_init": [
+     "ref1011_via_lto"
+    ],
+    "_fini": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_lock": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_unlock": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134303496,
+   "size": 2,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "__aeabi_idiv0": [
+     "ref1011_via_lto"
+    ],
+    "__aeabi_ldiv0": [
+     "ref1011_via_lto"
+    ],
+    "__cpu_init": [
+     "ref1011_via_lto"
+    ],
+    "wireless_enter_bluetooth_pin_code_entry_kb": [
+     "ref1011_via_lto"
+    ],
+    "dummy_cb": [
+     "ref1011_via_lto"
+    ],
+    "__late_init": [
+     "ref1011_via_lto"
+    ],
+    "_fini": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_lock": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_unlock": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134303612,
+   "size": 2,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "__aeabi_idiv0": [
+     "ref1011_via_lto"
+    ],
+    "__aeabi_ldiv0": [
+     "ref1011_via_lto"
+    ],
+    "__cpu_init": [
+     "ref1011_via_lto"
+    ],
+    "wireless_enter_bluetooth_pin_code_entry_kb": [
+     "ref1011_via_lto"
+    ],
+    "dummy_cb": [
+     "ref1011_via_lto"
+    ],
+    "__late_init": [
+     "ref1011_via_lto"
+    ],
+    "_fini": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_lock": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_unlock": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134304792,
+   "size": 2,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "__aeabi_idiv0": [
+     "ref1011_via_lto"
+    ],
+    "__aeabi_ldiv0": [
+     "ref1011_via_lto"
+    ],
+    "__cpu_init": [
+     "ref1011_via_lto"
+    ],
+    "wireless_enter_bluetooth_pin_code_entry_kb": [
+     "ref1011_via_lto"
+    ],
+    "dummy_cb": [
+     "ref1011_via_lto"
+    ],
+    "__late_init": [
+     "ref1011_via_lto"
+    ],
+    "_fini": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_lock": [
+     "ref1011_via_lto"
+    ],
+    "__malloc_unlock": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134297200,
+   "size": 4,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "sendchar": [
+     "ref1011_via_lto"
+    ],
+    "null_sendchar_func": [
+     "ref1011_via_lto"
+    ],
+    "_lseek_r": [
+     "ref1011_via_lto"
+    ],
+    "_close_r": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134303608,
+   "size": 4,
+   "kind": "exact-ambiguous",
+   "primary": null,
+   "names": {
+    "_isatty_r": [
+     "ref1011_via_lto"
+    ],
+    "_getpid": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "tiny body placed (adjacent)"
+   ]
+  },
+  {
+   "dump_addr": 134308432,
+   "size": 864,
+   "kind": "data",
+   "primary": "keymaps",
+   "names": {
+    "keymaps": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134313404,
+   "size": 504,
+   "kind": "data",
+   "primary": "usb_endpoints_in",
+   "names": {
+    "usb_endpoints_in": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134312364,
+   "size": 372,
+   "kind": "data",
+   "primary": "g_led_config",
+   "names": {
+    "g_led_config": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134308064,
+   "size": 352,
+   "kind": "data",
+   "primary": "g_snled27351_leds",
+   "names": {
+    "g_snled27351_leds": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134311522,
+   "size": 257,
+   "kind": "data",
+   "primary": "_ctype_",
+   "names": {
+    "_ctype_": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134311092,
+   "size": 192,
+   "kind": "data",
+   "primary": "_stm32_dma_streams",
+   "names": {
+    "_stm32_dma_streams": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134310386,
+   "size": 182,
+   "kind": "data",
+   "primary": "SharedReport",
+   "names": {
+    "SharedReport": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134311344,
+   "size": 168,
+   "kind": "data",
+   "primary": "gpio_default_config",
+   "names": {
+    "gpio_default_config": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134313908,
+   "size": 136,
+   "kind": "data",
+   "primary": "usb_endpoints_out",
+   "names": {
+    "usb_endpoints_out": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134309404,
+   "size": 72,
+   "kind": "data-ambiguous",
+   "primary": null,
+   "names": {
+    "col_pins": [
+     "ref1011_via_lto"
+    ],
+    "pins_col": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "object bytes occur at 2 places"
+   ]
+  },
+  {
+   "dump_addr": 134312264,
+   "size": 72,
+   "kind": "data-ambiguous",
+   "primary": null,
+   "names": {
+    "col_pins": [
+     "ref1011_via_lto"
+    ],
+    "pins_col": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "object bytes occur at 2 places"
+   ]
+  },
+  {
+   "dump_addr": 134310224,
+   "size": 68,
+   "kind": "data",
+   "primary": "KeyboardReport",
+   "names": {
+    "KeyboardReport": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134310916,
+   "size": 64,
+   "kind": "data",
+   "primary": "efl_lld_sect4",
+   "names": {
+    "efl_lld_sect4": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134310860,
+   "size": 56,
+   "kind": "data-ambiguous",
+   "primary": null,
+   "names": {
+    "efl_lld_sect3": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "object bytes occur at 2 places"
+   ]
+  },
+  {
+   "dump_addr": 134309296,
+   "size": 54,
+   "kind": "data-ambiguous",
+   "primary": null,
+   "names": {
+    "CSWTCH.7": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "object bytes occur at 2 places"
+   ]
+  },
+  {
+   "dump_addr": 134309350,
+   "size": 54,
+   "kind": "data-ambiguous",
+   "primary": null,
+   "names": {
+    "CSWTCH.7": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "object bytes occur at 2 places"
+   ]
+  },
+  {
+   "dump_addr": 134310812,
+   "size": 48,
+   "kind": "data-ambiguous",
+   "primary": null,
+   "names": {
+    "efl_lld_sect2": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "object bytes occur at 3 places"
+   ]
+  },
+  {
+   "dump_addr": 134310772,
+   "size": 40,
+   "kind": "data-ambiguous",
+   "primary": null,
+   "names": {
+    "efl_lld_sect1": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "object bytes occur at 4 places"
+   ]
+  },
+  {
+   "dump_addr": 134310316,
+   "size": 36,
+   "kind": "data",
+   "primary": "ProductString",
+   "names": {
+    "ProductString": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134310352,
+   "size": 34,
+   "kind": "data",
+   "primary": "RawReport",
+   "names": {
+    "RawReport": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134310980,
+   "size": 28,
+   "kind": "data",
+   "primary": "efl_lld_size1",
+   "names": {
+    "efl_lld_size1": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134311008,
+   "size": 28,
+   "kind": "data",
+   "primary": "efl_lld_size2",
+   "names": {
+    "efl_lld_size2": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134311036,
+   "size": 28,
+   "kind": "data",
+   "primary": "efl_lld_size3",
+   "names": {
+    "efl_lld_size3": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134311064,
+   "size": 28,
+   "kind": "data",
+   "primary": "efl_lld_size4",
+   "names": {
+    "efl_lld_size4": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134307872,
+   "size": 24,
+   "kind": "data",
+   "primary": "spicfg",
+   "names": {
+    "spicfg": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134307900,
+   "size": 24,
+   "kind": "data",
+   "primary": "connected_config",
+   "names": {
+    "connected_config": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134307924,
+   "size": 24,
+   "kind": "data",
+   "primary": "disconnected_config",
+   "names": {
+    "disconnected_config": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134307948,
+   "size": 24,
+   "kind": "data",
+   "primary": "pairing_config",
+   "names": {
+    "pairing_config": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134307972,
+   "size": 24,
+   "kind": "data",
+   "primary": "reconnecting_config",
+   "names": {
+    "reconnecting_config": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134309476,
+   "size": 24,
+   "kind": "data-ambiguous",
+   "primary": null,
+   "names": {
+    "pins_row": [
+     "ref1011_via_lto"
+    ],
+    "row_pins": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "object bytes occur at 2 places"
+   ]
+  },
+  {
+   "dump_addr": 134312336,
+   "size": 24,
+   "kind": "data-ambiguous",
+   "primary": null,
+   "names": {
+    "pins_row": [
+     "ref1011_via_lto"
+    ],
+    "row_pins": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": [
+    "object bytes occur at 2 places"
+   ]
+  },
+  {
+   "dump_addr": 134310296,
+   "size": 20,
+   "kind": "data",
+   "primary": "ManufacturerString",
+   "names": {
+    "ManufacturerString": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134310206,
+   "size": 18,
+   "kind": "data",
+   "primary": "DeviceDescriptor",
+   "names": {
+    "DeviceDescriptor": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134308044,
+   "size": 16,
+   "kind": "data",
+   "primary": "key_comb_list",
+   "names": {
+    "key_comb_list": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134308416,
+   "size": 16,
+   "kind": "data",
+   "primary": "encoder_map",
+   "names": {
+    "encoder_map": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134311320,
+   "size": 12,
+   "kind": "data",
+   "primary": "fsparams",
+   "names": {
+    "fsparams": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134309560,
+   "size": 8,
+   "kind": "data",
+   "primary": "b_m16_interleave",
+   "names": {
+    "b_m16_interleave": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134312772,
+   "size": 8,
+   "kind": "data",
+   "primary": "cs_pins",
+   "names": {
+    "cs_pins": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134298800,
+   "size": 88,
+   "kind": "fuzzy",
+   "primary": "_pal_lld_disablepadevent.isra.0",
+   "names": {
+    "_pal_lld_disablepadevent.isra.0": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 1.0,
+   "notes": []
+  },
+  {
+   "dump_addr": 134297256,
+   "size": 72,
+   "kind": "fuzzy",
+   "primary": "efl_lld_verify_erase",
+   "names": {
+    "efl_lld_verify_erase": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.9841269841269841,
+   "notes": []
+  },
+  {
+   "dump_addr": 134304360,
+   "size": 80,
+   "kind": "fuzzy-anchored",
+   "primary": "_raise_r",
+   "names": {
+    "_raise_r": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.9705882352941176,
+   "notes": [
+    "call-anchored: b.w from raise@0x080152B8+0x6"
+   ]
+  },
+  {
+   "dump_addr": 134301474,
+   "size": 58,
+   "kind": "fuzzy",
+   "primary": "_write",
+   "names": {
+    "_write": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.9545454545454546,
+   "notes": []
+  },
+  {
+   "dump_addr": 134303788,
+   "size": 152,
+   "kind": "fuzzy",
+   "primary": "_free_r",
+   "names": {
+    "_free_r": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.9459459459459459,
+   "notes": []
+  },
+  {
+   "dump_addr": 134291588,
+   "size": 68,
+   "kind": "fuzzy",
+   "primary": "__sch_wakeup",
+   "names": {
+    "__sch_wakeup": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.9454545454545454,
+   "notes": []
+  },
+  {
+   "dump_addr": 134304456,
+   "size": 36,
+   "kind": "fuzzy",
+   "primary": "_kill_r",
+   "names": {
+    "_kill_r": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.9411764705882353,
+   "notes": []
+  },
+  {
+   "dump_addr": 134292238,
+   "size": 28,
+   "kind": "fuzzy",
+   "primary": "chThdDequeueAllI.constprop.0",
+   "names": {
+    "chThdDequeueAllI.constprop.0": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.9230769230769231,
+   "notes": []
+  },
+  {
+   "dump_addr": 134293882,
+   "size": 28,
+   "kind": "fuzzy",
+   "primary": "spiSelect",
+   "names": {
+    "spiSelect": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.9166666666666666,
+   "notes": []
+  },
+  {
+   "dump_addr": 134293178,
+   "size": 24,
+   "kind": "fuzzy",
+   "primary": "obqResetI",
+   "names": {
+    "obqResetI": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.9,
+   "notes": []
+  },
+  {
+   "dump_addr": 134299984,
+   "size": 176,
+   "kind": "fuzzy",
+   "primary": "otg_epout_handler.constprop.0",
+   "names": {
+    "otg_epout_handler.constprop.0": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8904109589041096,
+   "notes": []
+  },
+  {
+   "dump_addr": 134293910,
+   "size": 28,
+   "kind": "fuzzy-anchored",
+   "primary": "spiUnselect",
+   "names": {
+    "spiUnselect": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.88,
+   "notes": [
+    "call-anchored: bl from spi_stop@0x08010FC8+0xA"
+   ]
+  },
+  {
+   "dump_addr": 134304496,
+   "size": 132,
+   "kind": "fuzzy-anchored",
+   "primary": "__utoa",
+   "names": {
+    "__utoa": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8793103448275862,
+   "notes": [
+    "call-anchored: bl from __itoa@0x08014F8C+0x26"
+   ]
+  },
+  {
+   "dump_addr": 134296938,
+   "size": 188,
+   "kind": "fuzzy",
+   "primary": "efl_lld_program",
+   "names": {
+    "efl_lld_program": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8767123287671232,
+   "notes": []
+  },
+  {
+   "dump_addr": 134273608,
+   "size": 76,
+   "kind": "fuzzy",
+   "primary": "SPLASH_math",
+   "names": {
+    "SPLASH_math": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8727272727272727,
+   "notes": []
+  },
+  {
+   "dump_addr": 134296704,
+   "size": 40,
+   "kind": "fuzzy-anchored",
+   "primary": "stm32_flash_check_errors",
+   "names": {
+    "stm32_flash_check_errors": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8717948717948718,
+   "notes": [
+    "call-anchored: bl from efl_lld_query_erase@0x08013678+0x1A"
+   ]
+  },
+  {
+   "dump_addr": 134304748,
+   "size": 44,
+   "kind": "fuzzy-anchored",
+   "primary": "__sfputc_r",
+   "names": {
+    "__sfputc_r": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8717948717948718,
+   "notes": [
+    "call-anchored: bl from __sfputs_r@0x0801541A+0x1A"
+   ]
+  },
+  {
+   "dump_addr": 134284778,
+   "size": 32,
+   "kind": "fuzzy",
+   "primary": "eeconfig_init_via",
+   "names": {
+    "eeconfig_init_via": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8695652173913043,
+   "notes": []
+  },
+  {
+   "dump_addr": 134304628,
+   "size": 60,
+   "kind": "fuzzy",
+   "primary": "__assert_func",
+   "names": {
+    "__assert_func": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8695652173913043,
+   "notes": []
+  },
+  {
+   "dump_addr": 134306632,
+   "size": 268,
+   "kind": "fuzzy",
+   "primary": "__sflush_r",
+   "names": {
+    "__sflush_r": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8653061224489796,
+   "notes": []
+  },
+  {
+   "dump_addr": 134287052,
+   "size": 232,
+   "kind": "fuzzy",
+   "primary": "spi_start",
+   "names": {
+    "spi_start": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8648648648648649,
+   "notes": []
+  },
+  {
+   "dump_addr": 134267416,
+   "size": 16,
+   "kind": "fuzzy-anchored",
+   "primary": "del_mods",
+   "names": {
+    "del_mods": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8571428571428571,
+   "notes": [
+    "call-anchored: bl from unregister_code@0x0800B538+0x2E"
+   ]
+  },
+  {
+   "dump_addr": 134273880,
+   "size": 70,
+   "kind": "fuzzy",
+   "primary": "BAND_SPIRAL_VAL_math",
+   "names": {
+    "BAND_SPIRAL_VAL_math": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8571428571428571,
+   "notes": []
+  },
+  {
+   "dump_addr": 134274052,
+   "size": 28,
+   "kind": "fuzzy-anchored",
+   "primary": "eeconfig_flush_rgb_matrix.part.0",
+   "names": {
+    "eeconfig_flush_rgb_matrix.part.0": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8571428571428571,
+   "notes": [
+    "call-anchored: b.w from eeconfig_update_rgb_matrix_default@0x0800DD0C+0x1E"
+   ]
+  },
+  {
+   "dump_addr": 134278132,
+   "size": 32,
+   "kind": "fuzzy",
+   "primary": "rgb_matrix_disable_noeeprom",
+   "names": {
+    "rgb_matrix_disable_noeeprom": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8571428571428571,
+   "notes": []
+  },
+  {
+   "dump_addr": 134299860,
+   "size": 124,
+   "kind": "fuzzy",
+   "primary": "usb_lld_start_out",
+   "names": {
+    "usb_lld_start_out": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8571428571428571,
+   "notes": []
+  },
+  {
+   "dump_addr": 134303546,
+   "size": 24,
+   "kind": "fuzzy",
+   "primary": "_fstat_r",
+   "names": {
+    "_fstat_r": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8571428571428571,
+   "notes": []
+  },
+  {
+   "dump_addr": 134273998,
+   "size": 54,
+   "kind": "fuzzy",
+   "primary": "CYCLE_SPIRAL_math",
+   "names": {
+    "CYCLE_SPIRAL_math": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.85,
+   "notes": []
+  },
+  {
+   "dump_addr": 134278568,
+   "size": 48,
+   "kind": "fuzzy-anchored",
+   "primary": "rgb_matrix_increase_val_helper",
+   "names": {
+    "rgb_matrix_increase_val_helper": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8421052631578947,
+   "notes": [
+    "call-anchored: bl from rgb_matrix_toggle_eeprom_helper@0x0800EDD8+0x28"
+   ]
+  },
+  {
+   "dump_addr": 134270844,
+   "size": 30,
+   "kind": "fuzzy-anchored",
+   "primary": "eeprom_read_byte",
+   "names": {
+    "eeprom_read_byte": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.8,
+   "notes": [
+    "call-anchored: bl from via_get_layout_options@0x080105CA+0x4"
+   ]
+  },
+  {
+   "dump_addr": 134286572,
+   "size": 108,
+   "kind": "fuzzy-anchored",
+   "primary": "timer_read32",
+   "names": {
+    "timer_read32": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.7640449438202247,
+   "notes": [
+    "call-anchored: bl from report_buffer_init@0x08008B5C+0x1C"
+   ]
+  },
+  {
+   "dump_addr": 134298484,
+   "size": 216,
+   "kind": "fuzzy-anchored",
+   "primary": "_pal_lld_setgroupmode",
+   "names": {
+    "_pal_lld_setgroupmode": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.7453416149068323,
+   "notes": [
+    "call-anchored: bl from spi_init@0x08010E58+0x12"
+   ]
+  },
+  {
+   "dump_addr": 134285664,
+   "size": 48,
+   "kind": "fuzzy-anchored",
+   "primary": "host_system_send",
+   "names": {
+    "host_system_send": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.7391304347826086,
+   "notes": [
+    "call-anchored: b.w from unregister_code@0x0800B538+0x44"
+   ]
+  },
+  {
+   "dump_addr": 134285712,
+   "size": 48,
+   "kind": "fuzzy-anchored",
+   "primary": "host_consumer_send",
+   "names": {
+    "host_consumer_send": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.7391304347826086,
+   "notes": [
+    "call-anchored: b.w from unregister_code@0x0800B538+0x58"
+   ]
+  },
+  {
+   "dump_addr": 134297456,
+   "size": 44,
+   "kind": "fuzzy-anchored",
+   "primary": "Vector78",
+   "names": {
+    "Vector78": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.7272727272727273,
+   "notes": [
+    "call-anchored: vector slot 0x78"
+   ]
+  },
+  {
+   "dump_addr": 134297628,
+   "size": 44,
+   "kind": "fuzzy-anchored",
+   "primary": "VectorFC",
+   "names": {
+    "VectorFC": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.7272727272727273,
+   "notes": [
+    "call-anchored: vector slot 0xFC"
+   ]
+  },
+  {
+   "dump_addr": 134297800,
+   "size": 44,
+   "kind": "fuzzy-anchored",
+   "primary": "Vector12C",
+   "names": {
+    "Vector12C": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.7272727272727273,
+   "notes": [
+    "call-anchored: vector slot 0x12C"
+   ]
+  },
+  {
+   "dump_addr": 134290692,
+   "size": 82,
+   "kind": "fuzzy-anchored",
+   "primary": "__init_ram_areas",
+   "names": {
+    "__init_ram_areas": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.7058823529411765,
+   "notes": [
+    "call-anchored: bl from bloop@0x080080A6+0xA"
+   ]
+  },
+  {
+   "dump_addr": 134303576,
+   "size": 16,
+   "kind": "fuzzy-anchored",
+   "primary": "_exit",
+   "names": {
+    "_exit": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.6666666666666666,
+   "notes": [
+    "call-anchored: bl from abort@0x08014F7E+0xA"
+   ]
+  },
+  {
+   "dump_addr": 134297368,
+   "size": 44,
+   "kind": "fuzzy-anchored",
+   "primary": "Vector70",
+   "names": {
+    "Vector70": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.6486486486486487,
+   "notes": [
+    "call-anchored: vector slot 0x70"
+   ]
+  },
+  {
+   "dump_addr": 134297412,
+   "size": 44,
+   "kind": "fuzzy-anchored",
+   "primary": "Vector74",
+   "names": {
+    "Vector74": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.6486486486486487,
+   "notes": [
+    "call-anchored: vector slot 0x74"
+   ]
+  },
+  {
+   "dump_addr": 134297540,
+   "size": 44,
+   "kind": "fuzzy-anchored",
+   "primary": "Vector80",
+   "names": {
+    "Vector80": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.6486486486486487,
+   "notes": [
+    "call-anchored: vector slot 0x80"
+   ]
+  },
+  {
+   "dump_addr": 134297584,
+   "size": 44,
+   "kind": "fuzzy-anchored",
+   "primary": "Vector84",
+   "names": {
+    "Vector84": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.6486486486486487,
+   "notes": [
+    "call-anchored: vector slot 0x84"
+   ]
+  },
+  {
+   "dump_addr": 134297712,
+   "size": 44,
+   "kind": "fuzzy-anchored",
+   "primary": "Vector124",
+   "names": {
+    "Vector124": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.6486486486486487,
+   "notes": [
+    "call-anchored: vector slot 0x124"
+   ]
+  },
+  {
+   "dump_addr": 134297756,
+   "size": 44,
+   "kind": "fuzzy-anchored",
+   "primary": "Vector128",
+   "names": {
+    "Vector128": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.6486486486486487,
+   "notes": [
+    "call-anchored: vector slot 0x128"
+   ]
+  },
+  {
+   "dump_addr": 134297884,
+   "size": 44,
+   "kind": "fuzzy-anchored",
+   "primary": "Vector150",
+   "names": {
+    "Vector150": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.6486486486486487,
+   "notes": [
+    "call-anchored: vector slot 0x150"
+   ]
+  },
+  {
+   "dump_addr": 134297928,
+   "size": 44,
+   "kind": "fuzzy-anchored",
+   "primary": "Vector154",
+   "names": {
+    "Vector154": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.6486486486486487,
+   "notes": [
+    "call-anchored: vector slot 0x154"
+   ]
+  },
+  {
+   "dump_addr": 134292624,
+   "size": 84,
+   "kind": "fuzzy-anchored",
+   "primary": "__port_irq_epilogue",
+   "names": {
+    "__port_irq_epilogue": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.5797101449275363,
+   "notes": [
+    "call-anchored: b.w from VectorE0@0x0801321C+0x64"
+   ]
+  },
+  {
+   "dump_addr": 134272164,
+   "size": 48,
+   "kind": "fuzzy-anchored",
+   "primary": "backing_store_write",
+   "names": {
+    "backing_store_write": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.5714285714285714,
+   "notes": [
+    "call-anchored: bl from wear_leveling_append_raw@0x0800D254+0xA"
+   ]
+  },
+  {
+   "dump_addr": 134297972,
+   "size": 44,
+   "kind": "fuzzy-anchored",
+   "primary": "Vector158",
+   "names": {
+    "Vector158": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.5641025641025641,
+   "notes": [
+    "call-anchored: vector slot 0x158"
+   ]
+  },
+  {
+   "dump_addr": 134283108,
+   "size": 292,
+   "kind": "fuzzy-anchored",
+   "primary": "mousekey_off",
+   "names": {
+    "mousekey_off": [
+     "ref1011_via_lto"
+    ]
+   },
+   "score": 0.5593869731800766,
+   "notes": [
+    "call-anchored: bl from unregister_code@0x0800B538+0x64"
+   ]
+  }
+ ],
+ "votes": {
+  "0x0800811C": {
+   "Reset_Handler": [
+    "vector slot 0x4"
+   ]
+  },
+  "0x0800811E": {
+   "BusFault_Handler": [
+    "vector slot 0x8",
+    "vector slot 0xC",
+    "vector slot 0x10",
+    "vector slot 0x14",
+    "vector slot 0x18",
+    "vector slot 0x1C",
+    "vector slot 0x20",
+    "vector slot 0x24",
+    "vector slot 0x28",
+    "vector slot 0x30",
+    "vector slot 0x34",
+    "vector slot 0x38",
+    "vector slot 0x3C",
+    "vector slot 0x40",
+    "vector slot 0x44",
+    "vector slot 0x50",
+    "vector slot 0x54",
+    "vector slot 0x88",
+    "vector slot 0x8C",
+    "vector slot 0x90",
+    "vector slot 0x94",
+    "vector slot 0x98",
+    "vector slot 0xA0",
+    "vector slot 0xA4",
+    "vector slot 0xA8",
+    "vector slot 0xAC",
+    "vector slot 0xB4",
+    "vector slot 0xB8",
+    "vector slot 0xBC",
+    "vector slot 0xC0",
+    "vector slot 0xC4",
+    "vector slot 0xC8",
+    "vector slot 0xCC",
+    "vector slot 0xD0",
+    "vector slot 0xD4",
+    "vector slot 0xD8",
+    "vector slot 0xDC",
+    "vector slot 0xE8",
+    "vector slot 0xEC",
+    "vector slot 0xF0",
+    "vector slot 0xF4",
+    "vector slot 0xF8",
+    "vector slot 0x100",
+    "vector slot 0x104",
+    "vector slot 0x108",
+    "vector slot 0x10C",
+    "vector slot 0x110",
+    "vector slot 0x114",
+    "vector slot 0x118",
+    "vector slot 0x11C",
+    "vector slot 0x134",
+    "vector slot 0x138",
+    "vector slot 0x13C",
+    "vector slot 0x140",
+    "vector slot 0x144",
+    "vector slot 0x148",
+    "vector slot 0x15C",
+    "vector slot 0x160",
+    "vector slot 0x164",
+    "vector slot 0x168",
+    "vector slot 0x16C",
+    "vector slot 0x170",
+    "vector slot 0x174",
+    "vector slot 0x178",
+    "vector slot 0x17C",
+    "vector slot 0x180",
+    "vector slot 0x184",
+    "vector slot 0x188",
+    "vector slot 0x18C",
+    "vector slot 0x190",
+    "vector slot 0x194",
+    "vector slot 0x198",
+    "vector slot 0x19C",
+    "vector slot 0x1A0",
+    "vector slot 0x1A4",
+    "vector slot 0x1A8",
+    "vector slot 0x1AC",
+    "vector slot 0x1B0",
+    "vector slot 0x1B4",
+    "vector slot 0x1B8",
+    "vector slot 0x1BC",
+    "vector slot 0x1C0",
+    "vector slot 0x1C4",
+    "vector slot 0x1C8",
+    "vector slot 0x1CC",
+    "vector slot 0x1D0",
+    "vector slot 0x1D4",
+    "vector slot 0x1D8",
+    "vector slot 0x1DC"
+   ]
+  },
+  "0x08012428": {
+   "SVC_Handler": [
+    "vector slot 0x2C"
+   ]
+  },
+  "0x0801475C": {
+   "Vector48": [
+    "vector slot 0x48"
+   ]
+  },
+  "0x080147C4": {
+   "Vector4C": [
+    "vector slot 0x4C"
+   ]
+  },
+  "0x080130F0": {
+   "Vector58": [
+    "vector slot 0x58"
+   ]
+  },
+  "0x08013118": {
+   "Vector5C": [
+    "vector slot 0x5C"
+   ]
+  },
+  "0x08013140": {
+   "Vector60": [
+    "vector slot 0x60"
+   ]
+  },
+  "0x08013168": {
+   "Vector64": [
+    "vector slot 0x64"
+   ]
+  },
+  "0x08013190": {
+   "Vector68": [
+    "vector slot 0x68"
+   ]
+  },
+  "0x080136F0": {
+   "Vector6C": [
+    "vector slot 0x6C"
+   ]
+  },
+  "0x08013718": {
+   "Vector70": [
+    "vector slot 0x70"
+   ]
+  },
+  "0x08013744": {
+   "Vector74": [
+    "vector slot 0x74"
+   ]
+  },
+  "0x08013770": {
+   "Vector78": [
+    "vector slot 0x78"
+   ]
+  },
+  "0x0801379C": {
+   "Vector7C": [
+    "vector slot 0x7C"
+   ]
+  },
+  "0x080137C4": {
+   "Vector80": [
+    "vector slot 0x80"
+   ]
+  },
+  "0x080137F0": {
+   "Vector84": [
+    "vector slot 0x84"
+   ]
+  },
+  "0x080131B8": {
+   "Vector9C": [
+    "vector slot 0x9C"
+   ]
+  },
+  "0x0801328C": {
+   "VectorB0": [
+    "vector slot 0xB0"
+   ]
+  },
+  "0x0801321C": {
+   "VectorE0": [
+    "vector slot 0xE0"
+   ]
+  },
+  "0x080147FC": {
+   "VectorE4": [
+    "vector slot 0xE4"
+   ]
+  },
+  "0x0801381C": {
+   "VectorFC": [
+    "vector slot 0xFC"
+   ]
+  },
+  "0x08013848": {
+   "Vector120": [
+    "vector slot 0x120"
+   ]
+  },
+  "0x08013870": {
+   "Vector124": [
+    "vector slot 0x124"
+   ]
+  },
+  "0x0801389C": {
+   "Vector128": [
+    "vector slot 0x128"
+   ]
+  },
+  "0x080138C8": {
+   "Vector12C": [
+    "vector slot 0x12C"
+   ]
+  },
+  "0x080138F4": {
+   "Vector130": [
+    "vector slot 0x130"
+   ]
+  },
+  "0x080143A0": {
+   "Vector14C": [
+    "vector slot 0x14C"
+   ]
+  },
+  "0x0801391C": {
+   "Vector150": [
+    "vector slot 0x150"
+   ]
+  },
+  "0x08013948": {
+   "Vector154": [
+    "vector slot 0x154"
+   ]
+  },
+  "0x08013974": {
+   "Vector158": [
+    "vector slot 0x158"
+   ]
+  },
+  "0x08011CFC": {
+   "__cpu_init": [
+    "bl from _crt0_entry@0x08008000+0x64"
+   ]
+  },
+  "0x08011440": {
+   "__early_init": [
+    "bl from _crt0_entry@0x08008000+0x68"
+   ]
+  },
+  "0x08013B74": {
+   "_pal_lld_setgroupmode": [
+    "bl from spi_init@0x08010E58+0x12",
+    "bl from spi_init@0x08010E58+0x1C",
+    "bl from spi_init@0x08010E58+0x26",
+    "bl from spi_init@0x08010E58+0x3A",
+    "bl from spi_init@0x08010E58+0x46",
+    "bl from spi_init@0x08010E58+0x52",
+    "bl from setPinInputHigh_atomic@0x0800CC1C+0x16",
+    "bl from dip_switch_init@0x0800F858+0xA",
+    "bl(fuzzy-paired) from spi_start@0x08010ECC+0x5E"
+   ]
+  },
+  "0x0801228E": {
+   "chThdSleep": [
+    "bl from spi_init@0x08010E58+0x2E"
+   ]
+  },
+  "0x0801295E": {
+   "spiStop": [
+    "bl from spi_init@0x08010E58+0x58",
+    "bl from spi_stop@0x08010FC8+0x10"
+   ]
+  },
+  "0x08010B30": {
+   "del_key_from_report": [
+    "bl from unregister_code@0x0800B538+0xE"
+   ]
+  },
+  "0x0800C218": {
+   "del_mods": [
+    "bl from unregister_code@0x0800B538+0x2E",
+    "bl from unregister_mods@0x0800B5EC+0x4"
+   ]
+  },
+  "0x0800FF64": {
+   "mousekey_off": [
+    "bl from unregister_code@0x0800B538+0x64"
+   ]
+  },
+  "0x0800C384": {
+   "send_keyboard_report": [
+    "b.w from unregister_code@0x0800B538+0x16",
+    "b.w from unregister_mods@0x0800B5DA+0xC",
+    "b.w from unregister_mods@0x0800B5EC+0xC"
+   ]
+  },
+  "0x08010960": {
+   "host_system_send": [
+    "b.w from unregister_code@0x0800B538+0x44"
+   ]
+  },
+  "0x08010990": {
+   "host_consumer_send": [
+    "b.w from unregister_code@0x0800B538+0x58"
+   ]
+  },
+  "0x08010050": {
+   "mousekey_send": [
+    "b.w from unregister_code@0x0800B538+0x6C"
+   ]
+  },
+  "0x08012490": {
+   "__port_irq_epilogue": [
+    "b.w from VectorE0@0x0801321C+0x64",
+    "b.w from Vector48@0x0801475C+0x5A",
+    "b.w from Vector9C@0x080131B8+0x56",
+    "b.w from VectorE4@0x080147FC+0x3E",
+    "b.w from Vector4C@0x080147C4+0x2C",
+    "b.w from Vector58@0x080130F0+0x1C",
+    "b.w from Vector5C@0x08013118+0x1C",
+    "b.w from Vector60@0x08013140+0x1C",
+    "b.w from Vector64@0x08013168+0x1C",
+    "b.w from Vector68@0x08013190+0x1C",
+    "b.w from Vector6C@0x080136F0+0x1A",
+    "b.w from Vector7C@0x0801379C+0x1A",
+    "b.w from Vector120@0x08013848+0x1A",
+    "b.w from Vector130@0x080138F4+0x1A"
+   ]
+  },
+  "0x0801501C": {
+   "memset": [
+    "bl from std@0x08015CCC+0x1E",
+    "bl from report_buffer_init@0x08008B5C+0xA",
+    "bl from usb_shared_reset_report@0x08011970+0x16",
+    "bl from usb_event_queue_init@0x0801126C+0x8",
+    "bl from usb_reset_report@0x080118FC+0xE",
+    "bl(fuzzy-paired) from _fstat_r@0x08014F3A+0xA"
+   ]
+  },
+  "0x08015F88": {
+   "__sread": [
+    "fnptr lit in std@0x08015CCC+0x38"
+   ]
+  },
+  "0x08015FAA": {
+   "__swrite": [
+    "fnptr lit in std@0x08015CCC+0x3C"
+   ]
+  },
+  "0x08015FE2": {
+   "__sseek": [
+    "fnptr lit in std@0x08015CCC+0x40"
+   ]
+  },
+  "0x08016006": {
+   "__sclose": [
+    "fnptr lit in std@0x08015CCC+0x44"
+   ]
+  },
+  "0x08010CEC": {
+   "timer_read32": [
+    "bl from report_buffer_init@0x08008B5C+0x1C",
+    "bl from indicator_battery_low_enable@0x0800977C+0xA",
+    "bl from indicator_battery_low_enable@0x0800977C+0x16",
+    "bl from lpm_timer_reset@0x0800A020+0x8",
+    "bl from factory_timer_start@0x08008C1C+0x2",
+    "bl from factory_timer_start@0x0800ACD4+0x2"
+   ]
+  },
+  "0x0800DADC": {
+   "eeconfig_flag_rgb_matrix": [
+    "bl from rgb_matrix_toggle_eeprom_helper@0x0800EDD8+0x14",
+    "bl from rgb_matrix_enable@0x0800EE50+0x8"
+   ]
+  },
+  "0x0800EDA8": {
+   "rgb_matrix_increase_val_helper": [
+    "bl from rgb_matrix_toggle_eeprom_helper@0x0800EDD8+0x28",
+    "bl from rgb_matrix_enable_noeeprom@0x0800EE1C+0x24",
+    "bl from rgb_matrix_enable@0x0800EE50+0x18",
+    "b.w from rgb_matrix_increase_val@0x0800EE74+0x2"
+   ]
+  },
+  "0x08014F14": {
+   "_lseek_r": [
+    "bl from __swrite@0x08015FAA+0x1A"
+   ]
+  },
+  "0x08014F18": {
+   "_write_r": [
+    "b.w from __swrite@0x08015FAA+0x34"
+   ]
+  },
+  "0x08008188": {
+   "__udivmoddi4": [
+    "bl from __aeabi_uldivmod@0x08008158+0x20"
+   ]
+  },
+  "0x08008458": {
+   "__aeabi_idiv0": [
+    "b.w from __aeabi_uldivmod@0x08008158+0x14"
+   ]
+  },
+  "0x0800DB0C": {
+   "atan2_8": [
+    "bl from CYCLE_PINWHEEL_math@0x0800DB9E+0x8",
+    "bl(fuzzy-paired) from BAND_SPIRAL_VAL_math@0x0800DB58+0x12",
+    "bl(fuzzy-paired) from CYCLE_SPIRAL_math@0x0800DBCE+0xE"
+   ]
+  },
+  "0x08013480": {
+   "stm32_flash_check_errors": [
+    "bl from efl_lld_query_erase@0x08013678+0x1A",
+    "bl(fuzzy-paired) from efl_lld_program@0x0801356A+0x98"
+   ]
+  },
+  "0x080152F0": {
+   "__utoa": [
+    "bl from __itoa@0x08014F8C+0x26"
+   ]
+  },
+  "0x08015000": {
+   "memcpy": [
+    "bl from eeconfig_update_rgb_matrix_default@0x0800DD0C+0x10",
+    "b.w from usb_shared_get_report@0x08011954+0x16",
+    "b.w from usb_get_report@0x080118E6+0x10"
+   ]
+  },
+  "0x0800DC04": {
+   "eeconfig_flush_rgb_matrix.part.0": [
+    "b.w from eeconfig_update_rgb_matrix_default@0x0800DD0C+0x1E"
+   ]
+  },
+  "0x0800D4A4": {
+   "backing_store_write": [
+    "bl from wear_leveling_append_raw@0x0800D254+0xA"
+   ]
+  },
+  "0x0800D23C": {
+   "wear_leveling_consolidate_if_needed": [
+    "b.w from wear_leveling_append_raw@0x0800D254+0x1E"
+   ]
+  },
+  "0x0800EE1C": {
+   "rgb_matrix_enable_noeeprom": [
+    "bl from rgb_matrix_enable@0x0800EE50+0x2"
+   ]
+  },
+  "0x08012996": {
+   "spiUnselect": [
+    "bl from spi_stop@0x08010FC8+0xA"
+   ]
+  },
+  "0x080153EC": {
+   "__sfputc_r": [
+    "bl from __sfputs_r@0x0801541A+0x1A"
+   ]
+  },
+  "0x08014F0A": {
+   "_read_r": [
+    "bl from __sread@0x08015F88+0x8"
+   ]
+  },
+  "0x0800F2B8": {
+   "snled27351_set_color": [
+    "bl from snled27351_set_color_all@0x0800F2F8+0x14"
+   ]
+  },
+  "0x08012164": {
+   "chSchRescheduleS": [
+    "bl from chSysRestoreStatusX@0x08011DBA+0x14"
+   ]
+  },
+  "0x0800F81C": {
+   "dip_switch_read": [
+    "b.w from dip_switch_init@0x0800F858+0x14"
+   ]
+  },
+  "0x08008124": {
+   "__port_switch": [
+    "b.w from chSchGoSleepS@0x080120CC+0x14"
+   ]
+  },
+  "0x0800D1C8": {
+   "wear_leveling_consolidate_force": [
+    "b.w from wear_leveling_consolidate_if_needed@0x0800D23C+0xC"
+   ]
+  },
+  "0x0800D04C": {
+   "eeprom_update_byte": [
+    "bl from dynamic_keymap_macro_reset@0x0800FAAC+0xC"
+   ]
+  },
+  "0x0801213C": {
+   "chSchDoPreemption": [
+    "b.w from chSchRescheduleS@0x08012164+0xE"
+   ]
+  },
+  "0x080120E8": {
+   "chSchGoSleepTimeoutS": [
+    "bl from chThdSleep@0x0801228E+0xC"
+   ]
+  },
+  "0x08011D04": {
+   "__init_ram_areas": [
+    "bl from bloop@0x080080A6+0xA"
+   ]
+  },
+  "0x08011CFE": {
+   "__late_init": [
+    "bl from bloop@0x080080A6+0xE"
+   ]
+  },
+  "0x080129FA": {
+   "spiSend": [
+    "bl from spi_transmit@0x08010FB4+0x6"
+   ]
+  },
+  "0x08011DD8": {
+   "chSysPolledDelayX": [
+    "b.w from otg_txfifo_flush.isra.0@0x08013D5E+0x10"
+   ]
+  },
+  "0x0800C208": {
+   "del_mods": [
+    "bl from unregister_mods@0x0800B5DA+0x4"
+   ]
+  },
+  "0x080120C8": {
+   "__sch_ready_behind.isra.0": [
+    "b.w from chThdResumeI@0x080122C4+0xC",
+    "bl(fuzzy-paired) from chThdDequeueAllI.constprop.0@0x0801230E+0x16"
+   ]
+  },
+  "0x08012284": {
+   "chThdExit": [
+    "bl from __port_thread_start@0x0800813C+0xC"
+   ]
+  },
+  "0x080152B8": {
+   "raise": [
+    "bl from abort@0x08014F7E+0x4"
+   ]
+  },
+  "0x08014F58": {
+   "_exit": [
+    "bl from abort@0x08014F7E+0xA"
+   ]
+  },
+  "0x0800CF7C": {
+   "eeprom_read_byte": [
+    "bl from via_get_layout_options@0x080105CA+0x4"
+   ]
+  },
+  "0x080113B8": {
+   "send_report.isra.0": [
+    "b.w from send_keyboard@0x080113D8+0x6",
+    "b.w from send_nkro@0x080113E2+0x6",
+    "b.w from send_mouse@0x080113EC+0x6",
+    "b.w from send_extra@0x080113F6+0x6"
+   ]
+  },
+  "0x0800CF60": {
+   "main": [
+    "bl from endinitloop@0x080080C8+0x0"
+   ]
+  },
+  "0x08014F1C": {
+   "_close_r": [
+    "b.w from __sclose@0x08016006+0x4"
+   ]
+  },
+  "0x08015268": {
+   "_raise_r": [
+    "b.w from raise@0x080152B8+0x6"
+   ]
+  },
+  "0x0800EDD8": {
+   "rgb_matrix_increase_val_helper": [
+    "b.w from rgb_matrix_increase_val@0x0800EE16+0x2"
+   ]
+  },
+  "0x0801284C": {
+   "flashGetSectorOffset": [
+    "bl(fuzzy-paired) from efl_lld_verify_erase@0x080136A8+0x10"
+   ]
+  },
+  "0x08012866": {
+   "flashGetSectorSize": [
+    "bl(fuzzy-paired) from efl_lld_verify_erase@0x080136A8+0x1E"
+   ]
+  },
+  "0x080152EC": {
+   "_getpid_r": [
+    "bl(fuzzy-paired) from _raise_r@0x08015268+0x20"
+   ]
+  },
+  "0x080153D4": {
+   "__malloc_lock": [
+    "bl(fuzzy-paired) from _free_r@0x0801502C+0x16"
+   ]
+  },
+  "0x0801204C": {
+   "__sch_ready_behind.isra.0": [
+    "bl(fuzzy-paired) from __sch_wakeup@0x08012084+0x26"
+   ]
+  },
+  "0x08014F68": {
+   "_kill": [
+    "bl(fuzzy-paired) from _kill_r@0x080152C8+0xE"
+   ]
+  },
+  "0x080140D4": {
+   "usb_lld_start_out": [
+    "bl(fuzzy-paired) from otg_epout_handler.constprop.0@0x08014150+0x6C"
+   ]
+  },
+  "0x080122C4": {
+   "chThdResumeI": [
+    "bl(fuzzy-paired) from otg_epout_handler.constprop.0@0x08014150+0xA0"
+   ]
+  },
+  "0x08010596": {
+   "via_eeprom_set_valid": [
+    "bl(fuzzy-paired) from eeconfig_init_via@0x080105EA+0x4"
+   ]
+  },
+  "0x080105D6": {
+   "eeprom_update_byte": [
+    "bl(fuzzy-paired) from eeconfig_init_via@0x080105EA+0xA"
+   ]
+  },
+  "0x0800F956": {
+   "dynamic_keymap_reset": [
+    "bl(fuzzy-paired) from eeconfig_init_via@0x080105EA+0xE"
+   ]
+  },
+  "0x0800FAAC": {
+   "dynamic_keymap_macro_reset": [
+    "bl(fuzzy-paired) from eeconfig_init_via@0x080105EA+0x12"
+   ]
+  },
+  "0x080153B0": {
+   "fiprintf": [
+    "bl(fuzzy-paired) from __assert_func@0x08015374+0x1C"
+   ]
+  },
+  "0x08014F7E": {
+   "abort": [
+    "bl(fuzzy-paired) from __assert_func@0x08015374+0x20"
+   ]
+  },
+  "0x0801502C": {
+   "_free_r": [
+    "bl(fuzzy-paired) from __sflush_r@0x08015B48+0x8E"
+   ]
+  },
+  "0x0801293C": {
+   "spiStart": [
+    "bl(fuzzy-paired) from spi_start@0x08010ECC+0x66"
+   ]
+  },
+  "0x0801297A": {
+   "spiSelect": [
+    "bl(fuzzy-paired) from spi_start@0x08010ECC+0x6C"
+   ]
+  },
+  "0x0800D018": {
+   "eeprom_update_block.constprop.0": [
+    "bl(fuzzy-paired) from eeconfig_flush_rgb_matrix.part.0@0x0800DC04+0x8"
+   ]
+  },
+  "0x0800D0A8": {
+   "wear_leveling_read.isra.0": [
+    "bl(fuzzy-paired) from eeprom_read_byte@0x0800CF7C+0x10"
+   ]
+  },
+  "0x08015440": {
+   "_vfiprintf_r": [
+    "bl from fiprintf@0x080153B0+0x12"
+   ]
+  }
+ },
+ "data_votes": {
+  "rgb_matrix_config": {
+   "0x200046B0": [
+    "lit in SOLID_REACTIVE_NEXUS_math@0x0800D9D0+0x74",
+    "lit in rgb_matrix_toggle_eeprom_helper@0x0800EDD8+0x30",
+    "lit in rgb_matrix_enable_noeeprom@0x0800EE1C+0x2C",
+    "lit in eeconfig_update_rgb_matrix_default@0x0800DD0C+0x24",
+    "lit in rgb_matrix_enable@0x0800EE50+0x20"
+   ]
+  },
+  "SPID1": {
+   "0x200049F8": [
+    "lit in spi_init@0x08010E58+0x6C",
+    "lit in spi_stop@0x08010FC8+0x20",
+    "lit in spi_transmit@0x08010FB4+0x10"
+   ]
+  },
+  "spiStarted": {
+   "0x20001EF0": [
+    "lit in spi_init@0x08010E58+0x70",
+    "lit in spi_stop@0x08010FC8+0x1C"
+   ]
+  },
+  "_pal_events": {
+   "0x2000490C": [
+    "lit in VectorE0@0x0801321C+0x6C",
+    "lit in Vector9C@0x080131B8+0x60",
+    "lit in Vector58@0x080130F0+0x24",
+    "lit in Vector5C@0x08013118+0x24",
+    "lit in Vector60@0x08013140+0x24",
+    "lit in Vector64@0x08013168+0x24",
+    "lit in Vector68@0x08013190+0x24"
+   ]
+  },
+  "RTCD1": {
+   "0x200049EC": [
+    "lit in Vector48@0x0801475C+0x60",
+    "lit in VectorE4@0x080147FC+0x44",
+    "lit in Vector4C@0x080147C4+0x30",
+    "lit in rtc_enter_init.lto_priv.0@0x080146DC+0x14"
+   ]
+  },
+  "__sread": {
+   "0x08015F89": [
+    "lit in std@0x08015CCC+0x38"
+   ]
+  },
+  "__swrite": {
+   "0x08015FAB": [
+    "lit in std@0x08015CCC+0x3C"
+   ]
+  },
+  "__sseek": {
+   "0x08015FE3": [
+    "lit in std@0x08015CCC+0x40"
+   ]
+  },
+  "__sclose": {
+   "0x08016007": [
+    "lit in std@0x08015CCC+0x44"
+   ]
+  },
+  "waiting_buffer_head": {
+   "0x20001517": [
+    "lit in waiting_buffer_typed.isra.0@0x0800BE6C+0x38"
+   ],
+   "0x20001516": [
+    "lit in waiting_buffer_typed.isra.0@0x0800BE6C+0x3C"
+   ]
+  },
+  "waiting_buffer": {
+   "0x200014D6": [
+    "lit in waiting_buffer_typed.isra.0@0x0800BE6C+0x40"
+   ]
+  },
+  "g_snled27351_leds": {
+   "0x080160E0": [
+    "lit in snled27351_set_color@0x0800F2B8+0x34"
+   ]
+  },
+  "g_pwm_buffer": {
+   "0x200046E5": [
+    "lit in snled27351_set_color@0x0800F2B8+0x38"
+   ]
+  },
+  "g_pwm_buffer_update_required": {
+   "0x20001E9A": [
+    "lit in snled27351_set_color@0x0800F2B8+0x3C"
+   ]
+  },
+  "report_buffer_queue": {
+   "0x20002460": [
+    "lit in report_buffer_init@0x08008B5C+0x28"
+   ]
+  },
+  "report_buffer_queue_head": {
+   "0x2000245E": [
+    "lit in report_buffer_init@0x08008B5C+0x2C"
+   ]
+  },
+  "report_buffer_queue_tail": {
+   "0x2000243A": [
+    "lit in report_buffer_init@0x08008B5C+0x30"
+   ]
+  },
+  "retry": {
+   "0x200013C0": [
+    "lit in report_buffer_init@0x08008B5C+0x34"
+   ]
+  },
+  "report_timer_buffer": {
+   "0x200013BC": [
+    "lit in report_buffer_init@0x08008B5C+0x38"
+   ]
+  },
+  "rgb_task_state": {
+   "0x20000E44": [
+    "lit in rgb_matrix_toggle_eeprom_helper@0x0800EDD8+0x34",
+    "lit in rgb_matrix_enable_noeeprom@0x0800EE1C+0x30"
+   ]
+  },
+  "bat_low_blink_duration": {
+   "0x20001414": [
+    "lit in indicator_battery_low_enable@0x0800977C+0x28"
+   ]
+  },
+  "bat_low_pin_indicator": {
+   "0x2000141C": [
+    "lit in indicator_battery_low_enable@0x0800977C+0x2C"
+   ]
+  },
+  "set_report_buf": {
+   "0x20001F00": [
+    "lit in set_led_transfer_cb@0x08011150+0x2C"
+   ]
+  },
+  "idle_rate.0": {
+   "0x20001EFD": [
+    "lit in set_led_transfer_cb@0x08011150+0x30",
+    "lit in keyboard_leds@0x080113AC+0x8"
+   ],
+   "0x200013BB": [
+    "lit in keyboard_leds@0x08008B0C+0x8"
+   ],
+   "0x20001432": [
+    "lit in keyboard_leds@0x08009F48+0x8"
+   ],
+   "0x2000156B": [
+    "lit in keyboard_leds@0x0800C1FC+0x8"
+   ],
+   "0x20001DBC": [
+    "lit in keyboard_leds@0x0800EF78+0x8"
+   ],
+   "0x20000E5B": [
+    "lit in keyboard_leds@0x08010548+0x8"
+   ],
+   "0x20000E5C": [
+    "lit in keyboard_leds@0x08010554+0x8"
+   ],
+   "0x20000E5A": [
+    "lit in keyboard_leds@0x08010560+0x8"
+   ]
+  },
+  "__rodata_base__": {
+   "0x0801601C": [
+    "lit in eeconfig_update_rgb_matrix_default@0x0800DD0C+0x28"
+   ]
+  },
+  "__text_end__": {
+   "0x0801601C": [
+    "lit in eeconfig_update_rgb_matrix_default@0x0800DD0C+0x28"
+   ]
+  },
+  "wear_leveling": {
+   "0x200015A8": [
+    "lit in wear_leveling_append_raw@0x0800D254+0x24",
+    "lit in wear_leveling_consolidate_if_needed@0x0800D23C+0x14"
+   ]
+  },
+  "event_queue_head": {
+   "0x20004875": [
+    "lit in usb_event_queue_enqueue.isra.0@0x08011184+0x1C",
+    "lit in usb_event_queue_init@0x0801126C+0x1C"
+   ],
+   "0x20004865": [
+    "lit in usb_event_queue_enqueue.isra.0@0x08011184+0x24",
+    "lit in usb_event_queue_init@0x0801126C+0x18"
+   ]
+  },
+  "last_suspend_state": {
+   "0x20004876": [
+    "lit in usb_event_queue_enqueue.isra.0@0x08011184+0x20",
+    "lit in usb_event_queue_init@0x0801126C+0x20"
+   ]
+  },
+  "dma": {
+   "0x20002368": [
+    "lit in Vector6C@0x080136F0+0x24",
+    "lit in Vector7C@0x0801379C+0x24",
+    "lit in Vector120@0x08013848+0x24",
+    "lit in Vector130@0x080138F4+0x24"
+   ]
+  },
+  "run_idle_task.lto_priv.0": {
+   "0x20002184": [
+    "lit in usb_shared_set_idle_rate@0x08011A64+0x20",
+    "lit in usb_set_idle_rate@0x080119F0+0x18"
+   ]
+  },
+  "lpm_time_up": {
+   "0x2000144C": [
+    "lit in lpm_timer_reset@0x0800A020+0x14"
+   ]
+  },
+  "lpm_timer_buffer": {
+   "0x20001450": [
+    "lit in lpm_timer_reset@0x0800A020+0x18"
+   ]
+  },
+  "ch0": {
+   "0x20004888": [
+    "lit in chSchGoSleepS@0x080120CC+0x18",
+    "lit in chSchRescheduleS@0x08012164+0x14"
+   ]
+  },
+  "wireless_state": {
+   "0x200013BB": [
+    "lit in wreless_keyboard_leds@0x08008510+0x10"
+   ]
+  },
+  "pincodeEntry": {
+   "0x200013B9": [
+    "lit in wreless_keyboard_leds@0x08008510+0x14"
+   ]
+  },
+  "factory_reset_timer": {
+   "0x200013BC": [
+    "lit in factory_timer_start@0x08008C1C+0xC"
+   ],
+   "0x2000148C": [
+    "lit in factory_timer_start@0x0800ACD4+0xC"
+   ]
+  },
+  "dirty_rgb_matrix": {
+   "0x2000156B": [
+    "lit in eeconfig_flag_rgb_matrix@0x0800C208+0xC"
+   ],
+   "0x2000156C": [
+    "lit in eeconfig_flag_rgb_matrix@0x0800C234+0xC"
+   ],
+   "0x20001DBB": [
+    "lit in eeconfig_flag_rgb_matrix@0x0800DADC+0xC"
+   ]
+  },
+  "driver.lto_priv.0": {
+   "0x20001EB8": [
+    "lit in host_keyboard_leds@0x08010910+0xC"
+   ]
+  },
+  "_impure_ptr": {
+   "0x20001350": [
+    "lit in raise@0x080152B8+0xC",
+    "lit in fiprintf@0x080153B0+0x20"
+   ]
+  }
+ },
+ "regions": [
+  {
+   "start": "0x080080DC",
+   "size": 72,
+   "kind": "code",
+   "fn_starts": "0x0800811C 0x0800811E 0x08008122",
+   "suggested_names": "0x0800811C=Reset_Handler 0x0800811E=BusFault_Handler",
+   "callers": "0x0800811C<-_vectors@0x08000004(vec) 0x0800811E<-_vectors@0x08000008(vec) 0x0800811E<-_vectors@0x0800000C(vec) 0x0800811E<-_vectors@0x08000010(vec)",
+   "callees": "0x0800811E->0x08008122 0x080080DC->0x08011D00 0x0800811C->_crt0_entry"
+  },
+  {
+   "start": "0x0800814C",
+   "size": 12,
+   "kind": "code",
+   "fn_starts": "0x0800814E",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800814E->0x0801213C"
+  },
+  {
+   "start": "0x08008188",
+   "size": 720,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "0x08008188=__udivmoddi4",
+   "callers": "0x08008188<-__aeabi_uldivmod@0x08008158(bl)",
+   "callees": ""
+  },
+  {
+   "start": "0x0800845A",
+   "size": 2,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x0800846C",
+   "size": 4,
+   "kind": "zeros",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x08008528",
+   "size": 1508,
+   "kind": "code",
+   "fn_starts": "0x0800854C 0x08008590 0x080085B8 0x080085EC 0x08008630 0x08008698 0x08008700 0x08008734 0x0800877C 0x0800878C 0x0800878E 0x08008790 0x08008792 0x08008794 0x08008796 0x08008810 0x08008848 0x080088D0 0x080088EE 0x080088FE 0x08008936 0x08008950 0x0800896A 0x080089C6 ...",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08008530->memset 0x08008576->memcpy 0x08008598->0x08008528 0x0800859C->report_buffer_init 0x080085A0->0x080096B8 0x080085A4->0x0800A404 0x080085A8->0x0800A03C 0x080085BE->0x0800A500 0x080085EE->0x0800A500 0x080085F4->timer_read32 0x08008602->0x0800972C 0x0800860E->0x08009A44 0x08008636->0x0800A500 0x08008650->0x08008C04 0x08008664->memcpy 0x0800866A->0x08008B98"
+  },
+  {
+   "start": "0x08008B18",
+   "size": 68,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08008B1E->keyboard_leds 0x08008B28->lpm_timer_reset 0x08008B2C->0x0800A4EC 0x08008B40->indicator_battery_low_enable 0x08008B46->0x080097B0 0x08008B52->0x0800A85C"
+  },
+  {
+   "start": "0x08008B98",
+   "size": 132,
+   "kind": "code",
+   "fn_starts": "0x08008BD0 0x08008C04",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08008BB4->memcpy 0x08008BEA->memcpy"
+  },
+  {
+   "start": "0x08008C2C",
+   "size": 2896,
+   "kind": "code",
+   "fn_starts": "0x08008C4C 0x08008C58 0x08008C64 0x08008D24 0x08008DB4 0x08008EE0 0x08008F14 0x08008F48 0x08008F78 0x08008FB4 0x08009000 0x08009084 0x080090BC 0x080090FC 0x08009128 0x08009184 0x080091AC 0x080091DC 0x08009208 0x0800923C 0x08009278 0x080092A8 0x080092D4 0x08009300 ...",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08008C32->0x08010D70 0x08008C66->keyboard_leds 0x08008C6E->0x08008C04 0x08008C7C->0x08008C2C 0x08008C8E->0x08008BD0 0x08008C9C->timer_read32 0x08008CA8->timer_read32 0x08008CD2->timer_read32 0x08008CE6->0x08010D70 0x08008CF4->timer_read32 0x08008D34->_pal_lld_setgroupmode 0x08008D3C->chThdSleep 0x08008D4E->_pal_lld_setgroupmode 0x08008D5C->_pal_lld_setgroupmode 0x08008D68->_pal_lld_setgroupmode 0x08008D74->_pal_lld_setgroupmode"
+  },
+  {
+   "start": "0x080097B0",
+   "size": 1944,
+   "kind": "code",
+   "fn_starts": "0x08009824 0x08009854 0x08009960 0x08009A44 0x08009B98 0x08009BB4 0x08009C74 0x08009CB4 0x08009D08 0x08009D0A 0x08009D28 0x08009D90 0x08009DF8 0x08009E34",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x080097B6->0x0800A834 0x080097DC->timer_read32 0x080097E4->0x0800A834 0x08009802->0x08009708 0x08009806->0x0800EC14 0x08009826->keyboard_leds 0x08009836->0x08010920 0x08009856->keyboard_leds 0x08009860->0x0800A500 0x0800986E->0x0800DDDC 0x08009876->0x0800A4EC 0x08009882->0x0800DDDC 0x080098A0->0x0800DD70 0x080098B8->0x0800DD70 0x080098BC->0x0800A6AC 0x080098C2->0x0800A6BC"
+  },
+  {
+   "start": "0x08009F54",
+   "size": 204,
+   "kind": "code",
+   "fn_starts": "0x08009FDC",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08009F66->0x0800C384 0x08009F6A->mousekey_off+0xEC 0x08009F76->0x0800A9B8 0x08009F88->0x08010C82 0x08009F8C->0x08010C50 0x08009F96->0x08012B7A 0x08009F9E->chThdSleep 0x08009FA4->0x0800FE8C 0x08009FA8->mousekey_off+0xEC 0x08009FB0->chThdSleep 0x08009FB6->0x0800FE8C 0x08009FBA->mousekey_off+0xEC 0x08009FC2->chThdSleep 0x08009FC8->mousekey_off 0x08009FCC->mousekey_off+0xEC 0x08009FFA->_pal_lld_setgroupmode"
+  },
+  {
+   "start": "0x0800A03C",
+   "size": 3224,
+   "kind": "code",
+   "fn_starts": "0x0800A054 0x0800A068 0x0800A078 0x0800A17C 0x0800A340 0x0800A3A0 0x0800A404 0x0800A414 0x0800A416 0x0800A420 0x0800A494 0x0800A4EC 0x0800A500 0x0800A514 0x0800A554 0x0800A588 0x0800A654 0x0800A6AC 0x0800A6BC 0x0800A7E4 0x0800A814 0x0800A830 0x0800A834 0x0800A850 ...",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800A044->_pal_lld_setgroupmode 0x0800A084->0x0800A340 0x0800A090->0x08012A5E 0x0800A0A0->0x08013C4C 0x0800A0B4->0x08013C4C 0x0800A0C6->0x08013C4C 0x0800A0D8->0x08013C4C 0x0800A100->0x08013C4C 0x0800A110->0x08009FDC 0x0800A11A->_pal_lld_setgroupmode 0x0800A124->_pal_lld_setgroupmode 0x0800A12E->_pal_lld_setgroupmode 0x0800A13A->_pal_lld_setgroupmode 0x0800A146->_pal_lld_setgroupmode 0x0800A152->_pal_lld_setgroupmode 0x0800A156->0x0800A414"
+  },
+  {
+   "start": "0x0800ACE4",
+   "size": 2132,
+   "kind": "code",
+   "fn_starts": "0x0800ADD4 0x0800AE30 0x0800AE40 0x0800AF08 0x0800AF58 0x0800B0C0 0x0800B0EC 0x0800B10C 0x0800B158 0x0800B188 0x0800B1A8 0x0800B1AC 0x0800B1D4 0x0800B1F4 0x0800B1F8 0x0800B200 0x0800B204 0x0800B206 0x0800B25C 0x0800B274 0x0800B286 0x0800B298 0x0800B29C 0x0800B2A4 ...",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800AD54->factory_timer_start 0x0800AD94->factory_timer_start 0x0800ADEE->0x0800DDDC 0x0800AE4A->0x08010D70 0x0800AE62->timer_read32 0x0800AE74->0x0800BA48 0x0800AE7C->0x0800C580 0x0800AE80->0x0800C4B4 0x0800AE8A->0x0800BAE6 0x0800AE8E->0x0800EC14 0x0800AE94->rgb_matrix_enable 0x0800AE98->0x0800EB90 0x0800AE9E->0x08009278 0x0800AEAA->0x08010D70 0x0800AECC->0x0800EC14 0x0800AED2->rgb_matrix_enable"
+  },
+  {
+   "start": "0x0800B5AA",
+   "size": 48,
+   "kind": "code",
+   "fn_starts": "0x0800B5CA",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800B5B0->0x0800B4A8 0x0800B5B8->unregister_code 0x0800B5C2->chThdSleep 0x0800B5D4->0x0800B5AA"
+  },
+  {
+   "start": "0x0800B5FE",
+   "size": 1532,
+   "kind": "code",
+   "fn_starts": "0x0800B9B4 0x0800B9DC 0x0800BA48 0x0800BA98 0x0800BAB0 0x0800BABC 0x0800BAC8 0x0800BACA 0x0800BAE4 0x0800BAE6 0x0800BAEC 0x0800BAFC 0x0800BB0C 0x0800BB1C 0x0800BB1E 0x0800BB28 0x0800BB38 0x0800BB3E 0x0800BB4C 0x0800BB64 0x0800BB7C 0x0800BB94 0x0800BBA4 0x0800BBB4 ...",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800B60C->0x0800C1E8 0x0800B64C->0x0800C3F4 0x0800B650->0x0800C1E8 0x0800B6AC->eeconfig_flag_rgb_matrix 0x0800B6B0->0x0800C384 0x0800B6B8->eeconfig_flag_rgb_matrix 0x0800B6C0->unregister_code 0x0800B6D4->del_mods 0x0800B6DA->0x0800C244 0x0800B6DE->0x0800C384 0x0800B6EC->host_keyboard_leds 0x0800B6F0->0x0800B3F2 0x0800B6FA->0x0800C1D8 0x0800B70A->0x0800C1CC 0x0800B70E->0x0800BB4C 0x0800B714->0x0800B9DC"
+  },
+  {
+   "start": "0x0800BC22",
+   "size": 586,
+   "kind": "code",
+   "fn_starts": "0x0800BC24 0x0800BC6C 0x0800BCAC 0x0800BCEC 0x0800BD04 0x0800BD4C 0x0800BD70 0x0800BD8C 0x0800BDCC 0x0800BDEC",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800BCD8->0x0800C95E 0x0800BCF4->0x0800BCAC 0x0800BD20->0x0800BCAC 0x0800BD2A->0x0800BC24 0x0800BD3E->0x0800BC6C 0x0800BD7C->0x0800BD4C 0x0800BDB6->0x0800BABC 0x0800BE48->0x0800B9DC 0x0800BC4C->0x0800BBC6 0x0800BC8C->read_source_layers_cache_impl 0x0800BD00->0x0800C95E 0x0800BD38->0x0800C95E 0x0800BD84->0x0800BB28 0x0800BDE4->0x0800BABC"
+  },
+  {
+   "start": "0x0800BEB0",
+   "size": 844,
+   "kind": "code",
+   "fn_starts": "0x0800C108 0x0800C1CC 0x0800C1D8 0x0800C1E8",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800BEC0->memcpy 0x0800BED2->0x0800BA98 0x0800BEE0->memcpy 0x0800BEE6->0x0800B484 0x0800BEEA->0x0800BDEC 0x0800BEEE->0x0800BDCC 0x0800BEF6->0x0800B9DC 0x0800BF3A->0x0800BDCC 0x0800BF40->0x0800B9DC 0x0800BF5A->waiting_buffer_typed.isra.0 0x0800BF60->waiting_buffer_typed.isra.0 0x0800BF6C->0x0800BCEC 0x0800BFA2->0x0800B9DC 0x0800BFD4->0x0800B9DC 0x0800BFDE->memcpy 0x0800BFE6->0x0800BA98"
+  },
+  {
+   "start": "0x0800C228",
+   "size": 12,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x0800C244",
+   "size": 2520,
+   "kind": "code",
+   "fn_starts": "0x0800C254 0x0800C260 0x0800C262 0x0800C26C 0x0800C288 0x0800C28A 0x0800C294 0x0800C2B0 0x0800C2CC 0x0800C2E4 0x0800C384 0x0800C3A4 0x0800C3A6 0x0800C3B0 0x0800C3F4 0x0800C454 0x0800C46C 0x0800C472 0x0800C478 0x0800C48C 0x0800C4A8 0x0800C4AE 0x0800C4B4 0x0800C4BA ...",
+   "suggested_names": "0x0800C384=send_keyboard_report",
+   "callers": "0x0800C384<-unregister_code@0x0800B538(b) 0x0800C384<-unregister_mods@0x0800B5DA(b) 0x0800C384<-unregister_mods@0x0800B5EC(b)",
+   "callees": "0x0800C264->0x0800C260 0x0800C27C->0x0800C262 0x0800C28C->0x0800C288 0x0800C2A4->0x0800C28A 0x0800C2C0->0x0800C28A 0x0800C2D8->0x0800C28A 0x0800C2F8->0x080109C0 0x0800C2FE->0x0800C2CC 0x0800C31A->0x0800C2E4 0x0800C328->memcmp 0x0800C334->memcpy 0x0800C352->0x0800C2E4 0x0800C360->memcmp 0x0800C36C->memcpy 0x0800C3A8->0x0800C3A4 0x0800C3C2->0x0800BB4C"
+  },
+  {
+   "start": "0x0800CC3E",
+   "size": 830,
+   "kind": "code",
+   "fn_starts": "0x0800CC40 0x0800CC7C 0x0800CD20 0x0800CD50 0x0800CDBC 0x0800CDE4 0x0800CDF8 0x0800CF3C 0x0800CF4E 0x0800CF60",
+   "suggested_names": "0x0800CF60=main",
+   "callers": "0x0800CF60<-endinitloop@0x080080C8(bl)",
+   "callees": "0x0800CC4E->setPinInputHigh_atomic 0x0800CC66->setPinInputHigh_atomic 0x0800CCAC->_pal_lld_setgroupmode 0x0800CCBA->0x0800CBFA 0x0800CCFC->setPinInputHigh_atomic 0x0800CD22->0x0800CC40 0x0800CD2C->memset 0x0800CD36->memset 0x0800CD3C->0x0800CDBC 0x0800CD5A->memset 0x0800CD6A->0x0800CC7C 0x0800CD7C->memcmp 0x0800CDA2->0x0800CDF8 0x0800CDA8->0x0800CBDC 0x0800CDC8->free|malloc|raise 0x0800CDEA->free|malloc|raise"
+  },
+  {
+   "start": "0x0800CF9A",
+   "size": 674,
+   "kind": "code",
+   "fn_starts": "0x0800CFB8 0x0800D018 0x0800D04C 0x0800D068 0x0800D084 0x0800D0A0 0x0800D0A4 0x0800D0A8 0x0800D0B2 0x0800D0BC 0x0800D0DC 0x0800D0FC 0x0800D178 0x0800D19E 0x0800D1C8",
+   "suggested_names": "0x0800D018=eeprom_update_block.constprop.0 0x0800D04C=eeprom_update_byte 0x0800D0A8=wear_leveling_read.isra.0 0x0800D1C8=wear_leveling_consolidate_force",
+   "callers": "0x0800D018<-eeconfig_flush_rgb_matrix.part.0@0x0800DC04(bl~) 0x0800D04C<-dynamic_keymap_macro_reset@0x0800FAAC(bl) 0x0800D0A8<-eeprom_read_byte@0x0800CF7C(bl~) 0x0800D1C8<-wear_leveling_consolidate_if_needed@0x0800D23C(b)",
+   "callees": "0x0800CFAA->0x0800D0A8 0x0800CFC6->0x0800D0A8 0x0800CFE0->0x0800D0B2 0x0800CFF8->0x0800D0B2 0x0800D00E->0x0800D0B2 0x0800D02E->0x0800D0A8 0x0800D038->memcmp 0x0800D044->0x0800D0B2 0x0800D052->eeprom_read_byte 0x0800D06E->0x0800CF9A 0x0800D08A->0x0800CFB8 0x0800D0C8->memset 0x0800D0E6->0x0800D44C 0x0800D106->0x0800D4D4 0x0800D122->0x0800D0DC 0x0800D12A->0x0800D0FC"
+  },
+  {
+   "start": "0x0800D27C",
+   "size": 552,
+   "kind": "code",
+   "fn_starts": "0x0800D350 0x0800D44C 0x0800D464",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800D296->memcmp 0x0800D2A4->memcpy 0x0800D2A8->0x0800D0DC 0x0800D2B2->0x0800D0FC 0x0800D2D0->memset 0x0800D2F2->memcpy 0x0800D2F8->wear_leveling_append_raw 0x0800D308->wear_leveling_append_raw 0x0800D31E->0x0800D0FC 0x0800D33A->wear_leveling_consolidate_if_needed 0x0800D354->0x0800D0BC 0x0800D358->0x0800D4E4 0x0800D360->0x0800D0BC 0x0800D370->0x0800D178 0x0800D378->0x0800D0BC 0x0800D38A->0x0800F56C"
+  },
+  {
+   "start": "0x0800D4D4",
+   "size": 632,
+   "kind": "code",
+   "fn_starts": "0x0800D4E4 0x0800D56C 0x0800D690 0x0800D69A 0x0800D6E4 0x0800D708",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800D4D8->0x080128DC 0x0800D4EE->0x0800D4D4 0x0800D516->flashGetSectorSize 0x0800D52A->flashGetSectorOffset 0x0800D548->0x08011D8C 0x0800D57C->0x08012880"
+  },
+  {
+   "start": "0x0800D772",
+   "size": 198,
+   "kind": "code",
+   "fn_starts": "0x0800D774 0x0800D7AC 0x0800D7E4",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x0800D86A",
+   "size": 284,
+   "kind": "code",
+   "fn_starts": "0x0800D8B4 0x0800D904 0x0800D954",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800D886->0x0800D69A"
+  },
+  {
+   "start": "0x0800DADA",
+   "size": 2,
+   "kind": "zeros",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x0800DAEC",
+   "size": 108,
+   "kind": "code",
+   "fn_starts": "0x0800DB0C",
+   "suggested_names": "0x0800DB0C=atan2_8",
+   "callers": "0x0800DB0C<-CYCLE_PINWHEEL_math@0x0800DB9E(bl) 0x0800DB0C<-BAND_SPIRAL_VAL_math@0x0800DB58(bl~) 0x0800DB0C<-CYCLE_SPIRAL_math@0x0800DBCE(bl~)",
+   "callees": "0x0800DAFA->0x0800D0A8"
+  },
+  {
+   "start": "0x0800DC20",
+   "size": 236,
+   "kind": "code",
+   "fn_starts": "0x0800DC28 0x0800DD08",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800DCD0->0x0800D69A 0x0800DC24->0x0800D690 0x0800DD08->eeconfig_flush_rgb_matrix.part.0"
+  },
+  {
+   "start": "0x0800DD3C",
+   "size": 3768,
+   "kind": "code",
+   "fn_starts": "0x0800DD64 0x0800DD70 0x0800DD84 0x0800DDDC 0x0800DDE8 0x0800DF54 0x0800E060 0x0800E062 0x0800E06E 0x0800E072 0x0800E178 0x0800E184 0x0800E190 0x0800E254 0x0800E260 0x0800E304 0x0800E310 0x0800E31C 0x0800E328 0x0800E400 0x0800E40C 0x0800E4F8 0x0800E63C 0x0800E64C ...",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800DD44->_close_r|_lseek_r|null_sendchar_func|sendchar 0x0800DD94->0x0800D6E4 0x0800DD9C->0x0800D6E4 0x0800DDB4->0x0800DC20 0x0800DE12->0x0800DDDC 0x0800DE1C->memset 0x0800DE44->0x080151EC 0x0800DE5A->0x0800DD3C 0x0800DE84->0x0800DD70 0x0800DF60->0x0800C624 0x0800DF7A->0x0800DD3C 0x0800DF96->memcpy 0x0800DFA6->memcpy 0x0800DFB8->memcpy 0x0800DFC8->memcpy 0x0800E00A->0x0800DC28"
+  },
+  {
+   "start": "0x0800EC14",
+   "size": 404,
+   "kind": "code",
+   "fn_starts": "0x0800EC60 0x0800EC66 0x0800EC6C 0x0800EC94 0x0800ECBC 0x0800ECC4 0x0800ECE8 0x0800ECF0 0x0800ECFC 0x0800ED08 0x0800ED28 0x0800ED4C 0x0800ED78 0x0800EDA0",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800EC46->eeconfig_flag_rgb_matrix 0x0800ECDA->eeconfig_flag_rgb_matrix"
+  },
+  {
+   "start": "0x0800EE10",
+   "size": 6,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800EE12->rgb_matrix_toggle_eeprom_helper"
+  },
+  {
+   "start": "0x0800EE7A",
+   "size": 254,
+   "kind": "code",
+   "fn_starts": "0x0800EEB4 0x0800EEBC 0x0800EECC 0x0800EEF0 0x0800EF0C 0x0800EF14 0x0800EF20 0x0800EF2C 0x0800EF48 0x0800EF60",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800EE92->0x0800ECC4 0x0800EEA8->rgb_matrix_toggle_eeprom_helper 0x0800EEC2->eeconfig_flag_rgb_matrix 0x0800EEE6->eeconfig_flag_rgb_matrix 0x0800EF04->eeconfig_flag_rgb_matrix"
+  },
+  {
+   "start": "0x0800EF84",
+   "size": 820,
+   "kind": "code",
+   "fn_starts": "0x0800EFD4 0x0800F04E 0x0800F0FC 0x0800F120 0x0800F180 0x0800F198 0x0800F1CC",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800EF9E->0x0800EF60 0x0800EFA2->0x0800DD64 0x0800EFAC->0x08009BB4 0x0800EFB2->0x0800EF48 0x0800EFDE->0x08010D70 0x0800EFE4->timer_read32 0x0800F080->memcpy 0x0800F08E->0x0800E964 0x0800F09C->0x0800AACE 0x0800F0BA->eeconfig_flush_rgb_matrix.part.0 0x0800F0C2->0x08010D70 0x0800F10A->0x0800E964 0x0800F110->0x0800EF84 0x0800F138->spi_start 0x0800F140->spi_stop 0x0800F158->spi_transmit"
+  },
+  {
+   "start": "0x0800F316",
+   "size": 378,
+   "kind": "code",
+   "fn_starts": "0x0800F318 0x0800F3CC 0x0800F400 0x0800F430 0x0800F47C",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800F3E0->0x0800F198 0x0800F41C->0x0800F120 0x0800F43A->_pal_lld_setgroupmode 0x0800F442->spi_init 0x0800F448->0x0800F1CC 0x0800F44E->0x0800F1CC 0x0800F45E->0x0800F318 0x0800F468->0x0800F400 0x0800F480->0x0800F3CC"
+  },
+  {
+   "start": "0x0800F4AE",
+   "size": 938,
+   "kind": "code",
+   "fn_starts": "0x0800F4B0 0x0800F56C 0x0800F5E2 0x0800F5EC 0x0800F654 0x0800F7C4 0x0800F810 0x0800F814 0x0800F81C",
+   "suggested_names": "0x0800F81C=dip_switch_read",
+   "callers": "0x0800F81C<-dip_switch_init@0x0800F858(b)",
+   "callees": "0x0800F4B8->keyboard_leds 0x0800F4E4->rgb_matrix_increase_val 0x0800F4F0->handleKeycodeRGB 0x0800F52E->0x0800EC66 0x0800F600->_pal_lld_setgroupmode 0x0800F60C->_pal_lld_setgroupmode 0x0800F61A->0x0800F5E2 0x0800F6E4->0x08010D58 0x0800F6F8->0x0800B444 0x0800F6FE->chThdSleep 0x0800F70A->0x08010D58 0x0800F71C->0x0800B444 0x0800F722->chThdSleep 0x0800F744->0x08010D58 0x0800F75A->0x0800B444 0x0800F760->chThdSleep"
+  },
+  {
+   "start": "0x0800F874",
+   "size": 568,
+   "kind": "code",
+   "fn_starts": "0x0800F878 0x0800F88A 0x0800F8B6 0x0800F8E0 0x0800F91E 0x0800F956 0x0800F9C6 0x0800F9F4 0x0800FA1C 0x0800FA3A 0x0800FA48 0x0800FA4C 0x0800FA52 0x0800FA86",
+   "suggested_names": "0x0800F956=dynamic_keymap_reset",
+   "callers": "0x0800F956<-eeconfig_init_via@0x080105EA(bl~)",
+   "callees": "0x0800F898->0x0800F878 0x0800F89E->eeprom_read_byte 0x0800F8A6->eeprom_read_byte 0x0800F8C6->0x0800F878 0x0800F8CE->0x0800D04C 0x0800F8FC->eeprom_read_byte 0x0800F910->eeprom_read_byte 0x0800F93C->0x0800D04C 0x0800F96A->0x0800B1AC 0x0800F978->0x0800F8B6 0x0800F994->0x0800B1D4 0x0800F9A0->0x0800F91E 0x0800F9AA->0x0800B1D4 0x0800F9B8->0x0800F91E 0x0800F9E4->eeprom_read_byte 0x0800FA12->0x0800D04C"
+  },
+  {
+   "start": "0x0800FAC4",
+   "size": 1184,
+   "kind": "code",
+   "fn_starts": "0x0800FB78 0x0800FBC4 0x0800FD90 0x0800FDB8 0x0800FE24 0x0800FE8C",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0800FAD0->eeprom_read_byte 0x0800FAE4->eeprom_read_byte 0x0800FAFC->eeprom_read_byte 0x0800FB10->eeprom_read_byte 0x0800FB24->0x080102D8 0x0800FB34->eeprom_read_byte 0x0800FB4A->eeprom_read_byte 0x0800FB84->keyboard_leds 0x0800FBA0->0x08010AFC 0x0800FBA4->0x0800C384 0x0800FBB6->0x08010B30 0x0800FBDC->0x0800C4B4 0x0800FC64->0x0800BA48 0x0800FCD8->0x0800BA48 0x0800FD2C->0x0800BA48 0x0800FD42->0x0800C584"
+  },
+  {
+   "start": "0x08010088",
+   "size": 1216,
+   "kind": "code",
+   "fn_starts": "0x080100B4 0x080100D8 0x08010268 0x080102D8 0x0801037C 0x08010434 0x080104D0",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08010090->memset 0x080100E2->memcpy 0x08010100->0x08010D62 0x08010122->0x08010D62 0x0801013A->0x08010B9C 0x08010142->0x080100B4 0x08010148->mousekey_off+0xEC 0x08010152->memcpy 0x08010178->0x0800FDB8 0x0801018E->0x0800FDB8 0x080101AE->0x0800FD90 0x080101B8->0x0800FD90 0x080101EC->0x0800FE24 0x08010202->0x0800FE24 0x08010222->0x0800FD90 0x0801022C->0x0800FD90"
+  },
+  {
+   "start": "0x0801056C",
+   "size": 92,
+   "kind": "code",
+   "fn_starts": "0x08010596",
+   "suggested_names": "0x08010596=via_eeprom_set_valid",
+   "callers": "0x08010596<-eeconfig_init_via@0x080105EA(bl~)",
+   "callees": "0x08010570->eeprom_read_byte 0x0801057E->eeprom_read_byte 0x08010588->eeprom_read_byte 0x080105A2->0x0800D04C 0x080105B0->0x0800D04C 0x080105C4->0x0800D04C"
+  },
+  {
+   "start": "0x080105D6",
+   "size": 20,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "0x080105D6=eeprom_update_byte",
+   "callers": "0x080105D6<-eeconfig_init_via@0x080105EA(bl~)",
+   "callees": "0x080105DA->__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb 0x080105E6->0x0800D04C"
+  },
+  {
+   "start": "0x0801060A",
+   "size": 774,
+   "kind": "code",
+   "fn_starts": "0x08010628 0x0801062C 0x0801064A 0x08010728 0x0801073E 0x080108F8 0x08010904",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0801060C->__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb 0x08010610->via_get_layout_options 0x08010614->__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb 0x08010618->0x0801056C 0x0801063C->0x0800FAC4 0x08010664->0x0800ED08 0x0801066C->0x0800EC14 0x08010674->0x0800EC6C 0x0801067A->0x0800EECC 0x08010680->0x0800ECF0 0x08010686->0x0800ECFC 0x080106A2->0x0800ECF0 0x080106A8->0x0800ECFC 0x080106D2->rgb_matrix_enable_noeeprom 0x080106F4->0x0800ED08 0x08010738->0x0801064A"
+  },
+  {
+   "start": "0x08010920",
+   "size": 64,
+   "kind": "code",
+   "fn_starts": "0x08010928 0x08010938",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08010922->host_keyboard_leds"
+  },
+  {
+   "start": "0x080109C0",
+   "size": 812,
+   "kind": "code",
+   "fn_starts": "0x08010A0C 0x08010AFC 0x08010B30 0x08010B64 0x08010B9C 0x08010BE4 0x08010BE6 0x08010BF0 0x08010C08 0x08010C1C 0x08010C20 0x08010C34 0x08010C38 0x08010C3A 0x08010C3C 0x08010C3E 0x08010C46 0x08010C48 0x08010C50 0x08010C74 0x08010C82 0x08010C94 0x08010CE8",
+   "suggested_names": "0x08010B30=del_key_from_report",
+   "callers": "0x08010B30<-unregister_code@0x0800B538(bl)",
+   "callees": "0x08010BE8->0x08010BE4 0x08010BFE->0x08010BE6 0x08010C10->0x08010BE6 0x08010C28->0x08010BE6 0x08010C40->0x08010C3C 0x08010C4A->0x08010C46 0x08010C52->0x08010C38 0x08010C56->0x0800CD50 0x08010C5A->0x08010C3A 0x08010C62->0x0800CBE4 0x08010C76->0x080124E4 0x08010C84->0x0800B39E 0x08010C96->0x0800C228 0x08010C9A->0x0800C254 0x08010C9E->0x08010B64 0x08010CA2->0x08010088"
+  },
+  {
+   "start": "0x08010D58",
+   "size": 36,
+   "kind": "code",
+   "fn_starts": "0x08010D62 0x08010D70",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08010D5A->timer_read32 0x08010D66->timer_read32 0x08010D74->timer_read32"
+  },
+  {
+   "start": "0x08010DA0",
+   "size": 184,
+   "kind": "code",
+   "fn_starts": "0x08010DB0 0x08010DC8 0x08010DD4 0x08010DDE 0x08010DE4",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08010DD6->0x08010DA0 0x08010DDA->__NVIC_SystemReset 0x08010DE0->__NVIC_SystemReset 0x08010DE6->0x08010DB0 0x08010DEC->0x08010DC8"
+  },
+  {
+   "start": "0x08010FEE",
+   "size": 354,
+   "kind": "code",
+   "fn_starts": "0x08010FF0 0x0801110C",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0801113C->0x080114AC 0x0801101A->0x08011998 0x0801103C->0x08011C08 0x0801109A->0x08011C58"
+  },
+  {
+   "start": "0x080111AC",
+   "size": 192,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x080111C6->0x08011688 0x080111CC->0x08011688 0x080111D2->0x08011688 0x080111D8->0x080116A8 0x080111EA->usb_event_queue_enqueue.isra.0 0x080111F8->usb_event_queue_enqueue.isra.0 0x0801120C->0x0801163A 0x08011212->0x0801163A 0x08011218->0x0801163A 0x0801121E->0x08011662 0x08011232->0x0801167C 0x08011238->0x0801167C 0x0801123E->0x0801167C 0x08011244->0x08011682 0x080111F4->usb_event_queue_enqueue.isra.0"
+  },
+  {
+   "start": "0x08011290",
+   "size": 284,
+   "kind": "code",
+   "fn_starts": "0x0801129E 0x080112A8 0x080112C2 0x080112E0 0x080112F4 0x080112FC 0x08011348",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x080112BC->0x08010C08 0x080112CA->0x08010C94 0x080112DA->0x08010C1C 0x080112EE->0x08010BF0 0x080112FE->0x08010C20 0x08011350->0x0801159C 0x08011356->0x080115FC 0x0801135E->0x0801159C 0x08011366->0x080115FC 0x0801136E->0x0801159C 0x08011376->0x080115FC 0x0801137C->0x080115D4 0x08011382->0x0801161C 0x08011388->0x08012A5E 0x08011390->chThdSleep 0x0801139C->0x08012A38"
+  },
+  {
+   "start": "0x080113B8",
+   "size": 32,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "0x080113B8=send_report.isra.0",
+   "callers": "0x080113B8<-send_keyboard@0x080113D8(b) 0x080113B8<-send_nkro@0x080113E2(b) 0x080113B8<-send_mouse@0x080113EC(b)",
+   "callees": "0x080113CA->0x08011796"
+  },
+  {
+   "start": "0x08011400",
+   "size": 1080,
+   "kind": "code",
+   "fn_starts": "0x08011410 0x08011438 0x0801143C 0x0801143E 0x08011440 0x08011450 0x0801145C 0x08011460 0x0801148C 0x08011498 0x0801149C 0x080114AC 0x08011524 0x0801155E 0x08011594 0x0801159C 0x080115D4 0x080115FC 0x0801161C 0x0801163A 0x08011662 0x0801167C 0x08011682 0x08011688 ...",
+   "suggested_names": "0x08011440=__early_init",
+   "callers": "0x08011440<-_crt0_entry@0x08008000(bl)",
+   "callees": "0x0801141E->0x08011870 0x0801142C->0x0801073E 0x08011442->0x08011438 0x08011446->0x08014E84 0x0801144A->0x0801143C 0x08011452->__aeabi_idiv0|__aeabi_ldiv0|__cpu_init|__late_init|__malloc_lock|__malloc_unlock|_fini|dummy_cb|wireless_enter_bluetooth_pin_code_entry_kb 0x08011456->0x0801143E 0x08011462->usb_event_queue_init 0x08011468->0x08011348 0x0801149E->0x08011410 0x08011544->0x080126D2 0x08011556->0x08012B56 0x08011578->0x0801257C 0x080115C6->0x0801268C 0x080115EE->0x08012538 0x08011646->chThdDequeueAllI.constprop.0"
+  },
+  {
+   "start": "0x08011870",
+   "size": 118,
+   "kind": "code",
+   "fn_starts": "0x080118BC",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x080118A6->0x08012606 0x080118C8->0x0801250E 0x080118DE->memcpy"
+  },
+  {
+   "start": "0x08011918",
+   "size": 60,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08011934->0x0801250E 0x0801194C->memcpy"
+  },
+  {
+   "start": "0x08011996",
+   "size": 90,
+   "kind": "code",
+   "fn_starts": "0x08011998",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x08011A18",
+   "size": 76,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08011A38->0x0801250E 0x08011A4E->__aeabi_uldivmod"
+  },
+  {
+   "start": "0x08011A9E",
+   "size": 606,
+   "kind": "code",
+   "fn_starts": "0x08011AA0 0x08011AF8 0x08011C08 0x08011C58 0x08011CA4 0x08011CBC 0x08011CE8",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08011ACC->0x0801250E 0x08011AE2->__aeabi_uldivmod 0x08011B48->usb_endpoint_in_is_inactive 0x08011B7C->0x080113B8 0x08011BBE->usb_endpoint_in_is_inactive 0x08011BF4->0x080113B8 0x08011CF0->0x08011CBC"
+  },
+  {
+   "start": "0x08011D00",
+   "size": 4,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x08011D56",
+   "size": 88,
+   "kind": "code",
+   "fn_starts": "0x08011D5C 0x08011D8C 0x08011DA4 0x08011DA8",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08011D68->0x08011CA4 0x08011D70->0x08012180 0x08011DA4->0x08011F84 0x08011DAC->chSysGetStatusAndLockX.part.0+0xA"
+  },
+  {
+   "start": "0x08011DEC",
+   "size": 608,
+   "kind": "code",
+   "fn_starts": "0x08011E26 0x08011F04 0x08011F18 0x08011F84",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08011E36->0x08012530 0x08011E3A->0x0801250E 0x08011E7E->0x08012516 0x08011E84->0x0801250E 0x08011E94->0x08012530 0x08011EBA->0x0801250E 0x08011EEA->0x08011E26 0x08011F62->0x0801250E 0x08011F96->0x0801250E 0x08011FC4->0x08012526 0x08011FE0->0x0801250E 0x08011FF2->0x08011DEC 0x08011F56->0x08012526"
+  },
+  {
+   "start": "0x08012068",
+   "size": 28,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x080120C8",
+   "size": 4,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "0x080120C8=__sch_ready_behind.isra.0",
+   "callers": "0x080120C8<-chThdResumeI@0x080122C4(b) 0x080120C8<-chThdDequeueAllI.constprop.0@0x0801230E(bl~)",
+   "callees": "0x080120C8->__sch_ready_behind.isra.0"
+  },
+  {
+   "start": "0x080120E8",
+   "size": 124,
+   "kind": "code",
+   "fn_starts": "0x0801213C",
+   "suggested_names": "0x080120E8=chSchGoSleepTimeoutS 0x0801213C=chSchDoPreemption",
+   "callers": "0x080120E8<-chThdSleep@0x0801228E(bl) 0x0801213C<-chSchRescheduleS@0x08012164(b)",
+   "callees": "0x080120FC->0x08011F04 0x08012102->chSchGoSleepS 0x0801210C->0x08011F18 0x08012116->chSchGoSleepS 0x08012150->0x08012068 0x0801215C->__port_switch"
+  },
+  {
+   "start": "0x08012180",
+   "size": 270,
+   "kind": "code",
+   "fn_starts": "0x08012200 0x08012214 0x08012264 0x08012284",
+   "suggested_names": "0x08012284=chThdExit",
+   "callers": "0x08012284<-__port_thread_start@0x0800813C(bl)",
+   "callees": "0x08012192->0x08012448 0x080121AE->0x0801250E 0x080121C6->0x08012200 0x080121E6->0x08012264 0x08012266->0x08012214 0x0801226E->0x080120C8 0x0801227C->chSchGoSleepS"
+  },
+  {
+   "start": "0x080122A6",
+   "size": 30,
+   "kind": "code",
+   "fn_starts": "0x080122A8",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x080122B4->0x080120E8"
+  },
+  {
+   "start": "0x080122D6",
+   "size": 56,
+   "kind": "code",
+   "fn_starts": "0x080122D8 0x080122F8",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x080122EA->0x080120E8 0x08012308->0x080120C8"
+  },
+  {
+   "start": "0x08012348",
+   "size": 224,
+   "kind": "code",
+   "fn_starts": "0x08012354 0x080123B8 0x080123CC",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0801237E->ch_sch_prio_insert 0x0801239A->0x080120C8 0x080123A2->ch_sch_prio_insert 0x080123C0->0x08012354 0x080123FA->0x080120C8 0x080123FE->chSchRescheduleS 0x080123AE->chSchGoSleepS"
+  },
+  {
+   "start": "0x08012448",
+   "size": 72,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x080124E4",
+   "size": 470,
+   "kind": "code",
+   "fn_starts": "0x0801250E 0x08012516 0x08012526 0x08012530 0x08012538 0x08012566 0x0801257C 0x08012590 0x080125B0 0x080125E2 0x08012606 0x0801268C",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x080124E6->0x080132E0 0x080124EA->0x08013B58 0x080124EE->0x080128A8 0x080124F2->0x08012928 0x080124F6->0x08012A1C 0x080124FA->0x08012910 0x080124FE->0x08011450 0x080125D2->0x080122D8 0x08012626->0x080125B0 0x0801264E->memcpy 0x08012666->0x080125E2 0x0801267C->memcpy 0x0801250A->0x08014DF4 0x08012578->chThdDequeueAllI.constprop.0 0x080125AC->0x080122F8"
+  },
+  {
+   "start": "0x080126D2",
+   "size": 108,
+   "kind": "code",
+   "fn_starts": "0x080126EE 0x0801270C",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0801272E->0x080122D8 0x08012708->0x080122F8"
+  },
+  {
+   "start": "0x08012764",
+   "size": 232,
+   "kind": "code",
+   "fn_starts": "0x080127EE 0x08012810",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08012784->0x0801270C 0x080127AC->memcpy 0x080127C8->obqPostFullBufferS 0x080127DE->memcpy 0x08012802->obqPostFullBufferS 0x0801283A->__aeabi_uldivmod 0x0801283E->chThdSleep"
+  },
+  {
+   "start": "0x08012880",
+   "size": 250,
+   "kind": "code",
+   "fn_starts": "0x08012890 0x0801289C 0x080128A8 0x080128AC 0x080128C0 0x080128DC 0x080128F8 0x08012910 0x08012914 0x08012920 0x08012924 0x08012928 0x0801292C 0x0801293C 0x0801295E",
+   "suggested_names": "0x0801293C=spiStart 0x0801295E=spiStop",
+   "callers": "0x0801293C<-spi_start@0x08010ECC(bl~) 0x0801295E<-spi_init@0x08010E58(bl) 0x0801295E<-spi_stop@0x08010FC8(bl)",
+   "callees": "0x08012894->0x080123CC 0x080128A0->0x080123B8 0x080128CC->0x08013504 0x080128E6->0x0801352C 0x08012948->0x08014C68 0x08012968->0x08014D3C 0x080128A8->0x080134A8 0x080128B6->0x08012348 0x08012910->0x08014848 0x08012920->0x080148C0 0x08012924->0x0801499C 0x08012928->0x08014C3C 0x08012938->0x08012348"
+  },
+  {
+   "start": "0x080129B2",
+   "size": 1854,
+   "kind": "code",
+   "fn_starts": "0x080129C0 0x080129C8 0x080129D8 0x080129FA 0x08012A1C 0x08012A20 0x08012A38 0x08012A5E 0x08012AB2 0x08012AE4 0x08012B32 0x08012B56 0x08012B7A 0x08012BB8 0x08012C2C 0x08012C8C 0x08012CA4 0x08012F6C 0x0801301E 0x08013096 0x080130C2",
+   "suggested_names": "0x080129FA=spiSend",
+   "callers": "0x080129FA<-spi_transmit@0x08010FB4(bl)",
+   "callees": "0x080129E2->0x080129B2 0x080129EE->0x080129C8 0x08012A04->0x080129C0 0x08012A10->0x080129C8 0x08012A4E->0x08013D94 0x08012A6A->0x08013E60 0x08012A8A->chThdResumeI 0x08012A9C->chThdResumeI 0x08012AA8->chSchRescheduleS 0x08012AC8->memset 0x08012AD4->memset 0x08012B0A->chThdResumeI 0x08012B1C->chThdResumeI 0x08012BA4->chThdSleep 0x08012BEC->chThdResumeI 0x08012BFE->chThdResumeI"
+  },
+  {
+   "start": "0x0801328C",
+   "size": 252,
+   "kind": "code",
+   "fn_starts": "0x080132E0",
+   "suggested_names": "0x0801328C=VectorB0",
+   "callers": "0x0801328C<-_vectors@0x080000B0(vec)",
+   "callees": "0x0801328E->0x08014E3C 0x080132A0->0x08013096 0x080132A8->0x08013096 0x080132B0->0x08013096 0x080132B8->0x08013096 0x080132C0->0x08013096 0x080132C8->0x08013096 0x080132D0->0x08013096 0x08013372->0x080139A0 0x08013296->__port_irq_epilogue 0x080132DC->0x08013096"
+  },
+  {
+   "start": "0x080134A8",
+   "size": 194,
+   "kind": "code",
+   "fn_starts": "0x08013504 0x0801352C 0x08013538 0x0801353C",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x080134AE->0x080128AC 0x0801355A->memcpy"
+  },
+  {
+   "start": "0x08013626",
+   "size": 74,
+   "kind": "code",
+   "fn_starts": "0x08013632",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08013636->_getpid|_isatty_r"
+  },
+  {
+   "start": "0x080139A0",
+   "size": 468,
+   "kind": "code",
+   "fn_starts": "0x080139E4 0x08013A94 0x08013AEC 0x08013B58",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08013A7A->0x08013096 0x08013A9A->0x080130C2"
+  },
+  {
+   "start": "0x08013C4C",
+   "size": 100,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x08013D72",
+   "size": 866,
+   "kind": "code",
+   "fn_starts": "0x08013D74 0x08013D94 0x08013E60 0x08013EA4 0x08013F54 0x08013F6C 0x08014084 0x0801408E 0x080140A8 0x080140C2",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08013D7A->0x08012A20 0x08013DD0->0x08013096 0x08013DFC->chSysPolledDelayX 0x08013E08->chSysPolledDelayX 0x08013E18->otg_disable_ep 0x08013E6C->otg_disable_ep 0x08013E82->0x080130C2 0x08013EAE->otg_txfifo_flush.isra.0 0x08013EFC->chSysPolledDelayX 0x0801400C->otg_txfifo_flush.isra.0 0x0801405C->otg_txfifo_flush.isra.0 0x0801408A->otg_disable_ep"
+  },
+  {
+   "start": "0x08014200",
+   "size": 1242,
+   "kind": "code",
+   "fn_starts": "0x0801428C 0x080143A0 0x0801468C 0x080146A0 0x080146B4 0x080146C8",
+   "suggested_names": "0x080143A0=Vector14C",
+   "callers": "0x080143A0<-_vectors@0x0800014C(vec)",
+   "callees": "0x080142DA->0x08014200 0x08014350->chThdResumeI 0x080143B8->0x08012BB8 0x080143EC->0x08012C8C 0x080143F6->otg_disable_ep 0x080143FC->0x08012C2C 0x0801444C->0x08012C8C 0x080144C8->chThdResumeI 0x08014528->otg_epout_handler.constprop.0 0x08014532->otg_epout_handler.constprop.0 0x0801453C->otg_epout_handler.constprop.0 0x08014546->otg_epout_handler.constprop.0 0x08014556->0x0801428C 0x08014560->0x0801428C 0x0801456A->0x0801428C 0x08014576->0x0801428C"
+  },
+  {
+   "start": "0x080146F8",
+   "size": 42,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x08014848",
+   "size": 596,
+   "kind": "code",
+   "fn_starts": "0x080148C0 0x0801499C",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x0801484E->0x08012914 0x08014866->rtc_enter_init.lto_priv.0 0x0801488C->0x08013AEC 0x08014894->0x08013096 0x0801489C->0x08013096 0x08014964->0x08011DA8 0x08014968->rtc_enter_init.lto_priv.0 0x080149A4->0x08011DA8 0x080149CA->chSysRestoreStatusX 0x080148A8->0x08013096 0x08014994->chSysRestoreStatusX"
+  },
+  {
+   "start": "0x08014ACA",
+   "size": 922,
+   "kind": "code",
+   "fn_starts": "0x08014ACC 0x08014B74 0x08014C00 0x08014C3C 0x08014C68 0x08014D3C 0x08014D88 0x08014DBE 0x08014DF4 0x08014E3C",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08014B66->spi_lld_configure 0x08014B82->0x08011D8C 0x08014B88->0x08014ACC 0x08014BA2->chThdResumeI 0x08014BDC->0x08014ACC 0x08014C0C->0x08011D8C 0x08014C12->0x08014ACC 0x08014C2C->chThdResumeI 0x08014C42->0x0801292C 0x08014C86->0x080139E4 0x08014C96->0x080139E4 0x08014CA0->0x08013A94 0x08014D18->spi_lld_configure 0x08014D46->0x08014ACC 0x08014D54->0x08013A94 0x08014D5A->0x08013A94"
+  },
+  {
+   "start": "0x08014E82",
+   "size": 134,
+   "kind": "code",
+   "fn_starts": "0x08014E84",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08014EB2->gpio_init 0x08014EBE->gpio_init 0x08014ECA->gpio_init 0x08014ED6->gpio_init 0x08014EE2->gpio_init 0x08014EEE->gpio_init 0x08014EF6->stm32_clock_init"
+  },
+  {
+   "start": "0x08014F20",
+   "size": 26,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08014F2A->0x08011CE8"
+  },
+  {
+   "start": "0x08014F52",
+   "size": 6,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x08014F68",
+   "size": 16,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "0x08014F68=_kill",
+   "callers": "0x08014F68<-_kill_r@0x080152C8(bl~)",
+   "callees": "0x08014F6C->0x08011D8C 0x08014F70->abort"
+  },
+  {
+   "start": "0x08014FBC",
+   "size": 4,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08014FBC->__itoa"
+  },
+  {
+   "start": "0x080150C4",
+   "size": 420,
+   "kind": "code",
+   "fn_starts": "0x08015104 0x080151EC",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x080150D0->0x08014F20 0x080150DA->0x08014F20 0x080150F0->0x08014F20 0x0801512E->0x080153D4 0x0801513C->0x080150C4 0x08015158->0x08014F20 0x08015176->0x080150C4 0x080151AA->0x080153E0 0x080151DC->0x080153E0 0x080151F8->free|malloc|raise 0x08015208->__assert_func"
+  },
+  {
+   "start": "0x080152EC",
+   "size": 4,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "0x080152EC=_getpid_r",
+   "callers": "0x080152EC<-_raise_r@0x08015268(bl~)",
+   "callees": "0x080152EC->_getpid|_isatty_r"
+  },
+  {
+   "start": "0x080153D4",
+   "size": 24,
+   "kind": "code",
+   "fn_starts": "0x080153E0",
+   "suggested_names": "0x080153D4=__malloc_lock",
+   "callers": "0x080153D4<-_free_r@0x0801502C(bl~)",
+   "callees": "0x080153D6->0x08015EB8 0x080153E2->0x08015EBA"
+  },
+  {
+   "start": "0x0801543E",
+   "size": 1802,
+   "kind": "code",
+   "fn_starts": "0x08015440 0x080156A0 0x0801577C 0x080157A4 0x08015814 0x08015828 0x08015858 0x08015916 0x0801591E 0x08015934 0x08015956 0x08015A6C",
+   "suggested_names": "0x08015440=_vfiprintf_r",
+   "callers": "0x08015440<-fiprintf@0x080153B0(bl)",
+   "callees": "0x08015454->0x08015D7C 0x0801546E->0x08015EB8 0x08015480->0x08015A6C 0x080154B2->0x08015EBA 0x080154F0->__sfputs_r 0x0801552C->memchr 0x080155C0->memchr 0x080155E4->memchr 0x0801565C->0x08015EBA 0x08015678->0x0801577C 0x080158D8->0x080156A0 0x08015964->memchr 0x080159D6->0x08015D7C 0x08015A04->0x08015C54 0x08015A2E->0x08015C54 0x08015A50->0x08015A6C"
+  },
+  {
+   "start": "0x08015C54",
+   "size": 120,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08015C6A->0x08015D7C 0x08015C8A->0x08015EB8 0x08015C92->__sflush_r 0x08015CA6->0x08015EBA"
+  },
+  {
+   "start": "0x08015D14",
+   "size": 628,
+   "kind": "code",
+   "fn_starts": "0x08015D20 0x08015D4C 0x08015D58 0x08015D64 0x08015D7C 0x08015DEC 0x08015EA4 0x08015EB6 0x08015EB8 0x08015EBA 0x08015EBC 0x08015F08",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08015D2E->0x08015104 0x08015D44->memset 0x08015D80->0x08015D64 0x08015DA8->0x08015DEC 0x08015DB0->0x08015DEC 0x08015DB8->0x08015DEC 0x08015DC4->std 0x08015DCE->std 0x08015DD8->std 0x08015DF0->0x08015D4C 0x08015DFE->0x08015D7C 0x08015E24->0x08015EB6 0x08015E28->0x08015D58 0x08015E40->memset 0x08015E58->0x08015D20 0x08015E64->0x08015D58"
+  },
+  {
+   "start": "0x08015FE2",
+   "size": 36,
+   "kind": "code",
+   "fn_starts": "",
+   "suggested_names": "0x08015FE2=__sseek",
+   "callers": "0x08015FE2<-std@0x08015CCC(ptr)",
+   "callees": "0x08015FEA->_lseek_r"
+  },
+  {
+   "start": "0x0801600E",
+   "size": 18,
+   "kind": "post-text(rodata/.data image)",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x08016038",
+   "size": 4,
+   "kind": "post-text(rodata/.data image)",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x0801609C",
+   "size": 48,
+   "kind": "post-text(rodata/.data image)",
+   "fn_starts": "0x080160A6 0x080160A8",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x080160DC",
+   "size": 4,
+   "kind": "post-text(rodata/.data image)",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x080160DC->0x08015EA4 0x080160DE->0x080160A8"
+  },
+  {
+   "start": "0x0801667C",
+   "size": 60,
+   "kind": "ascii-strings",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x080166C0",
+   "size": 638,
+   "kind": "post-text(rodata/.data image)",
+   "fn_starts": "0x080166E4 0x080167E4 0x080167F4 0x08016804 0x08016814 0x08016894 0x080168E2 0x080168F4",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x080167DE->0x084069CC 0x080167D8->g_snled27351_leds+0xC0"
+  },
+  {
+   "start": "0x08016994",
+   "size": 4,
+   "kind": "post-text(rodata/.data image)",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x08016AA8",
+   "size": 204,
+   "kind": "post-text(rodata/.data image)",
+   "fn_starts": "0x08016B3C",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x08016D74",
+   "size": 36,
+   "kind": "post-text(rodata/.data image)",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x08016DA4",
+   "size": 12,
+   "kind": "ascii-strings",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x08016E58",
+   "size": 10,
+   "kind": "post-text(rodata/.data image)",
+   "fn_starts": "0x08016E5C",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x08016F63",
+   "size": 485,
+   "kind": "post-text(rodata/.data image)",
+   "fn_starts": "0x08016F7E 0x08016FFC 0x0801702E 0x0801705C 0x0801706E",
+   "suggested_names": "",
+   "callers": "",
+   "callees": "0x08017127->0x0801733B"
+  },
+  {
+   "start": "0x080171A8",
+   "size": 4,
+   "kind": "post-text(rodata/.data image)",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x08017320",
+   "size": 36,
+   "kind": "post-text(rodata/.data image)",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x0801734C",
+   "size": 624,
+   "kind": "post-text(rodata/.data image)",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  },
+  {
+   "start": "0x0801783C",
+   "size": 132,
+   "kind": "post-text(rodata/.data image)",
+   "fn_starts": "",
+   "suggested_names": "",
+   "callers": "",
+   "callees": ""
+  }
+ ],
+ "hooks": [
+  {
+   "hook": "process_record_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "process_record_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "process_record_keychron",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "process_record_keychron_common",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "process_record_quantum",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "housekeeping_task_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "housekeeping_task_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "matrix_scan_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "matrix_scan_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "keyboard_post_init_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "keyboard_post_init_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "keyboard_pre_init_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "keyboard_pre_init_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "layer_state_set_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "layer_state_set_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "default_layer_state_set_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "default_layer_state_set_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "rgb_matrix_indicators_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "rgb_matrix_indicators_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "rgb_matrix_indicators_advanced_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "rgb_matrix_indicators_advanced_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "dip_switch_update_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "dip_switch_update_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "dip_switch_update_mask_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "dip_switch_update_mask_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "encoder_update_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "encoder_update_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "keycode_at_encodermap_location_raw",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "keycode_at_keymap_location_raw",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "leader_start_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "leader_end_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "raw_hid_receive",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "raw_hid_receive_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "eeconfig_init_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "eeconfig_init_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "get_tapping_term",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "process_tap_dance",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "tap_dance_task",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "preprocess_tap_dance",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "process_leader",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "leader_task",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "shutdown_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "shutdown_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "suspend_power_down_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "suspend_power_down_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "suspend_wakeup_init_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "suspend_wakeup_init_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "led_update_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "led_update_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "via_custom_value_command_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "process_record_via",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "get_hold_on_other_key_press",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "get_permissive_hold",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "get_retro_tapping",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "pre_process_record_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "pre_process_record_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "post_process_record_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "post_process_record_kb",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "battery_low_user",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "wireless_pre_task",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "wireless_post_task",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "keyboard_init",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "keyboard_task",
+   "dump_addr": "",
+   "size": "",
+   "status": "not-found",
+   "ref_elf": "",
+   "evidence": "no body match, no caller vote"
+  },
+  {
+   "hook": "main",
+   "dump_addr": "0x0800CF60",
+   "size": 28,
+   "status": "UNMATCHED-custom-code-candidate",
+   "ref_elf": "",
+   "evidence": "bl from endinitloop@0x080080C8+0x0"
+  }
+ ],
+ "tap_dance": [
+  "crt0 literal triple at 0x080080F8 (words 080170FC 20000C00 200013B4): __textdata_base__=0x080170FC __data_base__=0x20000C00 __data_end__=0x200013B4 (.data 1972 bytes)",
+  "cross-check, literal votes from matched code (may alias objects at the same address): __textdata_base__=n/a __data_base__=n/a __data_end__=n/a",
+  "tap_dance_actions RAM address (literal votes): n/a"
+ ]
+}

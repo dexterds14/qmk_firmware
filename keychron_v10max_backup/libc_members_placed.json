@@ -1,0 +1,843 @@
+[
+ {
+  "member": "libc_a-rand.o",
+  "start": 33864,
+  "text_len": 252,
+  "eq": 0.8571428571428571,
+  "windows": 111,
+  "hits": 111,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    100,
+    "srand"
+   ],
+   [
+    100,
+    152,
+    "rand"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-random.o",
+  "start": 33864,
+  "text_len": 252,
+  "eq": 0.8492063492063492,
+  "windows": 111,
+  "hits": 107,
+  "frac": 0.964,
+  "syms": [
+   [
+    0,
+    100,
+    "srandom"
+   ],
+   [
+    100,
+    152,
+    "random"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-assert.o",
+  "start": 34116,
+  "text_len": 76,
+  "eq": 0.6973684210526315,
+  "windows": 17,
+  "hits": 17,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    64,
+    "__assert_func"
+   ],
+   [
+    64,
+    10,
+    "__assert"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-itoa.o",
+  "start": 34192,
+  "text_len": 88,
+  "eq": 0.9090909090909091,
+  "windows": 36,
+  "hits": 36,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    44,
+    "__itoa"
+   ],
+   [
+    44,
+    44,
+    "itoa"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-utoa.o",
+  "start": 34296,
+  "text_len": 160,
+  "eq": 0.96875,
+  "windows": 137,
+  "hits": 137,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    156,
+    "__utoa"
+   ],
+   [
+    156,
+    4,
+    "utoa"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-strlen.o",
+  "start": 34496,
+  "text_len": 216,
+  "eq": 1.0,
+  "windows": 201,
+  "hits": 201,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    216,
+    "strlen"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-memset.o",
+  "start": 34712,
+  "text_len": 164,
+  "eq": 1.0,
+  "windows": 149,
+  "hits": 149,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    162,
+    "memset"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-memcpy.o",
+  "start": 34876,
+  "text_len": 308,
+  "eq": 1.0,
+  "windows": 293,
+  "hits": 293,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    308,
+    "memcpy"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-dprintf.o",
+  "start": 35216,
+  "text_len": 68,
+  "eq": 0.8529411764705882,
+  "windows": 15,
+  "hits": 15,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    28,
+    "_diprintf_r"
+   ],
+   [
+    0,
+    28,
+    "_dprintf_r"
+   ],
+   [
+    28,
+    40,
+    "diprintf"
+   ],
+   [
+    28,
+    40,
+    "dprintf"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-fprintf.o",
+  "start": 35216,
+  "text_len": 68,
+  "eq": 0.8529411764705882,
+  "windows": 15,
+  "hits": 15,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    28,
+    "_fiprintf_r"
+   ],
+   [
+    0,
+    28,
+    "_fprintf_r"
+   ],
+   [
+    28,
+    40,
+    "fiprintf"
+   ],
+   [
+    28,
+    40,
+    "fprintf"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-fwprintf.o",
+  "start": 35216,
+  "text_len": 68,
+  "eq": 0.8529411764705882,
+  "windows": 15,
+  "hits": 15,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    28,
+    "_fwprintf_r"
+   ],
+   [
+    28,
+    40,
+    "fwprintf"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-fscanf.o",
+  "start": 35244,
+  "text_len": 68,
+  "eq": 0.5147058823529411,
+  "windows": 5,
+  "hits": 5,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    40,
+    "fiscanf"
+   ],
+   [
+    0,
+    40,
+    "fscanf"
+   ],
+   [
+    40,
+    28,
+    "_fiscanf_r"
+   ],
+   [
+    40,
+    28,
+    "_fscanf_r"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-fwscanf.o",
+  "start": 35244,
+  "text_len": 68,
+  "eq": 0.5147058823529411,
+  "windows": 5,
+  "hits": 5,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    40,
+    "fwscanf"
+   ],
+   [
+    40,
+    28,
+    "_fwscanf_r"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-memcmp.o",
+  "start": 35284,
+  "text_len": 92,
+  "eq": 1.0,
+  "windows": 77,
+  "hits": 77,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    92,
+    "memcmp"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-nano-vfprintf.o",
+  "start": 35376,
+  "text_len": 788,
+  "eq": 0.9352791878172588,
+  "windows": 568,
+  "hits": 568,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    58,
+    "__sfputc_r"
+   ],
+   [
+    60,
+    46,
+    "__sfputs_r"
+   ],
+   [
+    108,
+    30,
+    "__sprint_r"
+   ],
+   [
+    140,
+    620,
+    "_vfiprintf_r"
+   ],
+   [
+    140,
+    620,
+    "_vfprintf_r"
+   ],
+   [
+    760,
+    28,
+    "vfiprintf"
+   ],
+   [
+    760,
+    28,
+    "vfprintf"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-wbuf.o",
+  "start": 36164,
+  "text_len": 160,
+  "eq": 0.88125,
+  "windows": 72,
+  "hits": 72,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    134,
+    "__swbuf_r"
+   ],
+   [
+    136,
+    24,
+    "__swbuf"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-fvwrite.o",
+  "start": 36324,
+  "text_len": 768,
+  "eq": 0.9348958333333334,
+  "windows": 522,
+  "hits": 522,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    768,
+    "__sfvwrite_r"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-signal.o",
+  "start": 37092,
+  "text_len": 608,
+  "eq": 0.9259868421052632,
+  "windows": 353,
+  "hits": 353,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    44,
+    "_init_signal_r"
+   ],
+   [
+    44,
+    74,
+    "_signal_r"
+   ],
+   [
+    120,
+    80,
+    "_raise_r"
+   ],
+   [
+    200,
+    96,
+    "__sigtramp_r"
+   ],
+   [
+    296,
+    84,
+    "raise"
+   ],
+   [
+    380,
+    76,
+    "signal"
+   ],
+   [
+    456,
+    52,
+    "_init_signal"
+   ],
+   [
+    508,
+    100,
+    "__sigtramp"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-findfp.o",
+  "start": 37700,
+  "text_len": 548,
+  "eq": 0.8211678832116789,
+  "windows": 201,
+  "hits": 201,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    4,
+    "__fp_lock"
+   ],
+   [
+    4,
+    24,
+    "stdio_exit_handler"
+   ],
+   [
+    28,
+    64,
+    "cleanup_stdio"
+   ],
+   [
+    92,
+    4,
+    "__fp_unlock"
+   ],
+   [
+    96,
+    208,
+    "global_stdio_init.part.0"
+   ],
+   [
+    304,
+    164,
+    "__sfp"
+   ],
+   [
+    468,
+    32,
+    "__sinit"
+   ],
+   [
+    500,
+    2,
+    "__sfp_lock_acquire"
+   ],
+   [
+    504,
+    2,
+    "__sfp_lock_release"
+   ],
+   [
+    508,
+    20,
+    "__fp_lock_all"
+   ],
+   [
+    528,
+    20,
+    "__fp_unlock_all"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-fflush.o",
+  "start": 38248,
+  "text_len": 424,
+  "eq": 0.9457547169811321,
+  "windows": 327,
+  "hits": 327,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    292,
+    "__sflush_r"
+   ],
+   [
+    292,
+    54,
+    "_fflush_r"
+   ],
+   [
+    348,
+    76,
+    "fflush"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-fflush_u.o",
+  "start": 38540,
+  "text_len": 132,
+  "eq": 0.8560606060606061,
+  "windows": 54,
+  "hits": 54,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    54,
+    "_fflush_unlocked_r"
+   ],
+   [
+    56,
+    76,
+    "fflush_unlocked"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-mallocr.o",
+  "start": 38672,
+  "text_len": 328,
+  "eq": 0.9085365853658537,
+  "windows": 169,
+  "hits": 169,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    72,
+    "sbrk_aligned"
+   ],
+   [
+    72,
+    256,
+    "_malloc_r"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-freer.o",
+  "start": 39000,
+  "text_len": 188,
+  "eq": 0.898936170212766,
+  "windows": 106,
+  "hits": 106,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    188,
+    "_free_r"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-memmove.o",
+  "start": 39188,
+  "text_len": 256,
+  "eq": 1.0,
+  "windows": 241,
+  "hits": 241,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    254,
+    "memmove"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-fwalk.o",
+  "start": 39444,
+  "text_len": 68,
+  "eq": 1.0,
+  "windows": 53,
+  "hits": 53,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    68,
+    "_fwalk_sglue"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-memchr.o",
+  "start": 39520,
+  "text_len": 160,
+  "eq": 1.0,
+  "windows": 145,
+  "hits": 145,
+  "frac": 1.0,
+  "syms": []
+ },
+ {
+  "member": "libc_a-wsetup.o",
+  "start": 39680,
+  "text_len": 196,
+  "eq": 0.9489795918367347,
+  "windows": 120,
+  "hits": 120,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    196,
+    "__swsetup_r"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-nano-vfprintf_i.o",
+  "start": 39976,
+  "text_len": 936,
+  "eq": 0.9882478632478633,
+  "windows": 875,
+  "hits": 875,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    290,
+    "_printf_common"
+   ],
+   [
+    292,
+    644,
+    "_printf_i"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-makebuf.o",
+  "start": 40920,
+  "text_len": 276,
+  "eq": 0.9420289855072463,
+  "windows": 169,
+  "hits": 169,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    196,
+    "__smakebuf_r"
+   ],
+   [
+    196,
+    78,
+    "__swhatbuf_r"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-stdio.o",
+  "start": 41196,
+  "text_len": 148,
+  "eq": 0.8648648648648649,
+  "windows": 67,
+  "hits": 67,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    34,
+    "__sread"
+   ],
+   [
+    36,
+    4,
+    "__seofread"
+   ],
+   [
+    40,
+    62,
+    "__swrite"
+   ],
+   [
+    104,
+    34,
+    "__sseek"
+   ],
+   [
+    140,
+    8,
+    "__sclose"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-fstatr.o",
+  "start": 41360,
+  "text_len": 44,
+  "eq": 0.8409090909090909,
+  "windows": 6,
+  "hits": 6,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    44,
+    "_fstat_r"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-getentropyr.o",
+  "start": 41360,
+  "text_len": 44,
+  "eq": 0.8409090909090909,
+  "windows": 6,
+  "hits": 6,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    44,
+    "_getentropy_r"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-gettimeofdayr.o",
+  "start": 41360,
+  "text_len": 44,
+  "eq": 0.8409090909090909,
+  "windows": 6,
+  "hits": 6,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    44,
+    "_gettimeofday_r"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-linkr.o",
+  "start": 41360,
+  "text_len": 44,
+  "eq": 0.8409090909090909,
+  "windows": 6,
+  "hits": 6,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    44,
+    "_link_r"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-mkdirr.o",
+  "start": 41360,
+  "text_len": 44,
+  "eq": 0.8409090909090909,
+  "windows": 6,
+  "hits": 6,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    44,
+    "_mkdir_r"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-signalr.o",
+  "start": 41360,
+  "text_len": 48,
+  "eq": 0.7708333333333334,
+  "windows": 6,
+  "hits": 6,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    44,
+    "_kill_r"
+   ],
+   [
+    44,
+    4,
+    "_getpid_r"
+   ]
+  ]
+ },
+ {
+  "member": "libc_a-statr.o",
+  "start": 41360,
+  "text_len": 44,
+  "eq": 0.8409090909090909,
+  "windows": 6,
+  "hits": 6,
+  "frac": 1.0,
+  "syms": [
+   [
+    0,
+    44,
+    "_stat_r"
+   ]
+  ]
+ }
+]

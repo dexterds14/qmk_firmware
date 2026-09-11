@@ -1,0 +1,127 @@
+funcmatch coverage report
+dump: /Users/dexter/code/qmk-keychron/keychron_v10max_backup/refs/ref1011_via.bin
+refs: /Users/dexter/code/qmk-keychron/keychron_v10max_backup/refs/refsyms_ref1011_via.json
+code region: flash 0x08008000-0x080173BC (62396 bytes)
+
+exact function bytes       :  55912 (89.61%)  [907 ranges, 11 ambiguous-unresolved]
+fuzzy function bytes       :      0 (0.00%)  [0 ranges, threshold 0.85]
+fuzzy-anchored bytes       :      0 (0.00%)  [0 ranges, threshold 0.50; NOT stock, similar-only]
+data object bytes          :   3468 (5.56%)  [36 ranges]
+function coverage (exact+fuzzy) : 89.61%
+total assigned (incl. data, anchored): 95.17%
+unmatched bytes            :   3016 (4.83%) in 107 regions (9 regions >= 32 bytes, 2696 bytes)
+
+per-reference-ELF participation in exact matches (bytes; "only" = matched by no other ELF):
+  ref1011_via             55912 bytes  only-this-elf  55912
+  functions exact-matched per ELF: ref1011_via=907
+
+key objects:
+  keymaps          at 0x08015F58 size 864 (data)
+  encoder_map      at 0x08015F48 size 16 (data)
+
+tap dance / .data mapping:
+  crt0 literal triple at 0x080080F8 (words 08016C08 20000C00 200013A4): __textdata_base__=0x08016C08 __data_base__=0x20000C00 __data_end__=0x200013A4 (.data 1956 bytes)
+  cross-check, literal votes from matched code (may alias objects at the same address): __textdata_base__=n/a __data_base__=0x20000C00 (lit in bt_transport_enable@0x08009D0C+0x5C) __data_end__=n/a
+  tap_dance_actions RAM address (literal votes): n/a
+
+hooks (see hooks.csv):
+  process_record_user                  0x0800B100   4      UNMATCHED-custom-code-candidate  bl from process_record_kb@0x0800AA32+0x6
+  process_record_kb                    0x0800AA32   26     exact  process_record_kb:bl from process_record_quantum@0x0800B230+0x1A
+  process_record_keychron              0x0800A9F0   32     exact  process_record_keychron:b.w from process_record_kb@0x0800AA32+0x14
+  process_record_keychron_common       0x0800AA68   188    exact  
+  process_record_quantum               0x0800B230   178    exact  process_record_quantum:bl from process_record@0x0800B8FC+0x8
+  housekeeping_task_user               0x0800C520   2      exact-ambiguous  housekeeping_task_user:bl from housekeeping_task@0x0800C522+0x6
+  housekeeping_task_kb                 0x0800AA5E   4      UNMATCHED-custom-code-candidate  bl from housekeeping_task@0x0800C522+0x2
+  matrix_scan_user                     0x0800CAC2   2      exact-ambiguous  matrix_scan_user:bl from matrix_scan_kb@0x0800CAC4+0x2
+  matrix_scan_kb                       0x0800CAC4   8      exact-ambiguous  matrix_scan_kb:bl from matrix_scan@0x0800CC30+0x56
+  keyboard_post_init_user              0x0800C4F0   2      exact-ambiguous  keyboard_post_init_user:b.w from keyboard_post_init_kb@0x0800B068+0x3C
+  keyboard_post_init_kb                0x0800B068   76     exact  keyboard_post_init_kb:bl from keyboard_init@0x0800C540+0x1A
+  keyboard_pre_init_user               0x0800C4E6   2      exact-ambiguous  keyboard_pre_init_user:bl from keyboard_pre_init_kb@0x0800C4E8+0x2
+  keyboard_pre_init_kb                 0x0800C4E8   8      exact-ambiguous  keyboard_pre_init_kb:bl from keyboard_setup@0x0800C4F8+0x10
+  layer_state_set_user                 0x0800BA3C   2      exact-ambiguous  layer_state_set_user:bl from layer_state_set_kb@0x0800BA3E+0x2
+  layer_state_set_kb                   0x0800BA3E   8      exact-ambiguous  layer_state_set_kb:b.w from magic@0x0800CA78+0x30
+  default_layer_state_set_user         0x0800B9EA   2      exact-ambiguous  default_layer_state_set_user:bl from default_layer_state_set_kb@0x0800B9EC+0x2
+  default_layer_state_set_kb           0x0800B9EC   8      exact-ambiguous  default_layer_state_set_kb:bl from default_layer_state_set@0x0800B9F4+0x2
+  rgb_matrix_indicators_user           0x0800DF26   4      exact-ambiguous  rgb_matrix_indicators_user:bl from rgb_matrix_indicators_bt@0x08009838+0xE4
+  rgb_matrix_indicators_kb             0x0800AA4C   18     exact  rgb_matrix_indicators_kb:bl from rgb_matrix_task@0x0800EEF8+0xC4
+  rgb_matrix_indicators_advanced_user  0x0800EA8C   4      exact-ambiguous  rgb_matrix_indicators_advanced_user:bl from rgb_matrix_indicators_advanced_kb@0x0800EA90+0x2
+  rgb_matrix_indicators_advanced_kb    0x0800EA90   8      exact-ambiguous  rgb_matrix_indicators_advanced_kb:bl from rgb_matrix_indicators_advanced@0x0800EA98+0x12
+  dip_switch_update_kb                 0x0800B048   32     exact  dip_switch_update_kb:bl from dip_switch_read@0x0800F704+0x1E
+  dip_switch_update_user               0x0800B020   40     exact  dip_switch_update_user:bl from dip_switch_update_kb@0x0800B048+0x18
+  dip_switch_update_mask_kb            0x0800F6FC   8      exact-ambiguous  dip_switch_update_mask_kb:bl from dip_switch_read@0x0800F704+0x24
+  dip_switch_update_mask_user          0x0800F6F8   4      exact-ambiguous  dip_switch_update_mask_user:bl from dip_switch_update_mask_kb@0x0800F6FC+0x2
+  keycode_at_encodermap_location_raw   0x0800B12C   32     exact  keycode_at_encodermap_location_raw:bl from dynamic_keymap_reset@0x0800F83E+0x3C
+  keycode_at_keymap_location_raw       0x0800B104   40     exact  keycode_at_keymap_location_raw:bl from dynamic_keymap_reset@0x0800F83E+0x12
+  raw_hid_receive                      0x080105C6   438    exact  raw_hid_receive:bl from raw_hid_task@0x08011258+0x1A
+  eeconfig_init_user                   0x0800C3C6   6      exact-ambiguous  eeconfig_init_user:bl from eeconfig_init_kb@0x0800C3CC+0x8
+  eeconfig_init_kb                     0x0800C3CC   14     exact  eeconfig_init_kb:bl from eeconfig_init_quantum@0x0800C3DC+0x8A
+  shutdown_user                        0x0800B1EA   4      exact-ambiguous  shutdown_user:bl from shutdown_kb@0x0800B1EE+0x2
+  shutdown_kb                          0x0800B1EE   8      exact-ambiguous  shutdown_kb:bl from shutdown_quantum@0x0800B1F6+0xA
+  suspend_power_down_user              0x08010AAC   2      exact-ambiguous  suspend_power_down_user:bl from suspend_power_down_kb@0x08010AAE+0x2
+  suspend_power_down_kb                0x08010AAE   8      exact-ambiguous  suspend_power_down_kb:bl from suspend_power_down_quantum@0x0800B2E2+0x2
+  suspend_wakeup_init_user             0x08010AB6   2      exact-ambiguous  suspend_wakeup_init_user:bl from suspend_wakeup_init_kb@0x08010AB8+0x2
+  suspend_wakeup_init_kb               0x08010AB8   8      exact-ambiguous  suspend_wakeup_init_kb:b.w from suspend_wakeup_init_quantum@0x0800B2FA+0x10
+  led_update_user                      0x0800B32A   4      exact-ambiguous  led_update_user:bl from led_update_kb@0x08009C98+0x4
+  led_update_kb                        0x08009C98   84     exact  led_update_kb:bl from wireless_event_task@0x0800889C+0xB8
+  via_custom_value_command_kb          0x080104E0   6      exact  via_custom_value_command_kb:bl from via_custom_value_command@0x080105B0+0x10
+  process_record_via                   0x080104C2   30     exact  process_record_via:bl from process_record_quantum@0x0800B230+0xE
+  pre_process_record_user              0x0800B14C   4      exact-ambiguous  pre_process_record_user:bl from pre_process_record_kb@0x0800B150+0x2
+  pre_process_record_kb                0x0800B150   8      exact-ambiguous  pre_process_record_kb:bl from pre_process_record_quantum@0x0800B1C6+0xC
+  post_process_record_user             0x0800B15C   2      exact-ambiguous  post_process_record_user:bl from post_process_record_kb@0x0800B15E+0x2
+  post_process_record_kb               0x0800B15E   8      exact-ambiguous  post_process_record_kb:bl from post_process_record_quantum@0x0800B1D8+0xC
+  wireless_pre_task                    0x0800A93C   176    exact  wireless_pre_task:bl from wireless_tasks@0x08009CEE+0x2
+  wireless_post_task                   0x08009CEC   2      exact-ambiguous  wireless_post_task:bl from wireless_tasks@0x08009CEE+0xA
+  keyboard_init                        0x0800C540   32     exact  keyboard_init:bl from protocol_init@0x0800CE14+0x6
+  keyboard_task                        0x0800C568   248    exact  keyboard_task:bl from protocol_task@0x0800CE26+0x6
+  main                                 0x0800CE38   28     exact  main:bl from endinitloop@0x080080C8+0x0
+  wireless_enter_reset_kb              0x0800A8E4   4      UNMATCHED-custom-code-candidate  bl from wireless_event_task@0x0800889C+0x26
+  wireless_enter_connected_kb          0x0800875C   2      exact-ambiguous  wireless_enter_connected_kb:bl from wireless_event_task@0x0800889C+0x44
+  wireless_enter_discoverable_kb       0x08008758   2      exact-ambiguous  wireless_enter_discoverable_kb:bl from wireless_event_task@0x0800889C+0x78
+  wireless_enter_reconnecting_kb       0x0800875A   2      exact-ambiguous  wireless_enter_reconnecting_kb:bl from wireless_event_task@0x0800889C+0x92
+  wireless_enter_disconnected_kb       0x0800A8E8   44     exact  wireless_enter_disconnected_kb:bl from wireless_event_task@0x0800889C+0xDE
+  wireless_enter_bluetooth_pin_code_entry_kb 0x0800875E   2      exact-ambiguous  wireless_enter_bluetooth_pin_code_entry_kb:bl from wireless_event_task@0x0800889C+0x106
+  wireless_exit_bluetooth_pin_code_entry_kb 0x08008760   2      exact-ambiguous  wireless_exit_bluetooth_pin_code_entry_kb:bl from wireless_event_task@0x0800889C+0x11C
+  wireless_enter_sleep_kb              0x08008762   2      exact-ambiguous  wireless_enter_sleep_kb:bl from wireless_event_task@0x0800889C+0x138
+  via_command_kb                       0x0800ABB8   148    exact  via_command_kb:bl from raw_hid_receive@0x080105C6+0x6
+  process_action_kb                    0x0800B158   4      exact-ambiguous  process_action_kb:bl from process_record_quantum@0x0800B230+0x78
+  oneshot_layer_changed_kb             0x0800C29E   8      exact-ambiguous  oneshot_layer_changed_kb:bl from set_oneshot_layer@0x0800C2A8+0x1A
+  matrix_init_kb                       0x0800CABA   8      exact-ambiguous  matrix_init_kb:b.w from matrix_init@0x0800CC00+0x24
+  rgb_matrix_map_row_column_to_led_kb  0x0800DBE4   4      exact-ambiguous  rgb_matrix_map_row_column_to_led_kb:bl from rgb_matrix_map_row_column_to_led@0x0800DBE8+0x8
+  process_record_keychron_kb           0x0800A9EC   4      exact-ambiguous  process_record_keychron_kb:bl from process_record_keychron@0x0800A9F0+0x1A
+  via_init_kb                          0x0801045E   2      exact-ambiguous  via_init_kb:bl from via_init@0x080104A0+0x2
+  via_set_layout_options_kb            0x0801046A   2      exact-ambiguous  via_set_layout_options_kb:bl from via_init@0x080104A0+0xA
+  oneshot_locked_mods_changed_kb       0x0800C15A   8      exact-ambiguous  oneshot_locked_mods_changed_kb:bl from del_oneshot_locked_mods@0x0800C164+0x10
+  oneshot_mods_changed_kb              0x0800C182   8      exact-ambiguous  oneshot_mods_changed_kb:bl from add_oneshot_mods@0x0800C18C+0x10
+  keychron_task_kb                     0x0800B0B4   48     exact  keychron_task_kb:bl from keychron_task@0x0800AA1E+0xE
+  notify_usb_device_state_change_kb    0x08010A5A   8      exact-ambiguous  notify_usb_device_state_change_kb:bl from usb_device_state_set_configuration@0x08010A64+0xA
+  led_set_user                         0x0800B328   2      exact-ambiguous  led_set_user:bl from led_set@0x0800B332+0x4
+  eeconfig_update_kb                   0x0800C3B6   8      exact  eeconfig_update_kb:bl from eeconfig_init_kb@0x0800C3CC+0x4
+  rgb_matrix_none_indicators_kb        0x08009B7C   28     exact  rgb_matrix_none_indicators_kb:bl from rgb_matrix_none_indicators@0x0800DF1A+0x2
+  rgb_matrix_none_indicators_user      0x0800DF18   2      exact-ambiguous  rgb_matrix_none_indicators_user:bl from rgb_matrix_none_indicators@0x0800DF1A+0x6
+  oneshot_locked_mods_changed_user     0x0800C158   2      exact-ambiguous  oneshot_locked_mods_changed_user:bl from oneshot_locked_mods_changed_kb@0x0800C15A+0x2
+  oneshot_mods_changed_user            0x0800C180   2      exact-ambiguous  oneshot_mods_changed_user:bl from oneshot_mods_changed_kb@0x0800C182+0x2
+  oneshot_layer_changed_user           0x0800C29C   2      exact-ambiguous  oneshot_layer_changed_user:bl from oneshot_layer_changed_kb@0x0800C29E+0x2
+  matrix_init_user                     0x0800CAB8   2      exact-ambiguous  matrix_init_user:bl from matrix_init_kb@0x0800CABA+0x2
+  notify_usb_device_state_change_user  0x08010A58   2      exact-ambiguous  notify_usb_device_state_change_user:bl from notify_usb_device_state_change_kb@0x08010A5A+0x2
+  eeconfig_update_user                 0x0800C3BE   8      exact  eeconfig_update_user:b.w from eeconfig_init_user@0x0800C3C6+0x2
+  not found (no body, no caller vote): encoder_update_user, encoder_update_kb, leader_start_user, leader_end_user, raw_hid_receive_kb, get_tapping_term, process_tap_dance, tap_dance_task, preprocess_tap_dance, process_leader, leader_task, get_hold_on_other_key_press, get_permissive_hold, get_retro_tapping, battery_low_user
+
+unmatched regions >= 32 bytes:
+  0x08015C04 size   836 post-text(rodata/.data image) starts[0x08015C0E 0x08015C7C 0x08015C84 0x08015C9A 0x08015CB6 0x08015D3E 0x08015D70 0x08015D9E 0x08015DB0 0x08015DD2 0x08015DE6] sugg[] callers[0x08015C0E<-lkbt51_param_init@0x0800A8A0(ptr) 0x08015C84<-chInstanceObjectInit@0x08011F74(ptr) 0x08015C9A<-_kill@0x08014CE0(ptr) 0x08015CB6<-rand@0x08014E98(ptr) 0x08015D3E<-__utoa@0x08014F14(ptr) 0x0] callees[0x08015DDC->ProductString+0x2 0x08015DE2->keymaps+0x28E 0x08015DE4->ProductString+0x14 0x08015F44->keymaps+0x14]
+  0x08016534 size    32 zeros                        starts[] sugg[] callers[] callees[]
+  0x08016564 size    60 post-text(rodata/.data image) starts[] sugg[] callers[] callees[]
+  0x08016637 size   493 post-text(rodata/.data image) starts[0x08016648 0x0801666A 0x08016720] sugg[] callers[] callees[0x0801672B->0x08016581]
+  0x08016A30 size    36 post-text(rodata/.data image) starts[] sugg[] callers[] callees[]
+  0x08016BFD size    83 post-text(rodata/.data image) starts[] sugg[] callers[] callees[]
+  0x08016CB0 size   408 post-text(rodata/.data image) starts[] sugg[] callers[] callees[]
+  0x08016E50 size    36 post-text(rodata/.data image) starts[] sugg[] callers[] callees[]
+  0x080170F4 size   712 post-text(rodata/.data image) starts[] sugg[] callers[] callees[]
+
+log:
+  dump refs/ref1011_via.bin: 95164 bytes, code region file 0x8000-0x173BC (flash 0x08008000-0x080173BC, 62396 bytes)
+  references: ref1011_via ; 947 functions, 114 objects
+  exact: 4018 candidate ranges from 947 reference functions (148 needed masked-scan fallback, 135 tiny <8B bodies gated by votes/adjacency)
+  exact: placed 907 ranges (0 tiny bodies left unplaced: no vote/adjacency); 11 still ambiguous after caller voting
+  data: placed 36 object ranges
+  fuzzy: 1 leftover reference bodies vs 125 function-start candidates in 107 gaps
+  fuzzy: accepted 0 (0 proposals)

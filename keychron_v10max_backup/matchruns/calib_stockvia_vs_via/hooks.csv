@@ -1,0 +1,92 @@
+hook,dump_addr,size,status,ref_elf,evidence
+process_record_user,0x0800B1A8,4,UNMATCHED-custom-code-candidate,,bl from process_record_kb@0x0800AAB4+0x6
+process_record_kb,0x0800AAB4,26,exact,ref1011_via,process_record_kb:bl(fuzzy-paired) from process_record_quantum@0x0800B2E0+0x1C
+process_record_keychron,0x0800AA6C,38,fuzzy-anchored,ref1011_via,process_record_keychron:b.w from process_record_kb@0x0800AAB4+0x14
+process_record_keychron_common,,,not-found,,"no body match, no caller vote"
+process_record_quantum,0x0800B2E0,190,fuzzy-anchored,ref1011_via,process_record_quantum:bl from process_record@0x0800B9DC+0x8
+housekeeping_task_user,0x0800C630,2,exact-ambiguous,ref1011_via,housekeeping_task_user:bl from housekeeping_task@0x0800C632+0x6
+housekeeping_task_kb,0x0800AAE0,4,UNMATCHED-custom-code-candidate,,bl from housekeeping_task@0x0800C632+0x2
+matrix_scan_user,0x0800CBDA,2,exact-ambiguous,ref1011_via,matrix_scan_user:bl from matrix_scan_kb@0x0800CBDC+0x2
+matrix_scan_kb,0x0800CBDC,8,exact-ambiguous,ref1011_via,matrix_scan_kb:bl(fuzzy-paired) from matrix_scan@0x0800CD50+0x58
+keyboard_post_init_user,0x0800C600,2,exact-ambiguous,ref1011_via,keyboard_post_init_user:b.w from keyboard_post_init_kb@0x0800B10C+0x3C
+keyboard_post_init_kb,0x0800B10C,76,exact,ref1011_via,keyboard_post_init_kb:bl from keyboard_init@0x0800C650+0x1A
+keyboard_pre_init_user,0x0800C5F6,2,exact-ambiguous,ref1011_via,keyboard_pre_init_user:bl from keyboard_pre_init_kb@0x0800C5F8+0x2
+keyboard_pre_init_kb,0x0800C5F8,8,exact-ambiguous,ref1011_via,keyboard_pre_init_kb:bl from keyboard_setup@0x0800C608+0x10
+layer_state_set_user,0x0800BB1C,2,exact-ambiguous,ref1011_via,layer_state_set_user:bl from layer_state_set_kb@0x0800BB1E+0x2
+layer_state_set_kb,0x0800BB1E,8,exact-ambiguous,ref1011_via,layer_state_set_kb:b.w from magic@0x0800CB90+0x30
+default_layer_state_set_user,,,not-found,,"no body match, no caller vote"
+default_layer_state_set_kb,,,not-found,,"no body match, no caller vote"
+rgb_matrix_indicators_user,,,not-found,,"no body match, no caller vote"
+rgb_matrix_indicators_kb,0x0800AACE,18,UNMATCHED-custom-code-candidate,,bl(fuzzy-paired) from rgb_matrix_task@0x0800EFD4+0xC8
+rgb_matrix_indicators_advanced_user,,,not-found,,"no body match, no caller vote"
+rgb_matrix_indicators_advanced_kb,,,not-found,,"no body match, no caller vote"
+dip_switch_update_kb,0x0800B0EC,32,fuzzy,ref1011_via,dip_switch_update_kb:bl(fuzzy-paired) from dip_switch_read@0x0800F81C+0x20
+dip_switch_update_user,0x0800B0C0,44,UNMATCHED-custom-code-candidate,,bl(fuzzy-paired) from dip_switch_update_kb@0x0800B0EC+0x18
+dip_switch_update_mask_kb,0x0800F814,8,exact-ambiguous,ref1011_via,dip_switch_update_mask_kb:bl(fuzzy-paired) from dip_switch_read@0x0800F81C+0x26
+dip_switch_update_mask_user,0x0800F810,4,exact-ambiguous,ref1011_via,dip_switch_update_mask_user:bl from dip_switch_update_mask_kb@0x0800F814+0x2
+encoder_update_user,,,not-found,,"no body match, no caller vote"
+encoder_update_kb,,,not-found,,"no body match, no caller vote"
+keycode_at_encodermap_location_raw,0x0800B1D4,32,fuzzy,ref1011_via,keycode_at_encodermap_location_raw:bl(fuzzy-paired) from dynamic_keymap_reset@0x0800F956+0x3E
+keycode_at_keymap_location_raw,0x0800B1AC,40,UNMATCHED-custom-code-candidate,,bl(fuzzy-paired) from dynamic_keymap_reset@0x0800F956+0x14
+leader_start_user,,,not-found,,"no body match, no caller vote"
+leader_end_user,,,not-found,,"no body match, no caller vote"
+raw_hid_receive,0x0801073E,442,fuzzy,ref1011_via,raw_hid_receive:bl(fuzzy-paired) from raw_hid_task@0x08011410+0x1C
+raw_hid_receive_kb,,,not-found,,"no body match, no caller vote"
+eeconfig_init_user,0x0800C4D2,6,exact-ambiguous,ref1011_via,eeconfig_init_user:bl from eeconfig_init_kb@0x0800C4D8+0x8
+eeconfig_init_kb,0x0800C4D8,14,exact,ref1011_via,
+get_tapping_term,,,not-found,,"no body match, no caller vote"
+process_tap_dance,,,not-found,,"no body match, no caller vote"
+tap_dance_task,,,not-found,,"no body match, no caller vote"
+preprocess_tap_dance,,,not-found,,"no body match, no caller vote"
+process_leader,,,not-found,,"no body match, no caller vote"
+leader_task,,,not-found,,"no body match, no caller vote"
+shutdown_user,,,not-found,,"no body match, no caller vote"
+shutdown_kb,,,not-found,,"no body match, no caller vote"
+suspend_power_down_user,0x08010C3C,2,exact-ambiguous,ref1011_via,suspend_power_down_user:bl from suspend_power_down_kb@0x08010C3E+0x2
+suspend_power_down_kb,0x08010C3E,8,exact-ambiguous,ref1011_via,suspend_power_down_kb:bl from suspend_power_down_quantum@0x0800B39E+0x2
+suspend_wakeup_init_user,0x08010C46,2,exact-ambiguous,ref1011_via,suspend_wakeup_init_user:bl from suspend_wakeup_init_kb@0x08010C48+0x2
+suspend_wakeup_init_kb,0x08010C48,8,exact-ambiguous,ref1011_via,suspend_wakeup_init_kb:b.w from suspend_wakeup_init_quantum@0x0800B3B6+0x10
+led_update_user,0x0800B3EA,4,exact-ambiguous,ref1011_via,led_update_user:bl from led_update_kb@0x08009CB4+0x4
+led_update_kb,0x08009CB4,84,exact,ref1011_via,led_update_kb:bl from led_set@0x0800B3F2+0xA
+via_custom_value_command_kb,0x0801064A,6,exact,ref1011_via,via_custom_value_command_kb:bl from via_custom_value_command@0x08010728+0x10
+process_record_via,0x0801062C,30,exact,ref1011_via,process_record_via:bl(fuzzy-paired) from process_record_quantum@0x0800B2E0+0xE
+get_hold_on_other_key_press,,,not-found,,"no body match, no caller vote"
+get_permissive_hold,,,not-found,,"no body match, no caller vote"
+get_retro_tapping,,,not-found,,"no body match, no caller vote"
+pre_process_record_user,0x0800B1F4,4,exact-ambiguous,ref1011_via,pre_process_record_user:bl from pre_process_record_kb@0x0800B1F8+0x2
+pre_process_record_kb,0x0800B1F8,8,exact-ambiguous,ref1011_via,pre_process_record_kb:bl from pre_process_record_quantum@0x0800B274+0xC
+post_process_record_user,0x0800B204,2,exact-ambiguous,ref1011_via,post_process_record_user:bl from post_process_record_kb@0x0800B206+0x2
+post_process_record_kb,0x0800B206,8,exact-ambiguous,ref1011_via,post_process_record_kb:bl from post_process_record_quantum@0x0800B286+0xC
+battery_low_user,,,not-found,,"no body match, no caller vote"
+wireless_pre_task,0x0800A9B8,176,fuzzy-anchored,ref1011_via,wireless_pre_task:bl from wireless_tasks@0x08009D0A+0x2
+wireless_post_task,0x08009D08,2,exact-ambiguous,ref1011_via,wireless_post_task:bl from wireless_tasks@0x08009D0A+0xA
+keyboard_init,0x0800C650,32,exact,ref1011_via,keyboard_init:bl from protocol_init@0x0800CF3C+0x6
+keyboard_task,0x0800C678,248,fuzzy-anchored,ref1011_via,keyboard_task:bl from protocol_task@0x0800CF4E+0x6
+main,0x0800CF60,28,exact,ref1011_via,main:bl from endinitloop@0x080080C8+0x0
+matrix_init_kb,0x0800CBD2,8,exact-ambiguous,ref1011_via,matrix_init_kb:b.w from matrix_init@0x0800CD20+0x24
+via_init_kb,0x080105C8,2,exact-ambiguous,ref1011_via,via_init_kb:bl from via_init@0x0801060A+0x2
+via_set_layout_options_kb,0x080105D4,2,exact-ambiguous,ref1011_via,via_set_layout_options_kb:bl from via_init@0x0801060A+0xA
+oneshot_mods_changed_kb,0x0800C28A,8,exact-ambiguous,ref1011_via,oneshot_mods_changed_kb:bl from clear_oneshot_mods@0x0800C2CC+0xC
+keychron_task_kb,0x0800B158,48,exact,ref1011_via,keychron_task_kb:bl from keychron_task@0x0800AAA0+0xE
+oneshot_layer_changed_kb,0x0800C3A6,8,exact-ambiguous,ref1011_via,oneshot_layer_changed_kb:bl from reset_oneshot_layer@0x0800C3E0+0x8
+notify_usb_device_state_change_kb,0x08010BE6,8,exact-ambiguous,ref1011_via,notify_usb_device_state_change_kb:bl from usb_device_state_set_suspend@0x08010C08+0x8
+led_set_user,0x0800B3E8,2,exact-ambiguous,ref1011_via,led_set_user:bl from led_set@0x0800B3F2+0x4
+eeconfig_update_kb,0x0800C4C2,8,exact,ref1011_via,eeconfig_update_kb:bl from eeconfig_init_kb@0x0800C4D8+0x4
+oneshot_mods_changed_user,0x0800C288,2,exact-ambiguous,ref1011_via,oneshot_mods_changed_user:bl from oneshot_mods_changed_kb@0x0800C28A+0x2
+oneshot_layer_changed_user,0x0800C3A4,2,exact-ambiguous,ref1011_via,oneshot_layer_changed_user:bl from oneshot_layer_changed_kb@0x0800C3A6+0x2
+matrix_init_user,0x0800CBD0,2,exact-ambiguous,ref1011_via,matrix_init_user:bl from matrix_init_kb@0x0800CBD2+0x2
+notify_usb_device_state_change_user,0x08010BE4,2,exact-ambiguous,ref1011_via,notify_usb_device_state_change_user:bl from notify_usb_device_state_change_kb@0x08010BE6+0x2
+eeconfig_update_user,0x0800C4CA,8,exact,ref1011_via,eeconfig_update_user:b.w from eeconfig_init_user@0x0800C4D2+0x2
+rgb_matrix_map_row_column_to_led_kb,0x0800DD38,4,exact-ambiguous,ref1011_via,rgb_matrix_map_row_column_to_led_kb:bl(fuzzy-paired) from rgb_matrix_map_row_column_to_led@0x0800DD3C+0x8
+via_command_kb,0x0800AC3C,148,exact,ref1011_via,
+via_command_kb,0x0800ACD0,4,UNMATCHED-custom-code-candidate,,bl(fuzzy-paired) from raw_hid_receive@0x0801073E+0x8
+wireless_enter_reset_kb,0x0800A960,4,UNMATCHED-custom-code-candidate,,bl(fuzzy-paired) from wireless_event_task@0x080088D0+0x28
+wireless_enter_connected_kb,0x08008790,2,exact-ambiguous,ref1011_via,wireless_enter_connected_kb:bl(fuzzy-paired) from wireless_event_task@0x080088D0+0x46
+wireless_enter_discoverable_kb,0x0800878C,2,exact-ambiguous,ref1011_via,wireless_enter_discoverable_kb:bl(fuzzy-paired) from wireless_event_task@0x080088D0+0x7A
+wireless_enter_reconnecting_kb,0x0800878E,2,exact-ambiguous,ref1011_via,wireless_enter_reconnecting_kb:bl(fuzzy-paired) from wireless_event_task@0x080088D0+0x94
+wireless_enter_disconnected_kb,0x0800A964,44,exact,ref1011_via,wireless_enter_disconnected_kb:bl(fuzzy-paired) from wireless_event_task@0x080088D0+0xE0
+wireless_enter_bluetooth_pin_code_entry_kb,0x08008792,2,exact-ambiguous,ref1011_via,wireless_enter_bluetooth_pin_code_entry_kb:bl(fuzzy-paired) from wireless_event_task@0x080088D0+0x108
+wireless_exit_bluetooth_pin_code_entry_kb,0x08008794,2,exact-ambiguous,ref1011_via,wireless_exit_bluetooth_pin_code_entry_kb:bl(fuzzy-paired) from wireless_event_task@0x080088D0+0x11E
+wireless_enter_sleep_kb,0x08008796,2,exact-ambiguous,ref1011_via,wireless_enter_sleep_kb:bl(fuzzy-paired) from wireless_event_task@0x080088D0+0x13A
+process_action_kb,0x0800B200,4,exact-ambiguous,ref1011_via,process_action_kb:bl(fuzzy-paired) from process_record_quantum@0x0800B2E0+0x86
+process_record_keychron_kb,0x0800AA68,4,UNMATCHED-custom-code-candidate,,bl(fuzzy-paired) from process_record_keychron@0x0800AA6C+0x20

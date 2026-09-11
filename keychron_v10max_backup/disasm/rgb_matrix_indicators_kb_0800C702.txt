@@ -1,0 +1,10 @@
+; rgb_matrix_indicators_kb  dump 0x0800C702..0x0800C714 (18 B)  source: dump_a.bin, objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08000000
+; symbols from functions_final.csv (tools/reconcile_maps.py); '; -> name' = branch target, '; = 0x..' = literal-pool value, '.word' = pool entry
+
+ 800c702:	b510      	push	{r4, lr}
+ 800c704:	f003 fd39 	bl	0x801017a	; -> rgb_matrix_indicators_user
+ 800c708:	4604      	mov	r4, r0
+ 800c70a:	b108      	cbz	r0, 0x800c710	; local
+ 800c70c:	f7ff ffdb 	bl	0x800c6c6	; -> rgb_matrix_indicators_keychron
+ 800c710:	4620      	mov	r0, r4
+ 800c712:	bd10      	pop	{r4, pc}
