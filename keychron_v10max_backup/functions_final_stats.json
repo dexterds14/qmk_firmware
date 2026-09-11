@@ -1,0 +1,192 @@
+{
+ "rows": 971,
+ "by_status": {
+  "agreed": 805,
+  "conflict": 14,
+  "A-only": 3,
+  "lib-only": 52,
+  "B-only": 63,
+  "data": 34
+ },
+ "bytes_by_status": {
+  "agreed": 47494,
+  "conflict": 390,
+  "A-only": 14,
+  "lib-only": 5458,
+  "B-only": 5702,
+  "data": 3851
+ },
+ "text_bytes": 59140,
+ "text_named": 59058,
+ "text_named_pct": 99.86,
+ "region_bytes": 65284,
+ "region_named": 62909,
+ "region_named_pct": 96.36,
+ "conflicts": [
+  {
+   "addr": "0x08008074",
+   "name": "_crt0_entry",
+   "note": "A msloop (exact, 14 B) lies inside final _crt0_entry@0x08008000; kept host"
+  },
+  {
+   "addr": "0x08008082",
+   "name": "_crt0_entry",
+   "note": "A psloop (exact, 16 B) lies inside final _crt0_entry@0x08008000; kept host"
+  },
+  {
+   "addr": "0x08008092",
+   "name": "_crt0_entry",
+   "note": "A dloop (exact, 20 B) lies inside final _crt0_entry@0x08008000; kept host"
+  },
+  {
+   "addr": "0x080080A6",
+   "name": "_crt0_entry",
+   "note": "A bloop (exact, 22 B) lies inside final _crt0_entry@0x08008000; kept host"
+  },
+  {
+   "addr": "0x080080BC",
+   "name": "_crt0_entry",
+   "note": "A finiloop|initloop (exact-ambiguous, 12 B) lies inside final _crt0_entry@0x08008000; kept host"
+  },
+  {
+   "addr": "0x080080C8",
+   "name": "_crt0_entry",
+   "note": "A endinitloop (exact, 8 B) lies inside final _crt0_entry@0x08008000; kept host"
+  },
+  {
+   "addr": "0x080080D0",
+   "name": "_crt0_entry",
+   "note": "A finiloop|initloop (exact-ambiguous, 12 B) lies inside final _crt0_entry@0x08008000; kept host"
+  },
+  {
+   "addr": "0x0800811C",
+   "name": "Reset_Handler",
+   "note": "A Reset_Handler (exact) vs B 'INSERTION'. Dump 0x0800811C = 'e770 b.n 0x08008000 (_crt0_entry)' == ref vectors.S Reset_Handler; vector slot 1 = 0x0800811D. Resolved: A."
+  },
+  {
+   "addr": "0x0800811E",
+   "name": "BusFault_Handler (weak default ISR aliases: NMI/HardFault/MemManage/BusFault/UsageFault/DebugMon/PendSV/... -> bl _unhandled_exception)",
+   "note": "A BusFault_Handler (4 B) vs B 'Reset_Handler split1'. Dump 'f000 f800 bl 0x08008122' == ref 0x0800811E (W BusFault_Handler, W NMI_Handler ...); vector slots 2..15 except SVC (0x2C) hold 0x0800811F. Resolved: A."
+  },
+  {
+   "addr": "0x08008122",
+   "name": "_unhandled_exception",
+   "note": "A (part of BusFault body) vs B 'Reset_Handler split2'. Dump 'e7fe b.n self' == ref _unhandled_exception 0x08008122. Resolved: A."
+  },
+  {
+   "addr": "0x0800813C",
+   "name": "__port_thread_start",
+   "note": "A __port_thread_start (exact) vs B '__port_switch split2'. Dump 'movs r3,#0; msr BASEPRI,r3; mov r0,r5; blx r4; movs r0,#0; bl 0x08013A70 (chThdExit)' == ref __port_thread_start 0x0800813C. Resolved: A."
+  },
+  {
+   "addr": "0x0800896E",
+   "name": "(dropped A tiny body)",
+   "note": "A __aeabi_idiv0|__aeabi_ldiv0|__chibios_ov 2 B: last bx lr of memcpy (libc_a-memcpy.o 308 B, 100% bytes equal)"
+  },
+  {
+   "addr": "0x08008970",
+   "name": "malloc",
+   "note": "A ambiguous {free|malloc|raise} vs B malloc. Dump 0x08008970: 'ldr r3,=_impure_ptr(0x20000C0C); mov r1,r0; ldr r0,[r3]; b.w 0x08009758' and 0x08009758 = _malloc_r (Ubuntu libc_a-mallocr.o placed at 0x08009710 = sbrk_aligned+_malloc_r, 90.9% bytes equal); newlib malloc.c emits malloc before free. Resolved: B."
+  },
+  {
+   "addr": "0x08009344",
+   "name": "__fp_lock",
+   "note": "A=_close_r|_lseek_r|null_sendchar_func|rgb_matrix_map_row_column_to_led_kb|sendchar B=- lib=__fp_lock: resolved by the archive member placement (position + bytes). Ubuntu noble libnewlib 4.4.0.20231231-2 libc_nano.a member libc_a-findfp.o placed by tools/lib_match.py windows + direct byte compare (82.1% of member .text bytes equal at its placement; differences = relocations); symbol offset from the member's symbol table."
+  },
+  {
+   "addr": "0x0800A1BA",
+   "name": "(dropped A tiny body)",
+   "note": "A eeconfig_init_user|encoder0_pad_cb|layer 6 B: inside _kill_r (libc_a-signalr.o)"
+  },
+  {
+   "addr": "0x0800D4AE",
+   "name": "(dropped A tiny body)",
+   "note": "A __aeabi_idiv0|__aeabi_ldiv0|__chibios_ov 2 B: tail of biton16 (B 40 B)"
+  },
+  {
+   "addr": "0x0800DBC2",
+   "name": "(dropped A tiny body)",
+   "note": "A __aeabi_idiv0|__aeabi_ldiv0|__chibios_ov 2 B: tail of debug_record (B 12 B)"
+  },
+  {
+   "addr": "0x0800DEFC",
+   "name": "get_tapping_term",
+   "note": "A get_tapping_term ('movs r0,#175; bx lr', caller vote) vs B 'waiting_buffer_scan_tap split1'. Callers: tap_dance_task@0x080120EC after building a keyrecord_t on the stack (strd r3,r3,[sp]; mov r1,sp; ldrh r0,[active_td]; bl 0x0800DEFC; cmp r5,r0) where ref tap_dance_task@0x080105EC has 'cmp r0,#140' inline; waiting_buffer_scan_tap@0x0800DF52 (right after bl get_record_keycode 0x0800D334) where ref has 'cmp r2,#139'; process_tapping@0x0800E016 and @0x0800E192. That call shape is GET_TAPPING_TERM() with TAPPING_TERM_PER_KEY defined. Body is the weak default returning TAPPING_TERM = 175, at the action_tapping.o link position (after waiting_buffer_typed.isra.0, before waiting_buffer_scan_tap), not in the keymap object. Resolved: A; B's 'TAPPING_TERM_PER_KEY off' inference is wrong."
+  },
+  {
+   "addr": "0x0800E3B0",
+   "name": "clear_oneshot_locked_mods",
+   "note": "A clear_oneshot_mods (exact; the only candidate because ref_feat has no clear_oneshot_locked_mods) vs B clear_oneshot_locked_mods. Body clears byte 0x200016A5 then bl 0x0800E38C. 0x200016A5 is the byte written by add_oneshot_locked_mods@0x0800E394 (A exact) and del_oneshot_locked_mods@0x0800E3C8; the oneshot_mods group (get 0x0800E380, add 0x0800E3EC, del 0x0800E408, clear 0x0800E424) uses 0x200016A6 and calls oneshot_mods_changed_kb 0x0800E3E4. Orientation pinned by process_action@0x0800D83A-0x0800D846: bl register_mods(0x0800D672); bl del_oneshot_mods(0x0800E408); bl add_oneshot_locked_mods(0x0800E394) == quantum/action.c:464-466 (tap_count == ONESHOT_TAP_TOGGLE branch). Resolved: B."
+  },
+  {
+   "addr": "0x0800FBA8",
+   "name": "(dropped A tiny body)",
+   "note": "A __aeabi_idiv0|__aeabi_ldiv0|__chibios_ov 2 B: tail of SPLASH_math (B 78 B)"
+  },
+  {
+   "addr": "0x0801016A",
+   "name": "(dropped A tiny body)",
+   "note": "A _close_r|_lseek_r|null_sendchar_func|rgb 4 B: literal-pool word 0x20000D07 of process_rgb_matrix"
+  },
+  {
+   "addr": "0x080119F8",
+   "name": "leader_reset_timer",
+   "note": "A ambiguous {default_layer_state_set|layer_state_set} vs B leader_reset_timer. Body 'push {r3,lr}; bl 0x08012574 (timer_read); ldr r3,=0x20002006; strh r0,[r3]; pop' and 0x20002006 is the halfword leader_start@0x08011950-0x08011956 writes (leader_time). A itself places default_layer_state_set at 0x0800DBD0 and layer_state_set at 0x0800DC24. Resolved: B (function exists because LEADER_PER_KEY_TIMING is defined)."
+  },
+  {
+   "addr": "0x08013AF8",
+   "name": "(dropped A tiny body)",
+   "note": "A __aeabi_idiv0|__aeabi_ldiv0|__chibios_ov 2 B: tail of chThdDequeueNextI"
+  },
+  {
+   "addr": "0x08013B3E",
+   "name": "chMtxObjectInit",
+   "note": "A chMtxLockS (fuzzy, 102 B) lies inside final chMtxObjectInit@0x08013B34; kept host"
+  },
+  {
+   "addr": "0x08013B40",
+   "name": "chMtxLockS",
+   "note": "A chMtxLockS fuzzy from 0x08013B3E (102 B) vs B 0x08013B40 (100 B, opsim 1.00, gcc13 agrees). Boundary resolved: B."
+  },
+  {
+   "addr": "0x08014894",
+   "name": "(dropped A tiny body)",
+   "note": "A __aeabi_idiv0|__aeabi_ldiv0|__chibios_ov 2 B: tail of nvicEnableVector"
+  },
+  {
+   "addr": "0x08014C76",
+   "name": "(dropped A tiny body)",
+   "note": "A __aeabi_idiv0|__aeabi_ldiv0|__chibios_ov 2 B: tail of stm32_flash_check_errors"
+  },
+  {
+   "addr": "0x08014E34",
+   "name": "(dropped A tiny body)",
+   "note": "A _close_r|_lseek_r|null_sendchar_func|rgb 4 B: 'movs r0,#0; bx lr' return path inside efl_lld_start_erase_sector (B 70 B opsim 1.0, gcc13 agrees)"
+  },
+  {
+   "addr": "0x08014E38",
+   "name": "(dropped A tiny body)",
+   "note": "A _getpid|_isatty_r|dip_switch_update_mask 4 B: 'movs r0,#1; bx lr' return path inside efl_lld_start_erase_sector"
+  },
+  {
+   "addr": "0x08016304",
+   "name": "spi_lld_serve_tx_interrupt",
+   "note": "A tx (exact) + C(gcc13) rx@0x08016340 vs B rx/tx swapped (opsim 0.53 both). Dump 0x08016304 is instruction-identical to ref spi_lld_serve_tx_interrupt 0x08014824 (tst.w r1,#12; bl chSysHalt; bl spi_lld_stop_abort.isra.0; blx cb; msr BASEPRI; bl chThdResumeI); sizes 60/136 match ref 60/136. Resolved: A."
+  },
+  {
+   "addr": "0x08016340",
+   "name": "spi_lld_serve_rx_interrupt",
+   "note": "see 0x08016304; A fuzzy-anchored 0.94 + gcc13 exact; B swapped. Resolved: A."
+  },
+  {
+   "addr": "0x080166FC",
+   "name": "_getpid",
+   "note": "'movs r0,#1; bx lr' == ref _getpid (4 B); A placed its 4-B ambiguous set here, B put _getpid at 0x08016700. Resolved: A."
+  },
+  {
+   "addr": "0x08016700",
+   "name": "_fini",
+   "note": "lone 'bx lr' after _getpid at the end of .text (ref syscalls.o/syscall-fallbacks.o order: _exit,_kill,_getpid,_fini); A's 2-B ambiguous set contains _fini, B labelled it _getpid. Resolved: _fini (B reported _fini absent)."
+  }
+ ]
+}

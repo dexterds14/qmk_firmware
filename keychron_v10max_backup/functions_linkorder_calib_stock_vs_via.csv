@@ -1,0 +1,941 @@
+dump_addr,size,ref_symbol,ref_addr,ref_size,alignment_score,notes,obj,opcode_sim
+0x08008000,284,_crt0_entry,0x08008000,284,4.50,match; callgraph 5/5; opsim=1.00,crt0_v7m.o,1.000
+0x0800811c,2,,,,,INSERTION (no ref function); entry=vector,,
+0x0800811e,4,Reset_Handler,0x0800811c,8,0.70,split1; entry=vector; anchor=vector; callgraph 1/1; opsim=0.50,vectors.o,0.500
+0x08008122,2,Reset_Handler,0x0800811c,8,-0.55,split2; entry=bl; callgraph 1/1; opsim=0.50,vectors.o,0.500
+0x08008124,24,__port_switch,0x08008124,50,-0.36,split1; opsim=0.58,chcoreasm.o,0.583
+0x0800813c,18,__port_switch,0x08008124,50,-0.72,split2; entry=ptr; callgraph 1/1; opsim=0.58,chcoreasm.o,0.583
+0x0800814e,10,,,,,INSERTION (no ref function); entry=ptr,,
+0x08008158,48,__aeabi_uldivmod,0x08008158,48,2.20,match; entry=bl; callgraph 6/6; opsim=1.00,_aeabi_uldivmod.o,1.000
+0x08008188,720,__udivmoddi4,0x08008188,684,1.75,match; entry=bl; callgraph 1/1; opsim=0.27,_udivmoddi4.o,0.269
+0x08008458,4,__aeabi_ldiv0,0x08008434,4,1.90,match; opsim=1.00,_dvmd_tls.o,1.000
+0x0800845c,20,strlen,0x08008438,16,1.30,match; entry=bl; callgraph 2/2; opsim=0.88,libc_a-strlen.o,0.875
+0x08008470,160,memchr,0x08008450,160,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,libc_a-memchr.o,1.000
+0x08008510,24,wreless_keyboard_leds,0x080084f0,24,1.90,match; entry=ptr; opsim=1.00,wireless.o,1.000
+0x08008528,36,wireless_event_queue_init,0x08008508,36,2.20,match; entry=bl; callgraph 1/1; opsim=1.00,wireless.o,1.000
+0x0800854c,68,wireless_event_enqueue,0x0800852c,68,2.20,match; entry=bl; callgraph 1/1; opsim=0.91,wireless.o,0.913
+0x08008590,40,wireless_init,0x08008570,40,2.20,match; entry=bl; callgraph 6/6; opsim=1.00,wireless.o,1.000
+0x080085b8,52,wireless_pairing_ex,0x08008598,48,1.97,match; callgraph 1/1; opsim=0.83,wireless.o,0.833
+0x080085ec,68,wireless_connect,0x080085c8,68,2.20,match; entry=bl; callgraph 5/5; opsim=1.00,wireless.o,1.000
+0x08008630,104,wireless_send_keyboard,0x0800860c,96,0.97,match; entry=ptr; callgraph 2/4; opsim=0.75,wireless.o,0.750
+0x08008698,104,wireless_send_nkro,0x0800866c,96,0.97,match; entry=ptr; callgraph 2/4; opsim=0.75,wireless.o,0.750
+0x08008700,52,wireless_send_mouse,0x080086cc,52,2.20,match; entry=ptr; callgraph 1/1; opsim=1.00,wireless.o,1.000
+0x08008734,72,wireless_connect_ex,0x08008700,72,2.20,match; entry=bl; callgraph 2/2; opsim=0.89,wireless.o,0.889
+0x0800877c,16,wireless_disconnect,0x08008748,16,1.90,match; entry=bl; callgraph 4/4; opsim=1.00,wireless.o,1.000
+0x0800878c,2,wireless_enter_discoverable_kb,0x08008758,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,wireless.o,1.000
+0x0800878e,2,wireless_enter_reconnecting_kb,0x0800875a,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,wireless.o,1.000
+0x08008790,2,wireless_enter_connected_kb,0x0800875c,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,wireless.o,1.000
+0x08008792,2,wireless_enter_bluetooth_pin_code_entry_kb,0x0800875e,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,wireless.o,1.000
+0x08008794,2,wireless_exit_bluetooth_pin_code_entry_kb,0x08008760,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,wireless.o,1.000
+0x08008796,2,wireless_enter_sleep_kb,0x08008762,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,wireless.o,1.000
+0x08008798,32,wireless_send_system,0x08008764,32,1.90,match; opsim=1.00,wireless.o,1.000
+0x080087b8,88,wireless_send_consumer,0x08008784,88,2.20,match; callgraph 3/3; opsim=1.00,wireless.o,1.000
+0x08008810,56,wireless_send_extra,0x080087dc,54,2.09,match; entry=ptr; callgraph 1/1; opsim=0.98,wireless.o,0.976
+0x08008848,136,wireless_low_battery_shutdown,0x08008814,136,2.80,match; callgraph 6/6; opsim=1.00,wireless.o,1.000
+0x080088d0,400,wireless_event_task,0x0800889c,484,1.68,match; entry=bl; callgraph 21/21; opsim=0.97,wireless.o,0.971
+0x08008a60,88,,,,,INSERTION (no ref function),,
+0x08008ab8,40,wireless_task,0x08008a80,40,2.20,match; entry=bl; callgraph 6/6; opsim=1.00,wireless.o,1.000
+0x08008ae0,44,send_string_task,0x08008aa8,44,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,wireless.o,1.000
+0x08008b0c,12,wireless_get_state,0x08008ad4,12,1.90,match; entry=bl; callgraph 5/5; opsim=1.00,wireless.o,1.000
+0x08008b18,68,process_record_wireless,0x08008ae0,68,2.20,match; entry=bl; callgraph 6/6; opsim=1.00,wireless.o,1.000
+0x08008b5c,60,report_buffer_init,0x08008b24,60,2.50,match; entry=bl; callgraph 5/5; opsim=1.00,report_buffer.o,1.000
+0x08008b98,56,report_buffer_enqueue,0x08008b60,56,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,report_buffer.o,1.000
+0x08008bd0,52,report_buffer_dequeue,0x08008b98,52,2.20,match; entry=bl; callgraph 1/1; opsim=1.00,report_buffer.o,1.000
+0x08008c04,24,report_buffer_is_empty,0x08008bcc,24,1.90,match; entry=bl; callgraph 2/4; opsim=1.00,report_buffer.o,1.000
+0x08008c1c,16,report_buffer_update_timer,0x08008be4,16,2.20,match; callgraph 1/1; opsim=1.00,report_buffer.o,1.000
+0x08008c2c,32,report_buffer_next_inverval,0x08008bf4,32,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,report_buffer.o,1.000
+0x08008c4c,12,report_buffer_set_inverval,0x08008c14,12,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,report_buffer.o,1.000
+0x08008c58,12,report_buffer_set_retry,0x08008c20,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,report_buffer.o,1.000
+0x08008c64,192,report_buffer_task,0x08008c2c,184,1.57,match; entry=bl; callgraph 7/9; opsim=0.97,report_buffer.o,0.966
+0x08008d24,144,lkbt51_init,0x08008ce4,148,4.42,"match; entry=bl,ptr; callgraph 4/4; opsim=0.90",lkbt51.o,0.900
+0x08008db4,68,lkbt51_wake,0x08008d78,68,4.80,match; entry=bl; callgraph 7/7; opsim=1.00,lkbt51.o,1.000
+0x08008df8,232,lkbt51_send_cmd,0x08008dbc,212,3.44,match; callgraph 4/4; opsim=0.84,lkbt51.o,0.838
+0x08008ee0,52,lkbt51_send_keyboard,0x08008e90,56,1.99,match; entry=ptr; opsim=0.58,lkbt51.o,0.579
+0x08008f14,52,lkbt51_send_nkro,0x08008ec8,56,1.99,match; entry=ptr; opsim=0.58,lkbt51.o,0.579
+0x08008f48,48,lkbt51_send_consumer,0x08008f00,52,1.97,match; entry=ptr; opsim=0.70,lkbt51.o,0.703
+0x08008f78,60,lkbt51_send_system,0x08008f34,64,1.51,match; entry=ptr; opsim=0.64,lkbt51.o,0.638
+0x08008fb4,76,lkbt51_send_mouse,0x08008f74,76,2.20,match; entry=ptr; opsim=0.83,lkbt51.o,0.833
+0x08009000,132,lkbt51_become_discoverable,0x08008fc0,132,3.70,match; entry=ptr; callgraph 2/2; opsim=0.82,lkbt51.o,0.819
+0x08009084,56,lkbt51_connect,0x08009044,64,1.82,match; entry=ptr; callgraph 1/1; opsim=0.82,lkbt51.o,0.818
+0x080090bc,64,lkbt51_disconnect,0x08009084,72,2.47,match; entry=ptr; callgraph 2/2; opsim=0.68,lkbt51.o,0.683
+0x080090fc,44,lkbt51_update_bat_lvl,0x080090cc,48,1.95,match; entry=ptr; opsim=0.65,lkbt51.o,0.647
+0x08009128,92,lkbt51_read,0x080090fc,84,3.44,match; entry=bl; callgraph 6/6; opsim=0.48,lkbt51.o,0.484
+0x08009184,40,lkbt51_send_conn_evt_ack,0x08009150,40,2.20,match; entry=bl; callgraph 1/1; opsim=0.69,lkbt51.o,0.690
+0x080091ac,48,lkbt51_read_state_reg,0x08009178,52,1.97,match; opsim=0.54,lkbt51.o,0.541
+0x080091dc,44,lkbt51_update_bat_state,0x080091ac,48,1.95,match; entry=bl; callgraph 1/1; opsim=0.65,lkbt51.o,0.647
+0x08009208,52,lkbt51_set_param,0x080091dc,56,1.99,match; entry=bl; callgraph 1/1; opsim=0.58,lkbt51.o,0.579
+0x0800923c,60,lkbt51_set_local_name,0x08009214,64,2.01,match; entry=bl; callgraph 2/2; opsim=0.59,lkbt51.o,0.591
+0x08009278,48,lkbt51_factory_reset,0x08009254,52,1.97,match; entry=bl; callgraph 2/2; opsim=0.72,lkbt51.o,0.722
+0x080092a8,44,lkbt51_int_pin_test,0x08009288,48,1.95,match; opsim=0.65,lkbt51.o,0.647
+0x080092d4,44,lkbt51_radio_test,0x080092b8,48,1.95,match; opsim=0.65,lkbt51.o,0.647
+0x08009300,136,lkbt51_dfu_tx,0x080092e8,124,1.94,match; entry=bl; callgraph 2/2; opsim=0.79,lkbt51.o,0.787
+0x08009388,668,lkbt51_task,0x08009364,652,4.73,match; entry=ptr; callgraph 8/8; opsim=0.82,lkbt51.o,0.822
+0x08009624,148,lkbt51_dfu_rx,0x080095f0,156,2.05,match; entry=bl; callgraph 2/2; opsim=0.88,lkbt51.o,0.880
+0x080096b8,44,indicator_init,0x0800968c,44,4.50,match; entry=bl; callgraph 3/3; opsim=0.79,indicator.o,0.786
+0x080096e4,18,indicator_enable,0x080096b8,18,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,indicator.o,1.000
+0x080096f6,4,indicator_disable,0x080096ca,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,indicator.o,1.000
+0x080096fa,14,indicator_is_enabled,0x080096ce,14,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,indicator.o,1.000
+0x08009708,36,indicator_eeconfig_reload,0x080096dc,36,2.20,match; entry=bl; callgraph 5/5; opsim=0.80,indicator.o,0.800
+0x0800972c,40,indicator_is_running,0x08009700,44,1.63,match; entry=bl; callgraph 2/2; opsim=0.80,indicator.o,0.800
+0x08009754,40,indicator_stop,0x0800972c,40,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,indicator.o,1.000
+0x0800977c,52,indicator_battery_low_enable,0x08009754,52,4.50,match; entry=bl; callgraph 6/6; opsim=1.00,indicator.o,1.000
+0x080097b0,116,indicator_battery_low_backlit_enable,0x08009788,128,2.22,match; entry=bl; callgraph 8/8; opsim=0.73,indicator.o,0.733
+0x08009824,48,os_state_indicate,0x08009808,48,2.20,match; entry=bl; callgraph 5/5; opsim=1.00,indicator.o,1.000
+0x08009854,268,rgb_matrix_indicators_bt,0x08009838,276,1.31,match; entry=bl; callgraph 11/11; opsim=0.86,indicator.o,0.864
+0x08009960,228,indicator_timer_cb,0x0800994c,220,2.09,match; entry=bl; callgraph 6/6; opsim=0.79,indicator.o,0.793
+0x08009a44,340,indicator_set,0x08009a28,340,7.30,match; entry=bl; callgraph 10/10; opsim=1.00,indicator.o,1.000
+0x08009b98,28,rgb_matrix_none_indicators_kb,0x08009b7c,28,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,indicator.o,1.000
+0x08009bb4,16,rgb_matrix_driver_allow_shutdown,0x08009b98,16,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,indicator.o,1.000
+0x08009bc4,176,indicator_battery_low,0x08009ba8,176,4.80,match; callgraph 3/3; opsim=0.88,indicator.o,0.879
+0x08009c74,64,indicator_task,0x08009c58,64,2.20,match; entry=bl; callgraph 5/5; opsim=1.00,indicator.o,1.000
+0x08009cb4,84,led_update_kb,0x08009c98,84,1.90,match; entry=bl; callgraph 11/11; opsim=1.00,indicator.o,1.000
+0x08009d08,2,wireless_post_task,0x08009cec,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,wireless_main.o,1.000
+0x08009d0a,30,wireless_tasks,0x08009cee,30,2.20,match; entry=bl; callgraph 6/6; opsim=1.00,wireless_main.o,1.000
+0x08009d28,104,bt_transport_enable,0x08009d0c,104,2.20,match; entry=bl; callgraph 7/7; opsim=1.00,transport.o,1.000
+0x08009d90,104,p24g_transport_enable,0x08009d74,104,2.20,match; entry=bl; callgraph 7/7; opsim=1.00,transport.o,1.000
+0x08009df8,60,usb_transport_enable,0x08009ddc,60,2.20,match; entry=bl; callgraph 2/2; opsim=0.93,transport.o,0.930
+0x08009e34,276,set_transport,0x08009e18,268,2.71,match; callgraph 14/14; opsim=0.92,transport.o,0.922
+0x08009f48,12,get_transport,0x08009f24,12,1.90,match; entry=bl; callgraph 14/14; opsim=1.00,transport.o,1.000
+0x08009f54,136,usb_remote_wakeup,0x08009f30,112,1.77,match; entry=bl; callgraph 9/10; opsim=0.88,transport.o,0.883
+0x08009fdc,68,select_all_cols,0x08009fa0,60,1.85,match; entry=bl; callgraph 2/2; opsim=0.81,lpm.o,0.810
+0x0800a020,28,lpm_timer_reset,0x08009fdc,28,2.20,match; entry=bl; callgraph 7/7; opsim=1.00,lpm.o,1.000
+0x0800a03c,24,lpm_init,0x08009ff8,24,4.20,match; entry=bl; callgraph 2/2; opsim=1.00,lpm.o,1.000
+0x0800a054,20,lpm_timer_stop,0x0800a010,20,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,lpm.o,1.000
+0x0800a068,16,usb_power_connected,0x0800a024,16,3.90,match; entry=bl; callgraph 4/4; opsim=1.00,lpm.o,1.000
+0x0800a078,260,pre_enter_low_power_mode,0x0800a034,260,4.80,match; entry=bl; callgraph 8/8; opsim=0.94,lpm.o,0.942
+0x0800a17c,452,lpm_task,0x0800a138,456,4.77,match; callgraph 23/23; opsim=0.96,lpm.o,0.961
+0x0800a340,96,lpm_set,0x0800a300,96,3.90,match; entry=bl; callgraph 2/2; opsim=0.97,lpm_stm32f401.o,0.973
+0x0800a3a0,100,enter_power_mode,0x0800a360,100,4.20,match; entry=bl; callgraph 3/3; opsim=1.00,lpm_stm32f401.o,1.000
+0x0800a404,16,battery_init,0x0800a3c4,16,4.20,match; entry=bl; callgraph 2/2; opsim=1.00,battery.o,1.000
+0x0800a414,2,battery_stop,0x0800a3d4,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,battery.o,1.000
+0x0800a416,10,battery_measure,0x0800a3d6,8,1.30,match; entry=bl; callgraph 1/1; opsim=0.86,battery.o,0.857
+0x0800a420,116,battery_calculate_voltage,0x0800a3e0,112,2.70,match; entry=bl; callgraph 2/2; opsim=0.88,battery.o,0.875
+0x0800a494,88,battery_get_percentage,0x0800a450,80,2.23,match; entry=bl; callgraph 2/2; opsim=0.90,battery.o,0.903
+0x0800a4ec,20,battery_is_empty,0x0800a4a0,20,1.90,match; entry=bl; callgraph 3/3; opsim=1.00,battery.o,1.000
+0x0800a500,20,battery_is_critical_low,0x0800a4b4,20,1.90,match; entry=bl; callgraph 9/9; opsim=1.00,battery.o,1.000
+0x0800a514,64,battery_check_empty,0x0800a4c8,64,2.50,match; entry=bl; callgraph 3/3; opsim=1.00,battery.o,1.000
+0x0800a554,52,battery_check_critical_low,0x0800a508,52,2.20,match; entry=bl; callgraph 1/1; opsim=1.00,battery.o,1.000
+0x0800a588,204,battery_task,0x0800a53c,204,4.50,match; entry=bl; callgraph 13/13; opsim=0.97,battery.o,0.972
+0x0800a654,88,bat_level_animiation_start,0x0800a608,88,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,bat_level_animation.o,1.000
+0x0800a6ac,16,bat_level_animiation_actived,0x0800a660,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,bat_level_animation.o,1.000
+0x0800a6bc,124,bat_level_animiation_indicate,0x0800a670,124,3.70,match; entry=bl; callgraph 2/2; opsim=1.00,bat_level_animation.o,1.000
+0x0800a738,172,bat_level_animiation_update,0x0800a6ec,172,2.50,match; callgraph 5/5; opsim=1.00,bat_level_animation.o,1.000
+0x0800a7e4,48,bat_level_animiation_task,0x0800a798,48,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,bat_level_animation.o,1.000
+0x0800a814,28,rtc_timer_clear,0x0800a7c8,24,1.77,match; entry=bl; callgraph 2/2; opsim=0.82,rtc_timer.o,0.824
+0x0800a830,4,rtc_timer_init,0x0800a7e0,4,1.90,match; opsim=1.00,rtc_timer.o,1.000
+0x0800a834,28,rtc_timer_read_ms,0x0800a7e4,24,1.77,match; entry=bl; callgraph 4/4; opsim=0.82,rtc_timer.o,0.824
+0x0800a850,12,rtc_timer_elapsed_ms,0x0800a7fc,12,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,rtc_timer.o,1.000
+0x0800a85c,152,process_record_keychron_wireless,0x0800a808,152,2.80,match; callgraph 6/6; opsim=0.98,keychron_wireless_common.o,0.983
+0x0800a8f4,108,lkbt51_param_init,0x0800a8a0,68,2.39,match; entry=bl; callgraph 4/4; opsim=0.35,keychron_wireless_common.o,0.353
+0x0800a960,4,wireless_enter_reset_kb,0x0800a8e4,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,keychron_wireless_common.o,1.000
+0x0800a964,44,wireless_enter_disconnected_kb,0x0800a8e8,44,2.50,match; entry=bl; callgraph 5/5; opsim=1.00,keychron_wireless_common.o,1.000
+0x0800a990,40,keychron_wireless_common_task,0x0800a914,40,2.50,match; entry=bl; callgraph 2/2; opsim=1.00,keychron_wireless_common.o,1.000
+0x0800a9b8,176,wireless_pre_task,0x0800a93c,176,4.20,match; entry=bl; callgraph 4/5; opsim=0.99,keychron_wireless_common.o,0.985
+0x0800aa68,4,process_record_keychron_kb,0x0800a9ec,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,keychron_task.o,1.000
+0x0800aa6c,38,process_record_keychron,0x0800a9f0,32,1.73,match; callgraph 3/3; opsim=0.69,keychron_task.o,0.690
+0x0800aa92,14,rgb_matrix_indicators_keychron,0x0800aa10,14,2.20,match; entry=bl; callgraph 2/3; opsim=1.00,keychron_task.o,1.000
+0x0800aaa0,20,keychron_task,0x0800aa1e,20,2.20,match; callgraph 4/4; opsim=1.00,keychron_task.o,1.000
+0x0800aab4,26,process_record_kb,0x0800aa32,26,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,keychron_task.o,1.000
+0x0800aace,18,rgb_matrix_indicators_kb,0x0800aa4c,18,1.70,match; entry=bl; callgraph 2/3; opsim=0.62,keychron_task.o,0.615
+0x0800aae0,4,housekeeping_task_kb,0x0800aa5e,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,keychron_task.o,1.000
+0x0800aae4,8,encoder0_pad_cb,0x0800aa62,6,1.15,match; entry=ptr; opsim=0.40,keychron_common.o,0.400
+0x0800aaec,188,process_record_keychron_common,0x0800aa68,188,3.70,match; callgraph 3/3; opsim=0.94,keychron_common.o,0.939
+0x0800aba8,52,keychron_common_task,0x0800ab24,52,2.50,match; entry=bl; callgraph 3/3; opsim=1.00,keychron_common.o,1.000
+0x0800abdc,96,encoder_cb_init,0x0800ab58,96,4.20,match; entry=bl; callgraph 4/4; opsim=1.00,keychron_common.o,1.000
+0x0800ac3c,148,via_command_kb,0x0800abb8,148,1.90,match; callgraph 5/5; opsim=1.00,keychron_common.o,1.000
+0x0800acd0,4,,,,,INSERTION (no ref function); entry=bl,,
+0x0800acd4,16,factory_timer_start,0x0800ac4c,16,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,factory_test.o,1.000
+0x0800ace4,240,process_record_factory_test,0x0800ac5c,240,2.50,match; entry=bl; callgraph 2/2; opsim=0.94,factory_test.o,0.939
+0x0800add4,92,factory_test_indicator,0x0800ad4c,92,2.20,match; entry=bl; callgraph 2/2; opsim=0.89,factory_test.o,0.892
+0x0800ae30,16,factory_reset_indicating,0x0800ada8,16,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,factory_test.o,1.000
+0x0800ae40,200,factory_test_task,0x0800adb8,192,2.38,match; entry=bl; callgraph 11/11; opsim=0.99,factory_test.o,0.985
+0x0800af08,80,factory_test_send,0x0800ae78,72,1.90,match; entry=bl; callgraph 4/4; opsim=0.59,factory_test.o,0.590
+0x0800af58,360,factory_test_rx,0x0800aec0,352,3.83,match; entry=bl; callgraph 4/4; opsim=0.95,factory_test.o,0.951
+0x0800b0c0,44,dip_switch_update_user,0x0800b020,40,1.93,match; entry=bl; callgraph 2/2; opsim=0.62,factory_test.o,0.621
+0x0800b0ec,32,dip_switch_update_kb,0x0800b048,32,2.20,match; entry=bl; callgraph 3/3; opsim=0.93,v10_max.o,0.929
+0x0800b10c,76,keyboard_post_init_kb,0x0800b068,76,4.80,match; entry=bl; callgraph 6/6; opsim=1.00,v10_max.o,1.000
+0x0800b158,48,keychron_task_kb,0x0800b0b4,48,4.80,match; entry=bl; callgraph 2/2; opsim=1.00,v10_max.o,1.000
+0x0800b188,32,lpm_is_kb_idle,0x0800b0e4,28,1.82,match; entry=bl; callgraph 2/2; opsim=0.95,v10_max.o,0.952
+0x0800b1a8,4,process_record_user,0x0800b100,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,keymap_introspection.o,1.000
+0x0800b1ac,40,keycode_at_keymap_location_raw,0x0800b104,40,3.40,match; entry=bl; callgraph 1/1; opsim=0.94,keymap_introspection.o,0.938
+0x0800b1d4,32,keycode_at_encodermap_location_raw,0x0800b12c,32,3.40,match; entry=bl; callgraph 1/1; opsim=1.00,keymap_introspection.o,1.000
+0x0800b1f4,4,pre_process_record_user,0x0800b14c,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,quantum.o,1.000
+0x0800b1f8,8,pre_process_record_kb,0x0800b150,8,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,quantum.o,1.000
+0x0800b200,4,process_action_kb,0x0800b158,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,quantum.o,1.000
+0x0800b204,2,post_process_record_user,0x0800b15c,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,quantum.o,1.000
+0x0800b206,10,post_process_record_kb,0x0800b15e,8,1.60,match; entry=bl; callgraph 2/2; opsim=0.86,quantum.o,0.857
+0x0800b210,76,get_event_keycode,0x0800b168,72,2.04,match; callgraph 3/3; opsim=0.93,quantum.o,0.926
+0x0800b25c,24,get_record_keycode,0x0800b1b0,22,1.15,match; entry=bl; callgraph 3/3; opsim=0.78,quantum.o,0.778
+0x0800b274,18,pre_process_record_quantum,0x0800b1c6,18,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,quantum.o,1.000
+0x0800b286,18,post_process_record_quantum,0x0800b1d8,18,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,quantum.o,1.000
+0x0800b298,4,shutdown_user,0x0800b1ea,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,quantum.o,1.000
+0x0800b29c,8,shutdown_kb,0x0800b1ee,8,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,quantum.o,1.000
+0x0800b2a4,28,shutdown_quantum,0x0800b1f6,26,2.29,match; entry=bl; callgraph 4/4; opsim=0.59,quantum.o,0.588
+0x0800b2c0,16,reset_keyboard,0x0800b210,16,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,quantum.o,1.000
+0x0800b2d0,16,soft_reset_keyboard,0x0800b220,16,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,quantum.o,1.000
+0x0800b2e0,190,process_record_quantum,0x0800b230,178,2.61,match; entry=bl; callgraph 16/16; opsim=0.80,quantum.o,0.803
+0x0800b39e,24,suspend_power_down_quantum,0x0800b2e2,24,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,quantum.o,1.000
+0x0800b3b6,20,suspend_wakeup_init_quantum,0x0800b2fa,20,2.20,match; callgraph 2/2; opsim=1.00,quantum.o,1.000
+0x0800b3ca,30,biton,0x0800b30e,26,1.50,match; entry=bl; callgraph 1/1; opsim=0.44,bitwise.o,0.444
+0x0800b3e8,2,led_set_user,0x0800b328,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,led.o,1.000
+0x0800b3ea,4,led_update_user,0x0800b32a,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,led.o,1.000
+0x0800b3ee,2,led_update_ports,0x0800b32e,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,led.o,1.000
+0x0800b3f0,2,led_init_ports,0x0800b330,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,led.o,1.000
+0x0800b3f2,16,led_set,0x0800b332,16,2.20,match; entry=bl; callgraph 6/6; opsim=1.00,led.o,1.000
+0x0800b402,10,led_suspend,0x0800b342,10,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,led.o,1.000
+0x0800b40c,12,led_wakeup,0x0800b34c,12,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,led.o,1.000
+0x0800b418,44,led_task,0x0800b358,44,2.20,match; callgraph 3/3; opsim=1.00,led.o,1.000
+0x0800b444,64,action_exec,0x0800b384,60,2.01,match; entry=bl; callgraph 6/6; opsim=0.73,action.o,0.727
+0x0800b484,14,process_record_tap_hint,0x0800b3c0,14,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action.o,1.000
+0x0800b492,22,register_mouse,0x0800b3ce,22,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,action.o,1.000
+0x0800b4a8,144,register_code,0x0800b3e4,144,3.70,match; entry=bl; callgraph 11/11; opsim=1.00,action.o,1.000
+0x0800b538,114,unregister_code,0x0800b474,114,2.20,match; entry=bl; callgraph 9/9; opsim=1.00,action.o,1.000
+0x0800b5aa,32,tap_code_delay,0x0800b4e6,32,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,action.o,1.000
+0x0800b5ca,16,tap_code,0x0800b506,16,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,action.o,1.000
+0x0800b5da,18,register_mods,0x0800b516,18,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,action.o,1.000
+0x0800b5ec,20,unregister_mods,0x0800b528,18,1.90,match; entry=bl; callgraph 3/3; opsim=0.92,action.o,0.923
+0x0800b600,948,process_action,0x0800b53c,924,1.42,match; callgraph 37/37; opsim=0.87,action.o,0.874
+0x0800b9b4,40,process_record_handler,0x0800b8d8,34,1.75,match; entry=bl; callgraph 4/4; opsim=0.81,action.o,0.815
+0x0800b9dc,60,process_record,0x0800b8fc,60,2.20,match; entry=bl; callgraph 7/7; opsim=1.00,action.o,1.000
+0x0800ba18,34,clear_keyboard_but_mods_and_keys,0x0800b938,34,2.20,match; callgraph 5/5; opsim=1.00,action.o,1.000
+0x0800ba3a,14,clear_keyboard_but_mods,0x0800b95a,14,2.20,match; callgraph 1/1; opsim=1.00,action.o,1.000
+0x0800ba48,14,clear_keyboard,0x0800b968,14,2.20,match; entry=bl; callgraph 8/8; opsim=1.00,action.o,1.000
+0x0800ba56,66,is_tap_action,0x0800b976,72,1.65,match; opsim=0.75,action.o,0.750
+0x0800ba98,24,is_tap_record,0x0800b9be,24,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,action.o,1.000
+0x0800bab0,12,debug_event,0x0800b9d6,10,1.40,match; entry=bl; callgraph 1/1; opsim=0.67,action.o,0.667
+0x0800babc,12,debug_record,0x0800b9e0,10,1.40,match; entry=bl; callgraph 2/2; opsim=0.67,action.o,0.667
+0x0800bac8,2,default_layer_state_set_user,0x0800b9ea,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_layer.o,1.000
+0x0800baca,10,default_layer_state_set_kb,0x0800b9ec,8,1.60,match; entry=bl; callgraph 2/2; opsim=0.86,action_layer.o,0.857
+0x0800bad4,16,default_layer_state_set,0x0800b9f4,16,2.20,match; callgraph 1/1; opsim=1.00,action_layer.o,1.000
+0x0800bae4,2,default_layer_debug,0x0800ba04,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_layer.o,1.000
+0x0800bae6,6,default_layer_set,0x0800ba06,4,0.90,match; entry=bl; callgraph 4/4; opsim=0.67,action_layer.o,0.667
+0x0800baec,16,default_layer_or,0x0800ba0c,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_layer.o,1.000
+0x0800bafc,16,default_layer_and,0x0800ba1c,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_layer.o,1.000
+0x0800bb0c,16,default_layer_xor,0x0800ba2c,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_layer.o,1.000
+0x0800bb1c,2,layer_state_set_user,0x0800ba3c,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_layer.o,1.000
+0x0800bb1e,10,layer_state_set_kb,0x0800ba3e,8,1.60,match; entry=bl; callgraph 2/2; opsim=0.86,action_layer.o,0.857
+0x0800bb28,16,layer_state_set,0x0800ba48,16,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,action_layer.o,1.000
+0x0800bb38,6,layer_clear,0x0800ba58,6,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_layer.o,1.000
+0x0800bb3e,14,layer_move,0x0800ba5e,12,1.47,match; entry=bl; callgraph 1/1; opsim=0.89,action_layer.o,0.889
+0x0800bb4c,24,layer_on,0x0800ba6c,24,1.90,match; entry=bl; callgraph 3/3; opsim=1.00,action_layer.o,1.000
+0x0800bb64,24,layer_off,0x0800ba84,20,1.40,match; entry=bl; callgraph 3/3; opsim=0.62,action_layer.o,0.615
+0x0800bb7c,24,layer_invert,0x0800ba98,24,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_layer.o,1.000
+0x0800bb94,16,layer_or,0x0800bab0,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_layer.o,1.000
+0x0800bba4,16,layer_and,0x0800bac0,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_layer.o,1.000
+0x0800bbb4,16,layer_xor,0x0800bad0,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_layer.o,1.000
+0x0800bbc4,2,layer_debug,0x0800bae0,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_layer.o,1.000
+0x0800bbc6,52,update_source_layers_cache_impl,0x0800bae2,50,1.78,match; opsim=0.78,action_layer.o,0.780
+0x0800bbfa,42,read_source_layers_cache_impl,0x0800bb14,40,1.76,match; opsim=0.97,action_layer.o,0.971
+0x0800bc24,72,update_source_layers_cache,0x0800bb3c,60,0.90,match; entry=bl; callgraph 2/2; opsim=0.85,action_layer.o,0.851
+0x0800bc6c,64,read_source_layers_cache,0x0800bb78,60,1.21,match; entry=bl; callgraph 2/2; opsim=0.84,action_layer.o,0.844
+0x0800bcac,64,layer_switch_get_layer,0x0800bbb4,68,2.02,match; entry=bl; callgraph 4/4; opsim=0.88,action_layer.o,0.885
+0x0800bcec,24,layer_switch_get_action,0x0800bbf8,24,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,action_layer.o,1.000
+0x0800bd04,72,store_or_get_action,0x0800bc10,72,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,action_layer.o,1.000
+0x0800bd4c,36,update_tri_layer_state,0x0800bc58,34,1.73,match; entry=bl; callgraph 1/1; opsim=0.97,action_layer.o,0.966
+0x0800bd70,28,update_tri_layer,0x0800bc7c,28,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,action_layer.o,1.000
+0x0800bd8c,64,debug_waiting_buffer,0x0800bc98,64,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,action_tapping.o,1.000
+0x0800bdcc,32,debug_tapping_key,0x0800bcd8,32,1.40,match; entry=bl; callgraph 1/1; opsim=0.76,action_tapping.o,0.762
+0x0800bdec,128,waiting_buffer_scan_tap,0x0800bcf8,132,2.11,match; entry=bl; callgraph 2/2; opsim=0.79,action_tapping.o,0.787
+0x0800be6c,68,waiting_buffer_typed.isra.0,0x0800bd7c,68,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_tapping.o,1.000
+0x0800beb0,600,process_tapping,0x0800bdc0,584,1.12,match; entry=bl; callgraph 9/9; opsim=0.78,action_tapping.o,0.779
+0x0800c108,196,action_tapping_process,0x0800c008,188,2.08,match; entry=bl; callgraph 5/5; opsim=0.88,action_tapping.o,0.879
+0x0800c1cc,12,get_oneshot_layer,0x0800c0c4,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_util.o,1.000
+0x0800c1d8,16,get_oneshot_layer_state,0x0800c0d0,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_util.o,1.000
+0x0800c1e8,20,is_oneshot_layer_active,0x0800c0e0,20,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,action_util.o,1.000
+0x0800c1fc,12,get_mods,0x0800c0f4,12,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,action_util.o,1.000
+0x0800c208,16,add_mods,0x0800c100,16,1.90,match; entry=bl; callgraph 3/3; opsim=1.00,action_util.o,1.000
+0x0800c218,16,del_mods,0x0800c110,16,1.90,match; entry=bl; callgraph 3/3; opsim=1.00,action_util.o,1.000
+0x0800c228,12,clear_mods,0x0800c120,12,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,action_util.o,1.000
+0x0800c234,16,add_weak_mods,0x0800c12c,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_util.o,1.000
+0x0800c244,16,del_weak_mods,0x0800c13c,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_util.o,1.000
+0x0800c254,12,clear_weak_mods,0x0800c14c,12,1.90,match; entry=bl; callgraph 3/3; opsim=1.00,action_util.o,1.000
+0x0800c260,2,oneshot_locked_mods_changed_user,0x0800c158,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_util.o,1.000
+0x0800c262,10,oneshot_locked_mods_changed_kb,0x0800c15a,8,1.60,match; entry=bl; callgraph 2/2; opsim=0.86,action_util.o,0.857
+0x0800c26c,28,del_oneshot_locked_mods,0x0800c164,28,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,action_util.o,1.000
+0x0800c288,2,oneshot_mods_changed_user,0x0800c180,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_util.o,1.000
+0x0800c28a,10,oneshot_mods_changed_kb,0x0800c182,8,1.60,match; entry=bl; callgraph 4/4; opsim=0.86,action_util.o,0.857
+0x0800c294,28,add_oneshot_mods,0x0800c18c,28,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,action_util.o,1.000
+0x0800c2b0,28,del_oneshot_mods,0x0800c1a8,28,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,action_util.o,1.000
+0x0800c2cc,24,clear_oneshot_mods,0x0800c1c4,24,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,action_util.o,1.000
+0x0800c2e4,48,get_mods_for_report,0x0800c1dc,48,2.20,match; entry=bl; callgraph 4/4; opsim=0.94,action_util.o,0.938
+0x0800c314,56,send_6kro_report,0x0800c20c,56,2.20,match; callgraph 1/1; opsim=1.00,action_util.o,1.000
+0x0800c34c,56,send_nkro_report,0x0800c244,56,2.20,match; callgraph 1/1; opsim=1.00,action_util.o,1.000
+0x0800c384,32,send_keyboard_report,0x0800c27c,32,1.90,match; entry=bl; callgraph 5/5; opsim=1.00,action_util.o,1.000
+0x0800c3a4,2,oneshot_layer_changed_user,0x0800c29c,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_util.o,1.000
+0x0800c3a6,10,oneshot_layer_changed_kb,0x0800c29e,8,1.60,match; entry=bl; callgraph 3/3; opsim=0.86,action_util.o,0.857
+0x0800c3b0,48,set_oneshot_layer,0x0800c2a8,48,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,action_util.o,1.000
+0x0800c3e0,20,reset_oneshot_layer,0x0800c2d8,20,2.20,match; callgraph 1/1; opsim=1.00,action_util.o,1.000
+0x0800c3f4,52,clear_oneshot_layer_state,0x0800c2ec,52,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,action_util.o,1.000
+0x0800c428,44,oneshot_set,0x0800c320,44,2.20,match; callgraph 1/1; opsim=1.00,action_util.o,1.000
+0x0800c454,24,oneshot_toggle,0x0800c34c,20,1.40,match; entry=bl; callgraph 1/1; opsim=0.73,action_util.o,0.727
+0x0800c46c,6,oneshot_enable,0x0800c360,6,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_util.o,1.000
+0x0800c472,6,oneshot_disable,0x0800c366,6,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,action_util.o,1.000
+0x0800c478,20,eeconfig_disable,0x0800c36c,20,2.50,match; entry=bl; callgraph 2/2; opsim=1.00,eeconfig.o,1.000
+0x0800c48c,28,eeconfig_is_enabled,0x0800c380,28,2.50,match; entry=bl; callgraph 3/3; opsim=1.00,eeconfig.o,1.000
+0x0800c4a8,6,eeconfig_read_debug,0x0800c39c,6,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,eeconfig.o,1.000
+0x0800c4ae,6,eeconfig_read_default_layer,0x0800c3a2,6,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,eeconfig.o,1.000
+0x0800c4b4,6,eeconfig_read_keymap,0x0800c3a8,6,1.90,match; entry=bl; callgraph 4/4; opsim=1.00,eeconfig.o,1.000
+0x0800c4ba,8,eeconfig_update_keymap,0x0800c3ae,8,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,eeconfig.o,1.000
+0x0800c4c2,8,eeconfig_update_kb,0x0800c3b6,8,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,eeconfig.o,1.000
+0x0800c4ca,8,eeconfig_update_user,0x0800c3be,8,1.90,match; opsim=1.00,eeconfig.o,1.000
+0x0800c4d2,6,eeconfig_init_user,0x0800c3c6,6,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,eeconfig.o,1.000
+0x0800c4d8,16,eeconfig_init_kb,0x0800c3cc,14,1.82,match; entry=bl; callgraph 3/3; opsim=0.91,eeconfig.o,0.909
+0x0800c4e8,152,eeconfig_init_quantum,0x0800c3dc,152,2.80,match; callgraph 8/8; opsim=0.97,eeconfig.o,0.972
+0x0800c580,4,eeconfig_init,0x0800c474,4,1.90,match; entry=bl; callgraph 3/3; opsim=1.00,eeconfig.o,1.000
+0x0800c584,8,eeconfig_update_handedness,0x0800c478,8,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,eeconfig.o,1.000
+0x0800c58c,56,generate_tick_event,0x0800c480,52,1.99,match; entry=bl; callgraph 3/3; opsim=0.89,keyboard.o,0.889
+0x0800c5c4,24,last_matrix_activity_trigger,0x0800c4b4,24,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,keyboard.o,1.000
+0x0800c5dc,24,last_encoder_activity_trigger,0x0800c4cc,24,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,keyboard.o,1.000
+0x0800c5f4,2,matrix_setup,0x0800c4e4,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,keyboard.o,1.000
+0x0800c5f6,2,keyboard_pre_init_user,0x0800c4e6,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,keyboard.o,1.000
+0x0800c5f8,8,keyboard_pre_init_kb,0x0800c4e8,8,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,keyboard.o,1.000
+0x0800c600,2,keyboard_post_init_user,0x0800c4f0,2,1.90,match; opsim=1.00,keyboard.o,1.000
+0x0800c602,6,matrix_can_read,0x0800c4f2,4,0.90,match; entry=bl; callgraph 1/1; opsim=0.80,keyboard.o,0.800
+0x0800c608,28,keyboard_setup,0x0800c4f8,28,2.20,match; entry=bl; callgraph 5/5; opsim=1.00,keyboard.o,1.000
+0x0800c624,4,is_keyboard_master,0x0800c514,4,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,keyboard.o,1.000
+0x0800c628,8,should_process_keypress,0x0800c518,8,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,keyboard.o,1.000
+0x0800c630,2,housekeeping_task_user,0x0800c520,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,keyboard.o,1.000
+0x0800c632,12,housekeeping_task,0x0800c522,12,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,keyboard.o,1.000
+0x0800c63e,18,quantum_init,0x0800c52e,18,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,keyboard.o,1.000
+0x0800c650,32,keyboard_init,0x0800c540,32,2.20,match; entry=bl; callgraph 8/8; opsim=1.00,keyboard.o,1.000
+0x0800c670,8,quantum_task,0x0800c560,6,1.15,match; entry=bl; callgraph 1/1; opsim=0.80,keyboard.o,0.800
+0x0800c678,248,keyboard_task,0x0800c568,248,2.20,match; entry=bl; callgraph 16/16; opsim=0.98,keyboard.o,0.976
+0x0800c770,432,action_for_keycode,0x0800c660,432,4.30,match; callgraph 2/2; opsim=0.89,keymap_common.o,0.890
+0x0800c920,62,keymap_key_to_keycode,0x0800c810,58,1.21,match; entry=bl; callgraph 1/1; opsim=0.94,keymap_common.o,0.943
+0x0800c95e,22,action_for_key,0x0800c84a,22,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,keymap_common.o,1.000
+0x0800c974,268,keycode_config,0x0800c860,264,1.86,match; entry=bl; callgraph 1/1; opsim=0.90,keycode_config.o,0.905
+0x0800ca80,196,mod_config,0x0800c968,196,1.90,match; entry=bl; callgraph 1/1; opsim=0.66,keycode_config.o,0.662
+0x0800cb44,4,sendchar,0x0800ca2c,4,1.90,match; entry=ptr; opsim=1.00,sendchar.o,1.000
+0x0800cb48,4,null_sendchar_func,0x0800ca30,4,1.90,match; entry=ptr; opsim=1.00,print.o,1.000
+0x0800cb4c,12,print_set_sendchar,0x0800ca34,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,print.o,1.000
+0x0800cb58,4,bootmagic_lite_reset_eeprom,0x0800ca40,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,bootmagic_lite.o,1.000
+0x0800cb5c,42,bootmagic_lite,0x0800ca44,42,2.50,match; entry=bl; callgraph 5/5; opsim=1.00,bootmagic_lite.o,1.000
+0x0800cb86,10,bootmagic,0x0800ca6e,8,1.60,match; entry=bl; callgraph 2/2; opsim=0.86,bootmagic_lite.o,0.857
+0x0800cb90,64,magic,0x0800ca78,64,2.20,match; entry=bl; callgraph 8/8; opsim=1.00,magic.o,1.000
+0x0800cbd0,2,matrix_init_user,0x0800cab8,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,matrix_common.o,1.000
+0x0800cbd2,8,matrix_init_kb,0x0800caba,8,2.20,match; callgraph 1/1; opsim=1.00,matrix_common.o,1.000
+0x0800cbda,2,matrix_scan_user,0x0800cac2,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,matrix_common.o,1.000
+0x0800cbdc,8,matrix_scan_kb,0x0800cac4,8,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,matrix_common.o,1.000
+0x0800cbe4,12,matrix_get_row,0x0800cacc,12,1.90,match; entry=bl; callgraph 4/4; opsim=1.00,matrix_common.o,1.000
+0x0800cbf0,2,matrix_print,0x0800cad8,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,matrix_common.o,1.000
+0x0800cbf2,8,matrix_io_delay,0x0800cada,8,2.20,match; entry=bl; callgraph 1/1; opsim=1.00,matrix_common.o,1.000
+0x0800cbfa,26,matrix_output_select_delay,0x0800cae2,26,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,matrix_common.o,1.000
+0x0800cc14,8,matrix_output_unselect_delay,0x0800cafc,8,2.20,match; callgraph 1/1; opsim=1.00,matrix_common.o,1.000
+0x0800cc1c,36,setPinInputHigh_atomic,0x0800cb04,34,2.03,match; entry=bl; callgraph 3/3; opsim=0.96,matrix.o,0.960
+0x0800cc40,60,matrix_init_pins,0x0800cb28,60,5.20,match; entry=bl; callgraph 2/2; opsim=1.00,matrix.o,1.000
+0x0800cc7c,164,matrix_read_rows_on_col,0x0800cb64,156,5.05,match; entry=bl; callgraph 4/4; opsim=0.80,matrix.o,0.796
+0x0800cd20,48,matrix_init,0x0800cc00,48,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,matrix.o,1.000
+0x0800cd50,108,matrix_scan,0x0800cc30,104,2.09,match; entry=bl; callgraph 6/6; opsim=0.76,matrix.o,0.756
+0x0800cdbc,40,debounce_init,0x0800cc98,52,1.01,match; entry=bl; callgraph 2/2; opsim=0.46,sym_eager_pk.o,0.457
+0x0800cde4,20,debounce_free,0x0800cccc,20,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,sym_eager_pk.o,1.000
+0x0800cdf8,324,debounce,0x0800cce0,308,2.05,match; entry=bl; callgraph 2/2; opsim=0.64,sym_eager_pk.o,0.636
+0x0800cf3c,18,protocol_init,0x0800ce14,18,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,main.o,1.000
+0x0800cf4e,18,protocol_task,0x0800ce26,18,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,main.o,1.000
+0x0800cf60,28,main,0x0800ce38,28,2.20,match; entry=bl; callgraph 7/7; opsim=1.00,main.o,1.000
+0x0800cf7c,30,eeprom_read_byte,0x0800ce54,28,2.00,match; entry=bl; callgraph 9/9; opsim=0.90,eeprom_driver.o,0.900
+0x0800cf9a,30,eeprom_read_word,0x0800ce70,28,2.00,match; entry=bl; callgraph 3/3; opsim=0.90,eeprom_driver.o,0.900
+0x0800cfb8,26,eeprom_read_dword,0x0800ce8c,24,1.97,match; entry=bl; callgraph 2/2; opsim=0.90,eeprom_driver.o,0.900
+0x0800cfd2,24,eeprom_write_byte,0x0800cea4,22,1.95,match; callgraph 1/1; opsim=0.88,eeprom_driver.o,0.875
+0x0800cfea,24,eeprom_write_word,0x0800ceba,22,1.95,match; callgraph 1/1; opsim=0.88,eeprom_driver.o,0.875
+0x0800d002,22,eeprom_write_dword,0x0800ced0,20,1.93,match; callgraph 1/1; opsim=0.88,eeprom_driver.o,0.875
+0x0800d018,52,eeprom_update_block,0x0800cee4,52,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,eeprom_driver.o,1.000
+0x0800d04c,28,eeprom_update_byte,0x0800cf18,28,2.20,match; entry=bl; callgraph 8/8; opsim=1.00,eeprom_driver.o,1.000
+0x0800d068,28,eeprom_update_word,0x0800cf34,28,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,eeprom_driver.o,1.000
+0x0800d084,28,eeprom_update_dword,0x0800cf50,28,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,eeprom_driver.o,1.000
+0x0800d0a0,4,eeprom_driver_init,0x0800cf6c,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,eeprom_wear_leveling.o,1.000
+0x0800d0a4,4,eeprom_driver_erase,0x0800cf70,4,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,eeprom_wear_leveling.o,1.000
+0x0800d0a8,10,eeprom_read_block,0x0800cf74,10,1.90,match; entry=bl; callgraph 6/6; opsim=1.00,eeprom_wear_leveling.o,1.000
+0x0800d0b2,10,eeprom_write_block,0x0800cf7e,10,1.90,match; entry=bl; callgraph 4/4; opsim=1.00,eeprom_wear_leveling.o,1.000
+0x0800d0bc,32,wear_leveling_clear_cache,0x0800cf88,32,2.80,match; entry=bl; callgraph 2/2; opsim=0.80,wear_leveling.o,0.800
+0x0800d0dc,32,wear_leveling_unlock,0x0800cfa8,32,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,wear_leveling.o,1.000
+0x0800d0fc,36,wear_leveling_lock,0x0800cfc8,36,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,wear_leveling.o,1.000
+0x0800d120,52,wear_leveling_erase,0x0800cfec,50,2.08,match; callgraph 4/4; opsim=0.97,wear_leveling.o,0.974
+0x0800d154,36,wear_leveling_read,0x0800d020,36,2.00,match; opsim=0.79,wear_leveling.o,0.786
+0x0800d178,38,backing_store_read_bulk,0x0800d044,38,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,wear_leveling.o,1.000
+0x0800d19e,42,backing_store_write_bulk,0x0800d06a,38,1.91,match; entry=bl; callgraph 2/2; opsim=0.94,wear_leveling.o,0.941
+0x0800d1c8,100,wear_leveling_consolidate_force,0x0800d090,108,2.58,match; entry=bl; callgraph 6/6; opsim=0.76,wear_leveling.o,0.763
+0x0800d22c,16,,,,,INSERTION (no ref function),,
+0x0800d23c,24,wear_leveling_consolidate_if_needed,0x0800d0fc,24,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,wear_leveling.o,1.000
+0x0800d254,40,wear_leveling_append_raw,0x0800d114,40,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,wear_leveling.o,1.000
+0x0800d27c,212,wear_leveling_write,0x0800d13c,196,1.77,match; callgraph 4/4; opsim=0.70,wear_leveling.o,0.702
+0x0800d350,236,wear_leveling_init,0x0800d200,260,2.02,match; callgraph 7/7; opsim=0.70,wear_leveling.o,0.701
+0x0800d43c,16,,,,,INSERTION (no ref function),,
+0x0800d44c,24,backing_store_unlock,0x0800d304,24,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,wear_leveling_efl.o,1.000
+0x0800d464,64,backing_store_erase,0x0800d31c,76,1.73,match; entry=bl; callgraph 3/3; opsim=0.65,wear_leveling_efl.o,0.655
+0x0800d4a4,48,backing_store_write,0x0800d368,44,1.15,match; entry=bl; callgraph 2/2; opsim=0.72,wear_leveling_efl.o,0.722
+0x0800d4d4,16,backing_store_lock,0x0800d394,16,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,wear_leveling_efl.o,1.000
+0x0800d4e4,136,backing_store_init,0x0800d3a4,152,3.98,match; entry=bl; callgraph 5/5; opsim=0.92,wear_leveling_efl.o,0.917
+0x0800d56c,68,backing_store_read,0x0800d43c,68,2.20,match; entry=bl; callgraph 3/3; opsim=0.88,wear_leveling_efl.o,0.880
+0x0800d5b0,224,hsv_to_rgb_impl,0x0800d480,196,3.02,match; opsim=0.74,color.o,0.736
+0x0800d690,10,hsv_to_rgb,0x0800d544,10,1.90,match; opsim=1.00,color.o,1.000
+0x0800d69a,74,sqrt16,0x0800d54e,68,1.96,match; entry=bl; callgraph 4/4; opsim=0.92,rgb_matrix.o,0.923
+0x0800d6e4,36,random8,0x0800d594,32,1.57,match; entry=bl; callgraph 3/3; opsim=0.91,rgb_matrix.o,0.909
+0x0800d708,68,sin8_C,0x0800d5b4,76,1.28,match; entry=bl; callgraph 2/2; opsim=0.40,rgb_matrix.o,0.400
+0x0800d74c,40,CYCLE_ALL_math,0x0800d600,38,1.75,match; entry=ptr; opsim=0.96,rgb_matrix.o,0.963
+0x0800d774,56,CYCLE_LEFT_RIGHT_math,0x0800d628,56,1.40,match; entry=ptr; opsim=0.83,rgb_matrix.o,0.833
+0x0800d7ac,56,CYCLE_UP_DOWN_math,0x0800d660,56,1.40,match; entry=ptr; opsim=0.83,rgb_matrix.o,0.833
+0x0800d7e4,84,RAINBOW_MOVING_CHEVRON_math,0x0800d698,80,1.76,match; entry=ptr; opsim=0.76,rgb_matrix.o,0.759
+0x0800d838,50,CYCLE_OUT_IN_math,0x0800d6e8,50,1.90,match; entry=ptr; opsim=1.00,rgb_matrix.o,1.000
+0x0800d86a,74,CYCLE_OUT_IN_DUAL_math,0x0800d71a,76,2.12,match; entry=ptr; callgraph 1/1; opsim=0.81,rgb_matrix.o,0.815
+0x0800d8b4,80,DUAL_BEACON_math,0x0800d768,80,1.90,match; entry=ptr; opsim=0.95,rgb_matrix.o,0.945
+0x0800d904,80,RAINBOW_BEACON_math,0x0800d7b8,80,1.90,match; entry=ptr; opsim=0.95,rgb_matrix.o,0.945
+0x0800d954,52,SOLID_REACTIVE_SIMPLE_math,0x0800d808,52,1.90,match; entry=ptr; opsim=1.00,rgb_matrix.o,1.000
+0x0800d988,72,SOLID_REACTIVE_WIDE_math,0x0800d83c,72,1.90,match; entry=ptr; opsim=1.00,rgb_matrix.o,1.000
+0x0800d9d0,120,SOLID_REACTIVE_NEXUS_math,0x0800d884,120,1.90,match; entry=ptr; opsim=1.00,rgb_matrix.o,1.000
+0x0800da48,78,SPLASH_math,0x0800d8fc,76,1.82,match; entry=ptr; opsim=0.89,rgb_matrix.o,0.893
+0x0800da96,70,SOLID_SPLASH_math,0x0800d948,68,1.81,match; entry=ptr; opsim=0.98,rgb_matrix.o,0.980
+0x0800dadc,16,eeconfig_flag_rgb_matrix,0x0800d98c,16,1.90,match; entry=bl; callgraph 1/2; opsim=1.00,rgb_matrix.o,1.000
+0x0800daec,32,eeconfig_init_rgb_matrix,0x0800d99c,32,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,rgb_matrix.o,1.000
+0x0800db0c,76,atan2_8,0x0800d9bc,74,1.82,match; entry=bl; callgraph 3/3; opsim=0.33,rgb_matrix.o,0.333
+0x0800db58,70,BAND_SPIRAL_VAL_math,0x0800da06,68,2.11,match; entry=ptr; callgraph 1/1; opsim=0.86,rgb_matrix.o,0.857
+0x0800db9e,48,CYCLE_PINWHEEL_math,0x0800da4a,48,2.20,match; entry=ptr; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800dbce,54,CYCLE_SPIRAL_math,0x0800da7a,52,2.09,match; entry=ptr; callgraph 1/1; opsim=0.92,rgb_matrix.o,0.919
+0x0800dc04,28,eeconfig_flush_rgb_matrix.part.0,0x0800dab0,28,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,rgb_matrix.o,1.000
+0x0800dc20,8,rgb_matrix_hsv_to_rgb,0x0800dacc,8,1.90,match; entry=bl; callgraph 11/11; opsim=1.00,rgb_matrix.o,1.000
+0x0800dc28,224,process_rgb_matrix_typing_heatmap,0x0800dad4,224,2.20,match; entry=bl; callgraph 2/2; opsim=0.85,rgb_matrix.o,0.853
+0x0800dd08,4,eeconfig_update_rgb_matrix,0x0800dbb4,4,1.90,match; opsim=1.00,rgb_matrix.o,1.000
+0x0800dd0c,44,eeconfig_update_rgb_matrix_default,0x0800dbb8,44,4.00,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800dd38,4,rgb_matrix_map_row_column_to_led_kb,0x0800dbe4,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800dd3c,40,rgb_matrix_map_row_column_to_led,0x0800dbe8,40,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,rgb_matrix.o,1.000
+0x0800dd64,12,rgb_matrix_update_pwm_buffers,0x0800dc10,12,1.60,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800dd70,20,rgb_matrix_set_color,0x0800dc1c,16,1.00,match; entry=bl; callgraph 13/13; opsim=0.50,rgb_matrix.o,0.500
+0x0800dd84,88,jellybean_raindrops_set_color.isra.0,0x0800dc2c,88,2.20,match; entry=bl; callgraph 3/3; opsim=0.89,rgb_matrix.o,0.893
+0x0800dddc,12,rgb_matrix_set_color_all,0x0800dc84,12,1.60,match; entry=bl; callgraph 6/6; opsim=1.00,rgb_matrix.o,1.000
+0x0800dde8,364,DIGITAL_RAIN,0x0800dc90,364,2.20,match; entry=bl; callgraph 5/5; opsim=0.95,rgb_matrix.o,0.951
+0x0800df54,268,process_rgb_matrix,0x0800ddfc,284,2.03,match; entry=bl; callgraph 4/4; opsim=0.72,rgb_matrix.o,0.722
+0x0800e060,2,rgb_matrix_none_indicators_user,0x0800df18,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e062,12,rgb_matrix_none_indicators,0x0800df1a,12,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,rgb_matrix.o,1.000
+0x0800e06e,4,rgb_matrix_indicators_user,0x0800df26,4,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,rgb_matrix.o,1.000
+0x0800e072,42,rgb_matrix_get_limits,0x0800df2a,36,1.47,match; entry=bl; callgraph 12/12; opsim=0.80,rgb_matrix.o,0.800
+0x0800e09c,220,effect_runner_dx_dy_dist,0x0800df50,232,2.04,match; callgraph 4/4; opsim=0.80,rgb_matrix.o,0.797
+0x0800e178,12,BAND_SPIRAL_VAL,0x0800e038,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e184,12,CYCLE_OUT_IN,0x0800e044,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e190,12,CYCLE_SPIRAL,0x0800e050,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e19c,184,effect_runner_dx_dy,0x0800e05c,196,2.02,match; callgraph 3/3; opsim=0.83,rgb_matrix.o,0.829
+0x0800e254,12,CYCLE_OUT_IN_DUAL,0x0800e120,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e260,12,CYCLE_PINWHEEL,0x0800e12c,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e26c,152,effect_runner_i,0x0800e138,172,1.85,match; callgraph 3/3; opsim=0.81,rgb_matrix.o,0.811
+0x0800e304,12,CYCLE_ALL,0x0800e1e4,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e310,12,CYCLE_LEFT_RIGHT,0x0800e1f0,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e31c,12,CYCLE_UP_DOWN,0x0800e1fc,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e328,12,RAINBOW_MOVING_CHEVRON,0x0800e208,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e334,204,effect_runner_sin_cos_i,0x0800e214,212,2.09,match; callgraph 4/4; opsim=0.67,rgb_matrix.o,0.672
+0x0800e400,12,DUAL_BEACON,0x0800e2e8,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e40c,12,RAINBOW_BEACON,0x0800e2f4,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e418,224,effect_runner_reactive,0x0800e300,244,2.25,match; callgraph 3/3; opsim=0.90,rgb_matrix.o,0.900
+0x0800e4f8,12,SOLID_REACTIVE_SIMPLE,0x0800e3f4,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e504,312,effect_runner_reactive_splash,0x0800e400,324,2.09,match; callgraph 4/4; opsim=0.82,rgb_matrix.o,0.820
+0x0800e63c,16,SOLID_REACTIVE_MULTIWIDE,0x0800e544,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e64c,16,SOLID_REACTIVE_MULTINEXUS,0x0800e554,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e65c,28,SPLASH,0x0800e564,28,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e678,28,SOLID_SPLASH,0x0800e580,28,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800e694,116,SOLID_COLOR,0x0800e59c,120,2.10,match; entry=bl; callgraph 4/4; opsim=0.91,rgb_matrix.o,0.914
+0x0800e708,180,BREATHING,0x0800e614,184,2.13,match; entry=bl; callgraph 5/5; opsim=0.89,rgb_matrix.o,0.891
+0x0800e7bc,120,JELLYBEAN_RAINDROPS,0x0800e6cc,120,2.20,match; entry=bl; callgraph 4/4; opsim=0.97,rgb_matrix.o,0.966
+0x0800e834,304,TYPING_HEATMAP,0x0800e744,320,2.05,match; entry=bl; callgraph 7/7; opsim=0.77,rgb_matrix.o,0.774
+0x0800e964,516,rgb_task_render,0x0800e884,520,2.48,match; entry=bl; callgraph 29/29; opsim=0.95,rgb_matrix.o,0.950
+0x0800eb68,4,rgb_matrix_indicators_advanced_user,0x0800ea8c,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800eb6c,8,rgb_matrix_indicators_advanced_kb,0x0800ea90,8,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,rgb_matrix.o,1.000
+0x0800eb74,28,rgb_matrix_indicators_advanced,0x0800ea98,26,1.99,match; callgraph 2/2; opsim=0.90,rgb_matrix.o,0.900
+0x0800eb90,100,rgb_matrix_init,0x0800eab4,100,1.90,match; entry=bl; callgraph 6/6; opsim=0.92,rgb_matrix.o,0.915
+0x0800ebf4,32,rgb_matrix_disable_noeeprom,0x0800eb18,32,1.90,match; opsim=0.91,rgb_matrix.o,0.909
+0x0800ec14,16,rgb_matrix_is_enabled,0x0800eb38,16,1.90,match; entry=bl; callgraph 10/10; opsim=1.00,rgb_matrix.o,1.000
+0x0800ec24,60,rgb_matrix_mode_eeprom_helper,0x0800eb48,64,1.21,match; opsim=0.47,rgb_matrix.o,0.468
+0x0800ec60,6,rgb_matrix_mode_noeeprom,0x0800eb88,6,1.90,match; opsim=1.00,rgb_matrix.o,1.000
+0x0800ec66,6,rgb_matrix_mode,0x0800eb8e,6,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800ec6c,12,rgb_matrix_get_mode,0x0800eb94,16,1.15,match; entry=bl; callgraph 1/1; opsim=0.67,rgb_matrix.o,0.667
+0x0800ec78,28,rgb_matrix_step_helper,0x0800eba4,32,1.52,match; opsim=0.87,rgb_matrix.o,0.870
+0x0800ec94,8,rgb_matrix_step,0x0800ebc4,6,1.15,match; entry=ptr; opsim=0.80,rgb_matrix.o,0.800
+0x0800ec9c,32,rgb_matrix_step_reverse_helper,0x0800ebcc,32,1.90,match; opsim=1.00,rgb_matrix.o,1.000
+0x0800ecbc,8,rgb_matrix_step_reverse,0x0800ebec,6,1.15,match; entry=ptr; opsim=0.80,rgb_matrix.o,0.800
+0x0800ecc4,36,rgb_matrix_sethsv_eeprom_helper,0x0800ebf4,32,1.57,match; entry=bl; callgraph 1/1; opsim=0.86,rgb_matrix.o,0.857
+0x0800ece8,8,rgb_matrix_sethsv_noeeprom,0x0800ec14,6,1.15,match; opsim=0.80,rgb_matrix.o,0.800
+0x0800ecf0,12,rgb_matrix_get_hue,0x0800ec1c,12,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,rgb_matrix.o,1.000
+0x0800ecfc,12,rgb_matrix_get_sat,0x0800ec28,12,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,rgb_matrix.o,1.000
+0x0800ed08,12,rgb_matrix_get_val,0x0800ec34,12,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,rgb_matrix.o,1.000
+0x0800ed14,20,rgb_matrix_increase_hue_helper,0x0800ec40,20,1.90,match; opsim=1.00,rgb_matrix.o,1.000
+0x0800ed28,8,rgb_matrix_increase_hue,0x0800ec54,6,1.15,match; entry=ptr; opsim=0.80,rgb_matrix.o,0.800
+0x0800ed30,28,rgb_matrix_decrease_hue_helper,0x0800ec5c,28,1.90,match; opsim=0.86,rgb_matrix.o,0.857
+0x0800ed4c,8,rgb_matrix_decrease_hue,0x0800ec78,6,1.15,match; entry=ptr; opsim=0.80,rgb_matrix.o,0.800
+0x0800ed54,36,rgb_matrix_increase_sat_helper,0x0800ec80,32,1.57,match; opsim=0.89,rgb_matrix.o,0.889
+0x0800ed78,8,rgb_matrix_increase_sat,0x0800eca0,6,1.15,match; entry=ptr; opsim=0.80,rgb_matrix.o,0.800
+0x0800ed80,32,rgb_matrix_decrease_sat_helper,0x0800eca8,32,1.90,match; opsim=0.87,rgb_matrix.o,0.870
+0x0800eda0,8,rgb_matrix_decrease_sat,0x0800ecc8,6,1.15,match; entry=ptr; opsim=0.80,rgb_matrix.o,0.800
+0x0800eda8,104,rgb_matrix_increase_val_helper+rgb_matrix_toggle_eeprom_helper,0x0800ecd0,100,2.08,merge2A; entry=bl; callgraph 4/5; refs=rgb_matrix_increase_val_helper+rgb_matrix_toggle_eeprom_helper,rgb_matrix.o,
+0x0800ee10,6,rgb_matrix_toggle_noeeprom,0x0800ed34,6,1.90,match; opsim=1.00,rgb_matrix.o,1.000
+0x0800ee16,6,rgb_matrix_toggle,0x0800ed3a,6,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800ee1c,52,rgb_matrix_enable_noeeprom,0x0800ed40,52,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,rgb_matrix.o,1.000
+0x0800ee50,36,rgb_matrix_enable,0x0800ed74,36,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,rgb_matrix.o,1.000
+0x0800ee74,8,rgb_matrix_increase_val,0x0800ed98,6,1.15,match; entry=ptr; opsim=0.80,rgb_matrix.o,0.800
+0x0800ee7c,56,rgb_matrix_decrease_val_helper,0x0800eda0,56,2.20,match; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800eeb4,8,rgb_matrix_decrease_val,0x0800edd8,6,1.15,match; entry=ptr; opsim=0.80,rgb_matrix.o,0.800
+0x0800eebc,16,rgb_matrix_set_speed_noeeprom,0x0800ede0,16,1.90,match; opsim=1.00,rgb_matrix.o,1.000
+0x0800eecc,12,rgb_matrix_get_speed,0x0800edf0,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800eed8,24,rgb_matrix_increase_speed_helper,0x0800edfc,24,1.90,match; opsim=1.00,rgb_matrix.o,1.000
+0x0800eef0,8,rgb_matrix_increase_speed,0x0800ee14,6,1.15,match; entry=ptr; opsim=0.80,rgb_matrix.o,0.800
+0x0800eef8,20,rgb_matrix_decrease_speed_helper,0x0800ee1c,20,1.90,match; opsim=1.00,rgb_matrix.o,1.000
+0x0800ef0c,8,rgb_matrix_decrease_speed,0x0800ee30,6,1.15,match; entry=ptr; opsim=0.80,rgb_matrix.o,0.800
+0x0800ef14,12,rgb_matrix_disable_timeout_set,0x0800ee38,12,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,rgb_matrix.o,1.000
+0x0800ef20,12,rgb_matrix_disable_time_reset,0x0800ee44,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800ef2c,28,rgb_matrix_timeouted,0x0800ee50,28,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800ef48,24,rgb_matrix_driver_shutdown,0x0800ee6c,24,1.60,match; entry=bl; callgraph 2/2; opsim=1.00,rgb_matrix.o,1.000
+0x0800ef60,24,rgb_matrix_driver_exit_shutdown,0x0800ee84,24,1.60,match; entry=bl; callgraph 2/2; opsim=1.00,rgb_matrix.o,1.000
+0x0800ef78,12,rgb_matrix_is_driver_shutdown,0x0800ee9c,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,rgb_matrix.o,1.000
+0x0800ef84,80,rgb_task_flush,0x0800eea8,80,2.20,match; entry=bl; callgraph 5/5; opsim=1.00,rgb_matrix.o,1.000
+0x0800efd4,296,rgb_matrix_task,0x0800eef8,292,2.16,match; entry=bl; callgraph 7/7; opsim=0.86,rgb_matrix.o,0.864
+0x0800f0fc,36,rgb_matrix_set_suspend_state,0x0800f01c,32,1.87,match; entry=bl; callgraph 3/3; opsim=0.77,rgb_matrix.o,0.769
+0x0800f120,96,snled27351_write,0x0800f03c,96,2.20,match; entry=bl; callgraph 7/7; opsim=0.89,snled27351-spi.o,0.886
+0x0800f180,24,snled27351_write_register,0x0800f09c,22,1.95,match; entry=bl; callgraph 2/2; opsim=0.88,snled27351-spi.o,0.875
+0x0800f198,52,snled27351_write_pwm_buffer,0x0800f0b4,48,1.97,match; entry=bl; callgraph 2/2; opsim=0.86,snled27351-spi.o,0.865
+0x0800f1cc,236,snled27351_init,0x0800f0e4,232,3.65,match; entry=bl; callgraph 4/4; opsim=0.90,snled27351-spi.o,0.898
+0x0800f2b8,64,snled27351_set_color,0x0800f1cc,64,3.40,"match; entry=bl,ptr; callgraph 1/1; opsim=1.00",snled27351-spi.o,1.000
+0x0800f2f8,32,snled27351_set_color_all,0x0800f20c,30,2.01,match; entry=ptr; callgraph 1/1; opsim=0.97,snled27351-spi.o,0.966
+0x0800f318,180,snled27351_set_led_control_register,0x0800f22c,168,3.20,match; entry=bl; callgraph 1/1; opsim=0.69,snled27351-spi.o,0.692
+0x0800f3cc,52,snled27351_update_pwm_buffers,0x0800f2d4,36,1.28,match; entry=bl; callgraph 2/2; opsim=0.69,snled27351-spi.o,0.690
+0x0800f400,48,snled27351_update_led_control_registers,0x0800f2f8,44,1.95,match; entry=bl; callgraph 2/2; opsim=0.85,snled27351-spi.o,0.848
+0x0800f430,76,snled27351_init_drivers,0x0800f324,76,4.20,match; entry=ptr; callgraph 5/5; opsim=0.93,snled27351-spi.o,0.929
+0x0800f47c,20,snled27351_flush,0x0800f370,18,1.90,match; entry=ptr; callgraph 1/1; opsim=0.92,snled27351-spi.o,0.923
+0x0800f490,12,snled27351_shutdown,0x0800f384,12,3.90,match; entry=ptr; opsim=1.00,snled27351-spi.o,1.000
+0x0800f49c,12,snled27351_exit_shutdown,0x0800f390,12,3.90,match; entry=ptr; opsim=1.00,snled27351-spi.o,1.000
+0x0800f4a8,8,handleKeycodeRGB,0x0800f39c,6,1.15,match; entry=bl; callgraph 1/1; opsim=0.86,process_rgb.o,0.857
+0x0800f4b0,188,process_rgb,0x0800f3a4,192,2.14,match; entry=bl; callgraph 5/5; opsim=0.96,process_rgb.o,0.965
+0x0800f56c,118,fnv_64a_buf,0x0800f464,112,1.75,match; entry=bl; callgraph 2/2; opsim=0.45,hash_64a.o,0.451
+0x0800f5e2,10,encoder_wait_pullup_charge,0x0800f4d4,8,1.60,match; entry=bl; callgraph 1/1; opsim=0.80,encoder.o,0.800
+0x0800f5ec,104,encoder_init,0x0800f4dc,104,4.80,match; entry=bl; callgraph 3/3; opsim=0.74,encoder.o,0.737
+0x0800f654,368,encoder_read,0x0800f544,364,6.27,match; entry=bl; callgraph 4/4; opsim=0.92,encoder.o,0.917
+0x0800f7c4,76,encoder_inerrupt_read,0x0800f6b0,72,5.24,match; opsim=0.96,encoder.o,0.957
+0x0800f810,4,dip_switch_update_mask_user,0x0800f6f8,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,dip_switch.o,1.000
+0x0800f814,8,dip_switch_update_mask_kb,0x0800f6fc,8,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,dip_switch.o,1.000
+0x0800f81c,60,dip_switch_read,0x0800f704,64,4.01,match; entry=bl; callgraph 3/3; opsim=0.86,dip_switch.o,0.857
+0x0800f858,28,dip_switch_init,0x0800f744,28,4.50,match; entry=bl; callgraph 3/3; opsim=1.00,dip_switch.o,1.000
+0x0800f874,4,dynamic_keymap_get_layer_count,0x0800f760,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,dynamic_keymap.o,1.000
+0x0800f878,18,dynamic_keymap_key_to_eeprom_address,0x0800f764,22,1.35,match; entry=bl; callgraph 2/2; opsim=0.43,dynamic_keymap.o,0.429
+0x0800f88a,44,dynamic_keymap_get_keycode,0x0800f77a,44,2.20,match; entry=bl; callgraph 3/3; opsim=0.86,dynamic_keymap.o,0.865
+0x0800f8b6,42,dynamic_keymap_set_keycode,0x0800f7a6,42,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,dynamic_keymap.o,1.000
+0x0800f8e0,62,dynamic_keymap_get_encoder,0x0800f7d0,56,1.91,match; entry=bl; callgraph 2/2; opsim=0.67,dynamic_keymap.o,0.667
+0x0800f91e,56,dynamic_keymap_set_encoder,0x0800f808,54,2.09,match; entry=bl; callgraph 3/3; opsim=0.80,dynamic_keymap.o,0.800
+0x0800f956,112,dynamic_keymap_reset,0x0800f83e,108,2.09,match; entry=bl; callgraph 6/6; opsim=0.91,dynamic_keymap.o,0.913
+0x0800f9c6,46,dynamic_keymap_get_buffer,0x0800f8aa,40,2.11,match; entry=bl; callgraph 2/2; opsim=0.74,dynamic_keymap.o,0.743
+0x0800f9f4,40,dynamic_keymap_set_buffer,0x0800f8d2,36,2.20,match; entry=bl; callgraph 2/2; opsim=0.84,dynamic_keymap.o,0.839
+0x0800fa1c,30,keycode_at_keymap_location,0x0800f8f6,26,1.50,match; opsim=0.83,dynamic_keymap.o,0.833
+0x0800fa3a,14,keycode_at_encodermap_location,0x0800f910,14,1.90,match; opsim=1.00,dynamic_keymap.o,1.000
+0x0800fa48,4,dynamic_keymap_macro_get_count,0x0800f91e,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,dynamic_keymap.o,1.000
+0x0800fa4c,6,dynamic_keymap_macro_get_buffer_size,0x0800f922,6,2.20,match; entry=bl; callgraph 1/1; opsim=1.00,dynamic_keymap.o,1.000
+0x0800fa52,52,dynamic_keymap_macro_get_buffer,0x0800f928,42,1.92,match; entry=bl; callgraph 2/2; opsim=0.72,dynamic_keymap.o,0.722
+0x0800fa86,38,dynamic_keymap_macro_set_buffer,0x0800f952,38,2.50,match; entry=bl; callgraph 2/2; opsim=0.94,dynamic_keymap.o,0.938
+0x0800faac,24,dynamic_keymap_macro_reset,0x0800f978,24,2.80,match; entry=bl; callgraph 3/3; opsim=1.00,dynamic_keymap.o,1.000
+0x0800fac4,180,dynamic_keymap_macro_send,0x0800f990,188,2.67,match; entry=bl; callgraph 3/3; opsim=0.81,dynamic_keymap.o,0.806
+0x0800fb78,76,process_grave_esc,0x0800fa4c,76,2.50,match; entry=bl; callgraph 5/5; opsim=0.90,process_grave_esc.o,0.900
+0x0800fbc4,460,process_magic,0x0800fa98,452,2.15,match; entry=bl; callgraph 5/5; opsim=0.90,process_magic.o,0.903
+0x0800fd90,40,times_inv_sqrt2,0x0800fc5c,38,1.75,match; entry=bl; callgraph 1/1; opsim=0.55,mousekey.o,0.552
+0x0800fdb8,108,move_unit,0x0800fc84,108,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,mousekey.o,1.000
+0x0800fe24,104,wheel_unit,0x0800fcf0,100,1.78,match; entry=bl; callgraph 2/2; opsim=0.95,mousekey.o,0.951
+0x0800fe8c,216,mousekey_on,0x0800fd54,196,1.92,match; entry=bl; callgraph 5/5; opsim=0.77,mousekey.o,0.771
+0x0800ff64,236,mousekey_off,0x0800fe18,280,1.43,match; entry=bl; callgraph 3/3; opsim=0.76,mousekey.o,0.760
+0x08010050,56,mousekey_send,0x0800ff30,60,2.00,match; entry=bl; callgraph 3/3; opsim=0.65,mousekey.o,0.650
+0x08010088,44,mousekey_clear,0x0800ff6c,44,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,mousekey.o,1.000
+0x080100b4,36,should_mousekey_report_send,0x0800ff98,34,1.73,match; entry=bl; callgraph 1/1; opsim=0.96,mousekey.o,0.963
+0x080100d8,400,mousekey_task,0x0800ffbc,372,1.99,match; entry=bl; callgraph 8/8; opsim=0.90,mousekey.o,0.896
+0x08010268,112,send_char,0x08010130,112,6.70,match; entry=bl; callgraph 4/4; opsim=0.96,send_string.o,0.959
+0x080102d8,164,send_string_with_delay,0x080101a0,148,2.91,match; entry=bl; callgraph 7/7; opsim=0.58,send_string.o,0.581
+0x0801037c,184,perform_space_cadet,0x08010234,184,2.20,match; entry=bl; callgraph 6/6; opsim=1.00,process_space_cadet.o,1.000
+0x08010434,156,process_space_cadet,0x080102ec,152,2.72,match; entry=bl; callgraph 2/2; opsim=0.96,process_space_cadet.o,0.959
+0x080104d0,120,process_tri_layer,0x08010384,90,0.55,match; entry=bl; callgraph 7/7; opsim=0.78,process_tri_layer.o,0.779
+0x08010548,12,get_tri_layer_lower_layer,0x080103e0,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,tri_layer.o,1.000
+0x08010554,12,get_tri_layer_upper_layer,0x080103ec,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,tri_layer.o,1.000
+0x08010560,12,get_tri_layer_adjust_layer,0x080103f8,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,tri_layer.o,1.000
+0x0801056c,42,via_eeprom_is_valid,0x08010404,40,2.06,match; entry=bl; callgraph 2/2; opsim=0.97,via.o,0.970
+0x08010596,50,via_eeprom_set_valid,0x0801042c,50,2.20,match; entry=bl; callgraph 3/3; opsim=0.81,via.o,0.810
+0x080105c8,2,via_init_kb,0x0801045e,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,via.o,1.000
+0x080105ca,10,via_get_layout_options,0x08010460,10,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,via.o,1.000
+0x080105d4,2,via_set_layout_options_kb,0x0801046a,2,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,via.o,1.000
+0x080105d6,20,via_set_layout_options,0x0801046c,20,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,via.o,1.000
+0x080105ea,32,eeconfig_init_via,0x08010480,32,2.20,match; entry=bl; callgraph 5/5; opsim=1.00,via.o,1.000
+0x0801060a,30,via_init,0x080104a0,30,2.20,match; entry=bl; callgraph 5/5; opsim=1.00,via.o,1.000
+0x08010628,4,via_set_device_indication,0x080104be,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,via.o,1.000
+0x0801062c,30,process_record_via,0x080104c2,30,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,via.o,1.000
+0x0801064a,6,via_custom_value_command_kb,0x080104e0,6,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,via.o,1.000
+0x08010650,62,via_qmk_rgb_matrix_get_value,0x080104e6,62,2.20,match; callgraph 6/6; opsim=1.00,via.o,1.000
+0x0801068e,118,via_qmk_rgb_matrix_set_value,0x08010524,104,1.84,match; callgraph 4/4; opsim=0.86,via.o,0.857
+0x08010704,36,via_qmk_rgb_matrix_command,0x0801058c,36,1.90,match; opsim=1.00,via.o,1.000
+0x08010728,22,via_custom_value_command,0x080105b0,22,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,via.o,1.000
+0x0801073e,442,raw_hid_receive,0x080105c6,438,2.17,match; entry=bl; callgraph 20/20; opsim=0.94,via.o,0.944
+0x080108f8,12,host_set_driver,0x0801077c,12,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,host.o,1.000
+0x08010904,12,host_get_driver,0x08010788,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,host.o,1.000
+0x08010910,16,host_keyboard_leds,0x08010794,16,1.90,match; entry=bl; callgraph 4/4; opsim=1.00,host.o,1.000
+0x08010920,8,host_keyboard_led_state,0x080107a4,8,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,host.o,1.000
+0x08010928,16,host_keyboard_send,0x080107ac,16,1.90,match; opsim=1.00,host.o,1.000
+0x08010938,20,host_nkro_send,0x080107bc,20,1.90,match; opsim=1.00,host.o,1.000
+0x0801094c,20,host_mouse_send,0x080107d0,20,1.90,match; opsim=1.00,host.o,1.000
+0x08010960,48,host_system_send,0x080107e4,48,1.90,match; entry=bl; callgraph 3/3; opsim=0.94,host.o,0.944
+0x08010990,48,host_consumer_send,0x08010814,48,1.90,match; entry=bl; callgraph 3/3; opsim=0.94,host.o,0.944
+0x080109c0,76,has_anykey,0x08010844,80,1.25,match; entry=bl; callgraph 1/1; opsim=0.66,report.o,0.655
+0x08010a0c,100,is_key_pressed,0x08010894,96,1.78,match; entry=bl; callgraph 1/1; opsim=0.47,report.o,0.466
+0x08010a70,50,add_key_byte,0x080108f4,44,1.54,match; opsim=0.68,report.o,0.683
+0x08010aa2,26,del_key_byte,0x08010920,24,1.67,match; opsim=1.00,report.o,1.000
+0x08010abc,28,add_key_bit,0x08010938,24,1.47,match; opsim=0.67,report.o,0.667
+0x08010ad8,36,del_key_bit,0x08010950,30,1.40,match; opsim=0.77,report.o,0.769
+0x08010afc,52,add_key_to_report,0x08010970,52,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,report.o,1.000
+0x08010b30,52,del_key_from_report,0x080109a4,52,1.90,match; entry=bl; callgraph 3/3; opsim=1.00,report.o,1.000
+0x08010b64,56,clear_keys_from_report,0x080109d8,56,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,report.o,1.000
+0x08010b9c,72,has_mouse_report_changed,0x08010a10,72,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,report.o,1.000
+0x08010be4,2,notify_usb_device_state_change_user,0x08010a58,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,usb_device_state.o,1.000
+0x08010be6,10,notify_usb_device_state_change_kb,0x08010a5a,8,1.60,match; entry=bl; callgraph 4/4; opsim=0.86,usb_device_state.o,0.857
+0x08010bf0,24,usb_device_state_set_configuration,0x08010a64,20,1.70,match; entry=bl; callgraph 2/2; opsim=0.62,usb_device_state.o,0.625
+0x08010c08,20,usb_device_state_set_suspend,0x08010a78,20,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,usb_device_state.o,1.000
+0x08010c1c,4,usb_device_state_set_resume,0x08010a8c,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,usb_device_state.o,1.000
+0x08010c20,20,usb_device_state_set_reset,0x08010a90,20,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,usb_device_state.o,1.000
+0x08010c34,4,usb_device_state_init,0x08010aa4,4,1.90,match; opsim=1.00,usb_device_state.o,1.000
+0x08010c38,2,matrix_power_up,0x08010aa8,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,suspend.o,1.000
+0x08010c3a,2,matrix_power_down,0x08010aaa,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,suspend.o,1.000
+0x08010c3c,2,suspend_power_down_user,0x08010aac,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,suspend.o,1.000
+0x08010c3e,8,suspend_power_down_kb,0x08010aae,8,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,suspend.o,1.000
+0x08010c46,2,suspend_wakeup_init_user,0x08010ab6,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,suspend.o,1.000
+0x08010c48,8,suspend_wakeup_init_kb,0x08010ab8,8,2.20,match; callgraph 1/1; opsim=1.00,suspend.o,1.000
+0x08010c50,36,suspend_wakeup_condition,0x08010ac0,36,2.20,match; entry=bl; callgraph 5/5; opsim=1.00,suspend.o,1.000
+0x08010c74,14,platform_setup,0x08010ae4,14,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,platform.o,1.000
+0x08010c82,18,suspend_power_down,0x08010af2,18,2.50,match; entry=bl; callgraph 2/2; opsim=1.00,suspend.o,1.000
+0x08010c94,40,suspend_wakeup_init,0x08010b04,38,2.05,match; entry=bl; callgraph 7/7; opsim=0.96,suspend.o,0.957
+0x08010cbc,44,timer_clear,0x08010b2c,44,2.20,match; callgraph 1/1; opsim=1.00,timer.o,1.000
+0x08010ce8,4,timer_init,0x08010b58,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,timer.o,1.000
+0x08010cec,108,timer_read32,0x08010b5c,108,2.50,match; entry=bl; callgraph 33/33; opsim=0.91,timer.o,0.912
+0x08010d58,10,timer_read,0x08010bc8,10,2.20,match; entry=bl; callgraph 7/7; opsim=1.00,timer.o,1.000
+0x08010d62,14,timer_elapsed,0x08010bd2,14,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,timer.o,1.000
+0x08010d70,12,timer_elapsed32,0x08010be0,12,2.20,match; entry=bl; callgraph 16/16; opsim=1.00,timer.o,1.000
+0x08010d7c,36,__NVIC_SystemReset,0x08010bec,36,3.90,match; entry=bl; callgraph 2/2; opsim=1.00,stm32_dfu.o,1.000
+0x08010da0,16,bootloader_marker_enable,0x08010c10,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,stm32_dfu.o,1.000
+0x08010db0,24,bootloader_marker_active,0x08010c20,24,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,stm32_dfu.o,1.000
+0x08010dc8,12,bootloader_marker_disable,0x08010c38,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,stm32_dfu.o,1.000
+0x08010dd4,10,bootloader_jump,0x08010c44,10,2.20,match; callgraph 2/2; opsim=1.00,stm32_dfu.o,1.000
+0x08010dde,6,mcu_reset,0x08010c4e,6,2.20,match; callgraph 1/1; opsim=1.00,stm32_dfu.o,1.000
+0x08010de4,116,enter_bootloader_mode_if_requested,0x08010c54,116,4.20,match; callgraph 2/2; opsim=1.00,stm32_dfu.o,1.000
+0x08010e58,116,spi_init,0x08010cc8,116,4.80,match; entry=bl; callgraph 4/4; opsim=1.00,spi_master.o,1.000
+0x08010ecc,232,spi_start,0x08010d3c,220,2.34,match; entry=bl; callgraph 4/4; opsim=0.91,spi_master.o,0.905
+0x08010fb4,20,spi_transmit,0x08010e18,20,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,spi_master.o,1.000
+0x08010fc8,36,spi_stop,0x08010e2c,36,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,spi_master.o,1.000
+0x08010fec,4,dummy_cb,0x08010e50,2,0.40,match; entry=ptr; opsim=0.67,usb_main.o,0.667
+0x08010ff0,284,usb_requests_hook_cb,0x08010e54,280,1.86,match; entry=ptr; opsim=0.92,usb_main.o,0.920
+0x0801110c,68,usb_get_descriptor_cb,0x08010f6c,68,2.20,match; entry=ptr; callgraph 1/1; opsim=1.00,usb_main.o,1.000
+0x08011150,52,set_led_transfer_cb,0x08010fb0,52,1.90,match; entry=ptr; opsim=1.00,usb_main.o,1.000
+0x08011184,40,usb_event_queue_enqueue.isra.0,0x08010fe4,40,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,usb_main.o,1.000
+0x080111ac,192,usb_event_cb,0x0801100c,192,2.20,match; entry=ptr; callgraph 7/7; opsim=1.00,usb_main.o,1.000
+0x0801126c,36,usb_event_queue_init,0x080110cc,36,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,usb_main.o,1.000
+0x08011290,140,usb_event_queue_task,0x080110f0,180,1.53,match; callgraph 5/5; opsim=0.94,usb_main.o,0.940
+0x0801131c,44,,,,,INSERTION (no ref function),,
+0x08011348,100,init_usb_driver,0x080111a4,80,0.60,match; entry=bl; callgraph 8/8; opsim=0.78,usb_main.o,0.784
+0x080113ac,12,keyboard_leds,0x080111f4,12,1.90,match; entry=ptr; opsim=1.00,usb_main.o,1.000
+0x080113b8,32,send_report,0x08011200,32,2.50,match; entry=bl; callgraph 2/2; opsim=1.00,usb_main.o,1.000
+0x080113d8,10,send_keyboard,0x08011220,10,1.90,match; entry=ptr; opsim=1.00,usb_main.o,1.000
+0x080113e2,10,send_nkro,0x0801122a,10,1.90,match; entry=ptr; opsim=1.00,usb_main.o,1.000
+0x080113ec,10,send_mouse,0x08011234,10,1.90,match; entry=ptr; opsim=1.00,usb_main.o,1.000
+0x080113f6,10,send_extra,0x0801123e,10,1.90,match; entry=ptr; opsim=1.00,usb_main.o,1.000
+0x08011400,16,raw_hid_send,0x08011248,16,1.90,match; entry=bl; callgraph 3/3; opsim=1.00,usb_main.o,1.000
+0x08011410,40,raw_hid_task,0x08011258,36,1.90,match; entry=bl; callgraph 3/3; opsim=0.87,usb_main.o,0.867
+0x08011438,4,early_hardware_init_pre,0x0801127c,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chibios.o,1.000
+0x0801143c,2,early_hardware_init_post,0x08011280,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chibios.o,1.000
+0x0801143e,2,board_init,0x08011282,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chibios.o,1.000
+0x08011440,16,__early_init,0x08011284,16,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,chibios.o,1.000
+0x08011450,12,boardInit,0x08011294,12,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,chibios.o,1.000
+0x0801145c,4,protocol_setup,0x080112a0,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chibios.o,1.000
+0x08011460,44,protocol_pre_init,0x080112a4,44,2.50,match; entry=bl; callgraph 3/3; opsim=1.00,chibios.o,1.000
+0x0801148c,12,protocol_post_init,0x080112d0,12,1.90,match; opsim=1.00,chibios.o,1.000
+0x08011498,4,protocol_pre_task,0x080112dc,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chibios.o,1.000
+0x0801149c,16,protocol_post_task,0x080112e0,14,1.82,match; callgraph 1/1; opsim=0.89,chibios.o,0.889
+0x080114ac,120,get_usb_descriptor,0x080112f0,120,4.40,match; entry=bl; callgraph 1/1; opsim=0.95,usb_descriptor.o,0.953
+0x08011524,58,obnotify,0x08011368,58,2.20,match; entry=ptr; callgraph 2/2; opsim=1.00,usb_driver.o,1.000
+0x0801155e,54,usb_start_receive,0x080113a2,54,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,usb_driver.o,1.000
+0x08011594,8,ibnotify,0x080113d8,6,1.15,match; entry=ptr; opsim=0.80,usb_driver.o,0.800
+0x0801159c,56,usb_endpoint_in_init,0x080113e0,56,2.20,match; entry=bl; callgraph 2/2; opsim=0.92,usb_driver.o,0.919
+0x080115d4,40,usb_endpoint_out_init,0x08011418,40,2.20,match; entry=bl; callgraph 2/2; opsim=0.90,usb_driver.o,0.897
+0x080115fc,32,usb_endpoint_in_start,0x08011440,32,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,usb_driver.o,1.000
+0x0801161c,30,usb_endpoint_out_start,0x08011460,30,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,usb_driver.o,1.000
+0x0801163a,40,usb_endpoint_in_suspend_cb,0x0801147e,40,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,usb_driver.o,1.000
+0x08011662,26,usb_endpoint_out_suspend_cb,0x080114a6,26,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,usb_driver.o,1.000
+0x0801167c,6,usb_endpoint_in_wakeup_cb,0x080114c0,6,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,usb_driver.o,1.000
+0x08011682,6,usb_endpoint_out_wakeup_cb,0x080114c6,6,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,usb_driver.o,1.000
+0x08011688,32,usb_endpoint_in_configure_cb,0x080114cc,32,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,usb_driver.o,1.000
+0x080116a8,22,usb_endpoint_out_configure_cb,0x080114ec,22,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,usb_driver.o,1.000
+0x080116be,150,usb_endpoint_in_tx_complete_cb,0x08011502,150,2.20,match; entry=ptr; callgraph 3/3; opsim=1.00,usb_driver.o,1.000
+0x08011754,66,usb_endpoint_out_rx_complete_cb,0x08011598,66,2.20,match; entry=ptr; callgraph 2/2; opsim=1.00,usb_driver.o,1.000
+0x08011796,162,usb_endpoint_in_send,0x080115da,154,2.05,match; entry=bl; callgraph 6/6; opsim=0.84,usb_driver.o,0.836
+0x08011838,56,usb_endpoint_in_is_inactive,0x08011674,56,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,usb_driver.o,1.000
+0x08011870,76,usb_endpoint_out_receive,0x080116ac,76,2.20,match; entry=bl; callgraph 2/2; opsim=0.95,usb_driver.o,0.949
+0x080118bc,42,usb_set_report,0x080116f8,38,1.91,match; entry=ptr; callgraph 1/1; opsim=0.82,usb_report_handling.o,0.824
+0x080118e6,22,usb_get_report,0x0801171e,22,1.90,match; entry=ptr; opsim=1.00,usb_report_handling.o,1.000
+0x080118fc,28,usb_reset_report,0x08011734,28,2.20,match; entry=ptr; opsim=1.00,usb_report_handling.o,1.000
+0x08011918,60,usb_shared_set_report,0x08011750,58,2.10,match; entry=ptr; callgraph 1/1; opsim=0.98,usb_report_handling.o,0.976
+0x08011954,28,usb_shared_get_report,0x0801178a,28,1.90,match; entry=ptr; opsim=1.00,usb_report_handling.o,1.000
+0x08011970,40,usb_shared_reset_report,0x080117a6,38,2.05,match; entry=ptr; opsim=0.97,usb_report_handling.o,0.970
+0x08011998,88,usb_get_report_cb,0x080117cc,88,1.90,match; opsim=1.00,usb_report_handling.o,1.000
+0x080119f0,28,usb_set_idle_rate,0x08011824,28,1.90,match; entry=ptr; opsim=1.00,usb_report_handling.o,1.000
+0x08011a0c,12,usb_get_idle_rate,0x08011840,12,1.90,match; entry=ptr; opsim=1.00,usb_report_handling.o,1.000
+0x08011a18,76,usb_idle_timer_elapsed,0x0801184c,80,1.85,match; entry=ptr; callgraph 2/2; opsim=0.86,usb_report_handling.o,0.857
+0x08011a64,36,usb_shared_set_idle_rate,0x0801189c,36,1.90,match; entry=ptr; opsim=1.00,usb_report_handling.o,1.000
+0x08011a88,24,usb_shared_get_idle_rate,0x080118c0,22,1.65,match; entry=ptr; opsim=0.95,usb_report_handling.o,0.947
+0x08011aa0,88,usb_shared_idle_timer_elapsed,0x080118d8,88,2.50,match; entry=ptr; callgraph 2/2; opsim=0.90,usb_report_handling.o,0.903
+0x08011af8,272,usb_idle_task,0x08011930,244,1.39,match; callgraph 2/2; opsim=0.64,usb_report_handling.o,0.644
+0x08011c08,80,usb_get_idle_cb,0x08011a24,80,1.90,match; opsim=1.00,usb_report_handling.o,1.000
+0x08011c58,76,usb_set_idle_cb,0x08011a74,76,1.90,match; opsim=1.00,usb_report_handling.o,1.000
+0x08011ca4,24,__core_init,0x08011ac0,24,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chmemcore.o,1.000
+0x08011cbc,44,chCoreAllocFromBaseI,0x08011ad8,44,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chmemcore.o,1.000
+0x08011ce8,20,chCoreAllocFromBase,0x08011b04,20,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,chmemcore.o,1.000
+0x08011cfc,2,__cpu_init,0x08011b18,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,crt1.o,1.000
+0x08011cfe,2,__late_init,0x08011b1a,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,crt1.o,1.000
+0x08011d00,4,__default_exit,0x08011b1c,2,0.40,match; opsim=0.67,crt1.o,0.667
+0x08011d04,88,__init_ram_areas,0x08011b20,76,0.49,match; entry=bl; callgraph 1/1; opsim=0.78,crt1.o,0.776
+0x08011d5c,48,chSysInit,0x08011b6c,48,1.90,match; callgraph 2/2; opsim=1.00,chsys.o,1.000
+0x08011d8c,24,chSysHalt,0x08011b9c,24,1.90,match; entry=bl; callgraph 5/5; opsim=1.00,chsys.o,1.000
+0x08011da4,4,chSysTimerHandlerI,0x08011bb4,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chsys.o,1.000
+0x08011da8,18,chSysGetStatusAndLockX,0x08011bb8,18,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,chsys.o,1.000
+0x08011dba,30,chSysRestoreStatusX,0x08011bca,30,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,chsys.o,1.000
+0x08011dd8,20,chSysPolledDelayX,0x08011be8,20,3.90,match; entry=bl; callgraph 2/2; opsim=1.00,chsys.o,1.000
+0x08011dec,16,chRFCUCollectFaultsI,0x08011bfc,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chrfcu.o,1.000
+0x08011dfc,42,ch_dlist_insert,0x08011c0c,42,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chvt.o,1.000
+0x08011e26,54,vt_set_alarm,0x08011c36,54,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,chvt.o,1.000
+0x08011e5c,88,vt_insert_first.constprop.0,0x08011c6c,88,2.20,match; callgraph 3/3; opsim=1.00,chvt.o,1.000
+0x08011eb4,80,vt_enqueue.constprop.0,0x08011cc4,80,2.20,match; callgraph 2/2; opsim=0.97,chvt.o,0.966
+0x08011f04,20,chVTDoSetI,0x08011d14,12,0.20,match; entry=bl; callgraph 1/1; opsim=0.77,chvt.o,0.769
+0x08011f18,108,chVTDoResetI,0x08011d20,108,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,chvt.o,1.000
+0x08011f84,200,chVTDoTickI,0x08011d8c,180,1.90,match; callgraph 4/4; opsim=0.85,chvt.o,0.849
+0x0801204c,28,__sch_ready_behind,0x08011e40,28,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chschd.o,1.000
+0x08012068,28,__sch_ready_ahead,0x08011e5c,28,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chschd.o,1.000
+0x08012084,68,__sch_wakeup,0x08011e78,68,2.20,match; entry=ptr; callgraph 1/1; opsim=0.96,chschd.o,0.962
+0x080120c8,4,chSchReadyI,0x08011ebc,4,1.90,match; entry=bl; callgraph 3/3; opsim=1.00,chschd.o,1.000
+0x080120cc,28,chSchGoSleepS,0x08011ec0,28,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chschd.o,1.000
+0x080120e8,60,chSchGoSleepTimeoutS,0x08011edc,60,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,chschd.o,1.000
+0x08012124,24,chSchIsPreemptionRequired,0x08011f18,24,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chschd.o,1.000
+0x0801213c,40,chSchDoPreemption,0x08011f30,40,2.20,match; entry=bl; callgraph 1/1; opsim=1.00,chschd.o,1.000
+0x08012164,24,chSchRescheduleS,0x08011f58,24,1.90,match; entry=bl; callgraph 4/4; opsim=1.00,chschd.o,1.000
+0x0801217c,4,__idle_thread,0x08011f70,4,1.90,match; entry=ptr; opsim=1.00,chinstances.o,1.000
+0x08012180,128,chInstanceObjectInit,0x08011f74,128,5.20,match; entry=bl; callgraph 5/5; opsim=0.98,chinstances.o,0.978
+0x08012200,20,__thd_object_init,0x08011ff4,20,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chthreads.o,1.000
+0x08012214,80,chThdCreateSuspendedI,0x08012008,80,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chthreads.o,1.000
+0x08012264,16,chThdCreateI,0x08012058,14,1.82,match; entry=bl; callgraph 2/2; opsim=0.89,chthreads.o,0.889
+0x08012274,16,chThdExitS,0x08012068,16,1.90,match; opsim=1.00,chthreads.o,1.000
+0x08012284,10,chThdExit,0x08012078,10,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chthreads.o,1.000
+0x0801228e,26,chThdSleep,0x08012082,24,1.97,match; entry=bl; callgraph 17/17; opsim=0.95,chthreads.o,0.947
+0x080122a8,28,chThdSuspendTimeoutS,0x0801209c,28,1.90,match; opsim=0.90,chthreads.o,0.900
+0x080122c4,20,chThdResumeI,0x080120b8,18,1.60,match; entry=bl; callgraph 9/9; opsim=0.94,chthreads.o,0.941
+0x080122d8,32,chThdEnqueueTimeoutS,0x080120cc,32,1.90,match; entry=bl; callgraph 2/2; opsim=0.92,chthreads.o,0.917
+0x080122f8,22,chThdDequeueNextI,0x080120ec,22,1.90,match; opsim=1.00,chthreads.o,1.000
+0x0801230e,28,chThdDequeueAllI,0x08012102,28,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,chthreads.o,1.000
+0x0801232a,30,ch_sch_prio_insert,0x0801211e,30,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,chmtx.o,1.000
+0x08012348,12,chMtxObjectInit,0x0801213c,10,1.40,match; opsim=0.91,chmtx.o,0.909
+0x08012354,100,chMtxLockS,0x08012148,100,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,chmtx.o,1.000
+0x080123b8,20,chMtxLock,0x080121ac,20,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,chmtx.o,1.000
+0x080123cc,92,chMtxUnlock,0x080121c0,92,2.20,match; entry=bl; callgraph 3/3; opsim=0.97,chmtx.o,0.975
+0x08012428,32,SVC_Handler,0x0801221c,32,3.90,match; entry=vector; anchor=vector; opsim=1.00,chcore.o,1.000
+0x08012448,72,port_init,0x0801223c,72,3.90,match; entry=bl; callgraph 1/1; opsim=1.00,chcore.o,1.000
+0x08012490,84,__port_irq_epilogue,0x08012284,84,4.50,match; callgraph 1/1; opsim=1.00,chcore.o,1.000
+0x080124e4,42,halInit,0x080122d8,38,1.91,match; entry=bl; callgraph 9/9; opsim=0.95,hal.o,0.952
+0x0801250e,8,stGetCounter,0x08012302,8,2.20,match; entry=bl; callgraph 13/13; opsim=1.00,hal_st.o,1.000
+0x08012516,16,stStartAlarm,0x0801230a,16,2.20,match; entry=bl; callgraph 1/1; opsim=1.00,hal_st.o,1.000
+0x08012526,10,stStopAlarm,0x0801231a,10,2.20,match; entry=bl; callgraph 1/1; opsim=1.00,hal_st.o,1.000
+0x08012530,8,stSetAlarm,0x08012324,8,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,hal_st.o,1.000
+0x08012538,46,ibqObjectInit,0x0801232c,46,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_buffers.o,1.000
+0x08012566,22,ibqResetI,0x0801235a,22,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_buffers.o,1.000
+0x0801257c,20,ibqGetEmptyBufferI,0x08012370,20,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_buffers.o,1.000
+0x08012590,32,ibqPostFullBufferI,0x08012384,32,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_buffers.o,1.000
+0x080125b0,50,ibqGetFullBufferTimeoutS,0x080123a4,50,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,hal_buffers.o,1.000
+0x080125e2,36,ibqReleaseEmptyBufferS,0x080123d6,36,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_buffers.o,1.000
+0x08012606,134,ibqReadTimeout,0x080123fa,130,2.11,match; entry=bl; callgraph 3/3; opsim=0.93,hal_buffers.o,0.926
+0x0801268c,46,obqObjectInit,0x0801247c,46,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_buffers.o,1.000
+0x080126ba,24,obqResetI,0x080124aa,24,1.90,match; entry=bl; callgraph 3/3; opsim=1.00,hal_buffers.o,1.000
+0x080126d2,28,obqGetFullBufferI,0x080124c2,28,1.90,match; entry=bl; callgraph 2/2; opsim=0.92,hal_buffers.o,0.923
+0x080126ee,30,obqReleaseEmptyBufferI,0x080124de,30,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_buffers.o,1.000
+0x0801270c,50,obqGetEmptyBufferTimeoutS,0x080124fc,50,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,hal_buffers.o,1.000
+0x0801273e,38,obqPostFullBufferS,0x0801252e,38,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,hal_buffers.o,1.000
+0x08012764,138,obqWriteTimeout,0x08012554,134,2.11,match; entry=bl; callgraph 3/3; opsim=0.93,hal_buffers.o,0.929
+0x080127ee,34,obqFlush,0x080125da,32,2.02,match; entry=bl; callgraph 2/2; opsim=0.96,hal_buffers.o,0.963
+0x08012810,60,flashWaitErase,0x080125fc,64,2.61,match; entry=bl; callgraph 3/3; opsim=0.81,hal_flash.o,0.809
+0x0801284c,26,flashGetSectorOffset,0x0801263c,26,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,hal_flash.o,1.000
+0x08012866,26,flashGetSectorSize,0x08012656,26,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,hal_flash.o,1.000
+0x08012880,16,flashGetOffsetAddress,0x08012670,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_flash.o,1.000
+0x08012890,12,efl_release_exclusive,0x08012680,12,2.20,match; entry=ptr; callgraph 1/1; opsim=1.00,hal_efl.o,1.000
+0x0801289c,12,efl_acquire_exclusive,0x0801268c,12,2.20,match; entry=ptr; callgraph 1/1; opsim=1.00,hal_efl.o,1.000
+0x080128a8,4,eflInit,0x08012698,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_efl.o,1.000
+0x080128ac,20,eflObjectInit,0x0801269c,20,1.60,match; entry=bl; callgraph 1/1; opsim=1.00,hal_efl.o,1.000
+0x080128c0,28,eflStart,0x080126b0,28,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,hal_efl.o,1.000
+0x080128dc,28,eflStop,0x080126cc,26,1.99,match; entry=bl; callgraph 2/2; opsim=0.95,hal_efl.o,0.952
+0x080128f8,24,palSetLineCallbackI,0x080126e8,24,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_pal.o,1.000
+0x08012910,4,rtcInit,0x08012700,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_rtc.o,1.000
+0x08012914,12,rtcObjectInit,0x08012704,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_rtc.o,1.000
+0x08012920,4,rtcSetTime,0x08012710,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_rtc.o,1.000
+0x08012924,4,rtcGetTime,0x08012714,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_rtc.o,1.000
+0x08012928,4,spiInit,0x08012718,4,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,hal_spi.o,1.000
+0x0801292c,16,spiObjectInit,0x0801271c,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_spi.o,1.000
+0x0801293c,34,spiStart,0x0801272c,34,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,hal_spi.o,1.000
+0x0801295e,28,spiStop,0x0801274e,28,2.20,match; entry=bl; callgraph 5/5; opsim=1.00,hal_spi.o,1.000
+0x0801297a,28,spiSelect,0x0801276a,26,1.69,match; entry=bl; callgraph 4/4; opsim=0.96,hal_spi.o,0.957
+0x08012996,28,spiUnselect,0x08012784,26,1.69,match; entry=bl; callgraph 2/2; opsim=0.96,hal_spi.o,0.957
+0x080129b2,14,spiStartExchangeI,0x0801279e,12,1.47,match; entry=bl; callgraph 1/1; opsim=0.80,hal_spi.o,0.800
+0x080129c0,8,spiStartSendI,0x080127aa,8,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_spi.o,1.000
+0x080129c8,16,spiSynchronizeS,0x080127b2,16,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,hal_spi.o,1.000
+0x080129d8,34,spiExchange,0x080127c2,34,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,hal_spi.o,1.000
+0x080129fa,34,spiSend,0x080127e4,34,2.20,match; entry=bl; callgraph 4/4; opsim=1.00,hal_spi.o,1.000
+0x08012a1c,4,usbInit,0x08012806,4,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_usb.o,1.000
+0x08012a20,24,usbObjectInit,0x0801280a,24,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_usb.o,1.000
+0x08012a38,38,usbStart,0x08012822,38,2.20,match; callgraph 1/1; opsim=1.00,hal_usb.o,1.000
+0x08012a5e,84,usbStop,0x08012848,80,2.06,match; entry=bl; callgraph 5/5; opsim=1.00,hal_usb.o,1.000
+0x08012ab2,50,usbInitEndpointI,0x08012898,50,2.20,match; entry=bl; callgraph 1/1; opsim=1.00,hal_usb.o,1.000
+0x08012ae4,78,usbDisableEndpointsI,0x080128ca,74,2.05,match; entry=bl; callgraph 2/2; opsim=1.00,hal_usb.o,1.000
+0x08012b32,36,usbStartReceiveI,0x08012914,36,1.90,match; entry=bl; callgraph 2/2; opsim=0.81,hal_usb.o,0.812
+0x08012b56,36,usbStartTransmitI,0x08012938,36,1.90,match; entry=bl; callgraph 5/5; opsim=0.81,hal_usb.o,0.812
+0x08012b7a,62,usbWakeupHost,0x0801295c,62,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,hal_usb.o,1.000
+0x08012bb8,116,_usb_reset,0x0801299a,110,2.04,match; entry=bl; callgraph 3/3; opsim=0.95,hal_usb.o,0.950
+0x08012c2c,96,_usb_suspend,0x08012a08,92,2.08,match; entry=bl; callgraph 2/2; opsim=0.95,hal_usb.o,0.946
+0x08012c8c,24,_usb_wakeup,0x08012a64,22,1.65,match; entry=bl; callgraph 1/1; opsim=0.95,hal_usb.o,0.952
+0x08012ca4,712,_usb_ep0setup,0x08012a7c,712,2.50,match; entry=ptr; callgraph 11/11; opsim=0.99,hal_usb.o,0.988
+0x08012f6c,178,_usb_ep0in,0x08012d44,178,2.20,match; entry=ptr; callgraph 4/4; opsim=1.00,hal_usb.o,1.000
+0x0801301e,120,_usb_ep0out,0x08012df6,120,2.20,match; entry=ptr; callgraph 3/3; opsim=1.00,hal_usb.o,1.000
+0x08013096,44,nvicEnableVector,0x08012e6e,42,1.76,match; entry=bl; callgraph 4/4; opsim=0.62,nvic.o,0.621
+0x080130c2,46,nvicDisableVector,0x08012e98,44,1.77,match; entry=bl; callgraph 2/2; opsim=0.97,nvic.o,0.966
+0x080130f0,40,Vector58,0x08012ec4,40,3.90,match; entry=vector; anchor=vector; opsim=1.00,stm32_isr.o,1.000
+0x08013118,40,Vector5C,0x08012eec,40,3.90,match; entry=vector; anchor=vector; opsim=1.00,stm32_isr.o,1.000
+0x08013140,40,Vector60,0x08012f14,40,3.90,match; entry=vector; anchor=vector; opsim=1.00,stm32_isr.o,1.000
+0x08013168,40,Vector64,0x08012f3c,40,3.90,match; entry=vector; anchor=vector; opsim=1.00,stm32_isr.o,1.000
+0x08013190,40,Vector68,0x08012f64,40,3.90,match; entry=vector; anchor=vector; opsim=1.00,stm32_isr.o,1.000
+0x080131b8,100,Vector9C,0x08012f8c,100,3.90,match; entry=vector; anchor=vector; opsim=1.00,stm32_isr.o,1.000
+0x0801321c,112,VectorE0,0x08012ff0,112,3.90,match; entry=vector; anchor=vector; opsim=1.00,stm32_isr.o,1.000
+0x0801328c,14,VectorB0,0x08013060,14,2.20,match; entry=vector; anchor=vector; callgraph 1/1; opsim=1.00,stm32_isr.o,1.000
+0x0801329a,70,irqInit,0x0801306e,70,2.20,match; callgraph 1/1; opsim=1.00,stm32_isr.o,1.000
+0x080132e0,168,hal_lld_init,0x080130b4,168,4.80,match; entry=bl; callgraph 2/2; opsim=1.00,hal_lld.o,1.000
+0x08013388,248,stm32_clock_init,0x0801315c,248,4.50,match; entry=bl; callgraph 1/1; opsim=1.00,hal_lld.o,1.000
+0x08013480,40,stm32_flash_check_errors,0x08013254,38,1.75,match; entry=bl; callgraph 2/2; opsim=0.92,hal_efl_lld.o,0.919
+0x080134a8,92,efl_lld_init,0x0801327c,92,4.50,match; callgraph 1/1; opsim=1.00,hal_efl_lld.o,1.000
+0x08013504,40,efl_lld_start,0x080132d8,40,3.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_efl_lld.o,1.000
+0x0801352c,12,efl_lld_stop,0x08013300,12,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_efl_lld.o,1.000
+0x08013538,4,efl_lld_get_descriptor,0x0801330c,4,1.90,match; entry=ptr; opsim=1.00,hal_efl_lld.o,1.000
+0x0801353c,46,efl_lld_read,0x08013310,46,2.50,match; entry=ptr; opsim=0.81,hal_efl_lld.o,0.810
+0x0801356a,188,efl_lld_program,0x0801333e,174,2.28,match; entry=ptr; callgraph 1/1; opsim=0.91,hal_efl_lld.o,0.909
+0x08013626,12,efl_lld_start_erase_all,0x080133ec,12,1.90,match; entry=ptr; opsim=0.83,hal_efl_lld.o,0.833
+0x08013632,70,efl_lld_start_erase_sector,0x080133f8,70,2.20,match; entry=ptr; opsim=1.00,hal_efl_lld.o,1.000
+0x08013678,48,efl_lld_query_erase,0x0801343e,50,2.08,match; entry=ptr; callgraph 1/1; opsim=0.89,hal_efl_lld.o,0.889
+0x080136a8,72,efl_lld_verify_erase,0x08013470,70,2.12,match; entry=ptr; callgraph 2/2; opsim=0.98,hal_efl_lld.o,0.984
+0x080136f0,40,Vector6C,0x080134b8,40,3.90,match; entry=vector; anchor=vector; opsim=1.00,stm32_dma.o,1.000
+0x08013718,44,Vector70,0x080134e0,44,3.90,match; entry=vector; anchor=vector; opsim=0.83,stm32_dma.o,0.828
+0x08013744,44,Vector74,0x0801350c,44,3.90,match; entry=vector; anchor=vector; opsim=0.83,stm32_dma.o,0.828
+0x08013770,44,Vector78,0x08013538,44,3.90,match; entry=vector; anchor=vector; opsim=0.83,stm32_dma.o,0.828
+0x0801379c,40,Vector7C,0x08013564,40,3.90,match; entry=vector; anchor=vector; opsim=1.00,stm32_dma.o,1.000
+0x080137c4,44,Vector80,0x0801358c,44,3.90,match; entry=vector; anchor=vector; opsim=0.83,stm32_dma.o,0.828
+0x080137f0,44,Vector84,0x080135b8,44,3.90,match; entry=vector; anchor=vector; opsim=0.83,stm32_dma.o,0.828
+0x0801381c,44,VectorFC,0x080135e4,44,3.90,match; entry=vector; anchor=vector; opsim=0.83,stm32_dma.o,0.828
+0x08013848,40,Vector120,0x08013610,40,3.90,match; entry=vector; anchor=vector; opsim=1.00,stm32_dma.o,1.000
+0x08013870,44,Vector124,0x08013638,44,3.90,match; entry=vector; anchor=vector; opsim=0.83,stm32_dma.o,0.828
+0x0801389c,44,Vector128,0x08013664,44,3.90,match; entry=vector; anchor=vector; opsim=0.83,stm32_dma.o,0.828
+0x080138c8,44,Vector12C,0x08013690,44,3.90,match; entry=vector; anchor=vector; opsim=0.83,stm32_dma.o,0.828
+0x080138f4,40,Vector130,0x080136bc,40,3.90,match; entry=vector; anchor=vector; opsim=1.00,stm32_dma.o,1.000
+0x0801391c,44,Vector150,0x080136e4,44,3.90,match; entry=vector; anchor=vector; opsim=0.83,stm32_dma.o,0.828
+0x08013948,44,Vector154,0x08013710,44,3.90,match; entry=vector; anchor=vector; opsim=0.83,stm32_dma.o,0.828
+0x08013974,44,Vector158,0x0801373c,48,3.65,match; entry=vector; anchor=vector; opsim=0.83,stm32_dma.o,0.828
+0x080139a0,68,dmaInit,0x0801376c,68,5.40,match; entry=bl; callgraph 1/1; opsim=0.84,stm32_dma.o,0.844
+0x080139e4,176,dmaStreamAllocI,0x080137b0,176,5.70,match; entry=bl; callgraph 2/2; opsim=0.81,stm32_dma.o,0.812
+0x08013a94,88,dmaStreamFreeI,0x08013860,88,4.20,match; entry=bl; callgraph 3/3; opsim=0.92,stm32_dma.o,0.923
+0x08013aec,108,extiEnableGroup1,0x080138b8,116,3.69,match; entry=bl; callgraph 1/1; opsim=0.72,stm32_exti.o,0.716
+0x08013b58,28,_pal_lld_init,0x0801392c,28,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_pal_lld.o,1.000
+0x08013b74,216,_pal_lld_setgroupmode,0x08013948,204,1.73,match; entry=bl; callgraph 16/16; opsim=0.83,hal_pal_lld.o,0.828
+0x08013c4c,100,_pal_lld_enablepadevent,0x08013a14,100,3.90,match; entry=bl; callgraph 2/2; opsim=0.91,hal_pal_lld.o,0.909
+0x08013cb0,88,_pal_lld_disablepadevent,0x08013a78,88,3.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_pal_lld.o,1.000
+0x08013d08,86,otg_disable_ep,0x08013ad0,86,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,hal_usb_lld.o,1.000
+0x08013d5e,22,otg_txfifo_flush.isra.0,0x08013b26,20,1.63,match; entry=bl; callgraph 3/3; opsim=0.94,hal_usb_lld.o,0.941
+0x08013d74,32,usb_lld_init,0x08013b3c,32,2.20,match; callgraph 1/1; opsim=0.90,hal_usb_lld.o,0.900
+0x08013d94,204,usb_lld_start,0x08013b5c,204,4.50,match; entry=bl; callgraph 4/4; opsim=1.00,hal_usb_lld.o,1.000
+0x08013e60,68,usb_lld_stop,0x08013c28,68,4.20,match; entry=bl; callgraph 3/3; opsim=1.00,hal_usb_lld.o,1.000
+0x08013ea4,176,usb_lld_reset,0x08013c6c,176,2.50,match; entry=bl; callgraph 3/3; opsim=1.00,hal_usb_lld.o,1.000
+0x08013f54,24,usb_lld_set_address,0x08013d1c,24,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_usb_lld.o,1.000
+0x08013f6c,280,usb_lld_init_endpoint,0x08013d34,264,2.03,match; callgraph 1/1; opsim=0.90,hal_usb_lld.o,0.895
+0x08014084,10,usb_lld_disable_endpoints,0x08013e3c,10,1.90,match; opsim=1.00,hal_usb_lld.o,1.000
+0x0801408e,26,usb_lld_get_status_out,0x08013e46,26,1.90,match; entry=bl; callgraph 1/1; opsim=0.91,hal_usb_lld.o,0.909
+0x080140a8,26,usb_lld_get_status_in,0x08013e60,26,1.90,match; entry=bl; callgraph 1/1; opsim=0.91,hal_usb_lld.o,0.909
+0x080140c2,18,usb_lld_read_setup,0x08013e7a,16,1.57,match; entry=bl; callgraph 1/1; opsim=0.92,hal_usb_lld.o,0.923
+0x080140d4,124,usb_lld_start_out,0x08013e8a,114,1.66,match; entry=bl; callgraph 1/1; opsim=0.88,hal_usb_lld.o,0.878
+0x08014150,176,otg_epout_handler.constprop.0,0x08013efc,176,2.20,match; entry=bl; callgraph 3/3; opsim=0.96,hal_usb_lld.o,0.963
+0x08014200,140,usb_lld_start_in,0x08013fac,140,2.20,match; entry=bl; callgraph 1/1; opsim=0.88,hal_usb_lld.o,0.875
+0x0801428c,276,otg_epin_handler.constprop.0,0x08014038,268,2.11,match; entry=bl; callgraph 3/3; opsim=0.95,hal_usb_lld.o,0.948
+0x080143a0,748,Vector14C,0x08014144,732,2.74,match; entry=vector; anchor=vector; callgraph 8/8; opsim=0.83,hal_usb_lld.o,0.833
+0x0801468c,20,usb_lld_stall_out,0x08014420,20,1.90,match; entry=bl; callgraph 3/3; opsim=1.00,hal_usb_lld.o,1.000
+0x080146a0,20,usb_lld_stall_in,0x08014434,20,1.90,match; entry=bl; callgraph 3/3; opsim=1.00,hal_usb_lld.o,1.000
+0x080146b4,20,usb_lld_clear_out,0x08014448,20,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_usb_lld.o,1.000
+0x080146c8,20,usb_lld_clear_in,0x0801445c,20,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,hal_usb_lld.o,1.000
+0x080146dc,24,rtc_enter_init,0x08014470,24,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,hal_rtc_lld.o,1.000
+0x080146f4,4,_getsize,0x08014488,4,1.90,match; entry=ptr; opsim=1.00,hal_rtc_lld.o,1.000
+0x080146f8,42,_read,0x0801448c,42,1.90,match; entry=ptr; opsim=0.88,hal_rtc_lld.o,0.882
+0x08014722,58,_write,0x080144b6,60,1.80,match; entry=ptr; opsim=0.86,hal_rtc_lld.o,0.864
+0x0801475c,104,Vector48,0x080144f4,104,4.20,match; entry=vector; anchor=vector; opsim=1.00,hal_rtc_lld.o,1.000
+0x080147c4,56,Vector4C,0x0801455c,56,4.20,match; entry=vector; anchor=vector; opsim=1.00,hal_rtc_lld.o,1.000
+0x080147fc,76,VectorE4,0x08014594,76,4.20,match; entry=vector; anchor=vector; opsim=1.00,hal_rtc_lld.o,1.000
+0x08014848,120,rtc_lld_init,0x080145e0,120,4.50,match; callgraph 4/4; opsim=0.93,hal_rtc_lld.o,0.930
+0x080148c0,220,rtc_lld_set_time,0x08014658,216,1.95,match; callgraph 2/2; opsim=0.69,hal_rtc_lld.o,0.688
+0x0801499c,256,rtc_lld_get_time,0x08014730,252,2.75,match; callgraph 2/2; opsim=0.93,hal_rtc_lld.o,0.926
+0x08014a9c,48,spi_lld_configure,0x0801482c,46,1.77,match; entry=bl; callgraph 1/2; opsim=0.97,hal_spi_v2_lld.o,0.973
+0x08014acc,168,spi_lld_stop_abort.isra.0,0x0801485c,164,3.63,match; entry=bl; callgraph 3/4; opsim=0.94,hal_spi_v2_lld.o,0.944
+0x08014b74,140,spi_lld_serve_rx_interrupt,0x08014900,136,3.61,match; entry=ptr; callgraph 3/3; opsim=0.98,hal_spi_v2_lld.o,0.983
+0x08014c00,60,spi_lld_serve_tx_interrupt,0x08014988,60,3.70,match; entry=ptr; callgraph 3/3; opsim=1.00,hal_spi_v2_lld.o,1.000
+0x08014c3c,44,spi_lld_init,0x080149c4,44,4.20,match; callgraph 1/1; opsim=0.93,hal_spi_v2_lld.o,0.933
+0x08014c68,212,spi_lld_start,0x080149f0,204,4.09,match; entry=bl; callgraph 4/4; opsim=0.87,hal_spi_v2_lld.o,0.872
+0x08014d3c,76,spi_lld_stop,0x08014abc,76,4.20,match; entry=bl; callgraph 3/3; opsim=1.00,hal_spi_v2_lld.o,1.000
+0x08014d88,54,spi_lld_exchange,0x08014b08,54,1.90,match; opsim=1.00,hal_spi_v2_lld.o,1.000
+0x08014dbe,54,spi_lld_send,0x08014b3e,54,1.90,match; opsim=1.00,hal_spi_v2_lld.o,1.000
+0x08014df4,72,st_lld_init,0x08014b74,72,4.50,match; opsim=1.00,hal_st_lld.o,1.000
+0x08014e3c,40,st_lld_serve_interrupt,0x08014bbc,40,2.50,match; entry=bl; callgraph 2/2; opsim=1.00,hal_st_lld.o,1.000
+0x08014e64,32,gpio_init,0x08014be4,30,1.71,match; entry=bl; callgraph 1/1; opsim=0.97,board.o,0.968
+0x08014e84,132,__chibios_override___early_init,0x08014c04,128,5.61,match; entry=bl; callgraph 2/2; opsim=0.93,board.o,0.933
+0x08014f08,2,__chibios_override_boardInit,0x08014c84,2,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,board.o,1.000
+0x08014f0a,10,_read_r,0x08014c86,10,1.90,match; entry=bl; opsim=1.00,syscalls.o,1.000
+0x08014f14,4,_lseek_r,0x08014c90,4,1.90,match; entry=bl; callgraph 0/1; opsim=1.00,syscalls.o,1.000
+0x08014f18,4,_write_r,0x08014c94,4,1.90,match; opsim=1.00,syscalls.o,1.000
+0x08014f1c,4,_close_r,0x08014c98,4,1.90,match; opsim=1.00,syscalls.o,1.000
+0x08014f20,26,_sbrk_r,0x08014c9c,26,2.20,match; entry=bl; callgraph 3/3; opsim=1.00,syscalls.o,1.000
+0x08014f3a,24,_fstat_r,0x08014cb6,22,2.25,match; entry=bl; callgraph 1/1; opsim=0.95,syscalls.o,0.947
+0x08014f52,6,_isatty_r,0x08014ccc,4,0.90,match; entry=bl; opsim=0.80,syscalls.o,0.800
+0x08014f58,16,_exit,0x08014cd0,16,3.70,match; entry=bl; callgraph 3/3; opsim=1.00,syscalls.o,1.000
+0x08014f68,20,_kill,0x08014ce0,16,3.10,match; entry=bl; callgraph 3/3; opsim=0.80,syscalls.o,0.800
+0x08014f7c,2,_fini,0x08014cf4,2,1.90,match; opsim=1.00,syscall-fallbacks.o,1.000
+0x08014f7e,62,abort+__itoa,0x08014cf6,62,2.20,merge2A; entry=bl; callgraph 5/6; refs=abort+__itoa,libc_a-abort.o,
+0x08014fbc,4,itoa,0x08014d34,4,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,libc_a-itoa.o,1.000
+0x08014fc0,16,malloc,0x08014d38,16,1.90,match; entry=bl; callgraph 2/2; opsim=1.00,libc_a-malloc.o,1.000
+0x08014fd0,16,free,0x08014d48,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,libc_a-malloc.o,1.000
+0x08014fe0,32,,,,,INSERTION (no ref function); entry=bl,,
+0x08015000,28,,,,,INSERTION (no ref function); entry=bl,,
+0x0801501c,16,,,,,INSERTION (no ref function); entry=bl,,
+0x0801502c,152,,,,,INSERTION (no ref function); entry=bl,,
+0x080150c4,64,sbrk_aligned,0x08014d58,68,2.02,match; entry=bl; callgraph 2/2; opsim=0.81,libc_a-mallocr.o,0.808
+0x08015104,232,_malloc_r,0x08014d9c,248,2.01,match; entry=bl; callgraph 2/3; opsim=0.85,libc_a-mallocr.o,0.846
+0x080151ec,124,rand,0x08014e98,124,5.70,match; entry=bl; callgraph 3/3; opsim=0.95,libc_a-rand.o,0.946
+0x08015268,80,memset+_raise_r,0x08014fb4,96,1.70,merge2A; callgraph 1/1; refs=memset+_raise_r,libc_a-memset.o,
+0x080152b8,16,raise,0x08015014,16,1.90,match; entry=bl; callgraph 1/1; opsim=1.00,libc_a-signal.o,1.000
+0x080152c8,36,_kill_r,0x08015024,36,2.20,match; callgraph 1/1; opsim=1.00,libc_a-signalr.o,1.000
+0x080152ec,4,_getpid_r,0x08015048,4,1.90,match; entry=bl; callgraph 0/1; opsim=1.00,libc_a-signalr.o,1.000
+0x080152f0,132,memcpy,0x0801504c,28,-0.96,match; entry=bl; callgraph 0/1; opsim=0.15,libc_a-memcpy-stub.o,0.152
+0x08015374,60,__assert_func,0x08015068,60,6.70,match; entry=bl; callgraph 3/3; opsim=0.95,libc_a-assert.o,0.947
+0x080153b0,36,fprintf,0x0801513c,36,2.20,match; entry=bl; callgraph 2/2; opsim=1.00,libc_a-fprintf.o,1.000
+0x080153d4,12,,,,,INSERTION (no ref function); entry=bl,,
+0x080153e0,12,,,,,INSERTION (no ref function); entry=bl,,
+0x080153ec,46,__sfputc_r,0x08015160,42,1.64,match; entry=bl; callgraph 1/1; opsim=0.90,libc_a-nano-vfprintf.o,0.900
+0x0801541a,38,__sfputs_r,0x0801518a,36,2.04,"match; entry=bl,ptr; callgraph 2/2; opsim=0.97",libc_a-nano-vfprintf.o,0.970
+0x08015440,608,_vfiprintf_r,0x080151b0,452,4.93,match; entry=bl; callgraph 4/6; opsim=0.62,libc_a-nano-vfprintf.o,0.618
+0x080156a0,220,_printf_common,0x08015374,234,1.72,match; entry=bl; opsim=0.82,libc_a-nano-vfprintf_i.o,0.823
+0x0801577c,588,,,,,INSERTION (no ref function); entry=bl,,
+0x080159c8,164,,,,,INSERTION (no ref function),,
+0x08015a6c,220,_printf_i,0x08015460,596,-0.99,split1; entry=bl; callgraph 1/2; opsim=0.21,libc_a-nano-vfprintf_i.o,0.209
+0x08015b48,268,_printf_i,0x08015460,596,-0.45,split2; entry=bl; opsim=0.26,libc_a-nano-vfprintf_i.o,0.261
+0x08015c54,120,,,,,"INSERTION (no ref function); entry=bl,ptr",,
+0x08015ccc,72,std,0x080156b4,72,2.20,match; entry=bl; callgraph 0/1; opsim=1.00,libc_a-findfp.o,1.000
+0x08015d14,12,stdio_exit_handler,0x080156fc,24,0.40,match; entry=ptr; opsim=0.75,libc_a-findfp.o,0.750
+0x08015d20,44,global_stdio_init.part.0,0x08015754,64,1.26,match; entry=bl; callgraph 0/2; opsim=0.17,libc_a-findfp.o,0.171
+0x08015d4c,12,,,,,INSERTION (no ref function); entry=bl,,
+0x08015d58,12,__sinit,0x08015794,28,0.19,split1; entry=bl; callgraph 1/1; opsim=0.33,libc_a-findfp.o,0.333
+0x08015d64,12,__sinit,0x08015794,28,0.19,split2; entry=bl; callgraph 1/1; opsim=0.33,libc_a-findfp.o,0.333
+0x08015d70,12,__sclose,0x0801586a,8,0.90,match; opsim=0.40,libc_a-stdio.o,0.400
+0x08015d7c,112,__swbuf_r,0x08015872,122,0.95,match; entry=bl; callgraph 2/6; opsim=0.29,libc_a-wbuf.o,0.286
+0x08015dec,140,__swsetup_r,0x080158ec,168,0.70,match; entry=bl; callgraph 2/4; opsim=0.25,libc_a-wsetup.o,0.252
+0x08015e78,62,_fflush_r,0x08015a94,42,0.73,match; opsim=0.29,libc_a-fflush.o,0.286
+0x08015eb6,2,,,,,INSERTION (no ref function); entry=bl,,
+0x08015eb8,2,,,,,INSERTION (no ref function); entry=bl,,
+0x08015eba,2,__swhatbuf_r,0x08015abe,72,-1.72,split1; entry=bl; callgraph 0/1; opsim=0.00,libc_a-makebuf.o,0.000
+0x08015ebc,76,__swhatbuf_r,0x08015abe,72,2.34,split2; entry=bl; callgraph 1/1; opsim=0.71,libc_a-makebuf.o,0.710
+0x08015f08,128,,,,,INSERTION (no ref function); entry=bl,,
+0x08015f88,34,,,,,INSERTION (no ref function); entry=ptr,,
+0x08015faa,56,__smakebuf_r,0x08015b06,114,-0.83,split1; entry=ptr; callgraph 0/1; opsim=0.30,libc_a-makebuf.o,0.303
+0x08015fe2,36,__smakebuf_r,0x08015b06,114,-1.35,split2; entry=ptr; callgraph 0/1; opsim=0.07,libc_a-makebuf.o,0.068
+0x08016006,10,,,,,INSERTION (no ref function); entry=ptr,,

@@ -1,0 +1,60 @@
+{
+ "boundary_detector_on_ref1011_feat_bin": {
+  "truth_functions": 915,
+  "detected": 918,
+  "exact_start_matches": 911,
+  "recall": 0.996,
+  "precision": 0.992,
+  "sizes_exact": 832,
+  "sizes_within_4B": 903
+ },
+ "alignment_ref1011_via_bin_vs_feat_map": {
+  "note": "same compiler (GCC 15.2), different config (VIA on, no TD/leader); truth = ref1011_via.map",
+  "matched_functions": 899,
+  "correct_symbol": 867,
+  "accuracy_functions_pct": 96.4,
+  "accuracy_bytes_pct": 97.5,
+  "text_matched_pct": 98.4,
+  "vector_anchors": 30,
+  "anchor_mismatches": 0,
+  "insertions": 32,
+  "insertion_bytes": 918,
+  "deletions": 24,
+  "deletion_bytes": 704
+ },
+ "alignment_stock_keychron_via_bin_vs_ref1011_via_map": {
+  "note": "stock keyboards/keychron/v10_max/firmware/keychron_v10_max_ansi_encoder_via.bin (build 2024-11-09, Jenkins GCC-10-pipeline newlib path) vs ref1011_via; no truth map, anchors only",
+  "target_functions": 940,
+  "matched": 918,
+  "text_matched_pct": 97.4,
+  "vector_anchors": 30,
+  "anchor_mismatches": 0,
+  "insertions": 22,
+  "insertion_bytes": 1492,
+  "deletions": 13,
+  "deletion_bytes": 830,
+  "opcode_similarity": {
+   "n": 513,
+   "mean": 0.909,
+   "median": 0.965,
+   "identical": 228
+  }
+ },
+ "dump_vs_feat_map": {
+  "vector_anchors": 30,
+  "anchor_mismatches": 0,
+  "opcode_similarity": {
+   "n": 492,
+   "mean": 0.92,
+   "median": 1.0,
+   "identical": 259
+  },
+  "keymap_table_anchor": "0x0800d27c pool word 0x080169b8 -> keycode_at_keymap_location_raw",
+  "periph_anchor_examples": {
+   "0x40023800 RCC": "hal_lld_init 0x08014ab4 / stm32_clock_init 0x08014b5c (opsim 1.0)",
+   "0x40013000 SPI1": "spi_lld_init 0x080163c8 (opsim 0.93)",
+   "0x40020000 GPIOA": "lkbt51_wake 0x0800aa20, lpm_task 0x0800bdcc, enter_power_mode 0x0800bff4 (opsim 1.0)",
+   "0xE000ED00 SCB": "port_init 0x08013c34, __NVIC_SystemReset 0x08012598 (opsim 1.0)"
+  }
+ }
+}

@@ -1,0 +1,220 @@
+{
+ "text_range": [
+  "0x08008000",
+  "0x08016704"
+ ],
+ "text_bytes": 59140,
+ "matched_text_bytes": 52124,
+ "user_code_bytes": 1188,
+ "text_coverage_pct": 88.14,
+ "text_plus_user_pct": 90.15,
+ "rodata_range": [
+  "0x08016704",
+  "0x08017744"
+ ],
+ "rodata_bytes": 4160,
+ "rodata_content_matched_bytes": 3061,
+ "rodata_matched_objects": 12,
+ "data_range": [
+  "0x0801774c",
+  "0x08017f04"
+ ],
+ "data_bytes": 1976,
+ "data_content_matched_bytes": 932,
+ "whole_region_bytes": 65284,
+ "whole_region_matched_pct": 85.96,
+ "whole_region_matched_or_user_pct": 87.78,
+ "inferred_by_callers": 6,
+ "inferred_by_call_position": 5,
+ "libc_labels_discarded": 37,
+ "libc_cluster": {
+  "start": "0x08008448",
+  "end": "0x0800a1c0",
+  "bytes": 7544,
+  "identified_bytes": 1756
+ },
+ "data_bytes_inside_text": 28,
+ "ref_functions_absent_from_dump": [
+  {
+   "sym": "send_string_task",
+   "addr": "0x08008aa8",
+   "size": 44,
+   "obj": "wireless.o"
+  },
+  {
+   "sym": "extract_mod_bits",
+   "addr": "0x0800b204",
+   "size": 108,
+   "obj": "quantum.o"
+  },
+  {
+   "sym": "do_code16",
+   "addr": "0x0800b270",
+   "size": 16,
+   "obj": "quantum.o"
+  },
+  {
+   "sym": "register_code16",
+   "addr": "0x0800b280",
+   "size": 44,
+   "obj": "quantum.o"
+  },
+  {
+   "sym": "unregister_code16",
+   "addr": "0x0800b2ac",
+   "size": 44,
+   "obj": "quantum.o"
+  },
+  {
+   "sym": "tap_code16_delay",
+   "addr": "0x0800b2d8",
+   "size": 32,
+   "obj": "quantum.o"
+  },
+  {
+   "sym": "tap_code16",
+   "addr": "0x0800b2f8",
+   "size": 16,
+   "obj": "quantum.o"
+  },
+  {
+   "sym": "tap_code_delay",
+   "addr": "0x0800b6e2",
+   "size": 32,
+   "obj": "action.o"
+  },
+  {
+   "sym": "tap_code",
+   "addr": "0x0800b702",
+   "size": 16,
+   "obj": "action.o"
+  },
+  {
+   "sym": "register_weak_mods",
+   "addr": "0x0800bb9c",
+   "size": 18,
+   "obj": "action.o"
+  },
+  {
+   "sym": "unregister_weak_mods",
+   "addr": "0x0800bbae",
+   "size": 18,
+   "obj": "action.o"
+  },
+  {
+   "sym": "has_oneshot_mods_timed_out",
+   "addr": "0x0800c308",
+   "size": 32,
+   "obj": "action_util.o"
+  },
+  {
+   "sym": "has_oneshot_layer_timed_out",
+   "addr": "0x0800c344",
+   "size": 48,
+   "obj": "action_util.o"
+  },
+  {
+   "sym": "eeconfig_update_handedness",
+   "addr": "0x0800c774",
+   "size": 8,
+   "obj": "eeconfig.o"
+  },
+  {
+   "sym": "process_grave_esc",
+   "addr": "0x0800fa04",
+   "size": 76,
+   "obj": "process_grave_esc.o"
+  },
+  {
+   "sym": "process_magic",
+   "addr": "0x0800fbac",
+   "size": 452,
+   "obj": "process_magic.o"
+  },
+  {
+   "sym": "send_char",
+   "addr": "0x08010244",
+   "size": 112,
+   "obj": "send_string.o"
+  },
+  {
+   "sym": "send_string_with_delay",
+   "addr": "0x080102b4",
+   "size": 148,
+   "obj": "send_string.o"
+  },
+  {
+   "sym": "perform_space_cadet",
+   "addr": "0x08010348",
+   "size": 184,
+   "obj": "process_space_cadet.o"
+  },
+  {
+   "sym": "process_space_cadet",
+   "addr": "0x08010400",
+   "size": 152,
+   "obj": "process_space_cadet.o"
+  },
+  {
+   "sym": "stInit",
+   "addr": "0x0801219a",
+   "size": 4,
+   "obj": "hal_st.o"
+  },
+  {
+   "sym": "_fini",
+   "addr": "0x08014b90",
+   "size": 2,
+   "obj": "syscall-fallbacks.o"
+  }
+ ],
+ "unmatched_text_regions": [
+  {
+   "start": "0x0800811c",
+   "size": 2,
+   "functions": 1
+  },
+  {
+   "start": "0x0800814e",
+   "size": 10,
+   "functions": 1
+  },
+  {
+   "start": "0x08008448",
+   "size": 100,
+   "functions": 1
+  },
+  {
+   "start": "0x08008584",
+   "size": 56,
+   "functions": 1
+  },
+  {
+   "start": "0x080085f8",
+   "size": 200,
+   "functions": 2
+  },
+  {
+   "start": "0x08008990",
+   "size": 28,
+   "functions": 1
+  },
+  {
+   "start": "0x08008a30",
+   "size": 140,
+   "functions": 3
+  },
+  {
+   "start": "0x08008d28",
+   "size": 5200,
+   "functions": 44
+  },
+  {
+   "start": "0x0800a180",
+   "size": 64,
+   "functions": 3
+  }
+ ],
+ "n_functions": 931,
+ "n_matched": 874
+}

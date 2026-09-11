@@ -1,0 +1,6 @@
+#pragma once
+#define TAPPING_TERM 140
+#define ONESHOT_TAP_TOGGLE 2
+#define ONESHOT_TIMEOUT 3000
+#define LEADER_PER_KEY_TIMING
+#define LEADER_TIMEOUT 525

@@ -1,0 +1,118 @@
+== 1. user keymap TU functions (masked identity) ==
+  OK   layr_dn_reset  dump 0x0800cdd8/2 B, rebuild 0x0800ae58/2 B, compared 2 B
+  OK   layer_oneshot_Lower  dump 0x0800cdda/26 B, rebuild 0x0800ae5a/26 B, compared 26 B
+  OK   leader_start_user  dump 0x0800cdf4/10 B, rebuild 0x0800afa4/10 B, compared 10 B
+  OK   leader_end_user  dump 0x0800cdfe/354 B, rebuild 0x0800afae/354 B, compared 354 B
+  OK   keyboard_post_init_user  dump 0x0800cf60/20 B, rebuild 0x0800b110/18 B, compared 18 B
+  OK   rgb_matrix_indicators_advanced_user  dump 0x0800cf74/156 B, rebuild 0x0800b124/156 B, compared 156 B
+  OK   handle_oneshots  dump 0x0800d010/120 B, rebuild 0x0800ae74/120 B, compared 120 B
+  OK   oneshot_mods_changed_user  dump 0x0800d088/4 B, rebuild 0x0800b1c0/4 B, compared 4 B
+  OK   oneshot_locked_mods_changed_user  dump 0x0800d08c/4 B, rebuild 0x0800b1c4/4 B, compared 4 B
+  OK   find_osm_slot  dump 0x0800d090/36 B, rebuild 0x0800b1c8/36 B, compared 36 B
+  OK   check_unlock_osm  dump 0x0800d0b4/80 B, rebuild 0x0800b1ec/80 B, compared 80 B
+  OK   process_record_user  dump 0x0800d104/192 B, rebuild 0x0800b23c/192 B, compared 192 B
+  OK   cur_dance  dump 0x0800d1c4/40 B, rebuild 0x0800aeec/38 B, compared 38 B
+  OK   layr_dn_finished  dump 0x0800d1ec/112 B, rebuild 0x0800af14/112 B, compared 112 B
+  OK   oneshot_layer_changed_user  dump 0x0800d25c/32 B, rebuild 0x0800af84/32 B, compared 32 B
+  OK   keycode_at_keymap_location_raw  dump 0x0800d27c/40 B, rebuild 0x0800b2fc/40 B, compared 40 B
+  OK   keycode_at_encodermap_location_raw  dump 0x0800d2a8/32 B, rebuild 0x0800b328/32 B, compared 32 B
+
+== 2. tables (raw byte identity) ==
+  OK   keymaps  dump 0x080169b8/1296 B, rebuild 0x08015dc0/1296 B
+  OK   encoder_map  dump 0x080169a0/24 B, rebuild 0x08015da8/24 B
+
+== 3. tap_dance_actions[] init image shape ==
+  OK   tap_dance_actions  dump words ['0x0', '0x0', '0x0', '0x800d1ed', '0x800cdd9', '0x0', '0x0']  rebuild words ['0x0', '0x0', '0x0', '0x800af15', '0x800ae59', '0x0', '0x0'] (size 28)
+
+== 4. .bss layout of the user statics (offsets relative to caps_active) ==
+  OK   static order  dump offsets {'caps_active': 0, 'gui_active': 1, 'shift_active': 2, 'held_osm': 4, 'move_to_lower': 12, 'return_to_mouse': 13}  rebuild offsets {'caps_active': 0, 'gui_active': 1, 'shift_active': 2, 'held_osm': 4, 'move_to_lower': 12, 'return_to_mouse': 13}  (caps_active @ 0x20001494)
+
+== 5. config-bearing core functions (masked identity) ==
+  OK   get_tapping_term  dump 0x0800defc/4 B, rebuild 0x0800bf7c/4 B, compared 4 B
+  OK   waiting_buffer_scan_tap  dump 0x0800df00/148 B, rebuild 0x0800bf80/148 B, compared 148 B
+  OK   process_tapping  dump 0x0800df94/648 B, rebuild 0x0800c014/648 B, compared 648 B
+  OK   action_tapping_process  dump 0x0800e21c/196 B, rebuild 0x0800c29c/196 B, compared 196 B
+  OK   process_action  dump 0x0800d698/1052 B, rebuild 0x0800b718/1052 B, compared 1052 B
+  OK   action_exec  dump 0x0800d50c/64 B, rebuild 0x0800b58c/64 B, compared 64 B
+  OK   set_oneshot_layer  dump 0x0800e504/48 B, rebuild 0x0800c584/48 B, compared 48 B
+  OK   add_oneshot_mods  dump 0x0800e3ec/28 B, rebuild 0x0800c46c/28 B, compared 28 B
+  OK   del_oneshot_mods  dump 0x0800e408/28 B, rebuild 0x0800c488/28 B, compared 28 B
+  OK   clear_oneshot_mods  dump 0x0800e424/24 B, rebuild 0x0800c4a4/24 B, compared 24 B
+  OK   reset_oneshot_layer  dump 0x0800e534/20 B, rebuild 0x0800c5b4/20 B, compared 20 B
+  OK   get_mods_for_report  dump 0x0800e43c/48 B, rebuild 0x0800c4bc/48 B, compared 48 B
+  OK   leader_sequence_timed_out  dump 0x080119c0/28 B, rebuild 0x0800fa40/28 B, compared 28 B
+  OK   process_leader  dump 0x080118f4/74 B, rebuild 0x0800f974/74 B, compared 74 B
+  OK   leader_reset_timer  dump 0x080119f8/16 B, rebuild 0x0800fa78/16 B, compared 16 B
+  OK   leader_sequence_add  dump 0x0801199c/36 B, rebuild 0x0800fa1c/36 B, compared 36 B
+  OK   leader_start  dump 0x08011940/60 B, rebuild 0x0800f9c0/60 B, compared 60 B
+  OK   leader_end  dump 0x0801197c/20 B, rebuild 0x0800f9fc/20 B, compared 20 B
+  OK   move_unit  dump 0x08011a8c/136 B, rebuild 0x0800fb0c/136 B, compared 136 B
+  OK   wheel_unit  dump 0x08011b14/112 B, rebuild 0x0800fb94/112 B, compared 112 B
+  OK   mousekey_on  dump 0x08011b84/196 B, rebuild 0x0800fc04/196 B, compared 196 B
+  OK   mousekey_task  dump 0x08011df0/412 B, rebuild 0x0800fe70/412 B, compared 412 B
+  OK   eeconfig_update_rgb_matrix_default  dump 0x0800fe14/44 B, rebuild 0x0800de94/44 B, compared 44 B
+  OK   process_record_quantum  dump 0x0800d3b6/166 B, rebuild 0x0800b436/166 B, compared 166 B
+  OK   quantum_task  dump 0x0800e7a4/20 B, rebuild 0x0800c824/20 B, compared 20 B
+  OK   action_for_keycode  dump 0x0800e8b0/436 B, rebuild 0x0800c930/436 B, compared 436 B
+  OK   debounce  dump 0x0800ef30/304 B, rebuild 0x0800cfb0/304 B, compared 304 B
+  OK   bootmagic_lite  dump 0x0800ec98/42 B, rebuild 0x0800cd18/42 B, compared 42 B
+  OK   tap_dance_task  dump 0x080120d0/80 B, rebuild 0x08010150/80 B, compared 80 B
+  OK   process_tap_dance  dump 0x08012040/144 B, rebuild 0x080100c0/144 B, compared 144 B
+  OK   eeconfig_init_quantum  dump 0x0800e634/144 B, rebuild 0x0800c6b4/144 B, compared 144 B
+  OK   rgb_matrix_mode_eeprom_helper  dump 0x08010d04/60 B, rebuild 0x0800ed84/60 B, compared 60 B
+  OK   process_rgb_matrix  dump 0x08010060/268 B, rebuild 0x0800e0e0/268 B, compared 268 B
+  OK   keyboard_init  dump 0x0800e788/28 B, rebuild 0x0800c808/28 B, compared 28 B
+  OK   raw_hid_receive  dump 0x0800c908/14 B, rebuild 0x0800a988/14 B, compared 14 B
+  OK   process_record_kb  dump 0x0800c6e8/26 B, rebuild 0x0800a768/26 B, compared 26 B
+  OK   keyboard_post_init_kb  dump 0x0800cd38/80 B, rebuild 0x0800adb8/80 B, compared 80 B
+  OK   rgb_matrix_indicators_kb  dump 0x0800c702/18 B, rebuild 0x0800a782/18 B, compared 18 B
+  OK   send_nkro_report  dump 0x0800e4a4/56 B, rebuild 0x0800c524/56 B, compared 56 B
+  OK   rgb_matrix_task  dump 0x08011058/216 B, rebuild 0x0800f0d8/296 B, compared 216 B
+  OK   rgb_matrix_indicators_advanced  dump 0x08010c54/28 B, rebuild 0x0800ecd4/28 B, compared 28 B
+
+== 6. whole-image sweep: rebuild functions without a masked-identical dump function ==
+  rebuild functions: 908; without masked-identical dump match: 42
+    0x0800818c    16 strlen
+    0x0800d368   108 wear_leveling_consolidate_force
+    0x0800d4e0   252 wear_leveling_init
+    0x0800fcc8   288 mousekey_off
+    0x08014a4e    48 __itoa
+    0x08014aa4    68 sbrk_aligned
+    0x08014ae8   256 _malloc_r
+    0x08014be8    12 __malloc_lock
+    0x08014bf4    12 __malloc_unlock
+    0x08014c00   124 rand
+    0x08014c7c   132 __utoa
+    0x08014d00    32 memcmp
+    0x08014d20    16 memset
+    0x08014d30    80 _raise_r
+    0x08014d90    36 _kill_r
+    0x08014dbe    28 memcpy
+    0x08014ddc    60 __assert_func
+    0x08014e18   148 _free_r
+    0x08014eac    36 fiprintf
+    0x08014eac    36 fprintf
+    0x08014ed0    46 __sfputc_r
+    0x08014efe    36 __sfputs_r
+    0x08014f24   560 _vfiprintf_r
+    0x08014f24   560 _vfprintf_r
+    0x08015154   218 _printf_common
+    0x08015230   572 _printf_i
+    0x0801546c   108 std
+    0x080154f0    64 cleanup_stdio
+    0x08015530    60 global_stdio_init.part.0
+    0x0801556c    12 __sfp_lock_acquire
+    0x08015578    12 __sfp_lock_release
+    0x08015584    48 __sinit
+    0x080155b4    60 _fwalk_sglue
+    0x080155f0   124 __swbuf_r
+    0x0801566c   172 __swsetup_r
+    0x08015718    76 __swhatbuf_r
+    0x08015764   120 __smakebuf_r
+    0x080157dc   264 __sflush_r
+    0x080158e4    80 _fflush_r
+    0x08015934    34 __sread
+    0x08015956    56 __swrite
+    0x0801598e    36 __sseek
+
+RESULT: ALL IDENTICAL

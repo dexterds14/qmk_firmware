@@ -1,0 +1,76 @@
+// Reconstructed keymap-level config.h and rules.mk for the lost Keychron V10 Max (ansi_encoder) firmware
+// recovered from dump_a.bin (built 2024-07-09, Keychron wireless_playground @1011db8c8d era, gcc 13.2.1).
+// Board-level settings (keyboards/keychron/v10_max/{config.h,info.json}, ansi_encoder/config.h) are NOT
+// repeated here; everything below was recovered from the binary (see config_features.md for the evidence).
+// Confidence per line: [V] verified from instructions, [L] likely (one inference), [U] uncertain / default.
+// Source tree: fork commit 8e390f92a2 (2024-06-18), i.e. 1011db8c8d minus 0c05eef6cd (only wireless_send_nkro differs).
+// Final check: the whole config below + reconstructed_keymap/keymap.c compiled in-tree with gcc 13.2.1 reproduces every
+// config-bearing core function and every user function masked-identically (tools/final_compile_compare.py).
+
+/* ======================= keyboards/keychron/v10_max/ansi_encoder/keymaps/<user>/config.h ======================= */
+#pragma once
+
+/* Tapping */
+#define TAPPING_TERM 175              // [V] get_tapping_term weak default @0x0800DEFC returns 175; QUICK_TAP cmp #174 @0x0800E1B4
+#define TAPPING_TERM_PER_KEY          // [V] process_tapping/tap_dance_task call get_record_keycode()+get_tapping_term(); no override in keymap.c
+// QUICK_TAP_TERM not set (== TAPPING_TERM = 175)                     [V] cmp #174 @0x0800E1B4, no get_quick_tap_term
+// PERMISSIVE_HOLD, HOLD_ON_OTHER_KEY_PRESS, RETRO_TAPPING: NOT defined [V] 0x0800E062-0x0800E076, 0x0800E0CE, action_exec 0x0800D50C
+// TAPPING_TOGGLE not set (default 5)                                  [V] process_action OP_TAP_TOGGLE 0x0800D9E2 cmp.w r8,#4 (press) / 0x0800D9F4 cmp.w r8,#5 (release); MODS_TAP_TOGGLE 0x0800D878 / 0x0800D880
+
+/* One-shot */
+#define ONESHOT_TAP_TOGGLE 2          // [V] process_action OP_ONESHOT 0x0800DA46/0x0800DA60 cmp.w r8,#1 (tap_count <2 / >=2); MODS_ONESHOT 0x0800D824 cmp #1 -> add_oneshot_mods, 0x0800D832 cmp #2 -> register_mods+del_oneshot_mods+add_oneshot_locked_mods. No QMK default exists: without the define these blocks would be absent
+// ONESHOT_TIMEOUT: NOT defined                                        [V] no has_oneshot_*_timed_out; set_oneshot_layer 0x0800E504 has no timer
+
+/* Leader */
+#define LEADER_PER_KEY_TIMING         // [V] process_leader 0x0801192A calls leader_reset_timer 0x080119F8 after leader_sequence_add
+#define LEADER_TIMEOUT 525            // [V] leader_sequence_timed_out 0x080119CA movw r3,#0x20D ; cmp r0,r3 (default 300, dactyl 600)
+
+/* Mouse keys: kinetic mode (dactyl values) */
+#define MK_KINETIC_SPEED              // [V] move_unit 0x08011A8C / wheel_unit 0x08011B14 kinetic algorithm
+#define MOUSEKEY_MOVE_DELTA 45        // [V] 0x08011ABA movs r2,#45
+#define MOUSEKEY_INITIAL_SPEED 30     // [V] 0x08011AC2 adds r0,#30 ; 0x08011B00 movs r0,#30
+#define MOUSEKEY_BASE_SPEED 1500      // [V] 0x08011ACA movw r3,#1500
+#define MOUSEKEY_INTERVAL 40          // [V] mk_interval .data init 0x28 @0x20000EC5 (flash 0x08017A11); mousekey_on 0x08011BAA subs r0,#160 (=40<<2)
+#define MOUSEKEY_DELAY 1              // [L] mk_delay = DELAY/10 == 0 (.bss @0x20002009); any 0..9 -- including the kinetic default 5 -- compiles identically, so the line may not have existed; 1 is the dactyl value
+#define MOUSEKEY_WHEEL_INITIAL_MOVEMENTS 64   // [V] 0x08011B6E movs r3,#64 ; mk_wheel_interval init 1000/64=15 @0x20000EC2
+#define MOUSEKEY_WHEEL_BASE_MOVEMENTS 32      // [V value / L presence] 0x08011B34 / 0x08011B52 cmp r3,#32 -- equals the QMK default, so the line is undecidable; dactyl wrote it explicitly
+#define MOUSEKEY_WHEEL_ACCELERATED_MOVEMENTS 50 // [V] 0x08011B3C / 0x08011B6A movs r3,#50 (default 48)
+// MOUSEKEY_DECELERATED_SPEED 400, MOUSEKEY_ACCELERATED_SPEED 3000, MOUSEKEY_WHEEL_DECELERATED_MOVEMENTS 8,
+// MOUSEKEY_WHEEL_DELAY 10, MOUSEKEY_MOVE_MAX 127: defaults            [V] 0x08011AF4, 0x08011AFA, 0x08011B66, .data @0x20000EC4 = 1, 0x08011AEC
+
+/* RGB matrix */
+#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_TYPING_HEATMAP   // [V] value 16: eeconfig_update_rgb_matrix_default 0x0800FE1C movs r3,#0x41 (enable|16<<2);
+                                                            //     ref build stores 0x15 (mode 5). Spelling [L]; mode 16 == TYPING_HEATMAP for this board's animation set
+// RGB_MATRIX_DEFAULT_HUE/SAT/VAL/SPD, RGB_MATRIX_MAXIMUM_BRIGHTNESS: defaults (0,255,255,127; 255) [V] rodata 0x08016710 = 00 FF FF, 0x0800FE28 movw #0xFF7F
+// RGB_MATRIX_TIMEOUT: board value RGB_MATRIX_TIMEOUT_INFINITE          [V] .data rgb_matrix_timeout @0x20000EAC = 0xFFFFFFFF
+// RGB_MATRIX_KEYPRESSES, RGB_MATRIX_FRAMEBUFFER_EFFECTS, LED_HITS_TO_REMEMBER 8, BRIGHTNESS_TURN_OFF_VAL 32: board values [V] process_rgb_matrix 0x08010060
+
+/* Not present (checked): DEBOUNCE (board 20, sym_eager_pk: 0x0800EFB8 mov.w sl,#20), FORCE_NKRO, COMBO_*, DYNAMIC_TAPPING_TERM,
+ * RETRO_SHIFT, AUTO_SHIFT_*, LEADER_NO_TIMEOUT, LEADER_KEY_STRICT_KEY_PROCESSING, TAP_CODE_DELAY (0), TAP_HOLD_CAPS_DELAY (80).
+ * LAYER_STATE_16BIT is in effect (strh to layer_state 0x2000162E) but it is the QMK default for <= 16 layers (action_layer.h:46), not a define. */
+
+
+# ======================= keyboards/keychron/v10_max/ansi_encoder/keymaps/<user>/rules.mk =======================
+# Features the binary proves ON (beyond the board defaults bootmagic/extrakey/mousekey/dip_switch/nkro/encoder/encoder_map/rgb_matrix/raw):
+TAP_DANCE_ENABLE = yes        # [V] process_tap_dance 0x08012040, tap_dance_task 0x080120D0, tap_dance_actions[] @0x20000E7C
+LEADER_ENABLE = yes           # [V] process_leader 0x080118F4, leader_task 0x080119DC, leader.o 0x08011940..
+MOUSEKEY_ENABLE = yes         # [V] mousekey_task 0x08011DF0 in keyboard_task; ACT_MOUSEKEY in action_for_keycode (board default anyway)
+NKRO_ENABLE = yes             # [V] send_nkro_report 0x0800E4A4 etc. (board default; keymap_config default 0x1400 = NKRO off)
+
+# Features the binary proves OFF although the fork/QMK default is ON (so the user's rules.mk must say so):
+MAGIC_ENABLE = no             # [V] process_magic absent; not in process_record_quantum 0x0800D3B6 chain; 0x7000.. -> ACTION_NO.  => NK_TOGG in the keymap is dead
+GRAVE_ESC_ENABLE = no         # [V] process_grave_esc absent (present in ref default build)
+SPACE_CADET_ENABLE = no       # [V] process_space_cadet / perform_space_cadet absent (present in ref default build)
+VIA_ENABLE = no               # [V] no process_record_via / VIA eeprom handling (via_command_kb 0x0800C874 is the fork's raw-HID handler)
+LTO_ENABLE = no               # [V] 931 functions / 606 exact matches to the non-LTO gcc reference; weak hook stubs kept as separate functions
+
+# Default-off features confirmed absent (writing them is optional; the dactyl rules.mk listed the first four explicitly):
+CONSOLE_ENABLE = no           # [V] no debug/console strings, null_sendchar_func 0x0800EC84
+COMMAND_ENABLE = no           # [V] no command_proc
+AUTO_SHIFT_ENABLE = no        # [V] no process_auto_shift, no retro-shift code in process_tapping
+COMBO_ENABLE = no             # [V] keyrecord_t is 8 bytes (no keycode field); no process_combo in pre_process_record_quantum 0x0800D34C
+KEY_OVERRIDE_ENABLE = no      # [V] get_mods_for_report 0x0800E43C has no suppressed_mods
+CAPS_WORD_ENABLE = no         # [V] quantum_task 0x0800E7A4 = tap_dance_task + leader_task + dip_switch_read only
+DYNAMIC_MACRO_ENABLE = no     # [V] not in process_record_quantum chain
+REPEAT_KEY_ENABLE = no        # [V] keyrecord_t 8 bytes
+SWAP_HANDS_ENABLE = no        # [V] no 0x5600 range in action_for_keycode 0x0800E8B0
