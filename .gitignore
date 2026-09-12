@@ -114,3 +114,6 @@ via*.json
 
 # Keep firmware file
 !keyboards/keychron/*/firmware/*.bin
+
+# compiled analysis oracle (build artifact)
+/keychron_v10max_backup/tools/eeprom_oracle/eeprom_oracle
