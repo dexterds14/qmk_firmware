@@ -72,12 +72,16 @@ static td_tap_t layr_dn_tap_state = {.is_press_action = true, .state = TD_NONE};
  * blue on "heating up" keys. Colours approximate the V10 Max keycaps (outer dark navy / inner
  * light blue); each is a one-line tweak. Set gaming_mode's RGB brightness via these RGB triples
  * directly (rgb_matrix_set_color writes raw PWM, so the brightness knob does not scale them). */
-#define GAME_OUTER_R  10   // solid base: dark navy (outer keycaps)
-#define GAME_OUTER_G  25
-#define GAME_OUTER_B  80
-#define GAME_INNER_R 110   // heat peak: light blue (inner keycaps)
-#define GAME_INNER_G 175
-#define GAME_INNER_B 235
+/* Keep green well below blue (and red near zero) so the LEDs read as a rich saturated blue, not
+ * teal (green ~ blue) or a washed-out pale blue (red ~ green ~ blue). GAME_HEAT_GAIN scales the
+ * heatmap so a keypress visibly reaches the heat colour instead of barely lifting off the base. */
+#define GAME_OUTER_R   6   // solid base: deep navy (outer keycaps) -- darkened to match the dark outer caps
+#define GAME_OUTER_G   6
+#define GAME_OUTER_B  55
+#define GAME_INNER_R  45   // heat: muted medium slate-blue, matching the lighter inner alpha keycaps
+#define GAME_INNER_G  85   // (from the product photo: outer caps dark navy, inner alphas lighter slate)
+#define GAME_INNER_B 175   // blue clearly above green so it stays blue, not teal; not electric/pale
+#define GAME_HEAT_GAIN 3   // multiply live heat before blending, so heated keys stand out clearly
 static bool gaming_mode = false;
 static inline uint8_t game_lerp(uint8_t a, uint8_t b, uint8_t t) {
     return (uint8_t)(a + ((int32_t)b - a) * t / 255); // a..b blended by heat t (0..255)
@@ -140,7 +144,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_MUTE,                KC_ESC,          KC_F1,              KC_F2,            KC_F3,            KC_F4,                 KC_F5,                  KC_F6,             KC_F7,               KC_F8,                 KC_F9,               KC_F10,           KC_F11,            KC_F12,          KC_INS,                                      KC_DEL,
         GM_TOGG,                KC_GRV,          KC_1,               KC_2,             KC_3,             KC_4,                  KC_5,                   KC_6,              KC_7,                KC_8,                  KC_9,                KC_0,             KC_MINS,           KC_EQL,          KC_BSPC,                                     KC_PGUP,
         MC_2,                   KC_TAB,          KC_Q,               KC_W,             KC_E,             KC_R,                  KC_T,                                      KC_Y,                KC_U,                  KC_I,                KC_O,             KC_P,              KC_LBRC,         KC_RBRC,              KC_BSLS,               KC_PGDN,
-        MC_3,                   KC_CAPS,         KC_A,               KC_S,             KC_D,             KC_F,                  KC_G,                                      KC_H,                KC_J,                  KC_K,                KC_L,             KC_SCLN,           KC_QUOT,         KC_ENT,                                      KC_HOME,
+        MC_3,                   KC_CAPS,         KC_A,               KC_S,             KC_D,             KC_F,                  KC_G,                                      KC_H,                KC_J,                  KC_K,                KC_L,             KC_QUOT,           KC_SCLN,         KC_ENT,                                      KC_HOME,
         MC_4,                   KC_LSFT,                             KC_Z,             KC_X,             KC_C,                  KC_V,                   KC_B,              KC_BSPC,             KC_N,                  KC_M,                KC_COMM,          KC_DOT,            KC_SLSH,         KC_RSFT,                            KC_UP,
         MC_5,                   KC_LCTL,         KC_LWIN,                              KC_LALT,                                 KC_SPC,                 MO(_GAME_FN),                           KC_ENT,                                     KC_RALT,                                                                    KC_LEFT,      KC_DOWN, KC_RGHT
     ),
@@ -357,11 +361,12 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             for (uint8_t col = 0; col < MATRIX_COLS; col++) {
                 uint8_t i = g_led_config.matrix_co[row][col];
                 if (i == NO_LED || i < led_min || i >= led_max) continue;
-                uint8_t heat = g_rgb_frame_buffer[row][col]; // 0..255 live heatmap
+                uint16_t h = (uint16_t)g_rgb_frame_buffer[row][col] * GAME_HEAT_GAIN; // live heat, amplified
+                uint8_t  t = h > 255 ? 255 : (uint8_t)h;                                // 0..255 blend amount
                 rgb_matrix_set_color(i,
-                    game_lerp(GAME_OUTER_R, GAME_INNER_R, heat),
-                    game_lerp(GAME_OUTER_G, GAME_INNER_G, heat),
-                    game_lerp(GAME_OUTER_B, GAME_INNER_B, heat));
+                    game_lerp(GAME_OUTER_R, GAME_INNER_R, t),
+                    game_lerp(GAME_OUTER_G, GAME_INNER_G, t),
+                    game_lerp(GAME_OUTER_B, GAME_INNER_B, t));
             }
         }
         return false;
