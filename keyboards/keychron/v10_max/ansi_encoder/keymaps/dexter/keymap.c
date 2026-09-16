@@ -11,6 +11,8 @@
  */
 #include QMK_KEYBOARD_H
 #include "keychron_common.h"
+#include "lpm.h"                 // usb_power_connected()
+#include "battery.h"             // battery_get_percentage()
 
 enum layers {
     _QWERTY = 0, // base                                    (no indicator colour)
@@ -83,6 +85,14 @@ static td_tap_t layr_dn_tap_state = {.is_press_action = true, .state = TD_NONE};
 #define GAME_INNER_B 175   // blue clearly above green so it stays blue, not teal; not electric/pale
 #define GAME_HEAT_GAIN 3   // multiply live heat before blending, so heated keys stand out clearly
 static bool gaming_mode = false;
+
+/* Battery readout (post-recovery feature). BAT_LVL shows a static bar for BATT_SHOW_MS, drawn
+ * by rgb_matrix_indicators_advanced_user: on battery a green bar sized to the charge %%, on
+ * USB a full bar (green = charged / red = charging). The native grow/blink animation is fully
+ * suppressed in process_record_user (BAT_LVL swallowed on press and release). */
+#define BATT_SHOW_MS 3000
+static bool     batt_active     = false;
+static uint32_t batt_show_start = 0;
 static inline uint8_t game_lerp(uint8_t a, uint8_t b, uint8_t t) {
     return (uint8_t)(a + ((int32_t)b - a) * t / 255); // a..b blended by heat t (0..255)
 }
@@ -356,6 +366,33 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
      * The active effect stays RGB_MATRIX_TYPING_HEATMAP (so the heat buffer keeps being fed and
      * decayed); we only recolour here. When asleep the effect is NONE and indicators do not run,
      * so the LEDs still go fully dark on idle/sleep and return on wake. */
+    /* Battery readout (no ramp): a static bar on the number-row LEDs, rest dark, for BATT_SHOW_MS.
+     * On battery: a green bar whose length is the charge percentage. On USB: a full bar, red while
+     * charging / green when fully charged (a percentage is unreliable while charging). */
+    if (batt_active) {
+        if (timer_elapsed32(batt_show_start) < BATT_SHOW_MS) {
+            uint8_t bar[] = BAT_LEVEL_LED_LIST;
+            for (uint8_t i = led_min; i < led_max; i++) rgb_matrix_set_color(i, RGB_OFF);
+            if (usb_power_connected()) {
+                bool charging = (readPin(BAT_CHARGING_PIN) == BAT_CHARGING_LEVEL);
+                for (uint8_t k = 0; k < sizeof(bar); k++) {
+                    uint8_t i = bar[k];
+                    if (i < led_min || i >= led_max) continue;
+                    if (charging) rgb_matrix_set_color(i, RGB_RED);
+                    else          rgb_matrix_set_color(i, RGB_GREEN);
+                }
+            } else {
+                uint8_t lit = battery_get_percentage() / 10;
+                for (uint8_t k = 0; k < lit && k < sizeof(bar); k++) {
+                    uint8_t i = bar[k];
+                    if (i < led_min || i >= led_max) continue;
+                    rgb_matrix_set_color(i, RGB_GREEN);
+                }
+            }
+            return false;
+        }
+        batt_active = false;
+    }
     if (gaming_mode) {
         for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
             for (uint8_t col = 0; col < MATRIX_COLS; col++) {
@@ -483,6 +520,17 @@ bool check_unlock_osm(uint16_t keycode) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!process_record_keychron_common(keycode, record)) {
         return false;
+    }
+
+    // Battery readout: BAT_LVL shows a static bar for a few seconds (drawn in the indicator).
+    // Return false to suppress Keychron's native grow/blink animation so there is no ramp.
+    if (keycode == BAT_LVL) {
+        if (record->event.pressed) {
+            batt_active     = true;
+            batt_show_start = timer_read32();
+        }
+        return false;   // swallow on BOTH press and release: the native handler ignores
+                        // press/release and would start its white ramp on the release
     }
 
     // Gaming-mode toggle (M1). default_layer_set is RAM-only, so a reboot/replug returns to
