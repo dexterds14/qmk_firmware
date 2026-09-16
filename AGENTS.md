@@ -76,6 +76,12 @@ dfu-util -a 0 -d 0483:df11 -s 0x08000000 -D keychron_v10max_backup/dump_a.bin
 The `.bin` zero-fills flash sector 1 (0x08004000, the emulated EEPROM), so flashing resets
 eeconfig (RGB settings etc.) to compiled defaults. This is also what Keychron's own images do.
 
+**Agent flash workflow:** after a successful `qmk compile` that completes a task, do NOT wait
+for the user to ask — immediately start a background poll loop for the DFU device
+(`dfu-util -l` grep `0483:df11`, every 2 s, up to ~3 min) and tell the user the board is ready
+to be put into DFU mode. When the device appears, run the `dfu-util` flash command above, then
+verify the device left DFU mode.
+
 ## Do NOT
 
 - Hold **Esc or the knob** while plugging the board in: bootmagic erases the EEPROM sector on the
@@ -94,6 +100,10 @@ eeconfig (RGB settings etc.) to compiled defaults. This is also what Keychron's 
 
 ## Environment notes
 
+- Board state (2026-09-15, after the gaming-mode caps-white flash): the board is booted in
+  **2.4 GHz wireless mode with the USB cable unplugged**. It will not appear on the host USB bus
+  until re-plugged; a DFU poll loop will only see it once the user holds the reset button while
+  re-plugging.
 - QMK CLI 1.2.0 (uv tool venv, Python 3.14) works with this 0.23-era tree once the venv contains
   `appdirs` (`uv tool install --reinstall --with appdirs qmk==1.2.0`); the fork's CLI startup check
   otherwise exits or offers to pip-install.
