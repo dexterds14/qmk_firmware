@@ -23,7 +23,7 @@ evidence trail lives in `keychron_v10max_backup/` at the repository root:
 | 3 | `_RAISE2` | Keychron Fn layer: RGB keys, BT hosts 1-3, 2.4 GHz, battery level, `QK_BOOT` on Esc | orange |
 | 4 | `_MOUSE`  | mouse keys (kinetic), `TD(LAYR_DOWN)`, `TO(0)`                           | teal |
 | 5 | `_LEADR`  | `QK_LEADER` on grave, Ctrl+Shift chords, Alt+arrows, `DOT_SLS`, `TO(0)` / `TO(_LEADR)` | red |
-| 6 | `_GAMING` | gaming mode: stock Windows base (M1 = `GM_TOGG` to exit, right space = Enter, right B = Backspace) | solid blue + blue heatmap |
+| 6 | `_GAMING` | gaming mode: stock Windows base (M1 = `GM_TOGG` to exit, right space = Enter, right B = Backspace) | solid blue + blue heatmap (caps lock on: solid white) |
 | 7 | `_GAME_FN`| gaming Fn (hold Fn): stock Windows Fn — F-keys, media, RGB, Bluetooth      | solid blue + blue heatmap |
 
 Encoder: volume on layers 0, 2, 6; RGB brightness on 1, 5, 7; nothing on 3 and 4.
@@ -50,8 +50,10 @@ Encoder: volume on layers 0, 2, 6; RGB brightness on 1, 5, 7; nothing on 3 and 4
   keys glow **light blue** and fade back. Press **M1** again to exit. The mode is not saved: a
   reboot/replug returns to the normal layer (it survives sleep). Implementation is an overlay in
   `rgb_matrix_indicators_advanced_user` reading the live heatmap buffer — the underlying effect
-  stays `RGB_MATRIX_TYPING_HEATMAP`, so idle/sleep still turns the LEDs off and wake restores them.
-  Tune the two blues via the `GAME_OUTER_*` / `GAME_INNER_*` macros at the top of `keymap.c`.
+   stays `RGB_MATRIX_TYPING_HEATMAP`, so idle/sleep still turns the LEDs off and wake restores them.
+   Tune the two blues via the `GAME_OUTER_*` / `GAME_INNER_*` macros at the top of `keymap.c`.
+   **Caps Lock** on the gaming layer paints the whole board **solid white** while it is on
+   (same indicator as the non-gaming mode; the heat overlay is suspended for the duration).
 - **Reset to bootloader without the physical button:** the existing `QK_BOOTLOADER` on the
   `_RAISE2` Esc key does the same thing as the under-spacebar reset button (jumps to DFU, no
   EEPROM wipe). Reach it with **right-Cmd, right-Cmd, Esc** (tap right-Cmd = `OSL(_RAISE)`, tap

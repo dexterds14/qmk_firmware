@@ -73,7 +73,10 @@ static td_tap_t layr_dn_tap_state = {.is_press_action = true, .state = TD_NONE};
  * and paints the board a solid dark blue with the live typing heatmap recoloured toward light
  * blue on "heating up" keys. Colours approximate the V10 Max keycaps (outer dark navy / inner
  * light blue); each is a one-line tweak. Set gaming_mode's RGB brightness via these RGB triples
- * directly (rgb_matrix_set_color writes raw PWM, so the brightness knob does not scale them). */
+ * directly (rgb_matrix_set_color writes raw PWM, so the brightness knob does not scale them).
+ * While caps lock is on the board is solid white instead (same indicator as non-gaming mode;
+ * caps_active is set by the KC_CAPS check in process_record_user, which the _GAMING layer hits
+ * too since its caps key is KC_CAPS). */
 /* Keep green well below blue (and red near zero) so the LEDs read as a rich saturated blue, not
  * teal (green ~ blue) or a washed-out pale blue (red ~ green ~ blue). GAME_HEAT_GAIN scales the
  * heatmap so a keypress visibly reaches the heat colour instead of barely lifting off the base. */
@@ -362,7 +365,8 @@ void keyboard_post_init_user(void) {
  * order-independent).
  */
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-    /* Gaming mode: solid dark-blue base + the live typing-heatmap recoloured toward light blue.
+    /* Gaming mode: solid dark-blue base + the live typing-heatmap recoloured toward light blue,
+     * or solid white while caps lock is on (caps_active, set on the _GAMING KC_CAPS key).
      * The active effect stays RGB_MATRIX_TYPING_HEATMAP (so the heat buffer keeps being fed and
      * decayed); we only recolour here. When asleep the effect is NONE and indicators do not run,
      * so the LEDs still go fully dark on idle/sleep and return on wake. */
@@ -394,6 +398,14 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         batt_active = false;
     }
     if (gaming_mode) {
+        /* Caps lock overrides the blue theme: whole board solid white, same as the
+         * one-shot/caps white in the non-gaming sections below. */
+        if (caps_active) {
+            for (uint8_t i = led_min; i < led_max; i++) {
+                rgb_matrix_set_color(i, RGB_WHITE);
+            }
+            return false;
+        }
         for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
             for (uint8_t col = 0; col < MATRIX_COLS; col++) {
                 uint8_t i = g_led_config.matrix_co[row][col];
