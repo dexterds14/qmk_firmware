@@ -254,6 +254,11 @@ void leader_end_user(void) {
         tap_code(KC_Y);
         tap_code(KC_ENT);
     }
+    // Alt+Shift+N
+    else if (leader_sequence_one_key(KC_N))
+    {
+        tap_code16(LSA(KC_N));
+    }
     // SWAY: Lock/Hibernate (Ctrl+Alt+I)
     else if (leader_sequence_two_keys(KC_LCTL, KC_I))
     {
