@@ -26,17 +26,20 @@
 #define _LOWLKIND 8
 #define PHANTOM_LAYERS_MASK (((layer_state_t)1 << _CAPSIND) | ((layer_state_t)1 << _ALTLKIND) | ((layer_state_t)1 << _LOWLKIND))
 
-// Map RGB Layers to colors array entries
+// Map RGB Layers to colors array entries. The value is the index into
+// my_rgb_layers[] below; the trailing comment is the ACTUAL color that index
+// renders (the my_layerN_layer names are historical and do NOT line up with
+// these values -- trust this enum + the list annotations).
 enum rgb_layer {
-    RGB_RAISE = 0,
-    RGB_RAISE2 = 7,
-    RGB_LOWER = 2,
-    RGB_CAPS_LOCK = 3,
-    RGB_LEADER = 1,
-    RGB_LEADR = 5,
-    RGB_CAPS = 6,
-    RGB_MOUSE = 4,
-    RGB_ALT_MOD = 8,
+    RGB_RAISE = 0,      // blue
+    RGB_RAISE2 = 7,     // teal
+    RGB_LOWER = 2,      // green
+    RGB_CAPS_LOCK = 3,  // yellow
+    RGB_LEADER = 1,     // magenta
+    RGB_LEADR = 5,      // red
+    RGB_CAPS = 6,       // white  (pending one-shot Shift)
+    RGB_MOUSE = 4,      // pink
+    RGB_ALT_MOD = 8,    // purple (Alt/GUI mod or mod-lock)
 };
 
 typedef enum {
@@ -444,17 +447,19 @@ const rgblight_segment_t PROGMEM my_layer8_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 24, HSV_PURPLE}
 );
 
-// Now define the array of layers. Later layers take precedence
+// Now define the array of layers. Later layers take precedence. Each entry is
+// annotated with the RGB_* enum that references it (see enum rgb_layer) and
+// its real color -- the my_layerN_layer names are legacy and misleading.
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    my_layer1_layer, //0-blue (RAISE)
-    my_layer2_layer, //1-purple (RAISE2)
-    my_layer3_layer, //2-green (LOWER)
-    my_layer5_layer, //3-yellow (Caps Lock)
-    my_layer6_layer, //4-pink (LEADER)
-    my_layer4_layer, //5-red (LEADR)
-    my_capslock_layer,//6-white (Shift OSM)
-    my_layer7_layer, //7-teal (MOUSE)
-    my_layer8_layer  //8-magenta (Alt mod-hold)
+    my_layer1_layer,   // 0 blue    -> RGB_RAISE
+    my_layer2_layer,   // 1 magenta -> RGB_LEADER
+    my_layer3_layer,   // 2 green   -> RGB_LOWER
+    my_layer5_layer,   // 3 yellow  -> RGB_CAPS_LOCK
+    my_layer6_layer,   // 4 pink    -> RGB_MOUSE
+    my_layer4_layer,   // 5 red     -> RGB_LEADR
+    my_capslock_layer, // 6 white   -> RGB_CAPS (one-shot Shift)
+    my_layer7_layer,   // 7 teal    -> RGB_RAISE2
+    my_layer8_layer    // 8 purple  -> RGB_ALT_MOD
 );
 
 // forward declaration; initalizated later in the file

@@ -26,6 +26,8 @@
 *.stackdump
 *.sym
 index.html
+# ...except the keymap visualizer page, which is real source, not a build artifact
+!keyboards/**/visualizer/index.html
 firmware_list.json
 
 # QMK-specific
@@ -123,6 +125,9 @@ user_song_list.h
 compile_commands.json
 .clangd/
 .cache/
+
+# Qwen Code agent state (sessions, worktrees, scratch artifacts)
+.qwen/
 
 # VIA(L) files that don't belong in QMK repo
 via*.json

@@ -1,4 +1,4 @@
-Fork of qmk/qmk_firmware; custom work lives on the `dexter-ds` branch.
+# CLAUDE.md
 
-Read [.ai/README.md](.ai/README.md) for the docs index (dactyl_manuform 5x6
-keymap constraints, ZMX Panda20 VIA workflow) before working on either board.
+Read [AGENTS.md](AGENTS.md) — it is the single source of truth for this repo
+and indexes the `.ai/` topic docs.

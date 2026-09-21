@@ -1,0 +1,134 @@
+:root {
+  --bg: #14171c;
+  --panel: #1b1f26;
+  --border: #2c323c;
+  --text: #dfe4ea;
+  --muted: #8b95a5;
+  --accent: #4da3ff;
+  --nav-h: 3.6rem;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 1.2rem 1.5rem;
+  background: var(--bg); color: var(--text);
+  font: 14px/1.45 system-ui, "Segoe UI", sans-serif;
+}
+h1 { font-size: 1.35rem; margin: 0 0 .2rem; }
+h1 .sub { color: var(--muted); font-weight: 400; }
+h2 { font-size: 1.05rem; margin: 0 0 .5rem; }
+h3 { font-size: .9rem; margin: .9rem 0 .3rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.meta { color: var(--muted); font-size: .85rem; }
+.hint { color: var(--muted); font-size: .8rem; }
+code { background: #262b34; padding: .08em .35em; border-radius: 4px; font-size: .85em; }
+
+/* Sticky jump nav: one row of layer anchors, always visible above the stack. */
+#layer-nav {
+  position: sticky; top: 0; z-index: 30;
+  display: flex; gap: .4rem; flex-wrap: nowrap;
+  overflow-x: auto; scrollbar-width: thin;
+  padding: .6rem 0; margin-top: .5rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+#layer-nav button {
+  --tab-color: #3a4150; --tab-text: #eee;
+  flex: none; white-space: nowrap;
+  background: color-mix(in srgb, var(--tab-color) 22%, var(--panel));
+  color: var(--tab-text);
+  border: 1px solid color-mix(in srgb, var(--tab-color) 55%, #000);
+  border-radius: 8px; padding: .35rem .8rem; cursor: pointer;
+  font-weight: 600; letter-spacing: .03em;
+}
+#layer-nav button.active {
+  background: var(--tab-color);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--tab-color) 60%, transparent);
+}
+
+/* One column by default: full-width keyboard stack, shortcuts below it. */
+main {
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  gap: 1.4rem; align-items: start; margin-top: .8rem;
+}
+#keyboard-section { min-width: 0; }
+#side {
+  display: grid; gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  min-width: 0;
+}
+
+/* Wide windows: shortcuts move to a sticky side rail. Layers never go side by side. */
+@media (min-width: 1400px) {
+  main { grid-template-columns: minmax(0, 1fr) 420px; }
+  #side {
+    grid-template-columns: 1fr;
+    position: sticky; top: calc(var(--nav-h) + .4rem);
+    max-height: calc(100vh - var(--nav-h) - .8rem);
+    overflow-y: auto; padding-right: .45rem;
+  }
+}
+
+#layers-stack { display: flex; flex-direction: column; gap: 1.1rem; margin-top: .5rem; }
+.layer-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--layer-color, #3a4150);
+  border-radius: 12px; padding: .7rem .8rem .8rem;
+  scroll-margin-top: calc(var(--nav-h) + .4rem);
+}
+.layer-head { display: flex; align-items: baseline; gap: .55rem; flex-wrap: wrap; margin-bottom: .5rem; }
+.layer-head h2 { margin: 0; font-size: 1rem; letter-spacing: .05em; }
+.layer-meta { color: var(--muted); font-size: .75rem; }
+.kbd-wrap { position: relative; }
+.kbd { width: 100%; max-width: 1150px; height: auto; display: block; margin: 0 auto; }
+
+.key { cursor: pointer; outline: none; }
+.key rect { transition: filter .1s; }
+.key:hover rect, .key:focus rect { filter: brightness(1.35); }
+.key.xlink rect {
+  stroke: var(--accent); stroke-width: 2.5;
+  filter: brightness(1.3) drop-shadow(0 0 5px rgba(77, 163, 255, .5));
+}
+.key.selected rect { stroke: #fff; stroke-width: 2; }
+.key .label { font: 600 13px system-ui; text-anchor: middle; dominant-baseline: middle; pointer-events: none; }
+.key .sub { font: 9px system-ui; text-anchor: middle; fill: #9aa4b2; pointer-events: none; }
+.key .td-badge { font: 700 9px system-ui; fill: #ffd166; pointer-events: none; }
+.key.ghost .label { font-weight: 400; }
+
+#popover {
+  position: fixed; z-index: 40; width: 320px;
+  background: #21262f; border: 1px solid #444c59; border-radius: 10px;
+  padding: .7rem .8rem; box-shadow: 0 8px 24px rgba(0,0,0,.5);
+  font-size: .85rem;
+}
+.pop-head { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; margin-bottom: .3rem; }
+.pop-matrix { color: var(--muted); font-size: .72rem; }
+.pop-raw { color: var(--muted); margin-bottom: .3rem; }
+.pop-note { color: #c9b458; font-size: .8rem; }
+.pop-td { width: 100%; border-collapse: collapse; margin: .3rem 0; }
+.pop-td th { text-align: left; color: var(--muted); font-weight: 600; padding: .15rem .5rem .15rem 0; white-space: nowrap; vertical-align: top; }
+.pop-td td { padding: .15rem 0; }
+
+#leader-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .45rem; }
+#leader-list li { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: .45rem .6rem; }
+#leader-list li.disabled { opacity: .5; }
+.chip {
+  display: inline-block; background: #2a303b; border: 1px solid #444c59; border-radius: 6px;
+  padding: .1rem .45rem; font-weight: 600; font-size: .8rem;
+}
+.chip.lead { background: #4a2d55; border-color: #8a5aa0; color: #f0c8ff; }
+.arrow { color: var(--muted); margin: 0 .3rem; }
+.action { font-weight: 600; color: #9fd08a; }
+li.disabled .action { color: var(--muted); }
+.tag { margin-left: .5rem; font-size: .68rem; text-transform: uppercase; letter-spacing: .05em; color: #e08a8a; border: 1px solid #7a4444; border-radius: 4px; padding: 0 .3rem; }
+.seq-note { color: var(--muted); font-size: .75rem; margin-top: .2rem; }
+
+#td-table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+#td-table th, #td-table td { border-bottom: 1px solid var(--border); padding: .25rem .4rem; text-align: left; vertical-align: top; }
+#td-table th { color: var(--muted); }
+.td-name { color: var(--muted); font-size: .68rem; }
+
+.legend-row { display: flex; align-items: center; gap: .5rem; margin: .18rem 0; font-size: .82rem; }
+.swatch { width: 14px; height: 14px; border-radius: 4px; border: 1px solid #0008; flex: none; }
+
+.error { color: #ff8080; }
+footer { margin-top: 1.4rem; color: var(--muted); font-size: .75rem; }

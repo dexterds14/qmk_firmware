@@ -6,15 +6,20 @@ branch and is confined to **one keyboard**:
 ```
 keyboards/handwired/dactyl_manuform/5x6/
 ├── keyboard.json                 # hardware config (modified vs master)
-└── keymaps/default/
-    ├── keymap.c                  # all keymap logic (~1100 lines added)
-    ├── config.h                  # feature/timing config
-    ├── rules.mk                  # feature flags, LTO
-    └── glcdfont_custom.c         # trimmed OLED font (space..'Z') to save ~1KB flash
+├── keymaps/default/
+│   ├── keymap.c                  # all keymap logic (~1100 lines added)
+│   ├── config.h                  # feature/timing config
+│   ├── rules.mk                  # feature flags, LTO
+│   └── glcdfont_custom.c         # trimmed OLED font (space..'Z') to save ~1KB flash
+└── visualizer/                   # static webpage: layers + leader/TD reference (see below)
 ```
 
 Everything else in the repo is upstream QMK. Do not modify `quantum/` or other
 core code — all customization happens in the keymap directory.
+
+**Docs map:** this file is the single source of truth for the dactyl. The
+`.ai/` folder holds per-topic detail docs (indexed by `.ai/README.md`);
+`CLAUDE.md` is just a pointer here.
 
 ## Hardware (keyboard.json changes vs master)
 
@@ -89,9 +94,12 @@ Triple-tap D toggles an **alt mod-lock**; double-tap F/K do layer moves.
   a locked `_LEADR` layer resolves sequence keys to the wrong keycodes.
 
 ### RGB / OLED indicators
-- RGB layer colors come from `my_rgb_layers[]`; **beware: the `enum rgb_layer`
-  indices do not match the color comments** in the array (e.g. `RGB_LEADER=1`
-  is actually magenta, not pink). Trust the array order, not the comments.
+- RGB layer colors come from `my_rgb_layers[]`. The `enum rgb_layer` values are
+  the indices into that list, and the inline comments now state the **real** color:
+  RAISE=blue, RAISE2=teal, LOWER=green, MOUSE=pink, LEADR=red, caps=yellow,
+  leader=magenta, shift-OSM=white, alt-mod=purple. The `my_layerN_layer` names
+  are legacy and do **not** line up with the indices — trust the enum + the
+  per-entry annotations in the list, not the `my_layerN` names.
 - OLED: 128x32, rotated 270°, custom trimmed font (`OLED_FONT_END 90`, so
   **only chars up to 'Z' render** — no lowercase). Indicators for caps/shift/
   sway-mod/leader plus per-layer banners; phantom-layer bits are masked out of
@@ -104,6 +112,16 @@ qmk compile -kb handwired/dactyl_manuform/5x6 -km default
 qmk flash   -kb handwired/dactyl_manuform/5x6 -km default   # caterina/avrdude
 ```
 
+This is an AVR (LUFA) board — a **fresh worktree needs the LUFA submodule**
+before the first build (the build fails with `lib/lufa/LUFA/makefile: No such
+file or directory` otherwise). Init just that one submodule, referencing the main
+checkout's module to avoid a full re-download (and do **not** run
+`git submodule sync` — see the shared-config warning):
+
+```sh
+git submodule update --init --reference ~/code/qmk/.git/modules/lib/lufa -- lib/lufa
+```
+
 `QK_BOOT` is on the `_RAISE2` layer for entering the bootloader; `EE_CLR` is
 on `_LEADR`.
 
@@ -112,3 +130,32 @@ size line after every build; the trimmed OLED font and disabled features
 (console, magic, space cadet, NKRO, audio…) exist to stay under the limit.
 LTO is load-bearing for size — see the constraint section above before
 considering turning it off.
+
+## Visualizer (`visualizer/`)
+
+A dependency-free static webpage that renders the layers, tap-dances and leader
+sequences from the firmware sources. `build_data.py` parses `keymap.c`,
+`keyboard.json`, `config.h` and `quantum/color.h` into `keymap-data.js`
+(a `window.KEYMAP_DATA` assignment); `index.html` + `app.js` + `styles.css`
+render it (all six functional layers stacked vertically, sticky jump nav,
+per-key popovers, cross-layer key tracing, leader flow panel, legends). The
+data is inlined via a `<script>` tag so the page opens directly from
+`file://` — **no web server required**.
+
+Layout: one column of full-width layer cards; the shortcuts (leader
+sequences, tap dances, legend) sit **below** the stack, and move to a sticky
+**side rail** only at `min-width: 1400px`. Layers never render side by side.
+Keyboard SVGs are capped at 1150px so they stay near 1:1 on ultrawide.
+
+**Sync rule (hard):** after **any** change to `keymap.c`, `keyboard.json` or
+`config.h`, re-run the generator and commit the regenerated `keymap-data.js`:
+
+```sh
+python3 keyboards/handwired/dactyl_manuform/5x6/visualizer/build_data.py
+```
+
+The generator **validates its own output and exits non-zero on drift** (wrong key
+count per layer, `TD()` names missing from the enum, phantom layers not
+transparent, unresolvable RGB colors). If it fails, fix the source or the
+curated tap-dance semantics table in `build_data.py` — never hand-edit
+`keymap-data.js`. See `.ai/visualizer.md` for details.

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dactyl Manuform 5x6 — dexter keymap</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Dactyl Manuform 5x6 <span class="sub">dexter keymap</span></h1>
+  <div id="meta" class="meta"></div>
+</header>
+
+<nav id="layer-nav" aria-label="Layers"></nav>
+
+<main>
+  <section id="keyboard-section">
+    <p class="hint">All layers stacked — click a key for details · hover a key to trace the same physical
+      key across every layer · transparent keys show the base layer ghosted ·
+      <span class="td-badge">TD</span> = tap-dance key</p>
+    <div id="layers-stack"></div>
+  </section>
+
+  <aside id="side">
+    <section id="leader-section">
+      <h2>Leader sequences</h2>
+      <p class="hint" id="leader-timeout"></p>
+      <ul id="leader-list"></ul>
+    </section>
+
+    <section id="td-section">
+      <h2>Tap dances</h2>
+      <p class="hint" id="td-fast"></p>
+      <table id="td-table">
+        <thead><tr><th>Key</th><th>Tap</th><th>Double</th><th>Triple</th><th>Hold</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="legend-section">
+      <h2>Legend</h2>
+      <div id="rgb-legend"></div>
+      <div id="custom-legend"></div>
+      <div id="timings-legend"></div>
+    </section>
+  </aside>
+</main>
+
+<div id="popover" hidden></div>
+<footer id="footer"></footer>
+
+<script src="keymap-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
