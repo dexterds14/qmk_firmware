@@ -87,12 +87,12 @@ static bool     td_in_progress = false;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
-        KC_ESC,        KC_1,          KC_2,          KC_3,          KC_4,           KC_5,
+        KC_SLSH,       KC_1,          KC_2,          KC_3,          KC_4,           KC_5,
         KC_GRV,        TD(TD_Q_TILD), KC_W,          KC_E,          KC_R,           KC_T,          KC_PGUP,
         OSM(MOD_LSFT), KC_A,          TD(TD_S_OSM),  TD(TD_D_OSM),  TD(LAYR_DOWN),  TD(TD_G_CAPS), KC_PGDN,
         KC_TAB,        TD(TD_Z_GRV),  KC_X,          KC_C,          TD(TD_V_TAB),   KC_B,          QK_BOOT,
                                                      KC_ESC,        KC_BSPC,        KC_SPC,
-                       KC_6,          KC_7,          KC_8,          KC_9,           KC_0,          KC_BSLS,
+                       KC_6,          KC_7,          KC_8,          KC_9,           KC_0,          KC_PLUS,
         KC_LALT,       KC_Y,          KC_U,          KC_I,          KC_O,           KC_P,          KC_MINS,
         KC_LCTL,       TD(TD_H_CAPS), TD(TD_J_OSM),  TD(LAYR_UP),   KC_L,           KC_QUOT,       OSM(MOD_RSFT),
         QK_BOOT,       KC_N,          KC_M,          KC_COMM,       KC_DOT,         KC_SLSH,       KC_SCLN,
@@ -128,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_RAISE2] = LAYOUT(
         KC_F12,        KC_F1,         KC_F2,         KC_F3,         KC_F4,          KC_F5,
         KC_NO,         QK_BOOT,       _______,       KC_NO,         TO(_RAISE),     KC_NO,         KC_NO,
-        _______,       KC_LEFT,       KC_UP,         KC_DOWN,       KC_RGHT,        TO(_QWERTY),   KC_NO,
+        _______,       KC_LEFT,       KC_UP,         KC_DOWN,       KC_RGHT,        TO(_QWERTY),   EE_CLR,
         _______,       _______,       _______,       _______,       _______,        KC_LPRN,       RM_TOGG,
                                                      _______,       _______,        TO(_RAISE),
                        KC_F6,         KC_F7,         KC_F8,         KC_F9,          KC_F10,        KC_F11,
@@ -153,13 +153,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_LEADR] = LAYOUT(
         KC_NO,         KC_NO,         KC_NO,         KC_NO,         LALT(KC_F4),    KC_NO,
-        EE_CLR,        LCTL(KC_GRV),  KC_NO,         LCTL(LSFT(KC_E)), LCTL(LSFT(KC_R)), LCTL(LSFT(KC_T)), QK_LEAD,
+        KC_NO,         LCTL(KC_GRV),  KC_NO,         LCTL(LSFT(KC_E)), LCTL(LSFT(KC_R)), LCTL(LSFT(KC_T)), QK_LEAD,
         KC_NO,         LCTL(LSFT(KC_A)), LCTL(LSFT(KC_S)), LALT(LSFT(KC_D)), LCTL(LSFT(KC_F)), TO(_QWERTY), _______,
         KC_NO,         LCTL(LSFT(KC_Z)), KC_NO,      LCTL(LSFT(KC_C)), LCTL(LSFT(KC_V)), KC_NO,   KC_NO,
                                                      _______,       _______,        _______,
                        KC_NO,         KC_NO,         KC_NO,         KC_NO,          KC_NO,         KC_NO,
         KC_EQL,        KC_NO,         KC_NO,         KC_NO,         LCTL(LSFT(KC_O)), LCTL(LSFT(KC_P)), LCTL(LSFT(KC_EQL)),
-        _______,       KC_NO,         LALT(KC_UP),   LALT(KC_LEFT), LALT(KC_DOWN),  LALT(KC_RIGHT), KC_NO,
+        _______,       KC_NO,         LALT(KC_UP),   LALT(KC_LEFT), LALT(KC_DOWN),  LALT(KC_RIGHT), LCTL(LSFT(KC_MINS)),
         KC_NO,         LCTL(LSFT(KC_N)), KC_NO,      KC_NO,         DOT_SLS,        KC_NO,         KC_NO,
                                                      TO(_LEADR),    QK_LEAD,        _______
     ),
@@ -258,6 +258,11 @@ void leader_end_user(void) {
     else if (leader_sequence_one_key(KC_N))
     {
         tap_code16(LSA(KC_N));
+    }
+    // Alt+Esc
+    else if (leader_sequence_one_key(KC_ESC))
+    {
+        tap_code16(LALT(KC_ESC));
     }
     // SWAY: Lock/Hibernate (Ctrl+Alt+I)
     else if (leader_sequence_two_keys(KC_LCTL, KC_I))

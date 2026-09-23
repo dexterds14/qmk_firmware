@@ -122,6 +122,7 @@ Layer stripe colors match the board's RGB indicator.</p>
         <tr><td>Lead, a, w</td><td><code>C-a z w</code></td><td>Minicom line-wrap toggle</td></tr>
         <tr><td>Lead, y</td><td><code>C-x y Enter</code></td><td>Nano save &amp; quit</td></tr>
         <tr><td>Lead, n</td><td><code>Alt+Shift+N</code></td><td>Sway show full window title</td></tr>
+        <tr><td>Lead, Esc</td><td><code>Alt+Esc</code></td><td>Alt-Escape</td></tr>
         <tr><td>Lead, Ctrl, i</td><td><code>Ctrl+Alt+I</code></td><td>Sway lock / hibernate</td></tr>
       </table>
     </div>
@@ -158,13 +159,13 @@ const LAYERS = [
   name: "Base (QWERTY)", color: "#8a8f9c",
   how: "Default layer. RGB shows the ambient matrix effect.",
   left: [
-    ["Esc","1","2","3","4","5",{m:"",cls:"gap"}],
+    ["/","1","2","3","4","5",{m:"",cls:"gap"}],
     ["`", td("Q","2:~"), "W","E","R","T", sm("PgUp","inner")],
     [sm("OSM ⇧"), "A", td("S","2:OSM⇧"), td("D","2:OSM Alt\n3:Alt lock"), td("F","2:Lower\nhold:Mouse"), td("G","2:Caps"), sm("PgDn","inner")],
     ["Tab", td("Z","2:`"), "X","C", td("V","2:Tab"), "B", kn("BOOT","push")],
   ],
   right: [
-    [{m:"",cls:"gap"},"6","7","8","9","0","\\"],
+    [{m:"",cls:"gap"},"6","7","8","9","0","+"],
     [sm("Alt","inner"), "Y","U","I","O","P","-"],
     [sm("Ctrl","inner"), td("H","2:Caps"), td("J","2:OSM⇧"), td("K","2:Raise\n3:Raise2"), "L","'", sm("OSM ⇧")],
     [kn("BOOT","push"), "N","M",",",".","/",";"],
@@ -210,11 +211,11 @@ const LAYERS = [
 },
 {
   name: "Raise2", color: "#14b8a6",
-  how: "K 3× = oneshot (teal). RGB controls, media, arrows.",
+  how: "K 3× = oneshot (teal). RGB controls, media, arrows. EEPROM clear on the left inner key above the knob (out of the way).",
   left: [
     ["F12","F1","F2","F3","F4","F5",{m:"",cls:"gap"}],
     [X, sm("BOOT"), T, X, lk("Raise","to layer"), X, {...X}],
-    [T, "←","↑","↓","→", lk("Base","to layer"), {...X}],
+    [T, "←","↑","↓","→", lk("Base","to layer"), sm("EEPROM","clear")],
     [T, T, T, T, T, "(", kn("RGB","toggle")],
   ],
   right: [
@@ -249,14 +250,14 @@ const LAYERS = [
   how: "Right middle thumb, oneshot (red). Ctrl+Shift chords; Lead key re-arms the leader (magenta while recording).",
   left: [
     [X, X, X, X, sm("A-F4"), X, {m:"",cls:"gap"}],
-    [sm("EEPROM","clear"), sm("C-`"), X, sm("C-S-e"), sm("C-S-r"), sm("C-S-t"), lk("Lead","inner")],
+    [X, sm("C-`"), X, sm("C-S-e"), sm("C-S-r"), sm("C-S-t"), lk("Lead","inner")],
     [X, sm("C-S-a"), sm("C-S-s"), sm("A-S-d"), sm("C-S-f"), lk("Base","to layer"), {m:"▽",cls:"trans"}],
     [X, sm("C-S-z"), X, sm("C-S-c"), sm("C-S-v"), X, kn("","push")],
   ],
   right: [
     [{m:"",cls:"gap"}, X, X, X, X, X, X],
     [sm("=","inner"), X, X, X, sm("C-S-o"), sm("C-S-p"), sm("C-S-+")],
-    [{m:"▽",cls:"trans"}, X, sm("A-↑"), sm("A-←"), sm("A-↓"), sm("A-→"), X],
+    [{m:"▽",cls:"trans"}, X, sm("A-↑"), sm("A-←"), sm("A-↓"), sm("A-→"), sm("C-S-−")],
     [kn("","push"), sm("C-S-n"), X, X, sm("./","macro"), X, X],
   ],
   lthumbs: [T, T, T],
