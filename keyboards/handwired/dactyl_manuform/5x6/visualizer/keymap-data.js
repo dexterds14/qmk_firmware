@@ -3,7 +3,7 @@ window.KEYMAP_DATA = {
  "meta": {
   "keyboard": "handwired/dactyl_manuform/5x6",
   "keymap": "default",
-  "sourceCommit": "1fa3e5ddc2",
+  "sourceCommit": "d08e83a78b",
   "generatedBy": "build_data.py"
  },
  "geometry": [
@@ -714,7 +714,7 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "OSM(MOD_LSFT)",
-     "label": "one-shot Shift",
+     "label": "OSM Sft",
      "kind": "oneshot_mod",
      "mod": "MOD_LSFT"
     },
@@ -777,7 +777,7 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "OSM(MOD_RSFT)",
-     "label": "one-shot Shift",
+     "label": "OSM Sft",
      "kind": "oneshot_mod",
      "mod": "MOD_RSFT"
     },
@@ -906,7 +906,7 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "KC_LCTL",
-     "label": "LCtrl",
+     "label": "LCtl",
      "kind": "basic"
     },
     {
@@ -940,27 +940,27 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "LCTL(KC_1)",
-     "label": "Ctrl+1",
+     "label": "Ctl+1",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_2)",
-     "label": "Ctrl+2",
+     "label": "Ctl+2",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_TAB)",
-     "label": "Ctrl+Tab",
+     "label": "Ctl+Tab",
      "kind": "chord"
     },
     {
      "raw": "LCTL(LSFT(KC_TAB))",
-     "label": "Ctrl+Shift+Tab",
+     "label": "Ctl+Sft+Tab",
      "kind": "chord"
     },
     {
      "raw": "LSFT(KC_TAB)",
-     "label": "Shift+Tab",
+     "label": "Sft+Tab",
      "kind": "chord"
     },
     {
@@ -980,7 +980,7 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "LCTL(KC_TAB)",
-     "label": "Ctrl+Tab",
+     "label": "Ctl+Tab",
      "kind": "chord"
     },
     {
@@ -1000,12 +1000,12 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "LCTL(KC_Q)",
-     "label": "Ctrl+Q",
+     "label": "Ctl+Q",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_W)",
-     "label": "Ctrl+W",
+     "label": "Ctl+W",
      "kind": "chord"
     },
     {
@@ -1015,37 +1015,37 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "LCTL(KC_R)",
-     "label": "Ctrl+R",
+     "label": "Ctl+R",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_T)",
-     "label": "Ctrl+T",
+     "label": "Ctl+T",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_Y)",
-     "label": "Ctrl+Y",
+     "label": "Ctl+Y",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_U)",
-     "label": "Ctrl+U",
+     "label": "Ctl+U",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_I)",
-     "label": "Ctrl+I",
+     "label": "Ctl+I",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_O)",
-     "label": "Ctrl+O",
+     "label": "Ctl+O",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_P)",
-     "label": "Ctrl+P",
+     "label": "Ctl+P",
      "kind": "chord"
     },
     {
@@ -1060,27 +1060,27 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "LCTL(KC_A)",
-     "label": "Ctrl+A",
+     "label": "Ctl+A",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_S)",
-     "label": "Ctrl+S",
+     "label": "Ctl+S",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_D)",
-     "label": "Ctrl+D",
+     "label": "Ctl+D",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_F)",
-     "label": "Ctrl+F",
+     "label": "Ctl+F",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_0)",
-     "label": "Ctrl+0",
+     "label": "Ctl+0",
      "kind": "chord"
     },
     {
@@ -1116,37 +1116,37 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "LSFT(KC_TAB)",
-     "label": "Shift+Tab",
+     "label": "Sft+Tab",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_Z)",
-     "label": "Ctrl+Z",
+     "label": "Ctl+Z",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_X)",
-     "label": "Ctrl+X",
+     "label": "Ctl+X",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_C)",
-     "label": "Ctrl+C",
+     "label": "Ctl+C",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_V)",
-     "label": "Ctrl+V",
+     "label": "Ctl+V",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_B)",
-     "label": "Ctrl+B",
+     "label": "Ctl+B",
      "kind": "chord"
     },
     {
      "raw": "LCTL(KC_N)",
-     "label": "Ctrl+N",
+     "label": "Ctl+N",
      "kind": "chord"
     },
     {
@@ -1169,7 +1169,7 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "LCTL(KC_SLSH)",
-     "label": "Ctrl+/",
+     "label": "Ctl+/",
      "kind": "chord"
     },
     {
@@ -1199,12 +1199,12 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "KC_LCTL",
-     "label": "LCtrl",
+     "label": "LCtl",
      "kind": "basic"
     },
     {
      "raw": "KC_LSFT",
-     "label": "LShift",
+     "label": "LSft",
      "kind": "basic"
     },
     {
@@ -1251,7 +1251,7 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "KC_LCTL",
-     "label": "LCtrl",
+     "label": "LCtl",
      "kind": "basic"
     },
     {
@@ -2122,7 +2122,7 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "KC_LSFT",
-     "label": "LShift",
+     "label": "LSft",
      "kind": "basic"
     },
     {
@@ -2177,7 +2177,7 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "KC_LCTL",
-     "label": "LCtrl",
+     "label": "LCtl",
      "kind": "basic"
     },
     {
@@ -2255,7 +2255,7 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "KC_LCTL",
-     "label": "LCtrl",
+     "label": "LCtl",
      "kind": "basic"
     }
    ]
@@ -2333,7 +2333,7 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "LCTL(KC_GRV)",
-     "label": "Ctrl+`",
+     "label": "Ctl+`",
      "kind": "chord"
     },
     {
@@ -2343,17 +2343,17 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "LCTL(LSFT(KC_E))",
-     "label": "Ctrl+Shift+E",
+     "label": "Ctl+Sft+E",
      "kind": "chord"
     },
     {
      "raw": "LCTL(LSFT(KC_R))",
-     "label": "Ctrl+Shift+R",
+     "label": "Ctl+Sft+R",
      "kind": "chord"
     },
     {
      "raw": "LCTL(LSFT(KC_T))",
-     "label": "Ctrl+Shift+T",
+     "label": "Ctl+Sft+T",
      "kind": "chord"
     },
     {
@@ -2373,12 +2373,12 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "LCTL(LSFT(KC_O))",
-     "label": "Ctrl+Shift+O",
+     "label": "Ctl+Sft+O",
      "kind": "chord"
     },
     {
      "raw": "LCTL(LSFT(KC_P))",
-     "label": "Ctrl+Shift+P",
+     "label": "Ctl+Sft+P",
      "kind": "chord"
     },
     {
@@ -2393,22 +2393,22 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "LCTL(LSFT(KC_A))",
-     "label": "Ctrl+Shift+A",
+     "label": "Ctl+Sft+A",
      "kind": "chord"
     },
     {
      "raw": "LCTL(LSFT(KC_S))",
-     "label": "Ctrl+Shift+S",
+     "label": "Ctl+Sft+S",
      "kind": "chord"
     },
     {
      "raw": "LALT(LSFT(KC_D))",
-     "label": "Alt+Shift+D",
+     "label": "Alt+Sft+D",
      "kind": "chord"
     },
     {
      "raw": "LCTL(LSFT(KC_F))",
-     "label": "Ctrl+Shift+F",
+     "label": "Ctl+Sft+F",
      "kind": "chord"
     },
     {
@@ -2454,7 +2454,7 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "LCTL(LSFT(KC_Z))",
-     "label": "Ctrl+Shift+Z",
+     "label": "Ctl+Sft+Z",
      "kind": "chord"
     },
     {
@@ -2464,12 +2464,12 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "LCTL(LSFT(KC_C))",
-     "label": "Ctrl+Shift+C",
+     "label": "Ctl+Sft+C",
      "kind": "chord"
     },
     {
      "raw": "LCTL(LSFT(KC_V))",
-     "label": "Ctrl+Shift+V",
+     "label": "Ctl+Sft+V",
      "kind": "chord"
     },
     {
@@ -2479,7 +2479,7 @@ window.KEYMAP_DATA = {
     },
     {
      "raw": "LCTL(LSFT(KC_N))",
-     "label": "Ctrl+Shift+N",
+     "label": "Ctl+Sft+N",
      "kind": "chord"
     },
     {
@@ -3673,7 +3673,7 @@ window.KEYMAP_DATA = {
     "keys": [
      "H"
     ],
-    "action": "Ctrl+H",
+    "action": "Ctl+H",
     "active": true,
     "note": "Control+H"
    },
@@ -3681,7 +3681,7 @@ window.KEYMAP_DATA = {
     "keys": [
      "C"
     ],
-    "action": "Ctrl+Shift+C",
+    "action": "Ctl+Sft+C",
     "active": false,
     "note": "Copy (Ctrl+Shift+C)"
    },
@@ -3690,7 +3690,7 @@ window.KEYMAP_DATA = {
      "A",
      "Q"
     ],
-    "action": "Ctrl+A then Z then Q then Enter",
+    "action": "Ctl+A then Z then Q then Enter",
     "active": true,
     "note": "Quit minicom (Ctrl+A, Ctrl+Z, Ctrl+Q, Enter)"
    },
@@ -3698,16 +3698,16 @@ window.KEYMAP_DATA = {
     "keys": [
      "Y"
     ],
-    "action": "Ctrl+X then Y then Enter",
+    "action": "Ctl+X then Y then Enter",
     "active": true,
     "note": "Save and quit nano (Ctrl+X, Y, Enter)"
    },
    {
     "keys": [
-     "LCtrl",
+     "LCtl",
      "I"
     ],
-    "action": "Ctrl+Alt+I",
+    "action": "Ctl+Alt+I",
     "active": true,
     "note": "SWAY: Lock/Hibernate (Ctrl+Alt+I)"
    },

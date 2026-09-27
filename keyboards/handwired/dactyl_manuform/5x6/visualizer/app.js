@@ -1,5 +1,9 @@
 const UNIT = 64, KEY = 60, GAP = 30;
 const SVG_NS = "http://www.w3.org/2000/svg";
+// Per-key label fitting: keep LABEL_PAD either side inside the key box, and never
+// shrink below LABEL_MIN user units. LABEL_MIN is a floor, not a target — at
+// LABEL_PAD 5 the widest label in this keymap still lands at ~7.1u.
+const LABEL_PAD = 5, LABEL_MIN = 7;
 
 function hexToRgb(hex) {
   const n = parseInt(hex.slice(1), 16);
@@ -72,6 +76,29 @@ function renderStack() {
   for (const l of shownLayers()) stack.appendChild(renderLayerCard(l));
 }
 
+// Fit every key label into its box. Measured with getComputedTextLength() so the
+// result is in SVG user units and stays correct however wide the page renders the
+// keyboard. Sized per distinct label (cached) rather than per key instance.
+// Requires the cards to be in the document, so it runs once after renderStack().
+function fitLabels() {
+  const labels = [...document.querySelectorAll(".key .label")].filter(t => t.textContent);
+  if (!labels.length) return;
+  const base = parseFloat(getComputedStyle(labels[0]).fontSize);
+  const avail = KEY - LABEL_PAD * 2;
+  const sizes = new Map();
+  for (const t of labels) {
+    const txt = t.textContent;
+    let size = sizes.get(txt);
+    if (size === undefined) {
+      t.style.fontSize = base + "px";
+      const w = t.getComputedTextLength();
+      size = w > avail ? Math.max(LABEL_MIN, base * avail / w) : base;
+      sizes.set(txt, size);
+    }
+    t.style.fontSize = size.toFixed(2) + "px";
+  }
+}
+
 function renderLayerCard(layer) {
   const card = document.createElement("section");
   card.className = "layer-card";
@@ -131,17 +158,13 @@ function keyGroup(layer, g, i) {
   }, shown.label);
   grp.appendChild(label);
 
-  if (!transparent && shown.kind === "chord") {
-    label.textContent = shown.label.replace(/\+/g, "+");
-    label.setAttribute("font-size", shown.label.length > 8 ? 10 : 12);
-  }
   if (!transparent && shown.kind === "tapdance") {
     const badge = el("text", { class: "td-badge", x: KEY - 6, y: 12, "text-anchor": "end" }, "TD");
     grp.appendChild(badge);
   }
   if (!transparent && (shown.kind === "oneshot_layer" || shown.kind === "layer_switch")) {
     const sub = el("text", { class: "sub", x: KEY / 2, y: KEY - 8 },
-      shown.kind === "oneshot_layer" ? "one-shot" : "switch");
+      shown.kind === "oneshot_layer" ? "OSL" : "switch");
     grp.appendChild(sub);
   }
 
@@ -338,6 +361,7 @@ function init(d) {
     `python3 keyboards/handwired/dactyl_manuform/5x6/visualizer/build_data.py`;
   renderNav();
   renderStack();
+  fitLabels();
   trackActiveLayer();
   renderLeader();
   renderTdTable();

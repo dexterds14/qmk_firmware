@@ -137,15 +137,16 @@ INDICATOR_TRIGGER = {
     "ALT_MOD": "Alt/GUI mod active or mod-locked",
 }
 
+# Short forms on purpose (Ctl/Sft) — these feed key labels only, where width is tight.
 MOD_NAMES = {
-    "LCTL": "Ctrl", "RCTL": "Ctrl", "LSFT": "Shift", "RSFT": "Shift",
+    "LCTL": "Ctl", "RCTL": "Ctl", "LSFT": "Sft", "RSFT": "Sft",
     "LALT": "Alt", "RALT": "Alt", "LGUI": "Cmd", "RGUI": "Cmd",
-    "LCA": "Ctrl+Alt", "RCA": "Ctrl+Alt",
-    "LSG": "Cmd+Shift", "RSG": "Cmd+Shift",
-    "LCG": "Ctrl+Cmd", "RCG": "Ctrl+Cmd",
-    "MOD_LSFT": "Shift", "MOD_RSFT": "Shift", "MOD_LALT": "Alt",
+    "LCA": "Ctl+Alt", "RCA": "Ctl+Alt",
+    "LSG": "Cmd+Sft", "RSG": "Cmd+Sft",
+    "LCG": "Ctl+Cmd", "RCG": "Ctl+Cmd",
+    "MOD_LSFT": "Sft", "MOD_RSFT": "Sft", "MOD_LALT": "Alt",
     "MOD_RALT": "Alt", "MOD_LGUI": "Cmd", "MOD_RGUI": "Cmd",
-    "MOD_LCTL": "Ctrl", "MOD_RCTL": "Ctrl",
+    "MOD_LCTL": "Ctl", "MOD_RCTL": "Ctl",
 }
 
 KEY_LABELS = {
@@ -154,8 +155,8 @@ KEY_LABELS = {
     "KC_SCLN": ";", "KC_SPC": "Space", "KC_BSPC": "Bksp", "KC_DEL": "Del",
     "KC_ENT": "Enter", "KC_TAB": "Tab", "KC_CAPS": "Caps",
     "KC_HOME": "Home", "KC_END": "End", "KC_PGUP": "PgUp", "KC_PGDN": "PgDn",
-    "KC_LALT": "LAlt", "KC_LCTL": "LCtrl", "KC_LSFT": "LShift",
-    "KC_RSFT": "RShift", "KC_LGUI": "LCmd", "KC_RGUI": "RCmd",
+    "KC_LALT": "LAlt", "KC_LCTL": "LCtl", "KC_LSFT": "LSft",
+    "KC_RSFT": "RSft", "KC_LGUI": "LCmd", "KC_RGUI": "RCmd",
     "KC_EXLM": "!", "KC_AT": "@", "KC_HASH": "#", "KC_DLR": "$",
     "KC_PERC": "%", "KC_CIRC": "^", "KC_AMPR": "&", "KC_ASTR": "*",
     "KC_LBRC": "[", "KC_RBRC": "]", "KC_PLUS": "+", "KC_COLN": ":",
@@ -346,7 +347,7 @@ def friendly_key(tok):
 
 
 def render_chord(tok):
-    """Render LCTL(LSFT(KC_E)) -> 'Ctrl+Shift+E'. Returns (label, is_chord)."""
+    """Render LCTL(LSFT(KC_E)) -> 'Ctl+Sft+E'. Returns (label, is_chord)."""
     m = re.fullmatch(r"(LCTL|RCTL|LSFT|RSFT|LALT|RALT|LGUI|RGUI|LCA|RCA|LSG|RSG|LCG|RCG)\((.*)\)", tok)
     if not m:
         return friendly_key(tok), False
@@ -445,7 +446,7 @@ def decode_token(tok):
 
     m = re.fullmatch(r"OSM\((\w+)\)", tok)
     if m:
-        return {"raw": tok, "label": f"one-shot {MOD_NAMES.get(m.group(1), m.group(1))}",
+        return {"raw": tok, "label": f"OSM {MOD_NAMES.get(m.group(1), m.group(1))}",
                 "kind": "oneshot_mod", "mod": m.group(1)}
 
     m = re.fullmatch(r"TO\((_\w+)\)", tok)

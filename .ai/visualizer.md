@@ -81,6 +81,22 @@ in the legend).
 - **Cross-layer tracing** — hovering or focusing any key outlines the same matrix
   position in all six layers, so a key's behaviour on LOWER vs RAISE vs LEADR can
   be compared without scrolling back and forth.
+- **Dynamic label sizing** — every key label is measured with
+  `getComputedTextLength()` and scaled to fit the 60u key box with 5u padding on
+  each side, floored at 7u (`LABEL_PAD` / `LABEL_MIN` in `app.js`). Measurement is
+  in SVG user units, so the fit is identical at every rendered width, and the size
+  is cached per distinct label rather than per key instance. `fitLabels()` must run
+  after the cards are in the document. With the abbreviated labels the smallest
+  fitted size in the current keymap is ~8.6u; short labels stay at the 13px base.
+  (The old chord special-case set a `font-size` *presentation attribute*, which the
+  CSS `font:` shorthand on `.key .label` overrode — it never applied, which is why
+  long chords clipped.)
+- **Label abbreviations (key labels only)** — modifier names use short forms:
+  `Ctl` and `Sft`, so chords read `Ctl+Sft+Tab`; one-shot mods render as
+  `OSM Sft`; the caption under a one-shot-layer key is `OSL` (not `OSM` — that
+  one is a layer). Set in `MOD_NAMES` / `KEY_LABELS` in `build_data.py`, which
+  feed key labels and nothing else. Popover prose, the tap-dance table, and the
+  RGB legend deliberately keep the full words.
 - **Ghosted transparent keys** — on a non-base layer, transparent keys are dashed
   and show the `_QWERTY` label underneath; click one for the fall-through note.
 - **Key popovers** — a single `position: fixed` popover shared by all layers, kept
