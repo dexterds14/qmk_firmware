@@ -48,7 +48,24 @@ over the VIA raw-HID protocol — same channel the VIA web app uses.
     press again to flip back if Alt chords start misbehaving.
   - Fn+Tab stays solid red even after hours plugged in — red is likely the
     "charging/USB-powered" color, not a level gauge; battery-power check TBD.
-- Layers 2–3: unused clones of layer 0 — free for custom use.
+- Layers 0, 2, 3 are custom (dexter layout, see `keymap.txt` / `keymap-diagram.html`):
+  0 = sway Alt-chord base, 2 = arrows (Enter one-shot, Enter again = `DF(2)` lock,
+  0 = `DF(0)` exit), 3 = Ctl-X (0 one-shot, 0 again = `DF(3)` lock, `.` = `DF(0)` exit).
+  Mirrors the YMD09 dexter keymap, where base/arrows were flipped the same way.
+
+## Firmware behaviour confirmed on the board (2026-10-26)
+
+- While a layer is locked with `DF(n)`, its `KC_TRNS` keys fall through to
+  layer 0, as in upstream `layer_switch_get_layer` (`quantum/action_layer.c`).
+  Tested on the Ctl-X lock. The explicit base copies in layer 2's top row were
+  a precaution against this and are not needed.
+- No per-layer RGB is possible without custom firmware: VIA has no layer→color
+  setting, and VIA macros only tap 8-bit basic keycodes (`send_string.c`
+  `SS_TAP_CODE` → `tap_code(uint8_t)`), so a macro cannot change layers.
+  Reflashing loses wireless, and no vendor source was found.
+- The Num key's LED tracks the host Num Lock state (tested wired; over the
+  2.4G dongle untested). This is the only host→board indicator found. It cannot
+  follow layer state, because one key cannot both switch layer and send `KC_NUM`.
 
 ## Linux setup (done on this machine 2026-08-10)
 

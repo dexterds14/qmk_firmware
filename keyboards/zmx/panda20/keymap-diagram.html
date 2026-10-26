@@ -116,23 +116,23 @@ function lk(p, m, s, lt) { return { p, m, s, cls: "layerkey small", lt }; }
 function vn(p, m, s) { return { p, m, s, cls: "vendor small" }; }
 
 const COLORS = {
-  base: "#8a8f9c",
+  base: "rgb(200, 0, 160)",       // sway magenta, matches the ymd09 base
   fn:   "#ef4444",                // vendor layer
-  sway: "rgb(200, 0, 160)",       // matches the sway-layer magenta convention
+  arrows: "#8a8f9c",              // matches the ymd09 Arrows dim white
   ctlx: "rgb(0, 160, 40)",        // matches the ymd09 Ctl-X green
 };
 
 const LAYERS = [
 {
-  name: "Layer 0 — Base", color: COLORS.base,
-  how: "Nav numpad. 0 and Enter arm the two custom layers as one-shots; Fn (hold) is the vendor layer.",
+  name: "Layer 0 — Base (Sway)", color: COLORS.base,
+  how: "Sway movement (Alt chords). 0 and Enter arm the two custom layers as one-shots; Fn (hold) is the vendor layer.",
   rows: [
     [k("Esc","Esc"), lk("Fn","Fn","hold: MO(1)",COLORS.fn), k("Tab","Tab"), null, k("Bspc","Bspc")],
-    [k("Num","Num"), k("/","/"), k("*","*"), k("-","-"), null],
-    [k("7","PgUp"), k("8","↑"), k("9","PgDn"), k("+","+"), null],
-    [k("4","←"), k("5","↓"), k("6","→"), null, null],
-    [k("1","Home"), null, k("2","Enter"), k("3","End"), null],
-    [lk("0","Short","OSL(3)",COLORS.ctlx), k(".","."), lk("Enter","Sway","OSL(2)",COLORS.sway), null, null],
+    [sm("Num","A-f","ws1"), sm("/","A-d","ws2"), sm("*","A-s","ws3"), sm("-","A-a","ws4"), null],
+    [sm("7","A-u"), sm("8","A-j"), sm("9","A-o"), sm("+","A-g","ws5"), null],
+    [sm("4","A-k"), sm("5","A-l"), sm("6","A-'"), null, null],
+    [k("1","Home"), null, sm("2","A-i"), k("3","End"), null],
+    [lk("0","Short","OSL(3)",COLORS.ctlx), k(".","."), lk("Enter","Arrows","OSL(2)",COLORS.arrows), null, null],
   ],
 },
 {
@@ -148,27 +148,27 @@ const LAYERS = [
   ],
 },
 {
-  name: "Layer 2 — Sway", color: COLORS.sway,
+  name: "Layer 2 — Arrows", color: COLORS.arrows,
   how: "Enter (one-shot); on this layer Enter = DF(2) locks it as the default layer, 0 = DF(0) exits. Top row copies base (TRNS would go dead while layer 2 is default).",
   rows: [
     [k("Esc","Esc"), lk("Fn","Fn","hold: MO(1)",COLORS.fn), k("Tab","Tab"), null, k("Bspc","Bspc")],
-    [sm("Num","A-f","ws1"), sm("/","A-d","ws2"), sm("*","A-s","ws3"), sm("-","A-a","ws4"), null],
-    [sm("7","A-u"), sm("8","A-j"), sm("9","A-o"), sm("+","A-g","ws5"), null],
-    [sm("4","A-k"), sm("5","A-l"), sm("6","A-'"), null, null],
-    [k("1","Home"), null, sm("2","A-i"), k("3","End"), null],
-    [lk("0","exit","DF(0)",COLORS.base), k(".","."), lk("Enter","lock","DF(2)",COLORS.sway), null, null],
+    [k("Num","Num"), k("/","/"), k("*","*"), k("-","-"), null],
+    [k("7","PgUp"), k("8","↑"), k("9","PgDn"), k("+","+"), null],
+    [k("4","←"), k("5","↓"), k("6","→"), null, null],
+    [k("1","Home"), null, k("2","Enter"), k("3","End"), null],
+    [lk("0","exit","DF(0)",COLORS.base), k(".","."), lk("Enter","lock","DF(2)",COLORS.arrows), null, null],
   ],
 },
 {
   name: "Layer 3 — Ctl-X", color: COLORS.ctlx,
-  how: "0 key (one-shot). Ctrl chords on the arrow block; everything else falls through to base.",
+  how: "0 key (one-shot); on this layer 0 = DF(3) locks it as the default layer, . = DF(0) exits. Ctrl chords on the arrow block; everything else falls through to base.",
   rows: [
     [T("Esc"), T("Fn"), T("Tab"), null, T("Bspc")],
     [T("Num"), T("/"), T("*"), T("-"), null],
     [sm("7","C-0"), sm("8","C-1"), sm("9","C-2"), T("+"), null],
     [sm("4","C-S-Tab"), T("5"), sm("6","C-Tab"), null, null],
     [sm("1","C-`"), null, T("2"), sm("3","C-b"), null],
-    [T("0"), T("."), T("Enter"), null, null],
+    [lk("0","lock","DF(3)",COLORS.ctlx), lk(".","exit","DF(0)",COLORS.base), T("Enter"), null, null],
   ],
 },
 ];
