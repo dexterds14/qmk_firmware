@@ -106,8 +106,8 @@ function sm(m, s) { return { m, s, cls: "small" }; }
 function lk(m, s, lt) { return { m, s, cls: "layerkey small", lt }; }
 
 const COLORS = {
-  base:  "#8a8f9c",                 // dim white on the board
-  sway:  "rgb(200, 0, 160)",        // magenta
+  base:  "rgb(200, 0, 160)",        // magenta (sway)
+  arrows: "#8a8f9c",                // dim white on the board
   ctlx:  "rgb(0, 160, 40)",         // green
   short: "rgb(200, 110, 0)",        // amber
   work:  "rgb(80, 0, 200)",         // purple
@@ -116,20 +116,20 @@ const COLORS = {
 const LAYERS = [
 {
   name: "Base", color: COLORS.base,
-  how: "Nav cluster; bottom row arms the three layers (one-shot / lock / hold).",
-  rows: [
-    ["PgUp", "↑", "PgDn"],
-    ["←", "↓", "→"],
-    [lk("Short", "OSL", COLORS.short), lk("Ctl-X", "OSL", COLORS.ctlx), lk("Sway", "OSL", COLORS.sway)],
-  ],
-},
-{
-  name: "Sway", color: COLORS.sway,
-  how: "Sway movement (Alt chords), from bottom-right. Bottom-middle chains into the workspace layer.",
+  how: "Sway movement (Alt chords); bottom row arms the three layers (one-shot / lock / hold).",
   rows: [
     [sm("A-u"), sm("A-j"), sm("A-o")],
     [sm("A-k"), sm("A-l"), sm("A-'")],
-    [sm("A-i"), lk("Work", "OSL", COLORS.work), T],
+    [lk("Short", "OSL", COLORS.short), lk("Ctl-X", "OSL", COLORS.ctlx), lk("Arrows", "OSL", COLORS.arrows)],
+  ],
+},
+{
+  name: "Arrows", color: COLORS.arrows,
+  how: "Nav cluster, from bottom-right. Bottom row falls through to base, so tapping bottom-right again locks / unlocks.",
+  rows: [
+    ["PgUp", "↑", "PgDn"],
+    ["←", "↓", "→"],
+    [T, T, T],
   ],
 },
 {
@@ -152,7 +152,7 @@ const LAYERS = [
 },
 {
   name: "Workspace", color: COLORS.work,
-  how: "Sway workspace switching, entered from Sway's bottom-middle. Arranged 5-4-6 over 3-2-1 by workspace number; bottom-middle repeats OSL so a stuck lock always unlocks.",
+  how: "Sway workspace switching. Currently unreachable (its entry key was on the old sway layer's bottom row). Arranged 5-4-6 over 3-2-1 by workspace number; bottom-middle repeats OSL so a stuck lock always unlocks.",
   rows: [
     [sm("A-g", "ws5"), sm("A-a", "ws4"), sm("A-h", "ws6")],
     [sm("A-s", "ws3"), sm("A-d", "ws2"), sm("A-f", "ws1")],
