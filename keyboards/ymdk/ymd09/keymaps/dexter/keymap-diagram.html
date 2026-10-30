@@ -120,16 +120,16 @@ const LAYERS = [
   rows: [
     [sm("A-u"), sm("A-j"), sm("A-o")],
     [sm("A-k"), sm("A-l"), sm("A-'")],
-    [lk("Short", "OSL", COLORS.short), lk("Ctl-X", "OSL", COLORS.ctlx), lk("Arrows", "OSL", COLORS.arrows)],
+    [lk("Work", "OSL", COLORS.work), lk("Ctl-X", "OSL", COLORS.ctlx), lk("Arrows", "OSL", COLORS.arrows)],
   ],
 },
 {
   name: "Arrows", color: COLORS.arrows,
-  how: "Nav cluster, from bottom-right. Bottom row falls through to base, so tapping bottom-right again locks / unlocks.",
+  how: "Nav cluster, from bottom-right; tapping bottom-right again locks / unlocks. Bottom-left chains into the shortcuts layer.",
   rows: [
     ["PgUp", "↑", "PgDn"],
     ["←", "↓", "→"],
-    [T, T, T],
+    [lk("Short", "OSL", COLORS.short), T, T],
   ],
 },
 {
@@ -143,20 +143,20 @@ const LAYERS = [
 },
 {
   name: "Shortcuts", color: COLORS.short,
-  how: "From bottom-left. Bootloader + terminal macros.",
+  how: "From the arrows layer's bottom-left. Bootloader + terminal macros.",
   rows: [
     [sm("BOOT"), sm("Nano", "save-quit"), X],
     [sm("Minicom", "quit"), sm("C-S-c"), sm("C-S-v")],
-    [T, X, X],
+    [lk("Short", "OSL", COLORS.short), X, X],
   ],
 },
 {
   name: "Workspace", color: COLORS.work,
-  how: "Sway workspace switching. Currently unreachable (its entry key was on the old sway layer's bottom row). Arranged 5-4-6 over 3-2-1 by workspace number; bottom-middle repeats OSL so a stuck lock always unlocks.",
+  how: "Sway workspace switching, from bottom-left. Arranged 5-4-6 over 3-2-1 by workspace number.",
   rows: [
     [sm("A-g", "ws5"), sm("A-a", "ws4"), sm("A-h", "ws6")],
     [sm("A-s", "ws3"), sm("A-d", "ws2"), sm("A-f", "ws1")],
-    [X, lk("Work", "OSL", COLORS.work), X],
+    [lk("Work", "OSL", COLORS.work), X, X],
   ],
 },
 ];

@@ -4,8 +4,9 @@
 // they transfer here spatially; keys the Panda20 had outside that block
 // are dropped (Alt+F/D/S/A row, Alt+G, Home/End).
 //
-// Base is the sway movement layer (Alt chords); arrows/PgUp/PgDn sit one
-// layer up on the bottom-right key.
+// Base is the sway movement layer (Alt chords). Bottom row: workspace
+// layer (left), Ctl-X (middle), arrows/PgUp/PgDn (right). Shortcuts are
+// on the arrows layer's bottom-left.
 //
 // Bottom-row layer keys are one-shot with lock (ONESHOT_TAP_TOGGLE 2 in
 // config.h): tap = next keypress on layer, double-tap = lock, tap again =
@@ -16,9 +17,9 @@
 enum layers {
     _BASE,   // sway movement (Alt chords)
     _ARROWS, // arrows + PgUp/PgDn, bottom-right
-    _CTLX,  // ctrl-x chords, bottom-middle
-    _SHORT, // shortcuts, bottom-left
-    _WORK,  // sway workspace switching (currently unreachable, see below)
+    _CTLX,   // ctrl-x chords, bottom-middle
+    _SHORT,  // shortcuts, bottom-left of _ARROWS
+    _WORK,   // sway workspace switching, bottom-left
 };
 
 enum custom_keycodes {
@@ -34,13 +35,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
         LALT(KC_U),  LALT(KC_J), LALT(KC_O),
         LALT(KC_K),  LALT(KC_L), LALT(KC_QUOT),
-        OSL(_SHORT), OSL(_CTLX), OSL(_ARROWS)
+        OSL(_WORK),  OSL(_CTLX), OSL(_ARROWS)
     ),
 
+    // Bottom-right is TRNS so it resolves to the base OSL(_ARROWS) and
+    // tap-toggles the lock.
     [_ARROWS] = LAYOUT(
-        KC_PGUP, KC_UP,   KC_PGDN,
-        KC_LEFT, KC_DOWN, KC_RGHT,
-        KC_TRNS, KC_TRNS, KC_TRNS
+        KC_PGUP,     KC_UP,   KC_PGDN,
+        KC_LEFT,     KC_DOWN, KC_RGHT,
+        OSL(_SHORT), KC_TRNS, KC_TRNS
     ),
 
     [_CTLX] = LAYOUT(
@@ -49,22 +52,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LCTL(KC_GRV),       KC_TRNS,    LCTL(KC_B)
     ),
 
+    // Entered from _ARROWS, which may already have dropped off underneath
+    // (one-shot consumed), so bottom-left repeats OSL(_SHORT) rather than
+    // TRNS -- TRNS would land on the base OSL(_WORK) and break the lock.
     [_SHORT] = LAYOUT(
         QK_BOOT,      NANO_SAVEQUIT,    KC_NO,
         MINICOM_QUIT, LCTL(LSFT(KC_C)), LCTL(LSFT(KC_V)),
-        KC_TRNS,      KC_NO,            KC_NO
+        OSL(_SHORT),  KC_NO,            KC_NO
     ),
 
     // Sway workspace switching ($mod = Alt; ws1..6 = f/d/s/a/g/h in the
     // sway config). Arranged 5-4-6 over 3-2-1 by workspace number.
-    // Bottom-middle repeats OSL(_WORK) so tapping it always unlocks a
-    // stuck layer. Currently unreachable: its entry key (and Alt+I) lived
-    // on the old sway layer's bottom row, which became the base layer's
-    // Shortcuts/Ctl-X keys.
+    // Bottom-left repeats the base OSL(_WORK) so tapping it locks /
+    // unlocks.
     [_WORK] = LAYOUT(
         LALT(KC_G), LALT(KC_A), LALT(KC_H),
         LALT(KC_S), LALT(KC_D), LALT(KC_F),
-        KC_NO,      OSL(_WORK), KC_NO
+        OSL(_WORK), KC_NO,      KC_NO
     ),
 
 };
