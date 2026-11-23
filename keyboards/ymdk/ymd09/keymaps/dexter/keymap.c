@@ -10,7 +10,8 @@
 //
 // Bottom-row layer keys are one-shot with lock (ONESHOT_TAP_TOGGLE 2 in
 // config.h): tap = next keypress on layer, double-tap = lock, tap again =
-// unlock, hold = momentary.
+// unlock, hold = momentary. A locked layer's color breathes; a one-shot
+// (armed) layer's is steady.
 
 #include QMK_KEYBOARD_H
 
@@ -28,6 +29,9 @@ enum custom_keycodes {
     MINICOM_QUIT = SAFE_RANGE,
     // Save and quit nano (Ctrl+X, Y, Enter) -- the bcorne "y" leader.
     NANO_SAVEQUIT,
+    // Drop every layer and any one-shot / locked one-shot state: one tap
+    // back to base, whether the current layer is armed or locked.
+    LAYER_EXIT,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -53,13 +57,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LCTL(KC_GRV),       KC_TRNS,    LCTL(KC_B)
     ),
 
-    // Entered from _ARROWS, which may already have dropped off underneath
-    // (one-shot consumed), so bottom-left repeats OSL(_SHORT) rather than
-    // TRNS -- TRNS would land on the base OSL(_WORK) and break the lock.
+    // Entered with a single tap on _ARROWS' bottom-left, so this layer is
+    // normally one-shot, not locked. Bottom-left is LAYER_EXIT, not
+    // OSL(_SHORT): on an armed layer its own OSL counts as the second tap
+    // of a double-tap and locks it instead of leaving, and the next quick
+    // tap then lands on the base OSL(_WORK) as a further sequential tap
+    // (QMK counts taps per key position, not per keycode). Not TRNS
+    // either -- that would land on the base OSL(_WORK) directly.
     [_SHORT] = LAYOUT(
         QK_BOOT,      NANO_SAVEQUIT,    KC_NO,
         MINICOM_QUIT, LCTL(LSFT(KC_C)), LCTL(LSFT(KC_V)),
-        OSL(_SHORT),  KC_NO,            KC_NO
+        LAYER_EXIT,   KC_NO,            KC_NO
     ),
 
     // Sway workspace switching ($mod = Alt; ws1..6 = f/d/s/a/g/h in the
@@ -91,6 +99,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_ENT);
             }
             return false;
+        case LAYER_EXIT:
+            if (record->event.pressed) {
+                reset_oneshot_layer();
+                layer_clear();
+            }
+            return false;
     }
     return true;
 }
@@ -113,6 +127,7 @@ static const layer_rgb_t layer_colors[] = {
 
 // The layer a layer-switching keycode moves to, or -1 if kc is not one.
 static int8_t layer_key_target(uint16_t kc) {
+    if (kc == LAYER_EXIT) return _BASE;
     if (IS_QK_ONE_SHOT_LAYER(kc)) return QK_ONE_SHOT_LAYER_GET_LAYER(kc);
     if (IS_QK_TO(kc)) return QK_TO_GET_LAYER(kc);
     if (IS_QK_MOMENTARY(kc)) return QK_MOMENTARY_GET_LAYER(kc);
@@ -120,9 +135,32 @@ static int8_t layer_key_target(uint16_t kc) {
     return -1;
 }
 
+// Lock-pulse timing and curve, copied from the szrkbd/bcorne dexter keymap
+// (see its lock_pulse_val() for the reasoning): ~2.3 s triangle wave off
+// the RGB frame timer, phase squared so the fade fills the whole cycle,
+// down to true black with no floor.
+#define PULSE_BLACK_MS  64                                 // phase 0..15
+#define PULSE_RAMP_MS   1104                               // phase 16..255
+#define PULSE_HALF_MS   (PULSE_BLACK_MS + PULSE_RAMP_MS)   // 1168
+#define PULSE_PERIOD_MS (2 * PULSE_HALF_MS)                // 2336
+
+static uint8_t lock_pulse_val(void) {
+    uint16_t t = g_rgb_timer % PULSE_PERIOD_MS;
+    if (t >= PULSE_HALF_MS) t = PULSE_PERIOD_MS - 1 - t; // mirror the falling half
+    uint8_t phase;
+    if (t < PULSE_BLACK_MS) {
+        phase = t >> 2;                                                     // 0..15
+    } else {
+        phase = 16 + (uint32_t)(t - PULSE_BLACK_MS) * 240 / PULSE_RAMP_MS;  // 16..255
+    }
+    return (uint8_t)(((uint16_t)phase * phase) >> 8);                       // 0..~255
+}
+
 // The whole board glows the active layer's color. One-shot arming raises
 // the layer in layer_state just like a lock does, so the color doubles as
-// "layer armed" feedback.
+// "layer armed" feedback. When the layer is locked (its OSL double-tapped)
+// the background breathes; the layer keys below stay steady so they remain
+// readable.
 //
 // Each layer key then shows the color of the layer it moves to. Keys are
 // resolved the way a press would be (layer_switch_get_layer), so a TRNS
@@ -134,6 +172,12 @@ bool rgb_matrix_indicators_user(void) {
     uint8_t top = get_highest_layer(layer_state);
     if (top >= ARRAY_SIZE(layer_colors)) top = _BASE;
     layer_rgb_t bg = layer_colors[top];
+    if ((get_oneshot_layer_state() & ONESHOT_TOGGLED) && get_oneshot_layer() == top) {
+        uint16_t v = lock_pulse_val();
+        bg.r       = (bg.r * v) >> 8;
+        bg.g       = (bg.g * v) >> 8;
+        bg.b       = (bg.b * v) >> 8;
+    }
     rgb_matrix_set_color_all(bg.r, bg.g, bg.b);
 
     for (uint8_t row = 0; row < MATRIX_ROWS; row++) {

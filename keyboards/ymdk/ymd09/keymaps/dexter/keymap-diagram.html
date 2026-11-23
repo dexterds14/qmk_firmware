@@ -83,8 +83,9 @@
 <p class="subtitle">3&times;3 nav/layer pad, adapted from the ZMX Panda20 layout.
 The bottom row's layer keys are one-shot with lock (<code>ONESHOT_TAP_TOGGLE 2</code>):
 tap = next keypress on that layer, double-tap = lock, tap again = unlock, hold = momentary.
-The whole board glows the active layer's color (which doubles as "one-shot armed" feedback),
-and each layer key glows the color of the layer it moves to; the colored outlines below show it.
+The whole board glows the active layer's color (which doubles as "one-shot armed" feedback);
+a locked layer's color breathes, a one-shot layer's is steady.
+Each layer key glows the color of the layer it moves to; the colored outlines below show it.
 A key that targets the layer already showing is that layer's lock / unlock key and glows the base
 (magenta) color instead.
 Dashed &#9661; = transparent, blank = no-op.</p>
@@ -149,11 +150,11 @@ const LAYERS = [
 },
 {
   name: "Shortcuts", color: COLORS.short,
-  how: "From the arrows layer's bottom-left. Bootloader + terminal macros.",
+  how: "From the arrows layer's bottom-left. Bootloader + terminal macros. Bottom-left goes straight back to base in one tap.",
   rows: [
     [sm("BOOT"), sm("Nano", "save-quit"), X],
     [sm("Minicom", "quit"), sm("C-S-c"), sm("C-S-v")],
-    [lk("Short", "OSL", COLORS.base), X, X],
+    [lk("Base", "exit", COLORS.base), X, X],
   ],
 },
 {
