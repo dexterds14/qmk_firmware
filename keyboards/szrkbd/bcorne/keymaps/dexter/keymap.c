@@ -1,11 +1,15 @@
 // Copyright 2026 dexterds14
 // SPDX-License-Identifier: GPL-2.0-or-later
 //
-// Port of the dactyl_manuform/5x6 default keymap. The 4x6 grids map 1:1 (all
-// tap-dance keys keep their finger positions); the dactyl's bottom-row/thumb
-// extras condense into this board's inner-column keys, knob pushes, and 3-key
-// thumb clusters. rgblight layer indication is reimplemented on the per-key
-// RGB matrix, and the knobs get per-layer encoder-map bindings.
+// Port of the dactyl_manuform/5x6 default keymap, shifted one column toward
+// the outer edge: the 4x6 grids are the dactyl's with each half's outer
+// (modifier/symbol) column rotated to the inner side of the grid, so Q-A-Z and
+// P-'-/ sit on the outermost columns. Every layer is shifted the same way, so a
+// layer key still sits under the same letter as on the dactyl. The inner and
+// outer thumb keys are also swapped relative to the dactyl port. The dactyl's
+// bottom-row/thumb extras condense into this board's inner-column keys, knob
+// pushes, and 3-key thumb clusters. rgblight layer indication is reimplemented
+// on the per-key RGB matrix, and the knobs get per-layer encoder-map bindings.
 //
 // LAYOUT argument order (one line per physical row below):
 //   left rows 0-3 (row 1/2 col6 = inner-column key, row 3 col6 = knob push),
@@ -87,81 +91,81 @@ static bool     td_in_progress = false;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
-        KC_SLSH,       KC_1,          KC_2,          KC_3,          KC_4,           KC_5,
-        KC_GRV,        TD(TD_Q_TILD), KC_W,          KC_E,          KC_R,           KC_T,          KC_PGUP,
-        OSM(MOD_LSFT), KC_A,          TD(TD_S_OSM),  TD(TD_D_OSM),  TD(LAYR_DOWN),  TD(TD_G_CAPS), KC_PGDN,
-        KC_TAB,        TD(TD_Z_GRV),  KC_X,          KC_C,          TD(TD_V_TAB),   KC_B,          QK_BOOT,
-                                                     KC_ESC,        KC_BSPC,        KC_SPC,
-                       KC_6,          KC_7,          KC_8,          KC_9,           KC_0,          KC_PLUS,
-        KC_LALT,       KC_Y,          KC_U,          KC_I,          KC_O,           KC_P,          KC_MINS,
-        KC_LCTL,       TD(TD_H_CAPS), TD(TD_J_OSM),  TD(LAYR_UP),   KC_L,           KC_QUOT,       OSM(MOD_RSFT),
-        QK_BOOT,       KC_N,          KC_M,          KC_COMM,       KC_DOT,         KC_SLSH,       KC_SCLN,
-                                                     KC_ENT,        OSL(_LEADR),    KC_DEL
+        KC_1,          KC_2,          KC_3,          KC_4,          KC_5,           KC_SLSH,
+        TD(TD_Q_TILD), KC_W,          KC_E,          KC_R,          KC_T,           KC_GRV,        KC_PGUP,
+        KC_A,          TD(TD_S_OSM),  TD(TD_D_OSM),  TD(LAYR_DOWN), TD(TD_G_CAPS),  OSM(MOD_LSFT), KC_PGDN,
+        TD(TD_Z_GRV),  KC_X,          KC_C,          TD(TD_V_TAB),  KC_B,           KC_TAB,        QK_BOOT,
+                                                     KC_SPC,        KC_BSPC,        KC_ESC,
+                       KC_PLUS,       KC_6,          KC_7,          KC_8,           KC_9,          KC_0,
+        KC_LALT,       KC_MINS,       KC_Y,          KC_U,          KC_I,           KC_O,          KC_P,
+        KC_LCTL,       OSM(MOD_RSFT), TD(TD_H_CAPS), TD(TD_J_OSM),  TD(LAYR_UP),    KC_L,          KC_QUOT,
+        QK_BOOT,       KC_SCLN,       KC_N,          KC_M,          KC_COMM,        KC_DOT,        KC_SLSH,
+                                                     KC_DEL,        OSL(_LEADR),    KC_ENT
     ),
 
     [_LOWER] = LAYOUT(
-        KC_BSPC,       LCTL(KC_1),    LCTL(KC_2),    LCTL(KC_TAB),  LCTL(LSFT(KC_TAB)), LSFT(KC_TAB),
-        LALT(KC_GRV),  LCTL(KC_Q),    LCTL(KC_W),    KC_LALT,       LCTL(KC_R),     LCTL(KC_T),    KC_HOME,
-        LALT(KC_TAB),  LCTL(KC_A),    LCTL(KC_S),    LCTL(KC_D),    LCTL(KC_F),     LCTL(KC_0),    KC_END,
-        LSFT(KC_TAB),  LCTL(KC_Z),    LCTL(KC_X),    LCTL(KC_C),    LCTL(KC_V),     LCTL(KC_B),    KC_NO,
-                                                     KC_SPC,        KC_LSFT,        KC_LCTL,
-                       LALT(KC_ENT),  LALT(KC_LEFT), LALT(KC_RGHT), LCTL(KC_TAB),   KC_DEL,        KC_PGUP,
-        KC_PGUP,       LCTL(KC_Y),    LCTL(KC_U),    LCTL(KC_I),    LCTL(KC_O),     LCTL(KC_P),    KC_HOME,
-        KC_PGDN,       TO(_QWERTY),   KC_UP,         KC_LEFT,       KC_DOWN,        KC_RGHT,       KC_END,
-        KC_NO,         LCTL(KC_N),    DBL_DASH,      DOT_SLS,       DIR_UP,         LCTL(KC_SLSH), KC_PGDN,
-                                                     KC_ENT,        KC_BSPC,        KC_DEL
+        LCTL(KC_1),    LCTL(KC_2),    LCTL(KC_TAB),  LCTL(LSFT(KC_TAB)), LSFT(KC_TAB),   KC_BSPC,
+        LCTL(KC_Q),    LCTL(KC_W),    KC_LALT,       LCTL(KC_R),    LCTL(KC_T),     LALT(KC_GRV),  KC_HOME,
+        LCTL(KC_A),    LCTL(KC_S),    LCTL(KC_D),    LCTL(KC_F),    LCTL(KC_0),     LALT(KC_TAB),  KC_END,
+        LCTL(KC_Z),    LCTL(KC_X),    LCTL(KC_C),    LCTL(KC_V),    LCTL(KC_B),     LSFT(KC_TAB),  KC_NO,
+                                                     KC_LCTL,       KC_LSFT,        KC_SPC,
+                       KC_PGUP,       LALT(KC_ENT),  LALT(KC_LEFT), LALT(KC_RGHT),  LCTL(KC_TAB),  KC_DEL,
+        KC_PGUP,       KC_HOME,       LCTL(KC_Y),    LCTL(KC_U),    LCTL(KC_I),     LCTL(KC_O),    LCTL(KC_P),
+        KC_PGDN,       KC_END,        TO(_QWERTY),   KC_UP,         KC_LEFT,        KC_DOWN,       KC_RGHT,
+        KC_NO,         KC_PGDN,       LCTL(KC_N),    DBL_DASH,      DOT_SLS,        DIR_UP,        LCTL(KC_SLSH),
+                                                     KC_DEL,        KC_BSPC,        KC_ENT
     ),
 
     [_RAISE] = LAYOUT(
-        KC_F12,        KC_F1,         KC_F2,         KC_F3,         KC_F4,          KC_F5,
-        KC_GRV,        KC_EXLM,       KC_AT,         KC_HASH,       KC_DLR,         KC_PERC,       KC_MPLY,
-        KC_ESC,        KC_COLN,       KC_EQL,        KC_UNDS,       KC_PIPE,        TO(_QWERTY),   KC_MSTP,
-        KC_PSCR,       KC_ESC,        KC_GRV,        KC_LCBR,       KC_RCBR,        KC_CIRC,       KC_NO,
-                                                     _______,       _______,        TO(_QWERTY),
-                       KC_F6,         KC_F7,         KC_F8,         KC_F9,          KC_F10,        KC_F11,
-        KC_VOLU,       KC_CIRC,       KC_AMPR,       KC_ASTR,       KC_LBRC,        KC_RBRC,       KC_PLUS,
-        KC_VOLD,       TO(_RAISE2),   KC_LPRN,       KC_RPRN,       KC_MINS,        KC_DQUO,       KC_EQL,
-        KC_NO,         KC_MUTE,       KC_NO,         KC_LT,         KC_GT,          KC_QUES,       KC_SCLN,
-                                                     KC_SCLN,       _______,        _______
+        KC_F1,         KC_F2,         KC_F3,         KC_F4,         KC_F5,          KC_F12,
+        KC_EXLM,       KC_AT,         KC_HASH,       KC_DLR,        KC_PERC,        KC_GRV,        KC_MPLY,
+        KC_COLN,       KC_EQL,        KC_UNDS,       KC_PIPE,       TO(_QWERTY),    KC_ESC,        KC_MSTP,
+        KC_ESC,        KC_GRV,        KC_LCBR,       KC_RCBR,       KC_CIRC,        KC_PSCR,       KC_NO,
+                                                     TO(_QWERTY),   _______,        _______,
+                       KC_F11,        KC_F6,         KC_F7,         KC_F8,          KC_F9,         KC_F10,
+        KC_VOLU,       KC_PLUS,       KC_CIRC,       KC_AMPR,       KC_ASTR,        KC_LBRC,       KC_RBRC,
+        KC_VOLD,       KC_EQL,        TO(_RAISE2),   KC_LPRN,       KC_RPRN,        KC_MINS,       KC_DQUO,
+        KC_NO,         KC_SCLN,       KC_MUTE,       KC_NO,         KC_LT,          KC_GT,         KC_QUES,
+                                                     _______,       _______,        KC_SCLN
     ),
 
     [_RAISE2] = LAYOUT(
-        KC_F12,        KC_F1,         KC_F2,         KC_F3,         KC_F4,          KC_F5,
-        KC_NO,         QK_BOOT,       _______,       KC_NO,         TO(_RAISE),     KC_NO,         KC_NO,
-        _______,       KC_LEFT,       KC_UP,         KC_DOWN,       KC_RGHT,        TO(_QWERTY),   EE_CLR,
-        _______,       _______,       _______,       _______,       _______,        KC_LPRN,       RM_TOGG,
-                                                     _______,       _______,        TO(_RAISE),
-                       KC_F6,         KC_F7,         KC_F8,         KC_F9,          KC_F10,        KC_F11,
-        KC_NO,         TO(_QWERTY),   KC_NO,         KC_NO,         KC_NO,          QK_BOOT,       KC_NO,
-        KC_NO,         KC_RPRN,       KC_MPRV,       KC_MPLY,       KC_MNXT,        _______,       KC_VOLU,
-        KC_NO,         RM_TOGG,       RM_NEXT,       RM_HUEU,       RM_SATU,        RM_SPDD,       RM_SPDU,
-                                                     TO(_QWERTY),   _______,        _______
+        KC_F1,         KC_F2,         KC_F3,         KC_F4,         KC_F5,          KC_F12,
+        QK_BOOT,       _______,       KC_NO,         TO(_RAISE),    KC_NO,          KC_NO,         KC_NO,
+        KC_LEFT,       KC_UP,         KC_DOWN,       KC_RGHT,       TO(_QWERTY),    _______,       EE_CLR,
+        _______,       _______,       _______,       _______,       KC_LPRN,        _______,       RM_TOGG,
+                                                     TO(_RAISE),    _______,        _______,
+                       KC_F11,        KC_F6,         KC_F7,         KC_F8,          KC_F9,         KC_F10,
+        KC_NO,         KC_NO,         TO(_QWERTY),   KC_NO,         KC_NO,          KC_NO,         QK_BOOT,
+        KC_NO,         KC_VOLU,       KC_RPRN,       KC_MPRV,       KC_MPLY,        KC_MNXT,       _______,
+        KC_NO,         RM_SPDU,       RM_TOGG,       RM_NEXT,       RM_HUEU,        RM_SATU,       RM_SPDD,
+                                                     _______,       _______,        TO(_QWERTY)
     ),
 
     [_MOUSE] = LAYOUT(
-        KC_F12,        KC_F1,         KC_F2,         KC_F3,         KC_F4,          KC_F5,
-        KC_NO,         _______,       KC_NO,         KC_NO,         KC_NO,          KC_NO,         KC_LALT,
-        MS_BTN3,       MS_WHLL,       MS_WHLR,       MS_BTN2,       MS_BTN1,        KC_NO,         OSL(_LEADR),
-        KC_NO,         KC_LSFT,       KC_TAB,        MS_WHLU,       MS_WHLD,        KC_NO,         MS_BTN1,
-                                                     KC_LCTL,       TD(LAYR_DOWN),  KC_SPC,
-                       KC_F6,         KC_F7,         KC_F8,         KC_F9,          KC_F10,        KC_F11,
-        _______,       KC_NO,         MS_WHLU,       MS_WHLD,       KC_PLUS,        KC_MINS,       KC_NO,
-        _______,       TO(_QWERTY),   MS_UP,         MS_LEFT,       MS_DOWN,        MS_RGHT,       KC_NO,
+        KC_F1,         KC_F2,         KC_F3,         KC_F4,         KC_F5,          KC_F12,
+        _______,       KC_NO,         KC_NO,         KC_NO,         KC_NO,          KC_NO,         KC_LALT,
+        MS_WHLL,       MS_WHLR,       MS_BTN2,       MS_BTN1,       KC_NO,          MS_BTN3,       OSL(_LEADR),
+        KC_LSFT,       KC_TAB,        MS_WHLU,       MS_WHLD,       KC_NO,          KC_NO,         MS_BTN1,
+                                                     KC_SPC,        TD(LAYR_DOWN),  KC_LCTL,
+                       KC_F11,        KC_F6,         KC_F7,         KC_F8,          KC_F9,         KC_F10,
+        _______,       KC_NO,         KC_NO,         MS_WHLU,       MS_WHLD,        KC_PLUS,       KC_MINS,
+        _______,       KC_NO,         TO(_QWERTY),   MS_UP,         MS_LEFT,        MS_DOWN,       MS_RGHT,
         MS_BTN2,       KC_NO,         KC_NO,         KC_NO,         KC_NO,          KC_NO,         KC_NO,
-                                                     KC_ENT,        TO(_QWERTY),    KC_LCTL
+                                                     KC_LCTL,       TO(_QWERTY),    KC_ENT
     ),
 
     [_LEADR] = LAYOUT(
-        KC_NO,         KC_NO,         KC_NO,         KC_NO,         LALT(KC_F4),    KC_NO,
-        KC_NO,         LCTL(KC_GRV),  KC_NO,         LCTL(LSFT(KC_E)), LCTL(LSFT(KC_R)), LCTL(LSFT(KC_T)), QK_LEAD,
-        KC_NO,         LCTL(LSFT(KC_A)), LCTL(LSFT(KC_S)), LALT(LSFT(KC_D)), LCTL(LSFT(KC_F)), TO(_QWERTY), _______,
-        KC_NO,         LCTL(LSFT(KC_Z)), KC_NO,      LCTL(LSFT(KC_C)), LCTL(LSFT(KC_V)), KC_NO,   KC_NO,
+        KC_NO,         KC_NO,         KC_NO,         LALT(KC_F4),   KC_NO,          KC_NO,
+        LCTL(KC_GRV),  KC_NO,         LCTL(LSFT(KC_E)), LCTL(LSFT(KC_R)), LCTL(LSFT(KC_T)), KC_NO,         QK_LEAD,
+        LCTL(LSFT(KC_A)), LCTL(LSFT(KC_S)), LALT(LSFT(KC_D)), LCTL(LSFT(KC_F)), TO(_QWERTY),    KC_NO,         _______,
+        LCTL(LSFT(KC_Z)), KC_NO,         LCTL(LSFT(KC_C)), LCTL(LSFT(KC_V)), KC_NO,          KC_NO,         KC_NO,
                                                      _______,       _______,        _______,
                        KC_NO,         KC_NO,         KC_NO,         KC_NO,          KC_NO,         KC_NO,
-        KC_EQL,        KC_NO,         KC_NO,         KC_NO,         LCTL(LSFT(KC_O)), LCTL(LSFT(KC_P)), LCTL(LSFT(KC_EQL)),
-        _______,       KC_NO,         LALT(KC_UP),   LALT(KC_LEFT), LALT(KC_DOWN),  LALT(KC_RIGHT), LCTL(LSFT(KC_MINS)),
-        KC_NO,         LCTL(LSFT(KC_N)), KC_NO,      KC_NO,         DOT_SLS,        KC_NO,         KC_NO,
-                                                     TO(_LEADR),    QK_LEAD,        _______
+        KC_EQL,        LCTL(LSFT(KC_EQL)), KC_NO,         KC_NO,         KC_NO,          LCTL(LSFT(KC_O)), LCTL(LSFT(KC_P)),
+        _______,       LCTL(LSFT(KC_MINS)), KC_NO,         LALT(KC_UP),   LALT(KC_LEFT),  LALT(KC_DOWN), LALT(KC_RIGHT),
+        KC_NO,         LCTL(KC_ENT),  LCTL(LSFT(KC_N)), KC_NO,         KC_NO,          DOT_SLS,       KC_NO,
+                                                     _______,       QK_LEAD,        TO(_LEADR)
     ),
 
     [_CAPSIND] = LAYOUT(
