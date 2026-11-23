@@ -119,7 +119,7 @@ typedef struct {
 
 static const layer_rgb_t layer_colors[] = {
     [_BASE]   = {200, 0, 160},  // magenta (sway)
-    [_ARROWS] = {10, 10, 10},   // dim white
+    [_ARROWS] = {13, 13, 13},   // dim white (reads bluish at this drive); +30% over 10
     [_CTLX]   = {0, 160, 40},   // green
     [_SHORT]  = {200, 110, 0},  // amber
     [_WORK]   = {80, 0, 200},   // purple
@@ -135,25 +135,33 @@ static int8_t layer_key_target(uint16_t kc) {
     return -1;
 }
 
-// Lock-pulse timing and curve, copied from the szrkbd/bcorne dexter keymap
-// (see its lock_pulse_val() for the reasoning): ~2.3 s triangle wave off
-// the RGB frame timer, phase squared so the fade fills the whole cycle,
-// down to true black with no floor.
-#define PULSE_BLACK_MS  64                                 // phase 0..15
-#define PULSE_RAMP_MS   1104                               // phase 16..255
-#define PULSE_HALF_MS   (PULSE_BLACK_MS + PULSE_RAMP_MS)   // 1168
-#define PULSE_PERIOD_MS (2 * PULSE_HALF_MS)                // 2336
+// Lock-pulse timing and curve, based on the szrkbd/bcorne dexter keymap
+// (see its lock_pulse_val() for the reasoning): a triangle wave off the RGB
+// frame timer, phase squared so the fade fills the whole cycle, down to
+// true black with no floor.
+//
+// Unlike the bcorne, the bright half of the ramp runs at half speed so the
+// pulse lingers near full brightness: phase 181..255 is where phase^2>>8
+// reaches >= 127 (~50% output), and it gets twice the bcorne's 345 ms.
+// The bcorne's phase 16..255 ran at 1104 ms / 240 steps = 4.6 ms/step.
+#define PULSE_BLACK_MS  64                                   // phase 0..15
+#define PULSE_LOW_MS    759                                  // phase 16..180, 4.6 ms/step
+#define PULSE_HIGH_MS   690                                  // phase 181..255, 9.2 ms/step
+#define PULSE_HALF_MS   (PULSE_BLACK_MS + PULSE_LOW_MS + PULSE_HIGH_MS) // 1513
+#define PULSE_PERIOD_MS (2 * PULSE_HALF_MS)                  // 3026
 
 static uint8_t lock_pulse_val(void) {
     uint16_t t = g_rgb_timer % PULSE_PERIOD_MS;
     if (t >= PULSE_HALF_MS) t = PULSE_PERIOD_MS - 1 - t; // mirror the falling half
     uint8_t phase;
     if (t < PULSE_BLACK_MS) {
-        phase = t >> 2;                                                     // 0..15
+        phase = t >> 2;                                                    // 0..15
+    } else if (t < PULSE_BLACK_MS + PULSE_LOW_MS) {
+        phase = 16 + (uint32_t)(t - PULSE_BLACK_MS) * 165 / PULSE_LOW_MS; // 16..180
     } else {
-        phase = 16 + (uint32_t)(t - PULSE_BLACK_MS) * 240 / PULSE_RAMP_MS;  // 16..255
+        phase = 181 + (uint32_t)(t - PULSE_BLACK_MS - PULSE_LOW_MS) * 75 / PULSE_HIGH_MS; // 181..255
     }
-    return (uint8_t)(((uint16_t)phase * phase) >> 8);                       // 0..~255
+    return (uint8_t)(((uint16_t)phase * phase) >> 8);                      // 0..~255
 }
 
 // The whole board glows the active layer's color. One-shot arming raises
