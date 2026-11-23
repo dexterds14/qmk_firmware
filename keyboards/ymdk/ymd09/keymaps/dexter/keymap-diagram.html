@@ -83,7 +83,10 @@
 <p class="subtitle">3&times;3 nav/layer pad, adapted from the ZMX Panda20 layout.
 The bottom row's layer keys are one-shot with lock (<code>ONESHOT_TAP_TOGGLE 2</code>):
 tap = next keypress on that layer, double-tap = lock, tap again = unlock, hold = momentary.
-The whole board glows the active layer's color (which doubles as "one-shot armed" feedback).
+The whole board glows the active layer's color (which doubles as "one-shot armed" feedback),
+and each layer key glows the color of the layer it moves to; the colored outlines below show it.
+A key that targets the layer already showing is that layer's lock / unlock key and glows the base
+(magenta) color instead.
 Dashed &#9661; = transparent, blank = no-op.</p>
 
 <div class="grid-of-layers" id="layers"></div>
@@ -112,6 +115,9 @@ const COLORS = {
   short: "rgb(200, 110, 0)",        // amber
   work:  "rgb(80, 0, 200)",         // purple
 };
+// Transparent key that falls through to the current layer's own OSL, i.e.
+// its lock / unlock key. Lit in the base color, like the board does.
+const TL = { m: "▽", cls: "trans layerkey", lt: COLORS.base };
 
 const LAYERS = [
 {
@@ -125,11 +131,11 @@ const LAYERS = [
 },
 {
   name: "Arrows", color: COLORS.arrows,
-  how: "Nav cluster, from bottom-right; tapping bottom-right again locks / unlocks. Bottom-left chains into the shortcuts layer.",
+  how: "Nav cluster, from bottom-right; tapping bottom-right again locks / unlocks. Bottom-left chains into the shortcuts layer; bottom-middle is Enter.",
   rows: [
     ["PgUp", "↑", "PgDn"],
     ["←", "↓", "→"],
-    [lk("Short", "OSL", COLORS.short), T, T],
+    [lk("Short", "OSL", COLORS.short), "Enter", TL],
   ],
 },
 {
@@ -138,7 +144,7 @@ const LAYERS = [
   rows: [
     [sm("C-0"), sm("C-1"), sm("C-2")],
     [sm("C-S-Tab"), X, sm("C-Tab")],
-    [sm("C-`"), T, sm("C-b")],
+    [sm("C-`"), TL, sm("C-b")],
   ],
 },
 {
@@ -147,7 +153,7 @@ const LAYERS = [
   rows: [
     [sm("BOOT"), sm("Nano", "save-quit"), X],
     [sm("Minicom", "quit"), sm("C-S-c"), sm("C-S-v")],
-    [lk("Short", "OSL", COLORS.short), X, X],
+    [lk("Short", "OSL", COLORS.base), X, X],
   ],
 },
 {
@@ -156,7 +162,7 @@ const LAYERS = [
   rows: [
     [sm("A-g", "ws5"), sm("A-a", "ws4"), sm("A-h", "ws6")],
     [sm("A-s", "ws3"), sm("A-d", "ws2"), sm("A-f", "ws1")],
-    [lk("Work", "OSL", COLORS.work), X, X],
+    [lk("Work", "OSL", COLORS.base), X, X],
   ],
 },
 ];

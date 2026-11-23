@@ -39,11 +39,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     // Bottom-right is TRNS so it resolves to the base OSL(_ARROWS) and
-    // tap-toggles the lock.
+    // tap-toggles the lock. Bottom-middle is Enter, so Ctl-X is not
+    // reachable from here.
     [_ARROWS] = LAYOUT(
         KC_PGUP,     KC_UP,   KC_PGDN,
         KC_LEFT,     KC_DOWN, KC_RGHT,
-        OSL(_SHORT), KC_TRNS, KC_TRNS
+        OSL(_SHORT), KC_ENT,  KC_TRNS
     ),
 
     [_CTLX] = LAYOUT(
@@ -94,29 +95,61 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
-// Whole-board solid color per active layer. One-shot arming raises the
-// layer in layer_state just like a lock does, so the color doubles as
-// "layer armed" feedback. Colors follow the layer's contents, not its
-// position: sway is magenta (it was the bottom-right layer before the
-// base/arrows flip), arrows are dim white. Values stay low: 9 LEDs, but
-// also no reason to glare.
+// Per-layer colors. Colors follow the layer's contents, not its position:
+// sway is magenta (it was the bottom-right layer before the base/arrows
+// flip), arrows are dim white. Values stay low: 9 LEDs, but also no reason
+// to glare.
+typedef struct {
+    uint8_t r, g, b;
+} layer_rgb_t;
+
+static const layer_rgb_t layer_colors[] = {
+    [_BASE]   = {200, 0, 160},  // magenta (sway)
+    [_ARROWS] = {10, 10, 10},   // dim white
+    [_CTLX]   = {0, 160, 40},   // green
+    [_SHORT]  = {200, 110, 0},  // amber
+    [_WORK]   = {80, 0, 200},   // purple
+};
+
+// The layer a layer-switching keycode moves to, or -1 if kc is not one.
+static int8_t layer_key_target(uint16_t kc) {
+    if (IS_QK_ONE_SHOT_LAYER(kc)) return QK_ONE_SHOT_LAYER_GET_LAYER(kc);
+    if (IS_QK_TO(kc)) return QK_TO_GET_LAYER(kc);
+    if (IS_QK_MOMENTARY(kc)) return QK_MOMENTARY_GET_LAYER(kc);
+    if (IS_QK_TOGGLE_LAYER(kc)) return QK_TOGGLE_LAYER_GET_LAYER(kc);
+    return -1;
+}
+
+// The whole board glows the active layer's color. One-shot arming raises
+// the layer in layer_state just like a lock does, so the color doubles as
+// "layer armed" feedback.
+//
+// Each layer key then shows the color of the layer it moves to. Keys are
+// resolved the way a press would be (layer_switch_get_layer), so a TRNS
+// key that falls through to a base-layer OSL counts too. A key that
+// targets the layer already showing is its lock / unlock key; it shows
+// the base color instead, since unlocking returns to base (and in the
+// layer's own color it would blend in).
 bool rgb_matrix_indicators_user(void) {
-    switch (get_highest_layer(layer_state)) {
-        case _ARROWS:
-            rgb_matrix_set_color_all(10, 10, 10); // dim white
-            break;
-        case _CTLX:
-            rgb_matrix_set_color_all(0, 160, 40); // green
-            break;
-        case _SHORT:
-            rgb_matrix_set_color_all(200, 110, 0); // amber
-            break;
-        case _WORK:
-            rgb_matrix_set_color_all(80, 0, 200); // purple
-            break;
-        default: // _BASE (sway)
-            rgb_matrix_set_color_all(200, 0, 160); // magenta
-            break;
+    uint8_t top = get_highest_layer(layer_state);
+    if (top >= ARRAY_SIZE(layer_colors)) top = _BASE;
+    layer_rgb_t bg = layer_colors[top];
+    rgb_matrix_set_color_all(bg.r, bg.g, bg.b);
+
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        for (uint8_t col = 0; col < MATRIX_COLS; col++) {
+            uint8_t led = g_led_config.matrix_co[row][col];
+            if (led == NO_LED) continue;
+
+            keypos_t pos    = {.row = row, .col = col};
+            uint16_t kc     = keymap_key_to_keycode(layer_switch_get_layer(pos), pos);
+            int8_t   target = layer_key_target(kc);
+            if (target < 0 || target >= (int8_t)ARRAY_SIZE(layer_colors)) continue;
+            if (target == top) target = _BASE;
+
+            layer_rgb_t c = layer_colors[target];
+            rgb_matrix_set_color(led, c.r, c.g, c.b);
+        }
     }
     return false;
 }
