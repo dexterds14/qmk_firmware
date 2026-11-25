@@ -3,7 +3,7 @@
     "manufacturer": "SZRKB",
     "maintainer": "diegorodriguezv",
     "url": "https://github.com/diegorodriguezv/szr35",
-    "bootloader": "stm32-dfu",
+    "bootloader": "tinyuf2",
     "processor": "STM32F401",
     "usb": {
         "pid": "0x45D4",
@@ -37,7 +37,8 @@
         "enabled": true,
         "serial": {
             "driver": "usart",
-            "pin": "A9"
+            "pin": "A9",
+            "speed": 5
         },
         "handedness": {
             "pin": "C7"
@@ -57,9 +58,7 @@
                 "activity": true,
                 "layer_state": true,
                 "matrix_state": true
-            },
-            "watchdog": true,
-            "watchdog_timeout": 3000
+            }
         },
         "bootmagic": {
             "matrix": [4, 4]
@@ -121,6 +120,7 @@
     },
     "rgb_matrix": {
         "driver": "ws2812",
+        "max_brightness": 50,
         "split_count": [18, 18],
         "animations": {
             "alphas_mods": true,
@@ -136,41 +136,22 @@
             "cycle_all": true,
             "cycle_left_right": true,
             "cycle_up_down": true,
-            "rainbow_moving_chevron": true,
             "cycle_out_in": true,
             "cycle_out_in_dual": true,
+            "rainbow_moving_chevron": true,
             "cycle_pinwheel": true,
             "cycle_spiral": true,
             "dual_beacon": true,
             "rainbow_beacon": true,
             "rainbow_pinwheels": true,
-            "flower_blooming": true,
             "raindrops": true,
             "jellybean_raindrops": true,
             "hue_breathing": true,
             "hue_pendulum": true,
             "hue_wave": true,
-            "pixel_rain": true,
+            "pixel_fractal": false,
             "pixel_flow": true,
-            "pixel_fractal": true,
-            "typing_heatmap": true,
-            "digital_rain": true,
-            "solid_reactive_simple": true,
-            "solid_reactive": true,
-            "solid_reactive_wide": true,
-            "solid_reactive_cross": true,
-            "solid_reactive_nexus": true,
-            "splash": true,
-            "solid_splash": true,
-            "starlight_smooth": true,
-            "starlight": true,
-            "starlight_dual_sat": true,
-            "starlight_dual_hue": true,
-            "riverflow": true
-        },
-        "default": {
-            "animation": "solid_reactive_cross",
-            "sat": 0
+            "pixel_rain": true
         },
         "layout": [
             {"matrix": [0, 4], "x": 96, "y": 15, "flags": 4},

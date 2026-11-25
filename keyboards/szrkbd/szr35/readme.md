@@ -21,16 +21,32 @@ If you want you can use the keymap that came with the keyboard from factory:
 
     make szrkbd/szr35:factory
 
-You need to flash each half of the keyboard with the same firmware:
+## Flashing
 
-    make szrkbd/szr35:default:flash
+The board ships with the vendor's **Plum UF2 bootloader** in the first 64 KB of
+flash (the same one as `szrkbd/bcorne`); the firmware is linked at `0x08010000`
+and built as a `.uf2` with family id `0xABCDF401`. Both halves take the same
+firmware and must run the same build.
 
-See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).
+    qmk compile -kb szrkbd/szr35 -km default
+    keyboards/szrkbd/szr35/flash.sh .build/szrkbd_szr35_default.uf2
+
+`flash.sh` waits for the bootloader drive (`STM32F4Plum`) and copies the file.
+Plain `qmk flash` / `make ...:flash` never finds the drive, because Plum names
+its info file `PLUM_UF2.TXT` instead of `INFO_UF2.TXT`.
 
 ## Bootloader
 
-Enter the bootloader in 3 ways:
+* **Keycode**: `QK_BOOT` reboots the half that is on USB into the Plum drive.
+* **Bootmagic**: hold the top-left key (left half) or top-right key (right
+  half) while plugging in.
+* **Reset pads**: double-tap reset; the second tap must land within roughly
+  100 ms of the first. The drive leaves by itself after about a minute.
+* **Stock firmware**: none of the software routes work on it (its bootloader
+  jump is an empty stub, and bootmagic only wipes the keymap). Use the reset
+  pads, or the STM32 ROM DFU (`0483:df11`) via BOOT0.
 
-* **Bootmagic reset**: Holding top left key for the left half, top right key for the right half, while plugging in the USB cable.
-* **Physical reset button**: Short the reset pads, marked within a white rectangle, while plugging in. Not the ones at the edge opposing the USB connectors but about 2 or 3 centimeters from that edge.
-* **Keycode in layout**: Press the key mapped to `QK_BOOT` if it is available.
+Do **not** write a firmware image at `0x08000000` over ROM DFU: that overwrites
+the Plum bootloader. To flash over ROM DFU, write the raw app image at
+`0x08010000` (`arm-none-eabi-objcopy -O binary <elf> app.bin`, then
+`dfu-util -d 0483:df11 -a 0 -s 0x08010000:leave -D app.bin`).

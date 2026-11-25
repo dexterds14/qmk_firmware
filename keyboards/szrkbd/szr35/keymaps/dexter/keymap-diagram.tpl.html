@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>szr35 dexter keymap</title>
+<style>
+  :root {
+    --bg: #14161c;
+    --panel: #1c1f28;
+    --key: #262a36;
+    --key-edge: #333949;
+    --text: #e8eaf0;
+    --sub: #9aa3b5;
+    --dim: #4a5164;
+    --accent-td: #d4a04c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "DejaVu Sans", "Segoe UI", system-ui, sans-serif;
+    padding: 24px 16px 64px;
+  }
+  h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  .subtitle { color: var(--sub); margin: 0 0 28px; font-size: 0.9rem; }
+  .layer {
+    background: var(--panel);
+    border-radius: 14px;
+    border-left: 6px solid var(--layer-color, var(--dim));
+    padding: 18px 20px 20px;
+    margin: 0 auto 34px;
+    max-width: 1180px;
+    overflow-x: auto;
+  }
+  .layer h2 {
+    margin: 0 0 2px;
+    font-size: 1.15rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .swatch {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--layer-color, var(--dim));
+    display: inline-block;
+    box-shadow: 0 0 8px var(--layer-color, transparent);
+  }
+  .layer .how { color: var(--sub); font-size: 0.82rem; margin: 0 0 14px; }
+  .halves {
+    display: flex; gap: 46px; justify-content: center;
+    min-width: 820px;
+  }
+  .half { display: grid; grid-template-columns: repeat(5, 72px); gap: 5px; }
+  .key {
+    height: 58px;
+    background: var(--key);
+    border: 1px solid var(--key-edge);
+    border-radius: 7px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 3px 2px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .key .main { font-size: 0.86rem; font-weight: 600; line-height: 1.15; }
+  .key .sub { font-size: 0.62rem; color: var(--sub); line-height: 1.25; margin-top: 1px; }
+  .key.small .main { font-size: 0.72rem; }
+  .key.td { border-color: var(--accent-td); border-width: 1.5px; }
+  .key.layerkey .main { color: var(--layer-target, var(--text)); }
+  .key.trans { background: transparent; border-style: dashed; }
+  .key.trans .main { color: var(--dim); }
+  .key.none { background: transparent; border-color: #232734; }
+  .key.gap { visibility: hidden; }
+  .thumbrow { display: contents; }
+  .thumb { height: 52px; border-radius: 20px; }
+  .legend, .tables {
+    max-width: 1180px; margin: 0 auto 34px;
+    background: var(--panel); border-radius: 14px; padding: 18px 22px;
+  }
+  .legend h2, .tables h2 { font-size: 1.05rem; margin: 0 0 12px; }
+  table { border-collapse: collapse; font-size: 0.85rem; width: 100%; }
+  th, td { text-align: left; padding: 5px 14px 5px 0; border-bottom: 1px solid #2a2f3d; }
+  th { color: var(--sub); font-weight: 600; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  code { background: #262a36; padding: 1px 5px; border-radius: 4px; font-size: 0.85em; }
+  .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+  @media (max-width: 800px) { .cols2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<h1>szrkbd/szr35 &mdash; dexter keymap</h1>
+<p class="subtitle">Split 3&times;5 + 3 thumbs per side (36 keys), ported from the bcorne keymap.
+Gold-bordered keys are tap-dances (details below the grids). Dashed <span style="color:#4a5164">&#9661;</span> = transparent (falls through), blank = no-op.
+Layer stripe colors match the board's RGB indicator. Generated from <code>keymap.c</code> by <code>gen-diagram.py</code>; edit the keymap and re-run it.</p>
+
+<div id="layers"></div>
+
+<div class="legend">
+  <h2>Tap-dance keys (gold borders, base layer)</h2>
+  <table>
+    <tr><th>Key</th><th>1 tap</th><th>2 taps</th><th>Hold</th><th>3 taps</th></tr>
+    <tr><td>F</td><td>f</td><td>Lower oneshot (2&times; again &rarr; lock)</td><td>Mouse layer</td><td>Lower lock</td></tr>
+    <tr><td>K</td><td>k</td><td>Raise oneshot</td><td>&mdash;</td><td>Raise2 oneshot</td></tr>
+    <tr><td>S / J</td><td>s / j</td><td>Oneshot Shift</td><td>&mdash;</td><td>&mdash;</td></tr>
+    <tr><td>D</td><td>d</td><td>Oneshot Alt</td><td>&mdash;</td><td>Alt mod-lock toggle (purple pulse)</td></tr>
+    <tr><td>G / H</td><td>g / h</td><td>Caps Lock toggle (white pulse)</td><td>&mdash;</td><td>&mdash;</td></tr>
+    <tr><td>V</td><td>v</td><td>Tab</td><td>&mdash;</td><td>&mdash;</td></tr>
+    <tr><td>Q</td><td>q</td><td>~</td><td>&mdash;</td><td>&mdash;</td></tr>
+    <tr><td>Z</td><td>z</td><td>`</td><td>&mdash;</td><td>&mdash;</td></tr>
+    <tr><td>L</td><td>l</td><td>Num layer, locked (yellow) &mdash; G leaves</td><td>&mdash;</td><td>&mdash;</td></tr>
+  </table>
+</div>
+
+<div class="tables">
+  <div class="cols2">
+    <div>
+      <h2>Leader sequences (right middle thumb, magenta while recording)</h2>
+      <table>
+        <tr><th>Sequence</th><th>Sends</th><th>Purpose</th></tr>
+        <tr><td>Lead, h</td><td><code>Ctrl+H</code></td><td>Control-H</td></tr>
+        <tr><td>Lead, a, q</td><td><code>C-a z q Enter</code></td><td>Quit minicom</td></tr>
+        <tr><td>Lead, a, w</td><td><code>C-a z w</code></td><td>Minicom line-wrap toggle</td></tr>
+        <tr><td>Lead, y</td><td><code>C-x y Enter</code></td><td>Nano save &amp; quit</td></tr>
+        <tr><td>Lead, n</td><td><code>Alt+Shift+N</code></td><td>Sway show full window title</td></tr>
+        <tr><td>Lead, Esc</td><td><code>Alt+Esc</code></td><td>Alt-Escape</td></tr>
+        <tr><td>Lead, c, i</td><td><code>Ctrl+Alt+I</code></td><td>Sway lock / hibernate</td></tr>
+      </table>
+    </div>
+    <div>
+      <h2>Reaching each layer</h2>
+      <table>
+        <tr><th>Layer</th><th>Enter</th><th>Leave</th></tr>
+        <tr><td>Num</td><td>L 2&times; (locked)</td><td>G &rarr; base, H &rarr; Fn</td></tr>
+        <tr><td>Fn</td><td>Num, then H (locked)</td><td>G &rarr; base, H &rarr; Num</td></tr>
+        <tr><td>Lower</td><td>F 2&times; oneshot; F 3&times; lock</td><td>H &rarr; base (when locked)</td></tr>
+        <tr><td>Raise</td><td>K 2&times; oneshot</td><td>after one key; G &rarr; base</td></tr>
+        <tr><td>Raise2</td><td>K 3&times; oneshot; Raise then H = sticky</td><td>G / Y / right outer thumb</td></tr>
+        <tr><td>Mouse</td><td>hold F</td><td>H or right middle thumb</td></tr>
+        <tr><td>Shortcuts</td><td>right middle thumb (oneshot)</td><td>after one key; G &rarr; base</td></tr>
+        <tr><td>Bootloader</td><td>Raise2, then Q or P</td><td>Plum drive; exits after ~60 s</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+// Layer data generated from keymap.c by gen-diagram.py. Key spec: string =
+// plain label; {m, s, cls} = label, note, class (td, trans, none, layerkey).
+// Each half: 3 rows of 5 cells in physical order; thumbs in physical
+// left-to-right order (left: outer, middle, big; right: big, middle, outer).
+const LAYERS = /*LAYERS*/;
+
+function keyEl(spec, extraCls) {
+  const div = document.createElement("div");
+  let m = "", s = "", cls = "";
+  if (spec == null) { cls = "gap"; }
+  else if (typeof spec === "string") { m = spec; if (m.length > 4) cls = "small"; }
+  else if (Array.isArray(spec)) { [m, s] = spec; }
+  else { m = spec.m ?? ""; s = spec.s ?? ""; cls = spec.cls ?? ""; }
+  div.className = ("key " + cls + " " + (extraCls || "")).trim();
+  if (!m && !s && !cls) div.className += " none";
+  const main = document.createElement("div");
+  main.className = "main"; main.textContent = m;
+  div.appendChild(main);
+  if (s) {
+    const sub = document.createElement("div");
+    sub.className = "sub";
+    sub.innerHTML = s.replace(/\n/g, "<br>");
+    div.appendChild(sub);
+  }
+  return div;
+}
+
+const root = document.getElementById("layers");
+for (const L of LAYERS) {
+  const sec = document.createElement("section");
+  sec.className = "layer";
+  sec.style.setProperty("--layer-color", L.color);
+  sec.innerHTML = `<h2><span class="swatch"></span>${L.name}</h2><p class="how">${L.how}</p>`;
+  const halves = document.createElement("div");
+  halves.className = "halves";
+  for (const side of ["left", "right"]) {
+    const half = document.createElement("div");
+    half.className = "half";
+    for (const row of L[side]) for (const k of row) half.appendChild(keyEl(k));
+    // Thumb row: left thumbs sit at the inner edge (cols 3-5), right at cols 1-3.
+    const thumbs = side === "left" ? L.lthumbs : L.rthumbs;
+    if (side === "left") for (let i = 0; i < 2; i++) half.appendChild(keyEl(null));
+    for (const t of thumbs) half.appendChild(keyEl(t, "thumb"));
+    if (side === "right") for (let i = 0; i < 2; i++) half.appendChild(keyEl(null));
+    halves.appendChild(half);
+  }
+  sec.appendChild(halves);
+  root.appendChild(sec);
+}
+</script>
+</body>
+</html>
