@@ -91,7 +91,7 @@
 <h1>szrkbd/szr35 &mdash; dexter keymap</h1>
 <p class="subtitle">Split 3&times;5 + 3 thumbs per side (36 keys), ported from the bcorne keymap.
 Gold-bordered keys are tap-dances (details below the grids). Dashed <span style="color:#4a5164">&#9661;</span> = transparent (falls through), blank = no-op.
-Layer stripe colors match the board's RGB indicator. Generated from <code>keymap.c</code> by <code>gen-diagram.py</code>; edit the keymap and re-run it.</p>
+Layer stripe colors match the board's RGB indicator; the board also goes white while Shift is held or one-shot. Generated from <code>keymap.c</code> by <code>gen-diagram.py</code>; edit the keymap and re-run it.</p>
 
 <div id="layers"></div>
 
@@ -130,8 +130,8 @@ Layer stripe colors match the board's RGB indicator. Generated from <code>keymap
       <h2>Reaching each layer</h2>
       <table>
         <tr><th>Layer</th><th>Enter</th><th>Leave</th></tr>
-        <tr><td>Num</td><td>L 2&times; (locked)</td><td>G &rarr; base, H &rarr; Fn</td></tr>
-        <tr><td>Fn</td><td>Num, then H (locked)</td><td>G &rarr; base, H &rarr; Num</td></tr>
+        <tr><td>Num</td><td>L 2&times; (locked)</td><td>G &rarr; base</td></tr>
+        <tr><td>Fn</td><td>Num, then H = oneshot; H 2&times; = lock</td><td>after one key; when locked H &rarr; Num, G &rarr; base</td></tr>
         <tr><td>Lower</td><td>F 2&times; oneshot; F 3&times; lock</td><td>H &rarr; base (when locked)</td></tr>
         <tr><td>Raise</td><td>K 2&times; oneshot</td><td>after one key; G &rarr; base</td></tr>
         <tr><td>Raise2</td><td>K 3&times; oneshot; Raise then H = sticky</td><td>G / Y / right outer thumb</td></tr>

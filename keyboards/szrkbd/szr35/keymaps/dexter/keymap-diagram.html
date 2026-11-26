@@ -91,7 +91,7 @@
 <h1>szrkbd/szr35 &mdash; dexter keymap</h1>
 <p class="subtitle">Split 3&times;5 + 3 thumbs per side (36 keys), ported from the bcorne keymap.
 Gold-bordered keys are tap-dances (details below the grids). Dashed <span style="color:#4a5164">&#9661;</span> = transparent (falls through), blank = no-op.
-Layer stripe colors match the board's RGB indicator. Generated from <code>keymap.c</code> by <code>gen-diagram.py</code>; edit the keymap and re-run it.</p>
+Layer stripe colors match the board's RGB indicator; the board also goes white while Shift is held or one-shot. Generated from <code>keymap.c</code> by <code>gen-diagram.py</code>; edit the keymap and re-run it.</p>
 
 <div id="layers"></div>
 
@@ -130,8 +130,8 @@ Layer stripe colors match the board's RGB indicator. Generated from <code>keymap
       <h2>Reaching each layer</h2>
       <table>
         <tr><th>Layer</th><th>Enter</th><th>Leave</th></tr>
-        <tr><td>Num</td><td>L 2&times; (locked)</td><td>G &rarr; base, H &rarr; Fn</td></tr>
-        <tr><td>Fn</td><td>Num, then H (locked)</td><td>G &rarr; base, H &rarr; Num</td></tr>
+        <tr><td>Num</td><td>L 2&times; (locked)</td><td>G &rarr; base</td></tr>
+        <tr><td>Fn</td><td>Num, then H = oneshot; H 2&times; = lock</td><td>after one key; when locked H &rarr; Num, G &rarr; base</td></tr>
         <tr><td>Lower</td><td>F 2&times; oneshot; F 3&times; lock</td><td>H &rarr; base (when locked)</td></tr>
         <tr><td>Raise</td><td>K 2&times; oneshot</td><td>after one key; G &rarr; base</td></tr>
         <tr><td>Raise2</td><td>K 3&times; oneshot; Raise then H = sticky</td><td>G / Y / right outer thumb</td></tr>
@@ -244,7 +244,11 @@ const LAYERS = [
    ]
   ],
   "lthumbs": [
-   "Esc",
+   {
+    "m": "Esc",
+    "s": "hold:⇧",
+    "cls": ""
+   },
    "Bksp",
    "Space"
   ],
@@ -255,13 +259,17 @@ const LAYERS = [
     "s": "oneshot",
     "cls": "layerkey small"
    },
-   "Del"
+   {
+    "m": "Del",
+    "s": "hold:⇧",
+    "cls": ""
+   }
   ]
  },
  {
   "name": "Num",
   "color": "#ff3316",
-  "how": "L 2× = locked (coral/red-orange). Digits on the top row, nav on the right outer columns. G = back to base, H = on to Fn. Dashed keys keep their base behaviour, dances included.",
+  "how": "L 2× = locked (coral/red-orange). Digits on the top row, nav on the right outer columns. G = back to base, H = Fn for one key (H 2× = lock Fn). Dashed keys keep their base behaviour, dances included.",
   "left": [
    [
     "1",
@@ -327,7 +335,7 @@ const LAYERS = [
    [
     {
      "m": "Fn",
-     "s": "to layer",
+     "s": "oneshot\n2×:lock",
      "cls": "layerkey small"
     },
     {
@@ -393,7 +401,7 @@ const LAYERS = [
  {
   "name": "Fn",
   "color": "#a8d8f0",
-  "how": "From Num press H; locked (pale blue). H = back to Num, G = back to base. F-keys, volume/media, tab and window switching.",
+  "how": "From Num: H = oneshot, H 2× = lock (pale blue). When locked, H = back to Num, G = back to base. F-keys, volume/media, tab and window switching.",
   "left": [
    [
     "F1",

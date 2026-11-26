@@ -16,6 +16,9 @@
 // Fast typing threshold (ms)
 #define FAST_TYPING_THRESHOLD FLOW_TAP_TERM
 
+// Only the two thumb Shift mod-taps opt in (get_permissive_hold in keymap.c)
+#define PERMISSIVE_HOLD_PER_KEY
+
 // Leader key
 #define LEADER_PER_KEY_TIMING
 #define LEADER_TIMEOUT 600

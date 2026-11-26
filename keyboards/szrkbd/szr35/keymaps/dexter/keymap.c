@@ -7,8 +7,9 @@
 // What they carried now lives on:
 //   _NUM  digits on the top row + PgUp/PgDn/Home/End. Locked: double-tap L
 //         enters, G leaves, H goes on to _FN.
-//   _FN   F-keys, volume/media, tab/window switching. Locked: H goes back to
-//         _NUM, G leaves.
+//   _FN   F-keys, volume/media, tab/window switching. One-shot from _NUM's H
+//         (one key, then back to _NUM); tap H twice to lock it
+//         (ONESHOT_TAP_TOGGLE). When locked, H goes back to _NUM, G leaves.
 //   free slots of the original layers (RGB brightness on RAISE2, + on RAISE,
 //   middle click on MOUSE, the Ctrl+Shift+=/- pair on LEADR, ...).
 // _NUM and _FN sit BELOW the bcorne layers in the layer stack so a one-shot
@@ -18,7 +19,7 @@
 // left thumbs (outer, middle, big) and right thumbs (big, middle, outer).
 // The thumb rows are mirrored relative to the bcorne on every layer (its outer
 // thumb function is on the big inner key here and vice versa): base is
-// Esc/Bksp/Space | Enter/Lead/Del.
+// Esc/Bksp/Space | Enter/Lead/Del, with Esc and Del doubling as Shift on hold.
 
 #include QMK_KEYBOARD_H
 
@@ -38,6 +39,11 @@
 #define _ALTLKIND 9
 #define _LOWLKIND 10
 #define PHANTOM_LAYERS_MASK (((layer_state_t)1 << _CAPSIND) | ((layer_state_t)1 << _ALTLKIND) | ((layer_state_t)1 << _LOWLKIND))
+
+// Outer thumbs: tap = Esc / Del, hold = Shift (a real, holdable Shift for
+// chords like sway's Alt+Shift+H/J/K/L; the S/J dances only give a one-shot).
+#define ESC_SFT LSFT_T(KC_ESC)
+#define DEL_SFT RSFT_T(KC_DEL)
 
 typedef enum {
     TD_NONE,
@@ -101,19 +107,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TD(TD_Q_TILD), KC_W,          KC_E,          KC_R,          KC_T,                KC_Y,          KC_U,          KC_I,          KC_O,          KC_P,
         KC_A,          TD(TD_S_OSM),  TD(TD_D_OSM),  TD(LAYR_DOWN), TD(TD_G_CAPS),       TD(TD_H_CAPS), TD(TD_J_OSM),  TD(LAYR_UP),   TD(TD_L_NUM),  KC_QUOT,
         TD(TD_Z_GRV),  KC_X,          KC_C,          TD(TD_V_TAB),  KC_B,                KC_N,          KC_M,          KC_COMM,       KC_DOT,        KC_SLSH,
-                                      KC_ESC,        KC_BSPC,       KC_SPC,              KC_ENT,        OSL(_LEADR),   KC_DEL
+                                      ESC_SFT,       KC_BSPC,       KC_SPC,              KC_ENT,        OSL(_LEADR),   DEL_SFT
     ),
 
     // Locked number layer. Everything transparent keeps its base behaviour, so
     // the S/D/F/J/K dances (shift, alt, lower, raise) still work in here.
     [_NUM] = LAYOUT_split_3x5_3(
         KC_1,          KC_2,          KC_3,          KC_4,          KC_5,                KC_6,          KC_7,          KC_8,          KC_9,          KC_0,
-        _______,       _______,       _______,       _______,       TO(_QWERTY),         TO(_FN),       _______,       _______,       KC_PGUP,       KC_HOME,
+        _______,       _______,       _______,       _______,       TO(_QWERTY),         OSL(_FN),      _______,       _______,       KC_PGUP,       KC_HOME,
         _______,       _______,       _______,       _______,       _______,             KC_MINS,       KC_DOT,        KC_COMM,       KC_PGDN,       KC_END,
                                       _______,       _______,       _______,             _______,       _______,       _______
     ),
 
-    // Locked function layer: F-keys plus what the bcorne's LOWER number row,
+    // Function layer, one-shot or locked (see header): F-keys plus what the bcorne's LOWER number row,
     // RAISE 6th column/centre keys and knobs carried.
     [_FN] = LAYOUT_split_3x5_3(
         KC_F1,         KC_F2,         KC_F3,         KC_F4,         KC_F5,               KC_F6,         KC_F7,         KC_F8,         KC_F9,         KC_F10,
@@ -178,6 +184,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           _______,       _______,       _______,             _______,       _______,       _______
     )
 };
+
+// The thumb Shifts become a hold as soon as another key is tapped under them,
+// without waiting out TAPPING_TERM. A roll (thumb released first) stays a tap,
+// so a quick Esc-then-letter does not turn into a capital.
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    return keycode == ESC_SFT || keycode == DEL_SFT;
+}
 
 void leader_start_user(void) {
     leader_active = 1;
@@ -302,7 +315,10 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
 
     // Precedence mirrors the dactyl's rgblight layer stacking (higher wins):
     // alt > raise2 > shift > leadr > mouse > caps > lower > leader > raise
-    // > fn > num. The two locked layers come last so a one-shot taken from
+    // > fn > num. "shift" is a one-shot Shift or any held one (the thumb
+    // mod-taps, LOWER/MOUSE's Shift keys); get_mods() is synced to the slave
+    // (SPLIT_MODS_ENABLE) and excludes the weak mods of keycodes like KC_EXLM.
+    // The two locked layers come last so a one-shot taken from
     // inside them shows its own colour.
     if (layer_state_is(_ALTLKIND) || (osm & (MOD_MASK_ALT | MOD_MASK_GUI)))
     {
@@ -314,7 +330,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
     {
         rgb_paint_all(led_min, led_max, HSV_TEAL);
     }
-    else if (osm & MOD_MASK_SHIFT)
+    else if ((osm | get_mods()) & MOD_MASK_SHIFT)
     {
         rgb_paint_all(led_min, led_max, HSV_WHITE);
     }

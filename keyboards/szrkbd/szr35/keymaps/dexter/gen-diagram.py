@@ -49,7 +49,8 @@ LABELS = {
     "RM_HUEU": sm("Hue+"), "RM_SATU": sm("Sat+"), "RM_SPDU": sm("Spd+"), "RM_SPDD": sm("Spd-"),
     "RM_VALU": sm("Bri+"), "RM_VALD": sm("Bri-"),
     "DOT_SLS": sm("./", "macro"), "DIR_UP": sm("../", "macro"), "DBL_DASH": sm("--", "macro"),
-    "OSL(_LEADR)": lk("Lead", "oneshot"),
+    "OSL(_LEADR)": lk("Lead", "oneshot"), "OSL(_FN)": lk("Fn", "oneshot\n2×:lock"),
+    "ESC_SFT": {"m": "Esc", "s": "hold:⇧", "cls": ""}, "DEL_SFT": {"m": "Del", "s": "hold:⇧", "cls": ""},
     "TO(_QWERTY)": lk("Base"), "TO(_NUM)": lk("Num"), "TO(_FN)": lk("Fn"), "TO(_RAISE)": lk("Raise"),
     "TO(_RAISE2)": lk("Raise2"), "TO(_LEADR)": lk("Lock", "stay here"),
     "TD(TD_Q_TILD)": td("Q", "2:~"), "TD(TD_Z_GRV)": td("Z", "2:`"), "TD(TD_V_TAB)": td("V", "2:Tab"),
@@ -108,9 +109,9 @@ META = [
      "Default layer. RGB shows the ambient effect (raindrops from royal blue by default)."),
     ("_NUM", "Num", "#ff3316",
      "L 2× = locked (coral/red-orange). Digits on the top row, nav on the right outer columns. "
-     "G = back to base, H = on to Fn. Dashed keys keep their base behaviour, dances included."),
+     "G = back to base, H = Fn for one key (H 2× = lock Fn). Dashed keys keep their base behaviour, dances included."),
     ("_FN", "Fn", "#a8d8f0",
-     "From Num press H; locked (pale blue). H = back to Num, G = back to base. "
+     "From Num: H = oneshot, H 2× = lock (pale blue). When locked, H = back to Num, G = back to base. "
      "F-keys, volume/media, tab and window switching."),
     ("_LOWER", "Lower", "#25c05a",
      "F 2× = oneshot · F 2×,2× or 3× = lock (green, pulsing when locked). Mostly Ctrl-chords."),
