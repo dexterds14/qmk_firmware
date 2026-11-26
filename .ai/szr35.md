@@ -74,7 +74,7 @@ for the RGB behaviour (same animation list, so the same effect-mode table;
 there are no knobs here, RGB brightness is on RAISE2 `U`/`I`). Differences:
 
 - Two extra **locked** layers below the bcorne ones in the stack: `_NUM`
-  (double-tap `L`; digits on the top row, nav on the right outer columns) and
+  (double-tap `L`, coral; digits on the top row, nav on the right outer columns) and
   `_FN` (`H` from `_NUM`; F-keys, volume/media, tab switching). They must stay
   below LOWER/RAISE so a one-shot from inside `_NUM` overrides it.
 - `L` is a tap-dance key: the leader coupling in `AGENTS.md` applies

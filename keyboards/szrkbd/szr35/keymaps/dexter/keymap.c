@@ -16,6 +16,9 @@
 //
 // LAYOUT_split_3x5_3 argument order: rows 0-2 as left 5 then right 5, then
 // left thumbs (outer, middle, big) and right thumbs (big, middle, outer).
+// The thumb rows are mirrored relative to the bcorne on every layer (its outer
+// thumb function is on the big inner key here and vice versa): base is
+// Esc/Bksp/Space | Enter/Lead/Del.
 
 #include QMK_KEYBOARD_H
 
@@ -98,7 +101,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TD(TD_Q_TILD), KC_W,          KC_E,          KC_R,          KC_T,                KC_Y,          KC_U,          KC_I,          KC_O,          KC_P,
         KC_A,          TD(TD_S_OSM),  TD(TD_D_OSM),  TD(LAYR_DOWN), TD(TD_G_CAPS),       TD(TD_H_CAPS), TD(TD_J_OSM),  TD(LAYR_UP),   TD(TD_L_NUM),  KC_QUOT,
         TD(TD_Z_GRV),  KC_X,          KC_C,          TD(TD_V_TAB),  KC_B,                KC_N,          KC_M,          KC_COMM,       KC_DOT,        KC_SLSH,
-                                      KC_SPC,        KC_BSPC,       KC_ESC,              KC_DEL,        OSL(_LEADR),   KC_ENT
+                                      KC_ESC,        KC_BSPC,       KC_SPC,              KC_ENT,        OSL(_LEADR),   KC_DEL
     ),
 
     // Locked number layer. Everything transparent keeps its base behaviour, so
@@ -123,56 +126,56 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LCTL(KC_Q),    LCTL(KC_W),    KC_LALT,       LCTL(KC_R),    LCTL(KC_T),          LCTL(KC_Y),    LCTL(KC_U),    LCTL(KC_I),    LCTL(KC_O),    LCTL(KC_P),
         LCTL(KC_A),    LCTL(KC_S),    LCTL(KC_D),    LCTL(KC_F),    LCTL(KC_0),          TO(_QWERTY),   KC_UP,         KC_LEFT,       KC_DOWN,       KC_RGHT,
         LCTL(KC_Z),    LCTL(KC_X),    LCTL(KC_C),    LCTL(KC_V),    LCTL(KC_B),          LCTL(KC_N),    DBL_DASH,      DOT_SLS,       DIR_UP,        LCTL(KC_SLSH),
-                                      KC_LCTL,       KC_LSFT,       KC_SPC,              KC_DEL,        KC_BSPC,       KC_ENT
+                                      KC_SPC,        KC_LSFT,       KC_LCTL,             KC_ENT,        KC_BSPC,       KC_DEL
     ),
 
     [_RAISE] = LAYOUT_split_3x5_3(
         KC_EXLM,       KC_AT,         KC_HASH,       KC_DLR,        KC_PERC,             KC_CIRC,       KC_AMPR,       KC_ASTR,       KC_LBRC,       KC_RBRC,
         KC_COLN,       KC_EQL,        KC_UNDS,       KC_PIPE,       TO(_QWERTY),         TO(_RAISE2),   KC_LPRN,       KC_RPRN,       KC_MINS,       KC_DQUO,
         KC_ESC,        KC_GRV,        KC_LCBR,       KC_RCBR,       KC_CIRC,             KC_MUTE,       KC_PLUS,       KC_LT,         KC_GT,         KC_QUES,
-                                      TO(_QWERTY),   _______,       _______,             _______,       _______,       KC_SCLN
+                                      _______,       _______,       TO(_QWERTY),         KC_SCLN,       _______,       _______
     ),
 
     [_RAISE2] = LAYOUT_split_3x5_3(
         QK_BOOT,       _______,       EE_CLR,        TO(_RAISE),    RM_PREV,             TO(_QWERTY),   RM_VALD,       RM_VALU,       RM_SPDU,       QK_BOOT,
         KC_LEFT,       KC_UP,         KC_DOWN,       KC_RGHT,       TO(_QWERTY),         KC_RPRN,       KC_MPRV,       KC_MPLY,       KC_MNXT,       _______,
         _______,       _______,       _______,       _______,       KC_LPRN,             RM_TOGG,       RM_NEXT,       RM_HUEU,       RM_SATU,       RM_SPDD,
-                                      TO(_RAISE),    _______,       _______,             _______,       _______,       TO(_QWERTY)
+                                      _______,       _______,       TO(_RAISE),          TO(_QWERTY),   _______,       _______
     ),
 
     [_MOUSE] = LAYOUT_split_3x5_3(
         _______,       KC_NO,         KC_NO,         KC_NO,         KC_NO,               KC_NO,         MS_WHLU,       MS_WHLD,       KC_PLUS,       KC_MINS,
         MS_WHLL,       MS_WHLR,       MS_BTN2,       MS_BTN1,       MS_BTN3,             TO(_QWERTY),   MS_UP,         MS_LEFT,       MS_DOWN,       MS_RGHT,
         KC_LSFT,       KC_TAB,        MS_WHLU,       MS_WHLD,       KC_LALT,             KC_NO,         KC_NO,         KC_NO,         KC_NO,         KC_NO,
-                                      KC_SPC,        TD(LAYR_DOWN), KC_LCTL,             KC_LCTL,       TO(_QWERTY),   KC_ENT
+                                      KC_LCTL,       TD(LAYR_DOWN), KC_SPC,              KC_ENT,        TO(_QWERTY),   KC_LCTL
     ),
 
     [_LEADR] = LAYOUT_split_3x5_3(
         LCTL(KC_GRV),  LALT(KC_F4),   LCTL(LSFT(KC_E)), LCTL(LSFT(KC_R)), LCTL(LSFT(KC_T)),    LCTL(LSFT(KC_EQL)), KC_NO,    KC_NO,         LCTL(LSFT(KC_O)), LCTL(LSFT(KC_P)),
         LCTL(LSFT(KC_A)), LCTL(LSFT(KC_S)), LALT(LSFT(KC_D)), LCTL(LSFT(KC_F)), TO(_QWERTY),   LCTL(LSFT(KC_MINS)), LALT(KC_UP), LALT(KC_LEFT), LALT(KC_DOWN), LALT(KC_RIGHT),
         LCTL(LSFT(KC_Z)), KC_NO,      LCTL(LSFT(KC_C)), LCTL(LSFT(KC_V)), KC_NO,               LCTL(LSFT(KC_N)), LCTL(KC_ENT), KC_NO,       DOT_SLS,       KC_NO,
-                                      _______,       _______,       _______,             _______,       QK_LEAD,       TO(_LEADR)
+                                      _______,       _______,       _______,             TO(_LEADR),    QK_LEAD,       _______
     ),
 
     [_CAPSIND] = LAYOUT_split_3x5_3(
         _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______,
-                          _______, _______, _______,      _______, _______, _______
+                          _______,       _______,       _______,             _______,       _______,       _______
     ),
 
     [_ALTLKIND] = LAYOUT_split_3x5_3(
         _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______,
-                          _______, _______, _______,      _______, _______, _______
+                          _______,       _______,       _______,             _______,       _______,       _______
     ),
 
     [_LOWLKIND] = LAYOUT_split_3x5_3(
         _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______,
-                          _______, _______, _______,      _______, _______, _______
+                          _______,       _______,       _______,             _______,       _______,       _______
     )
 };
 
@@ -321,7 +324,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
     }
     else if (layer_state_is(_MOUSE))
     {
-        rgb_paint_all(led_min, led_max, 6, 255, 255);    // coral/red-orange (hue 6; distinct from the yellowish idle)
+        rgb_paint_all(led_min, led_max, 43, 255, 255);   // yellow (hue/sat of HSV_YELLOW); the bcorne's coral is on _NUM here
     }
     else if (layer_state_is(_CAPSIND) || host_keyboard_led_state().caps_lock)
     {
@@ -349,7 +352,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
     }
     else if (layer_state_is(_NUM))
     {
-        rgb_paint_all(led_min, led_max, 43, 255, 255);    // yellow (hue/sat of HSV_YELLOW)
+        rgb_paint_all(led_min, led_max, 6, 255, 255);     // coral/red-orange (hue 6), the bcorne's mouse colour
     }
 
     return false;

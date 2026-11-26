@@ -107,7 +107,7 @@ Layer stripe colors match the board's RGB indicator. Generated from <code>keymap
     <tr><td>V</td><td>v</td><td>Tab</td><td>&mdash;</td><td>&mdash;</td></tr>
     <tr><td>Q</td><td>q</td><td>~</td><td>&mdash;</td><td>&mdash;</td></tr>
     <tr><td>Z</td><td>z</td><td>`</td><td>&mdash;</td><td>&mdash;</td></tr>
-    <tr><td>L</td><td>l</td><td>Num layer, locked (yellow) &mdash; G leaves</td><td>&mdash;</td><td>&mdash;</td></tr>
+    <tr><td>L</td><td>l</td><td>Num layer, locked (coral) &mdash; G leaves</td><td>&mdash;</td><td>&mdash;</td></tr>
   </table>
 </div>
 
@@ -244,24 +244,24 @@ const LAYERS = [
    ]
   ],
   "lthumbs": [
-   "Space",
+   "Esc",
    "Bksp",
-   "Esc"
+   "Space"
   ],
   "rthumbs": [
-   "Del",
+   "Enter",
    {
     "m": "Lead",
     "s": "oneshot",
     "cls": "layerkey small"
    },
-   "Enter"
+   "Del"
   ]
  },
  {
   "name": "Num",
-  "color": "#f5c518",
-  "how": "L 2× = locked (yellow). Digits on the top row, nav on the right outer columns. G = back to base, H = on to Fn. Dashed keys keep their base behaviour, dances included.",
+  "color": "#ff3316",
+  "how": "L 2× = locked (coral/red-orange). Digits on the top row, nav on the right outer columns. G = back to base, H = on to Fn. Dashed keys keep their base behaviour, dances included.",
   "left": [
    [
     "1",
@@ -679,14 +679,14 @@ const LAYERS = [
    ]
   ],
   "lthumbs": [
-   "Ctrl",
+   "Space",
    "⇧",
-   "Space"
+   "Ctrl"
   ],
   "rthumbs": [
-   "Del",
+   "Enter",
    "Bksp",
-   "Enter"
+   "Del"
   ]
  },
  {
@@ -753,10 +753,21 @@ const LAYERS = [
   ],
   "lthumbs": [
    {
+    "m": "▽",
+    "cls": "trans"
+   },
+   {
+    "m": "▽",
+    "cls": "trans"
+   },
+   {
     "m": "Base",
     "s": "to layer",
     "cls": "layerkey small"
-   },
+   }
+  ],
+  "rthumbs": [
+   ";",
    {
     "m": "▽",
     "cls": "trans"
@@ -765,17 +776,6 @@ const LAYERS = [
     "m": "▽",
     "cls": "trans"
    }
-  ],
-  "rthumbs": [
-   {
-    "m": "▽",
-    "cls": "trans"
-   },
-   {
-    "m": "▽",
-    "cls": "trans"
-   },
-   ";"
   ]
  },
  {
@@ -908,39 +908,39 @@ const LAYERS = [
   ],
   "lthumbs": [
    {
+    "m": "▽",
+    "cls": "trans"
+   },
+   {
+    "m": "▽",
+    "cls": "trans"
+   },
+   {
     "m": "Raise",
     "s": "to layer",
     "cls": "layerkey small"
-   },
-   {
-    "m": "▽",
-    "cls": "trans"
-   },
-   {
-    "m": "▽",
-    "cls": "trans"
    }
   ],
   "rthumbs": [
    {
-    "m": "▽",
-    "cls": "trans"
-   },
-   {
-    "m": "▽",
-    "cls": "trans"
-   },
-   {
     "m": "Base",
     "s": "to layer",
     "cls": "layerkey small"
+   },
+   {
+    "m": "▽",
+    "cls": "trans"
+   },
+   {
+    "m": "▽",
+    "cls": "trans"
    }
   ]
  },
  {
   "name": "Mouse",
-  "color": "#ff3316",
-  "how": "Hold F (coral/red-orange). Cursor on right half, buttons/wheel on left.",
+  "color": "#f5c518",
+  "how": "Hold F (yellow). Cursor on right half, buttons/wheel on left.",
   "left": [
    [
     {
@@ -1077,22 +1077,22 @@ const LAYERS = [
    ]
   ],
   "lthumbs": [
-   "Space",
+   "Ctrl",
    {
     "m": "F",
     "s": "2:Lower\nhold:Mouse",
     "cls": "td"
    },
-   "Ctrl"
+   "Space"
   ],
   "rthumbs": [
-   "Ctrl",
+   "Enter",
    {
     "m": "Base",
     "s": "to layer",
     "cls": "layerkey small"
    },
-   "Enter"
+   "Ctrl"
   ]
  },
  {
@@ -1275,8 +1275,9 @@ const LAYERS = [
   ],
   "rthumbs": [
    {
-    "m": "▽",
-    "cls": "trans"
+    "m": "Lock",
+    "s": "stay here",
+    "cls": "layerkey small"
    },
    {
     "m": "Lead",
@@ -1284,9 +1285,8 @@ const LAYERS = [
     "cls": "layerkey small"
    },
    {
-    "m": "Lock",
-    "s": "stay here",
-    "cls": "layerkey small"
+    "m": "▽",
+    "cls": "trans"
    }
   ]
  }

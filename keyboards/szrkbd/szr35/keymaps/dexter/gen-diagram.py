@@ -106,8 +106,8 @@ def split_args(body):
 META = [
     ("_QWERTY", "Base (QWERTY)", "#3b5bdb",
      "Default layer. RGB shows the ambient effect (raindrops from royal blue by default)."),
-    ("_NUM", "Num", "#f5c518",
-     "L 2× = locked (yellow). Digits on the top row, nav on the right outer columns. "
+    ("_NUM", "Num", "#ff3316",
+     "L 2× = locked (coral/red-orange). Digits on the top row, nav on the right outer columns. "
      "G = back to base, H = on to Fn. Dashed keys keep their base behaviour, dances included."),
     ("_FN", "Fn", "#a8d8f0",
      "From Num press H; locked (pale blue). H = back to Num, G = back to base. "
@@ -117,7 +117,7 @@ META = [
     ("_RAISE", "Raise", "#3b82f6", "K 2× = oneshot (blue). Symbols."),
     ("_RAISE2", "Raise2", "#14b8a6",
      "K 3× = oneshot, or Raise then H = sticky (teal). RGB controls, media, arrows, bootloader, EEPROM clear."),
-    ("_MOUSE", "Mouse", "#ff3316", "Hold F (coral/red-orange). Cursor on right half, buttons/wheel on left."),
+    ("_MOUSE", "Mouse", "#f5c518", "Hold F (yellow). Cursor on right half, buttons/wheel on left."),
     ("_LEADR", "Shortcuts (LEADR)", "#ef4444",
      "Right middle thumb, oneshot (red). Ctrl+Shift chords; Lead key arms the leader (magenta while recording)."),
 ]
